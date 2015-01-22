@@ -19,13 +19,13 @@ ___
 
 ###with git
 ```Shell
-git clone https://github.com/horvan/installdrubuntu.git;
-chmod +x installdrubuntu/run.sh;
-./installdrubuntu/run.sh
+git clone https://github.com/drubuntu/installation.git;
+chmod +x installation/run.sh;
+./installation/run.sh
 ```
 ###without git
 ```Shell
-wget https://raw.githubusercontent.com/horvan/installdrubuntu/master/run.sh
+wget https://raw.githubusercontent.com/drubuntu/installation/master/run.sh
 chmod +x run.sh;
 ./run.sh
 ```
