@@ -45,9 +45,6 @@ fi
 getfiles(){
 
 #Download files needed by drubuntu to provide functionality.
-git clone "$github""repoinstall"
- 
-
 cp "$instrepofolder"*.sh "$bdir"
 mv "$instrepofolder"/files/quickhelp.txt
 chmod +x "$bdir"/scripts/*	
@@ -262,12 +259,9 @@ SQL="${Q1}${Q2}${Q3}"
 $MYSQL -uroot -pMyRoot -e "$SQL"
 }
 #Downloads drupal core url store
-drupalcorelist(){
-wget -O "$bdir"/drupalcores.sh $dlurl/scripts/install/drupalcores.sh >>/dev/null 2>&1 
-}
+
 #Downloads Drupal 7 Core and removes the subversion string
 d7setup(){
-drupalcorelist
 source $bdir/drupalcores.sh
 chown -Rh "$nameofuser":www-data "$wwwdir" 
 mkdir -p  "$d7dir"
@@ -284,7 +278,7 @@ mkdir -p "$d7filesdir";
 chmod 777 "$d7filesdir";  
 cp -r "$d7defsitedir""$defsettingsfile" "$d7defsitedir""$dsettingsfile";
 chmod 777 "$d7defsitedir""$dsettingsfile";
-wget -O "$d7dir"/setupsite $dlurl/scripts/"$setupd7" >/dev/null 2>&1;
+mv "$bdir"setupsite-d7.sh "$d7dir"/setupsite $dlurl/scripts/"$setupd7" >/dev/null 2>&1;
 chmod +x "$d7dir"/setupsite; 
 "$d7dir"/setupsite
 chown -Rh "$nameofuser":www-data /var/www;
@@ -295,7 +289,6 @@ chmod -R 777 "$d7defsitedir"
 }
 #Downloads current Drupal 8 Core and removes the subversion string
 d8setup(){
-drupalcorelist
 source $bdir/drupalcores.sh
 chown -Rh "$nameofuser":www-data "$wwwdir" 
 mkdir -p  "$d8dir"
@@ -314,9 +307,9 @@ cp -r "$d8defsitedir""$defsettingsfile" "$d8defsitedir""$dsettingsfile";
 cp -r "$d8defsitedir""$ddefsymlfile" "$d8defsitedir""$dsymlfile";
 chmod 777 "$d8defsitedir""$dsettingsfile";
 chmod 777 "$d8defsitedir""$dsymlfile";
-wget -O "$d8dir"/setupsite $dlurl/scripts/"$setupd8" >/dev/null 2>&1;
+mv "$bdir"setupsite-d8.sh "$d8dir"/setupsite $dlurl/scripts/"$setupd8" >/dev/null 2>&1;
 chmod +x "$d8dir"/setupsite; 
-	 "$d8dir"/setupsite;
+$d8dir"/setupsite;
 chown -Rh "$nameofuser":www-data /var/www;
 chmod 644 "$d8dir"/$htafile;
 chmod 644 "$d8defsitedir"/"$d8settingsfile";
