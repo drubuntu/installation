@@ -20,6 +20,7 @@ function show_help() {							#this is the help text
 --aptana-git        Installs git support in Aptana Studio.
 --aptana-xdebug	    Installs PDT in aptana to debug Drupal with Xdebug,
 --atom              Installs atom text editor - A modular Aptana Studio alternative
+--bootstrapwithsass	Installs Bootstrap 3 withsass for Drupal7
 --browsers	        Installs a suite of different web browsers.
 --desktops          Installs the desktop chooser.
 --memcached         Installs Memcached for you.
@@ -93,7 +94,7 @@ echo "To install the Browser Suite on your system enter your password, please"
 sudo bash browsersuite.sh
 ;;
 
---browsers)
+--bootstrapwithsass)
 echo "To install the Bootstrap 3 boilerplate with sass on system enter your password, please"
 sudo bash bootstrapwithsass.sh
 ;;
