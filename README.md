@@ -1,6 +1,6 @@
 # Easy installing for Drubuntu
 <p align="center">
-<img src="http://horvan.github.io/drubuntu/images/logo-text.png" />
+<img src="http://drubuntu.github.io/drubuntu/images/logo-text.png" />
 </p>
 
 ## With an ISO
