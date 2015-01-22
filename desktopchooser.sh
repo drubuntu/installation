@@ -4,19 +4,33 @@ if [ `whoami` != root ]; then
     exit
     4
 fi
-DIRURL=/opt/.drubuntu/
-dsurl=https://raw.githubusercontent.com/horvan/drubuntu/master/features/desktops/
-cinnamon="$dsurl"cinnamon.sh
-deepin="$dsurl"deepin.sh
-e19="$dsurl"enlightenment.sh
-evolve="$dsurl"evolve.sh
-gnome3="$dsurl"gnome3.sh
-kde="$dsurl"kde.sh
-lxde="$dsurl"lxde.sh
-mate="$dsurl"mate.sh
-pantheon="$dsurl"pantheon.sh
-unity="$dsurl"unity.sh
-xfce="$dsurl"xfce.sh
+github=https://github.com/drubutu/
+repoinstall="$github"install.git
+repofeatures="$github"features.git
+repodesktops="$github"desktops.git
+bdir="/opt/.drubuntu"
+cd "$bdir" 										
+git clone "$repodesktops" .
+cd "$bdir/desktops" 
+
+DIRURL=/opt/.drubuntu/desktops
+
+cinnamon=cinnamon.sh
+deepin=deepin.sh
+e19=enlightenment.sh
+evolve=evolve.sh
+gnome3=gnome3.sh
+kde=kde.sh
+lxde=lxde.sh
+mate=mate.sh
+pantheon=pantheon.sh
+unity=unity.sh
+xfce=xfce.sh
+
+xsessionpath=/usr/share/xsessions/
+xession=$xsessionpath$desktopfile 
+lightdmfile=/usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf
+
 clear
 #install pre requirements
 echo "Install prerequirements ..."
@@ -98,60 +112,96 @@ while [ opt != '' ]
         case $opt in
         1) clear;
 
-				wget "$cinnamon" >> /dev/null 2>&1
+				
 				sudo bash "$DIRURL"cinnamon.sh 
+        rm -r 60-lightdm-gtk-greeter.conf 
+cat <<EOF1>>"$lightdmfile"
+user-session=cinnamon
+EOF1
+        
         show_menu;
         ;;
 
         
         2) clear;
-			    wget  "$e19" >>/dev/null 2>&1
+			    
 			    sudo bash "$DIRURL"enlightenment.sh
+        rm -r 60-lightdm-gtk-greeter.conf 
+cat <<EOF2>>"$lightdmfile"
+user-session=enlightenment
+EOF2
+        
            show_menu;
             ;;
 
         
 
         3) clear;
-		    	wget "$gnome3"  >> /dev/null 2>&1
+		    	
 		    	sudo bash "$DIRURL"gnome3.sh
-           show_menu;           
+    rm -r 60-lightdm-gtk-greeter.conf 
+cat <<EOF3>>"$lightdmfile"
+user-session=gnome
+EOF3
+               show_menu;           
 ;;
 
 	4) clear;
-			wget "$kde" >> /dev/null 2>&1
-			sudo bash "$DIRURL"kde.sh 
+			sudo bash "$DIRURL"kde.sh
+	rm -r 60-lightdm-gtk-greeter.conf 
+cat <<EOF4>>"$lightdmfile"
+user-session=kde-plasma
+EOF4
+ 
  show_menu;            
 ;;
 
 	5) clear;
-			wget "$lxde" >> /dev/null 2>&1
 			sudo bash "$DIRURL"lxde.sh 
-  show_menu;
+rm -r 60-lightdm-gtk-greeter.conf 
+cat <<EOF5>>"$lightdmfile"
+user-session=Lubuntu
+EOF5
+ 
+ show_menu;
             ;;
     
     	6) clear;
-	    		wget "$mate" >> /dev/null 2>&1
 	    		sudo bash "$DIRURL"mate.sh
-       show_menu;
+    rm -r 60-lightdm-gtk-greeter.conf 
+cat <<EOF6>>"$lightdmfile"
+user-session=mate
+EOF6
+       
+    show_menu;
             ;;
          
     	7) clear;
-	    		wget "$pantheon"  >> /dev/null 2>&1
-	    		sudo bash "$DIRURL"pantheon.sh
+    	    		sudo bash "$DIRURL"pantheon.sh
+    rm -r 60-lightdm-gtk-greeter.conf 
+cat <<EOF7>>"$lightdmfile"
+user-session=pantheon
+EOF7
+    
        show_menu;
             ;;
     
 	8) clear;
-	    		wget "$unity"  >> /dev/null 2>&1
 	    		sudo bash "$DIRURL"unity.sh
-       show_menu;
+        	rm -r 60-lightdm-gtk-greeter.conf 
+cat <<EOF8>>"$lightdmfile"
+user-session=unity
+EOF8
+    show_menu;
             ;;
     
  	9) clear;
-	    		wget "$xfce"  >> /dev/null 2>&1
 	    		sudo bash "$DIRURL"xfce.sh
-       show_menu;
+        	rm -r 60-lightdm-gtk-greeter.conf 
+cat <<EOF9>>"$lightdmfile"
+user-session=xfce4
+EOF9
+    show_menu;
             ;;
     
   
