@@ -93,6 +93,11 @@ echo "To install the Browser Suite on your system enter your password, please"
 sudo bash browsersuite.sh
 ;;
 
+--browsers)
+echo "To install the Bootstrap 3 boilerplate with sass on system enter your password, please"
+sudo bash bootstrapwithsass.sh
+;;
+
 *)
         echo "Run $0 --help"
     ;;
