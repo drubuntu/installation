@@ -44,3 +44,4 @@ enterd8dbusermssg="Geben Sie den Namen Ihres Drupal 8 Datenbanbenutzers an und d
 
 enterd8dbpassmssg="Geben Sie das Passwort für den Datenbaknutzer von Drupal 8 an und drücken Sie [ENTER]: "
 
+pusch
