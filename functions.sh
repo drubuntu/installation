@@ -55,7 +55,7 @@ rm "$bdir"/filetemplates.sh
 rm "$bdir"/functions.sh
 rm "$bdir"/install.sh
 rm /etc/issue
-	
+chmod +x "$bdir"/*.sh	
 }
 
 # enable fany apt-progressbar see omgubuntu.co.uk/2014/04/how-to-enable-apt-terminal-progress-bar
@@ -86,7 +86,7 @@ fi
 
 updatenodejs(){
 
-echo "updateroutine"
+sudo apt-add-repository -y ppa:chris-lea/node.js >>/dev/null 2>&1
 }
 
 
@@ -103,6 +103,7 @@ apt install -qq -y server^ >> /dev/null 2>&1
 apt install -qq -y openssh-server^ >> /dev/null 2>&1
 apt install -qq -y lamp-server^  >> /dev/null 2>&1
 
+apt -qq -y install  software-properties-common >> /dev/null 2>&1
 if ! dpkg-query -l  curl >> /dev/null 2>&1;then 
 apt -y -qq install curl >> /dev/null 2>&1
 fi
@@ -126,18 +127,6 @@ apt install -qq -y git >> /dev/null 2>&1
 fi
 if ! dpkg-query -l git-core >> /dev/null 2>&1;then
 apt install -qq -y git-core >> /dev/null 2>&1
-fi
-if ! dpkg-query -l nodejs >> /dev/null 2>&1;then
-updatenodejs >> /dev/null 2>&1
-else
-apt -y -qq remove nodejs >> /dev/null 2>&1
-updatenodejs >> /dev/null 2>&1
-fi
-if ! dpkg-query -l nodejs-legacy >> /dev/null 2>&1; then
-apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
-fi
-if ! dpkg-query -l npm >> /dev/null 2>&1 ;then
-apt install -qq -y npm >> /dev/null 2>&1
 fi
 if ! dpkg-query -l ruby1.9.1-full >> /dev/null 2>&1 ;then
 apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
@@ -164,7 +153,19 @@ fi
 if ! dpkg-query -l build-essential >> /dev/null 2>&1 ;  then
 apt -qq -y install  build-essential >> /dev/null 2>&1
 fi
-apt -qq -y install  software-properties-common >> /dev/null 2>&1
+if ! dpkg-query -l nodejs >> /dev/null 2>&1;then
+updatenodejs >> /dev/null 2>&1
+else
+apt -y -qq remove nodejs >> /dev/null 2>&1
+updatenodejs >> /dev/null 2>&1
+fi
+if ! dpkg-query -l nodejs-legacy >> /dev/null 2>&1; then
+apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
+fi
+if ! dpkg-query -l npm >> /dev/null 2>&1 ;then
+apt install -qq -y  npm >> /dev/null 2>&1
+fi
+
 }
 
 aptupdate(){
@@ -424,31 +425,31 @@ ln -s  $PWD/desktopchooser.sh /usr/bin/dru-desktopchooser
 
 
 plymouthlogo(){
-pllogourl=$HOME/installation/files/grub/
+pllurl=$HOME/installation/files/grub/
 themedir=/lib/plymouth/themes/drubuntu/
 grubdir=/etc/default/
 
-file1=drubuntu.grub
-file2=drubuntu.plymouth
-file3=drubuntu.script
-file4=grub.file
-file5=logo_blurred.png
-file6=logo.png
-file7=password_field.png
-file88=password_field16.png
-file9=ubuntu_logo.png
-file10=ubuntu_logo16.png
+file1="$pllurl"drubuntu.grub
+file2="$pllurl"drubuntu.plymouth
+file3="$pllurl"drubuntu.script
+file4="$pllurl"grub.file
+file5="$pllurl"logo_blurred.png
+file6="$pllurl"logo.png
+file7="$pllurl"password_field.png
+file88="$pllurl"password_field16.png
+file9="$pllurl"ubuntu_logo.png
+file10="$pllurl"ubuntu_logo16.png
 mkdir -p  "$themedir"
-cp -r "$pllogourl" "$file1" /etc/default/grub > /dev/null 2>&1	#downloading files
-mv "$pllogourl""$file2"  
-mv "$pllogourl""$file3"  "$themedir"
-mv "$pllogourl""$file4" "$themedir" 
-mv "$pllogourl""$file5 "$themedir" 
-mv "$pllogourl""$file6 "$themedir" 
-mv "$pllogourl""$file7 "$themedir" 
-mv "$pllogourl""$file8 "$themedir" 
-mv "$pllogourl""$file9 "$themedir" 
-mv "$pllogourl""$file10 "$themedir" >> /dev/null 2>&1
+cp -r  "$file1" /etc/default/grub 
+cp -r  "$file2"  "$themedir"
+cp -r  "$file3"  "$themedir"
+cp -r  "$file4"  "$themedir" 
+cp -r  "$file5"  "$themedir" 
+cp -r  "$file6"  "$themedir" 
+cp -r  "$file7"  "$themedir" 
+cp -r  "$file8"  "$themedir" 
+cp -r  "$file9"  "$themedir" 
+cp -r  "$file10" "$themedir" 
 
 
 update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100  
