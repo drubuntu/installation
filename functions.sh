@@ -80,7 +80,7 @@ vtoolscheck(){
 if ! [ -f /usr/bin/vmware-user ];then
 vtoolsinstaller
 else
-echo -e "${lightred} ${heightfin}  ${vmtoolsaimssg}   ${NC}"
+echo -e " ${lightred} ${heightfin}  ${vmtoolsaimssg}   ${NC}"
 echo ""
 fi
 }	
