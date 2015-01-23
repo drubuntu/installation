@@ -29,6 +29,7 @@ function show_help() {							#this is the help text
 
 
 if [ `whoami` != root ]; then
+       show_help
        echo -e " ${lightred}  ${runasrootmssg} ${NC}"
     exit
     4
