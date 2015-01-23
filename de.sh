@@ -26,10 +26,12 @@ d7installmssg="Drupal 7 wird installiert ..."
 d8installmssg="Drupal 8 wird installiert ..."
 drushinstallmssg="Drush wird installiert ..."
 createusermssg="Benutzer wird erstellt"
+
 #user account
 userdatamssg="Wir benötigen nun einige Angaben von Ihnen"
 enterusernamemmssg="Geben Sie Ihrenb gewünschten Nutzername an und dücken Sie [ENTER]: "
 disablerootmssg="Root-Konto wird deaktiviert"
+runasrootmssg="Zur Ausführung dieses Scripts werden Super-User-Rechtee benötigt. Bitte verwenden Sie sudo!"
 roothintmssg="Sie sind als Root angemeldet. Beantworten Sie die Fragen und melden Sie sich später mit dem gewählten Nutzernamen an!"
 
 #standard messages
@@ -37,9 +39,40 @@ aktcmssg="Drücken se eine beliebige Taste um fortzufahren!"
 bppmssg="Einen Augebnblick bitte ..."
 thanksmssg="Vielen Dank!"
 
-#website hinta
+#website hints
 
 infomssg="More Info on https://github.com/horvan/drubuntu/wiki"
+
+#features
+apcmssg="Installiert einen alternativen Zwiechenspeicher für PHP."
+aptanaidemssg="Installiert Aptana Studio 3."
+aptanagitmssg="Installiert Git-Erweiterungen für Aptana Studio 3."
+aptanaxdebugmssg="Iinstalliert Xdebug in aptanastudio 3."
+atommssg="Installiert GitHubs ATOM-Texteditor."
+bootstrapwsassmssg="Installiert Bootstrap3 mit Sass für Derupal 7."
+browsersmssg="Installiert viele Verschidene Webbrowser auf einmal."
+desktopsmssg="Lässt Sie einen Desktop Ihrer Wahl installieren."
+memcachedmssg="Installiert memcahced für Drupal 7."
+plymouthmssg="Stellt das Bootlogo wieder her."
+proftpdmssg="Installiert den ProFtp Dienst zum Datenaustausch!"
+varnishmssg="Installiert Varnish."
+webexplangsmssg="Installiert Preprozessoren wie SASS und HAML."
+xdebugmssg="Insalliert xdebug für PHP."
+shortapcmssg="APC"
+shortaptanaidemssh="Aptana Studio 3"
+shortaptanaxdebugmssg="XDebug für Aptana Studio 3"
+shortatommssg="den Atom Texteditor von GitHub"
+shortbootstrapwsassmssg="Bootstrap 3 mit Sass für Dupal 7"
+shortbrowsersmssg="verschiedene Webbrowser"
+shortdesktopsmssg="die Desktopauswahl"
+shortmemcachedmssg="MemCache"
+shortplymouthmssg="Das Bootlogo"
+shortproftpdmssg="ProFtpd"
+shoortvarnishmssg="Varnish"
+shortwebexplangsmssg="devierse Preprozessoren"
+shortxdebugmssg="XDebug"
+needpassmssg="Wir benötigen Ihr Passwort, um"
+toyoursystemmssg="auf Ihrem System zu installieren"
 
 #messages not used, yet
 wvtumssg="Welche Version von Drupal möchten Sie verwenden?"
