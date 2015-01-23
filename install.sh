@@ -27,17 +27,17 @@ echo -e " ${lightblue} ${wcmssg1} ${nc}"
 echo ""
 # > /dev/null to hide the output
 #basic setup
-echo -e " ${green} Update Ubuntu's Repositories ${NC}"
+echo -e " ${green} ${aptupdatemssg} ${NC}"
 aptupdate
-echo -e " ${lightgreen} - Creating base directories ${NC}"
+echo -e " ${lightgreen} ${createdirmsg} ${NC}"
 echo ""
 mkdirs
 #virtual platformtools
-echo -e " ${purple} - We're installing VM-Tools depending on you're VM's vendor. ${NC}"
+echo -e " ${purple} ${vmtoolsmssg} ${NC}"
 echo ""
 vtoolscheck
 #package installation
-echo -e " ${lightgreen} - Installing packages. This will take a while ... ${NC}"
+echo -e " ${lightgreen} ${dlbcmssg} ${NC}"
 echo ""
 apt-progress
 getcorepkgs
@@ -46,20 +46,22 @@ getdrush
 uploadprogress
 getgems
 #fetch required files
-echo -e " ${lightgreen} - Creating nessesary files. ${NC}"
+echo -e " ${lightgreen} ${createfilesmsg} ${NC}"
 echo ""
 crissue
 crprofiledfile
 getfiles
 #create symbolic links
-echo -e " ${lightgreen} - Creating symbolic links in your users Home. ${NC}"
+echo -e " ${lightgreen} ${createsymlinksmsg} ${NC}"
 echo ""
 crsymlinks
 crbinsymlinks
 #setting up server
-echo -e " ${lightblue} - Setting up Drupal and the LAMP. ${NC}"
+echo -e " ${lightblue} ${ap2setupmssg} ${NC}"
 echo ""
 crd7cffile
+echo -e " ${lightblue} ${createmysqldbmssg} ${NC}"
+
 createdb_d7
 d7setup
 crd8cffile
@@ -68,19 +70,19 @@ d8setup
 apache2setup
 echo ""
 # last steps
-echo -e " ${yellow} - Installing Drubuntu plymouth logo ${NC}"
+echo -e " ${yellow} - ${ plymoutlogomssg} ${NC}"
 echo ""
 plymouthlogo
 # grant previleges
-echo -e " ${lightgreen} - Grant privileges.${NC}"
+echo -e " ${lightgreen} ${grantprvsmssg} ${NC}"
 echo ""
 grantprivs
 echo ""
 echo ""
-echo -e "${lightred} - More Info on https://github.com/horvan/drubuntu/wiki ${NC}"
+echo -e "${lightred} ${infomssg}   ${NC}"
 echo ""
 echo ""
-echo -e " ${lightgray} - Cleaning up ${NC}"
+echo -e " ${lightgray} ${clngnmssg} ${NC}"
 clean
 
 
