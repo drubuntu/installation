@@ -26,6 +26,9 @@ d7installmssg="Drupal 7 wird installiert ..."
 d8installmssg="Drupal 8 wird installiert ..."
 drushinstallmssg="Drush wird installiert ..."
 createusermssg="Benutzer wird erstellt"
+dseveninstallnc="Drupal 7 scheint nicht korrekt installiert zu sein."
+dwightinstallnc="Drupal 8 scheint nicht korrekt installiert zu sein."
+addftpd7mssg="Möchten Sie den FTP-Nutzer 'Drupal7' anlegen?"
 
 #user account
 userdatamssg="Wir benötigen nun einige Angaben von Ihnen"
@@ -37,7 +40,9 @@ roothintmssg="Sie sind als Root angemeldet. Beantworten Sie die Fragen und melde
 #standard messages
 aktcmssg="Drücken se eine beliebige Taste um fortzufahren!"
 bppmssg="Einen Augebnblick bitte ..."
+notifymssg="Sie werden informiert, sobald der Vorgang abgeschlossen ist!"
 thanksmssg="Vielen Dank!"
+yonmssg="Bitte antworten Sie mit [j]a oder [n]ein! "
 
 #website hints
 
@@ -74,6 +79,28 @@ shortxdebugmssg="XDebug"
 needpassmssg="Wir benötigen Ihr Passwort, um"
 toyoursystemmssg="auf Ihrem System zu installieren"
 
+apcisinstalledmssg= "APC ist nun installiert!"
+memcachedisinstalledmssg="MemCache ist nun installiert!"
+takeyourtiemeaptanagitmssg"Die Installation zusätzliche Git-Unterstützung für Aptana Studio 3 benötigt ca. eine halbe Std. "
+javainstmssg="Wir installieren Nun Java con Oracle. Sie akzeptiren hiermit die entsprendenden Lizenzbedingungen."
+aptanaxdbugmssg="APtana Studio installiert nun PDT und XDebug. Die Installation dauert eine Weile."
+aptananextloginmssg="Aptana Studio steht Ihnen ab dem nächsten Login zur verfügung!"
+isinstallingnowmssg="wird nun installiert."
+installgemmmsg="Sass Compass Haml und Less werden nun auf Ihrem System installliert!"
+installbdochanamssg="Zsätzlich installieren wir bdoc und hana  damit Sie jederzeit nachschlagen können."
+installrubymssg "Ruby wird nun installiert ..."
+installhamlmssg="HAML wird nun installiert ..."
+installsassmssg="SASS wird nun installiert ..."
+installcompassmssg="COMPASS wird nun installiert ..."
+updaterubygemsmssg="Die Ruby Gems werden nun aktuallisiert .."
+bdochanainstallmssg="bdoc und hana werden nun installier .."
+#desktopchooser
+prerequmssg="Installiere benötigte Pakete ..."
+lightdm"Lightdm ist sehr groß, bitte haben Sie einen moment Gedult!"
+desktopchoosermssg="Desktopauswahl für Drubuntu"
+choosedesktopmssg"Wählen Sei Ihre gewünschte Arbeitsumgebung!"
+xtoexitmssg="drückebn Sie x um zur Konsole zurückzukehren."
+choosemssg="Treffen Sie ihre Wahl von 1 - x"
 #messages not used, yet
 wvtumssg="Welche Version von Drupal möchten Sie verwenden?"
 drupal7inputdatamssg="Nun benötigen wir einige Angaben für Drupal 7:"
