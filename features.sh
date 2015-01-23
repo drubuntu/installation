@@ -17,19 +17,23 @@ github=https://github.com/drubutu/
 repoinstall="$github"install.git
 repofeatures="$github"features.git
 repodesktops="$github"desktops.git
-bdir="/opt/.drubuntu"
-cd "$bdir" 										
-git clone "$repofeatures" .
-cd "$bdir/features" 
+fdir="/opt/.drubuntu/features"
+fi
+if  [  -d "$fdir" ]
+cd "$fdir"
+else
+git clone "$repofeatures" "$bdir/features"
+cd "$fdir" 
+fi
 function show_help() {							#this is the help text
      
        echo -e " ${white} ${doublehighfin} ${apcswith}   ${apcmssg} ${NC}"
        echo -e " ${white} ${doublehighfin} ${aptanaideswith} ${aptanaidemssg} ${NC}"
        echo -e " ${white} ${doublehighfin} ${aptanagitswith} ${aptanagitmssg} ${NC}"
-	echo -e " ${white} ${doublehighfin} ${aptanaxdebugswitch} ${aptanaxdebugmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${aptanaxdebugswitch} ${aptanaxdebugmssg} ${NC}"
        echo -e " ${white} ${doublehighfin} ${atomswitch} ${atommssg} ${NC}"
        echo -e " ${white} ${doublehighfin} ${bootstrapwithsassswitch} ${bootstrapwsassmssg} ${NC}"
-	echo -e " ${white} ${doublehighfin} ${browsersswitch} ${browsersmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${browsersswitch} ${browsersmssg} ${NC}"
        echo -e " ${white} ${doublehighfin} ${desktopswitch} ${desktopsmssg} ${NC}"
        echo -e " ${white} ${doublehighfin} ${memcachedswitch} ${memcachedmssg} ${NC}"
        echo -e " ${white} ${doublehighfin} ${plymouthswitch} ${plymouthmssg} ${NC}"
