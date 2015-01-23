@@ -54,6 +54,8 @@ rm "$bdir"/en.sh
 rm "$bdir"/filetemplates.sh
 rm "$bdir"/functions.sh
 rm "$bdir"/install.sh
+rm /etc/issue
+	
 }
 
 # enable fany apt-progressbar see omgubuntu.co.uk/2014/04/how-to-enable-apt-terminal-progress-bar
@@ -167,7 +169,7 @@ apt -qq -y install  software-properties-common
 
 aptupdate(){
 apt update 
-apt -y -qq upgrade 	
+apt -y  upgrade 	
 }
 
 
