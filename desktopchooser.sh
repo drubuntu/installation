@@ -14,7 +14,7 @@ if [ `whoami` != root ]; then
     4
 fi
 DIRURL=/opt/.drubuntu/desktops/
-repodesktops="https://github.com/drubutu/desktops/desktops.git"
+repodesktops="https://github.com/drubutu/desktops.git"
 
 if  [  -d "$DIRURL" ];then
 cd "$DIRURL"
