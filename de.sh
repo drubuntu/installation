@@ -10,11 +10,12 @@ bppmssg="Einen Augebnblick bitte ..."
 thanksmssg="Vielen Dank!"
 
 #messages acording to the file system
-dlbcmssg="DrubuntuLädt alle Basiskomponenten herunter"
+aptupdatemssg="Ubuntus Paketquellen werden aktualisiert .."
+dlbcmssg="Drubuntu lädt  Basiskomponenten herunter"
 createdirmsg="Verzeichnisse werden erstellt ..."
-createfilesmsg="Dateien wirden angelegt ..."
+createfilesmsg="Dateien werden angelegt ..."
 
-#AMP
+#LAMP
 ap2setupmssg="Appache2 wird für Drupal vorbereitet..."
 createmysqldbmssg="MySql Datenbank wird erstellt ---"
 
