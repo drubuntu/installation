@@ -23,9 +23,9 @@ source $PWD/de.sh
 #first echo creates space after sudo input
 clear
 echo ""
-echo -e " ${lightblue} ${heightfin} ${wcmssg1} ${nc}"
-echo -e " ${lightblue} ${heightfin} ${wcmssg2} ${nc}"
-echo -e " ${lightblue} ${heightfin} ${wcmssg3} ${nc}"
+echo -e " ${orange}  ${wcmssg1} ${nc}"
+echo -e " ${orange}  ${wcmssg2} ${nc}"
+echo -e " ${orange}  ${wcmssg3} ${nc}"
 echo ""
 # > /dev/null to hide the output
 #basic setup
