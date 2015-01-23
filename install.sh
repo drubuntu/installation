@@ -25,7 +25,9 @@ echo ""
 echo -e " ${lightblue} - Start Installing... ${nc}"
 echo ""
 # > /dev/null to hide the output
-#basjic setup
+#basic setup
+echo -e " ${green} Update Ubuntu's Repositories ${NC}"
+aptupdate
 echo -e " ${lightgreen} - Creating base directories ${NC}"
 echo ""
 mkdirs
@@ -77,8 +79,6 @@ echo ""
 echo -e "${lightred} - More Info on https://github.com/horvan/drubuntu/wiki ${NC}"
 echo ""
 echo ""
-echo -e " ${green} Update Ubuntu's Repositories ${NC}"
-aptupdate
 echo -e " ${lightgray} - Cleaning up ${NC}"
 clean
 
