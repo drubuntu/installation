@@ -24,6 +24,8 @@ source $PWD/de.sh
 clear
 echo ""
 echo -e " ${lightblue} ${heightfin} ${wcmssg1} ${nc}"
+echo -e " ${lightblue} ${heightfin} ${wcmssg2} ${nc}"
+echo -e " ${lightblue} ${heightfin} ${wcmssg3} ${nc}"
 echo ""
 # > /dev/null to hide the output
 #basic setup
@@ -52,7 +54,7 @@ crissue
 crprofiledfile
 getfiles
 #create symbolic links
-echo -e " ${lightgreen} ${heightfin} ${createsymlinksmsg} ${NC}"
+echo -e " ${lightgreen} ${heightfin} ${createsymlinksmssg} ${NC}"
 echo ""
 crsymlinks
 crbinsymlinks
