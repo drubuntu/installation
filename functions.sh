@@ -167,9 +167,7 @@ apt update && apt upgrade >/dev/null 2>&1
 
 updatenodejs(){
 
-curl -sL https://deb.nodesource.com/setup | bash - >>/dev/null 1>&2;
-apt install -y -qq nodejs >>/dev/null 1>&2; 
-
+echo" updateroutine"
 }
 
 
