@@ -14,27 +14,38 @@ if [ `whoami` != root ]; then
     4
 fi
 DIRURL=/opt/.drubuntu/desktops/
-
+DLURL=https://raw.githubusercontent.com/drubuntu/desktops/master/
 
 if  [  -d "$DIRURL" ];then
-cd "$DIRURL"
+mkdir -p "$DIRURL" "$cinnamon"
+wget -O "$DIRURL" "$depin"
+wget -O "$DIRURL" "$e19"
+wget -O "$DIRURL" "$evolve"
+wget -O "$DIRURL" "$gnome3"
+wget -O "$DIRURL" "$kde"
+wget -O "$DIRURL" "$lxde"
+wget -O "$DIRURL" "$mate"
+wget -O "$DIRURL" "$pantheon"
+wget -O "$DIRURL" "$unity"
+wget -O "$DIRURL" "$xfce"
+
 else
 git clone "https://github.com/drubutu/desktops.git" "$DIRURL" >> /dev/null 2>&1
 cd "$DIRURL" 
 fi
 
 
-cinnamon=cinnamon.sh
-deepin=deepin.sh
-e19=enlightenment.sh
-evolve=evolve.sh
-gnome3=gnome3.sh
-kde=kde.sh
-lxde=lxde.sh
-mate=mate.sh
-pantheon=pantheon.sh
-unity=unity.sh
-xfce=xfce.sh
+cinnamon=$"DLURL"cinnamon.sh
+deepin="DLURL"deepin.sh
+e19="DLURL"enlightenment.sh
+evolve="DLURL"evolve.sh
+gnome3="DLURL"gnome3.sh
+"DLURL"kde="DLURL"kde.sh
+lxde="DLURL"lxde.sh
+mate="DLURL"mate.sh
+pantheon="DLURL"pantheon.sh
+unity="DLURL"unity.sh
+xfce="DLURL"xfce.sh
 
 xsessionpath=/usr/share/xsessions/
 xession=$xsessionpath$desktopfile 
