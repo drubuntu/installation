@@ -15,36 +15,48 @@ if [ `whoami` != root ]; then
 fi
 DIRURL=/opt/.drubuntu/desktops/
 DLURL=https://raw.githubusercontent.com/drubuntu/desktops/master/
-
-if  [  -d "$DIRURL" ];then
-mkdir -p "$DIRURL" "$cinnamon"
-wget -O "$DIRURL" "$depin"
-wget -O "$DIRURL" "$e19"
-wget -O "$DIRURL" "$evolve"
-wget -O "$DIRURL" "$gnome3"
-wget -O "$DIRURL" "$kde"
-wget -O "$DIRURL" "$lxde"
-wget -O "$DIRURL" "$mate"
-wget -O "$DIRURL" "$pantheon"
-wget -O "$DIRURL" "$unity"
-wget -O "$DIRURL" "$xfce"
+AGENT="User-Agent: Mozilla/5.0 (Linux; U; Windows NT 5.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12"
+cinnamon=$"$DLURL"cinnamon.sh
+deepin="$DLURL"deepin.sh
+e19="$DLURL"enlightenment.sh
+evolve="$DLURL"evolve.sh
+gnome3="$DLURL"gnome3.sh
+kde="$DLURL"kde.sh
+lxde="$DLURL"lxde.sh
+mate="$DLURL"mate.sh
+pantheon="$DLURL"pantheon.sh
+unity="$DLURL"unity.sh
+xfce="$DLURL"xfce.sh
+if ! [  -d "$DIRURL" ];then
+mkdir -p "$DIRURL" 
+curl -Ls -A "$AGENT" -O "$cinnamon"
+curl -Ls -A "$AGENT" -O "$deepin"
+curl -Ls -A "$AGENT" -O "$e19"
+curl -Ls -A "$AGENT" -O "$evolve"
+curl -Ls -A "$AGENT" -O "$gnome3"
+curl -Ls -A "$AGENT" -O "$kde"
+curl -Ls -A "$AGENT" -O "$lxde"
+curl -Ls -A "$AGENT" -O "$mate"
+curl -Ls -A "$AGENT" -O "$pantheon"
+curl -Ls -A "$AGENT" -O "$unity"
+curl -Ls -A "$AGENT" -O "$xface"
 
 else
 cd "$DIRURL" 
+rm *.sh
+curl -L -A "$AGENT" -O "$cinnamon"
+curl -L -A "$AGENT" -O "$deepin"
+curl -L -A "$AGENT" -O "$e19"
+curl -L -A "$AGENT" -O "$evolve"
+curl -L -A "$AGENT" -O "$gnome3"
+curl -L -A "$AGENT" -O "$kde"
+curl -L -A "$AGENT" -O "$lxde"
+curl -L -A "$AGENT" -O "$mate"
+curl -L -A "$AGENT" -O "$pantheon"
+curl -L -A "$AGENT" -O "$unity"
+curl -L -A "$AGENT" -O "$xface"
 fi
 
-
-cinnamon=$"DLURL"cinnamon.sh
-deepin="DLURL"deepin.sh
-e19="DLURL"enlightenment.sh
-evolve="DLURL"evolve.sh
-gnome3="DLURL"gnome3.sh
-"DLURL"kde="DLURL"kde.sh
-lxde="DLURL"lxde.sh
-mate="DLURL"mate.sh
-pantheon="DLURL"pantheon.sh
-unity="DLURL"unity.sh
-xfce="DLURL"xfce.sh
 
 xsessionpath=/usr/share/xsessions/
 xession=$xsessionpath$desktopfile 
