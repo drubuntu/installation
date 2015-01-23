@@ -46,15 +46,14 @@ getfiles(){
 
 #Download files needed by drubuntu to provide functionality.
 cp "$instrepofolder"/*.sh "$bdir"
-mv "$instrepofolder"/files/quickhelp.txt
-chmod +x "$bdir"/scripts/*	
+mv "$instrepofolder"/files/quickhelp.txt "$bdir"
 chmod +r "$bdir"/quickhelp.txt
 #removing files not neccecary
-rm "$instrepofolder"de.sh
-rm "$instrepofolder"en.sh
-rm "$instrepofolder"filetemplates.sh
-rm "$instrepofolder"functions.sh
-rm "$instrepofolder" install.sh
+rm "$bdir"/de.sh
+rm "$bdir"/en.sh
+rm "$bdir"/filetemplates.sh
+rm "$bdir"/functions.sh
+rm "$bdir"/install.sh
 }
 
 # enable fany apt-progressbar see omgubuntu.co.uk/2014/04/how-to-enable-apt-terminal-progress-bar
@@ -102,46 +101,46 @@ apt install -qq -y server^
 apt install -qq -y openssh-server^ 
 apt install -qq -y lamp-server^  
 
-if ! dpkg-query -l  curl   ;then
+if ! dpkg-query -l  curl;then
 apt -y -qq install curl
 fi
-if ! dpkg-query -l php-pear ;then
+if ! dpkg-query -l php-pear;then
 apt install -qq -y php-pear
 fi
-if ! dpkg-query -l php5-dev ;then
+if ! dpkg-query -l php5-dev;then
 apt install -qq -y php5-dev
 fi
-if ! dpkg-query -l php5-curl ;then
+if ! dpkg-query -l php5-curl;then
 apt install -qq -y php5-curl
 fi
-if ! dpkg-query -l php5-json ;then
+if ! dpkg-query -l php5-json;then
 apt install -qq -y php5-json
 fi
-if ! dpkg-query -l php5-gd ;then  
+if ! dpkg-query -l php5-gd;then  
 apt install -qq -y php5-gd
 fi
-if ! dpkg-query -l git ;then 
+if ! dpkg-query -l git;then 
 apt install -qq -y git 
 fi
-if ! dpkg-query -l git-core ;then
+if ! dpkg-query -l git-core;then
 apt install -qq -y git-core
 fi
-if ! dpkg-query -l nodejs  ; then
+if ! dpkg-query -l nodejs ; then
 updatenodejs 
 else
-apt -y -qq remove nodejs ;
+apt -y -qq remove nodejs
 updatenodejs 
 fi
 if ! dpkg-query -l nodejs-legacy; then
 apt install -qq -y nodejs-legacy 
 fi
-if ! dpkg-query -l npm  > /dev/null; then
+if ! dpkg-query -l npm ;then
 apt install -qq -y npm 
 fi
-if ! dpkg-query -l ruby1.9.1-full ; then
+if ! dpkg-query -l ruby1.9.1-full ;then
 apt install -qq -y ruby1.9.1-full
 fi
-if ! dpkg-query -l libapache2-mod-php5   then
+if ! dpkg-query -l libapache2-mod-php5 ;then
 apt install -qq -y -qq libapache2-mod-php5 
 fi
 if ! dpkg-query -l php5-mcrypt   ; then
@@ -160,7 +159,7 @@ if ! dpkg-query -l make ; then
 apt install -qq -y make
 fi
 
-if ! dpkg-query -l build-essential  then
+if ! dpkg-query -l build-essential ;  then
 apt install -qq -y build-essential
 fi
 apt install -qq -y software-properties-common
@@ -367,7 +366,7 @@ infile="/etc/php5/cli/php.ini"
 shift
 while [ $# -gt 0 ]; do
     shift
-    sed "s/$pattern/#$pattern/" < $infile
+    sed "s/$pattern/#$pattern/" < "$infile""
 done
 	}
 
