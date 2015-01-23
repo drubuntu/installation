@@ -429,7 +429,7 @@ plymouthlogo(){
 pllurl=$HOME/installation/files/grub/
 themedir=/lib/plymouth/themes/drubuntu/
 grubdir=/etc/default/
-
+grubfile=etc/default/grub
 file1="$pllurl"drubuntu.grub
 file2="$pllurl"drubuntu.plymouth
 file3="$pllurl"drubuntu.script
@@ -440,11 +440,12 @@ file7="$pllurl"password_field.png
 file88="$pllurl"password_field16.png
 file9="$pllurl"ubuntu_logo.png
 file10="$pllurl"ubuntu_logo16.png
+
 mkdir -p  "$themedir"
-cp -r  "$file1" /etc/default/grub 
+cp -r  "$file1" "$themedir"
 cp -r  "$file2"  "$themedir"
 cp -r  "$file3"  "$themedir"
-cp -r  "$file4"  "$themedir" 
+cp -r  "$file4"  "$grubfile"  
 cp -r  "$file5"  "$themedir" 
 cp -r  "$file6"  "$themedir" 
 cp -r  "$file7"  "$themedir" 
