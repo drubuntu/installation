@@ -1,6 +1,6 @@
 
 #!/bin/bash
-source PWD/colors.sh
+source $PWD/colors.sh
 source $PWD/functions.sh
 source $PWD/filetemplates.sh
 if ["$LANGUAGE" == de_DE:];then
