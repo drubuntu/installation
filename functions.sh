@@ -294,7 +294,7 @@ source $bdir/drupalcores.sh
 chown -Rh "$nameofuser":www-data "$wwwdir" 
 mkdir -p  "$d8dir"
 wget -O "$bdir/"drupal8.tar.gz $d8core >> /dev/null 2>&1
-cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" 
+cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" >> /dev/null 2>&1 
 rm "$bdir"/*.tar.gz
 cd "$d8dir"
 cd drup*;
@@ -452,9 +452,9 @@ mv "$pllogourl""$file10 "$themedir" >> /dev/null 2>&1
 
 
 update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100  
-update-grub >> /dev/null                                  	#update grub.
-update-initramfs -c -k all 						#generate new kernel  .
-update-initramfs -u -k all 
+update-grub >> /dev/null 2>&1                                  	#update grub.
+update-initramfs -c -k all >> /dev/null 2>&1 						#generate new kernel  .
+update-initramfs -u -k all >> /dev/null 2>&1
 }
 
 clean(){
