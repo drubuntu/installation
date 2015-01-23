@@ -69,9 +69,9 @@ vtoolsinstaller(){
     #either virtualbox-guest-x11 or open-vm-tools
     platformtest=`dmidecode -s system-product-name`
     if [ "$platformtest" == "VirtualBox" ] ;then 
-    apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms >  /dev/null 2>&1
+    apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms 
     else
-    apt install -y -qq open-vm-tools xserver-xorg-video-vmware >  /dev/null 2>&1
+    apt install -y -qq open-vm-tools xserver-xorg-video-vmware 
     fi
     }
 
@@ -90,79 +90,79 @@ getcorepkgs(){
 debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password MyRoot'
 debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password MyRoot'
 #reinstall mysql server to preset password
-apt  -y -qq remove mysql-server-5.5  >  /dev/null 2>&1
-apt  -y -qq install mysql-server-5.5 >  /dev/null 2>&1
+apt  -y -qq remove mysql-server-5.5    
+apt  -y -qq install mysql-server-5.5   
 #install packages if they are not installed already to make sure it even works without the iso from sourceforge
-apt install -qq -y server^ >  /dev/null 2>&1
-apt install -qq -y openssh-server^ >  /dev/null 2>&1
-apt install -qq -y lamp-server^ >  /dev/null 2>&1 
+apt install -qq -y server^ 
+apt install -qq -y openssh-server^ 
+apt install -qq -y lamp-server^  
 
-if ! dpkg-query -l  curl   > /dev/null; then
+if ! dpkg-query -l  curl   
 apt -y -qq install curl
 fi
-if ! dpkg-query -l php-pear > /dev/null; then
+if ! dpkg-query -l php-pear 
 apt install -qq -y php-pear
 fi
-if ! dpkg-query -l php5-dev  > /dev/null; then
+if ! dpkg-query -l php5-dev 
 apt install -qq -y php5-dev
 fi
-if ! dpkg-query -l php5-curl > /dev/null; then
+if ! dpkg-query -l php5-curl ;then
 apt install -qq -y php5-curl
 fi
-if ! dpkg-query -l php5-json > /dev/null; then
+if ! dpkg-query -l php5-json ;then
 apt install -qq -y php5-json
 fi
-if ! dpkg-query -l php5-gd  > /dev/null; then
+if ! dpkg-query -l php5-gd ;then  
 apt install -qq -y php5-gd
 fi
-if ! dpkg-query -l git  > /dev/null; then
+if ! dpkg-query -l git ;then 
 apt install -qq -y git 
 fi
-if ! dpkg-query -l git-core > /dev/null; then
+if ! dpkg-query -l git-core ;then
 apt install -qq -y git-core
 fi
-if ! dpkg-query -l nodejs  >/dev/null; then
-updatenodejs >>/dev/null 1>&2;
+if ! dpkg-query -l nodejs  ; then
+updatenodejs 
 else
-apt -y -qq remove nodejs >>/dev/null 1>&2;
-updatenodejs >>/dev/null 1>&2;
+apt -y -qq remove nodejs ;
+updatenodejs 
 fi
-if ! dpkg-query -l nodejs-legacy   > /dev/null; then
-apt install -qq -y nodejs-legacy >/dev/null 1>&2
+if ! dpkg-query -l nodejs-legacy; then
+apt install -qq -y nodejs-legacy 
 fi
 if ! dpkg-query -l npm  > /dev/null; then
 apt install -qq -y npm 
 fi
-if ! dpkg-query -l ruby1.9.1-full   > /dev/null; then
+if ! dpkg-query -l ruby1.9.1-full ; then
 apt install -qq -y ruby1.9.1-full
 fi
-if ! dpkg-query -l libapache2-mod-php5   > /dev/null; then
+if ! dpkg-query -l libapache2-mod-php5   then
 apt install -qq -y -qq libapache2-mod-php5 
 fi
-if ! dpkg-query -l php5-mcrypt   > /dev/null; then
+if ! dpkg-query -l php5-mcrypt   ; then
 apt install -qq -y -qq php5-mcrypt 
 fi
 
-if ! dpkg-query -l  php5-gd   > /dev/null; then
+if ! dpkg-query -l  php5-gd   ; then
 apt install -qq -y -qq  php5-gd 
 fi
 
-if ! dpkg-query -l  php5-dev   > /dev/null; then
+if ! dpkg-query -l  php5-dev   ; then
 apt install -qq -y -qq  php5-dev 
 fi
 
-if ! dpkg-query -l make > /dev/null; then
+if ! dpkg-query -l make ; then
 apt install -qq -y make
 fi
 
-if ! dpkg-query -l build-essential > /dev/null; then
+if ! dpkg-query -l build-essential  then
 apt install -qq -y build-essential
 fi
 
 }
 
 aptupdate(){
-apt update && apt upgrade >/dev/null 2>&1	
+apt update && apt upgrade 	
 }
 
 updatenodejs(){
@@ -183,13 +183,13 @@ grantprivs(){
 #drush installation
 getcomposer(){
 # Composer Global installation
-curl -sS https://getcomposer.org/installer | php >  /dev/null 2>&1
-mv composer.phar /usr/local/bin/composer >  /dev/null 2>&1
-sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc >  /dev/null 2>&1
+curl -sS https://getcomposer.org/installer | php 
+mv composer.phar /usr/local/bin/composer 
+sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc 
 source "$HOME"/.bashrc 
 }
 getdrush(){
-composer global require drush/drush:dev-master >  /dev/null 2>&1
+composer global require drush/drush:dev-master 
 #create symlink to make drush work when entering drush in terminal
 if [ -f /usr/bin/drush ]; then
 rm /usr/bin/drush;
@@ -204,10 +204,10 @@ fi
 }
 #installs preproceccor languages and grunt
 getgems(){
-updatenodejs >>/dev/null 2>&1
-gem install sass >  /dev/null 2>&1
-gem install compass >  /dev/null 2>&1
-npm install -g grunt-cli >  /dev/null 2>&1
+updatenodejs 
+gem install sass 
+gem install compass 
+npm install -g grunt-cli 
 getdrush
 }
 #make sure that uploadprocess gets loaded by php
@@ -263,8 +263,8 @@ d7setup(){
 source $bdir/drupalcores.sh
 chown -Rh "$nameofuser":www-data "$wwwdir" 
 mkdir -p  "$d7dir"
-wget -O "$bdir"/drupal7.tar.gz $d7core >>/dev/null 2>&1
-cd "$bdir"&&tar xvfz "$bdir"/drupal7.tar.gz -C "$d7dir" >  /dev/null 2>&1
+wget -O "$bdir"/drupal7.tar.gz $d7core 
+cd "$bdir"&&tar xvfz "$bdir"/drupal7.tar.gz -C "$d7dir" 
 rm "$bdir"/*.tar.gz
 cd "$d7dir"
 cd drup*;
@@ -276,7 +276,7 @@ mkdir -p "$d7filesdir";
 chmod 777 "$d7filesdir";  
 cp -r "$d7defsitedir""$defsettingsfile" "$d7defsitedir""$dsettingsfile";
 chmod 777 "$d7defsitedir""$dsettingsfile";
-mv "$bdir"setupsite-d7.sh "$d7dir"/setupsite $dlurl/scripts/"$setupd7" >/dev/null 2>&1;
+mv "$bdir"setupsite-d7.sh "$d7dir"/setupsite $dlurl/scripts/"$setupd7" ;
 chmod +x "$d7dir"/setupsite; 
 "$d7dir"/setupsite
 chown -Rh "$nameofuser":www-data /var/www;
@@ -290,8 +290,8 @@ d8setup(){
 source $bdir/drupalcores.sh
 chown -Rh "$nameofuser":www-data "$wwwdir" 
 mkdir -p  "$d8dir"
-wget -O "$bdir/"drupal8.tar.gz $d8core >>/dev/null 2>&1
-cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" >  /dev/null 2>&1
+wget -O "$bdir/"drupal8.tar.gz $d8core 
+cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" 
 rm "$bdir"/*.tar.gz
 cd "$d8dir"
 cd drup*;
@@ -305,7 +305,7 @@ cp -r "$d8defsitedir""$defsettingsfile" "$d8defsitedir""$dsettingsfile";
 cp -r "$d8defsitedir""$ddefsymlfile" "$d8defsitedir""$dsymlfile";
 chmod 777 "$d8defsitedir""$dsettingsfile";
 chmod 777 "$d8defsitedir""$dsymlfile";
-mv "$bdir"setupsite-d8.sh "$d8dir"/setupsite $dlurl/scripts/"$setupd8" >/dev/null 2>&1;
+mv "$bdir"setupsite-d8.sh "$d8dir"/setupsite $dlurl/scripts/"$setupd8" ;
 chmod +x "$d8dir"/setupsite; 
 $d8dir"/setupsite;
 chown -Rh "$nameofuser":www-data /var/www;
@@ -329,10 +329,10 @@ supressfqdnwarning(){
 }
 #disable default apache2 site
 ap2_disdefault(){
-	a2dissite 000-default.conf >/dev/null 2>&1
+	a2dissite 000-default.conf 
 }
 enablerewrite(){
-	a2enmod rewrite >/dev/null 2>&1
+	a2enmod rewrite 
 	service apache2 restart
 	}
 		cphostsfile(){
@@ -345,17 +345,17 @@ backuphostfile()
 ap2_cffile_d8(){
 if ! [ -f "$ap2sitedir""$ap2_cffile_d7" ] ;then
 crd8cffile;
-a2ensite "$ap2_cffile_d7" >/dev/null 2>&1
+a2ensite "$ap2_cffile_d7" 
 else
-a2ensite "$ap2_cffile_d7" >/dev/null 2>&1
+a2ensite "$ap2_cffile_d7" 
 fi
 }
 ap2_cffile_d7(){
 if ! [ -f "$ap2sitedir""$ap2_cffile_d8" ] ;then
 crd7cffile;
-a2ensite "$ap2_cffile_d8" >/dev/null 2>&1
+a2ensite "$ap2_cffile_d8" 
 else
-a2ensite "$ap2_cffile_d8" >/dev/null 2>&1
+a2ensite "$ap2_cffile_d8" 
 fi
 }
 
@@ -448,10 +448,10 @@ mv "$pllogourl""$file9 "$themedir" > /dev/null 2>&1
 mv "$pllogourl""$file10 "$themedir" > /dev/null 2>&1
 
 
-update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100 >  /dev/null 2>&1 
+update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100  
 update-grub >> /dev/null                                  	#update grub.
-update-initramfs -c -k all >  /dev/null 2>&1						#generate new kernel  .
-update-initramfs -u -k all >  /dev/null 2>&1
+update-initramfs -c -k all 						#generate new kernel  .
+update-initramfs -u -k all 
 }
 
 clean(){
