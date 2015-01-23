@@ -13,16 +13,15 @@ if [ `whoami` != root ]; then
     exit
     4
 fi
-github=https://github.com/drubutu/
-repoinstall="$github"install.git
-repofeatures="$github"features.git
-repodesktops="$github"desktops.git
+repoinstall="https://github.com/drubutu/install.git"
+repofeatures="https://github.com/drubutu/features.git"
+repodesktops="https://github.com/drubutu/desktops.git"
 fdir="/opt/.drubuntu/features"
 
 if  [  -d "$fdir" ]
 cd "$fdir"
 else
-git clone "$repofeatures" "$bdir/features"
+git clone "$repofeatures" "$bdir/features" >> /dev/null 2>&1
 cd "$fdir" 
 fi
 function show_help() {							#this is the help text
