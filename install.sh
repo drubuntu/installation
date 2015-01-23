@@ -17,8 +17,8 @@ lightred='\033[1;31m'
 lightpurple='\033[1;35m'
 yellow='\033[1;33m'
 NC='\033[0m'
-. functions.sh
-. filetemplates.sh
+source $PWD/functions.sh
+source $PWD/filetemplates.sh
 #first echo creates space after sudo input
 clear
 echo ""
