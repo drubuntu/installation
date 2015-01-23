@@ -22,22 +22,22 @@ cd "$bdir"
 git clone "$repofeatures" .
 cd "$bdir/features" 
 function show_help() {							#this is the help text
-    cat << ENDHELP 
---apc                echo -e " ${white} ${apcmssg} ${NC}"
---aptana             echo -e " ${white} ${aptanaidemssg} ${NC}"
---aptana-git         echo -e " ${white} ${aptanagitmssg} ${NC}"
---aptana-xdebug	echo -e " ${white} ${aptanaxdebugmssg} ${NC}"
---atom               echo -e " ${white} ${atommssg} ${NC}"
---bootstrapwithsass	echo -e " ${white} ${bootstrapwsassmssg} ${NC}"
---browsers	       echo -e " ${white} ${browsersmssg} ${NC}"
---desktops           echo -e " ${white} ${desktopsmssg} ${NC}"
---memcached          echo -e " ${white} ${memcachedmssg} ${NC}"
---plymouth           echo -e " ${white} ${plymouthmssg} ${NC}"
---proftpd            echo -e " ${white} ${proftpdmssg} ${NC}"  .
---varnish		echo -e " ${white} ${varnishmssg} ${NC}"
---webexplangs        echo -e " ${white} ${webexplangsmssg} ${NC}"
---xdebug             echo -e " ${white} ${xdebugmssg} ${NC}"
-ENDHELP
+     
+       echo -e " ${white} ${doublehighfin} ${apcswith}   ${apcmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${aptanaideswith} ${aptanaidemssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${aptanagitswith} ${aptanagitmssg} ${NC}"
+	echo -e " ${white} ${doublehighfin} ${aptanaxdebugswitch} ${aptanaxdebugmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${atomswitch} ${atommssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${bootstrapwithsassswitch} ${bootstrapwsassmssg} ${NC}"
+	echo -e " ${white} ${doublehighfin} ${browsersswitch} ${browsersmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${desktopswitch} ${desktopsmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${memcachedswitch} ${memcachedmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${plymouthswitch} ${plymouthmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${proftpdswitch}${proftpdmssg} ${NC}"  .
+       echo -e " ${white} ${doublehighfin} ${varnishshwitch} ${varnishmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${webexplangsswitch} ${webexplangsmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${xdebugswitch} ${xdebugmssg} ${NC}"
+
 }
 
 case $1 in
@@ -65,7 +65,7 @@ echo "We need your password to integrate Git functionality:"
 sudo bash xdebug-aptana.sh
     ;;
 
---aptana-xdebug)
+--atom)
 echo "We need your password to integrate Git functionality:"
 sudo bash atom.sh >>/dev/null 2>&1
     ;;
@@ -102,7 +102,7 @@ echo "To install the Browser Suite on your system enter your password, please"
 sudo bash browsersuite.sh
 ;;
 
---bootstrapwithsass)
+--bootstrap)
 echo "To install the Bootstrap 3 boilerplate with sass on system enter your password, please"
 sudo bash bootstrapwithsass.sh
 ;;
