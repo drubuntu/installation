@@ -16,7 +16,7 @@ repoinstall="https://github.com/drubutu/install.git"
 repofeatures="https://github.com/drubutu/features.git"
 repodesktops="https://github.com/drubutu/desktops.git"
 
-if  [  -d "$DIRURL" ]
+if  [  -d "$DIRURL" ];then
 cd "$DIRURL"
 else
 git clone "$repofeatures" "$DIRURL" >> /dev/null 2>&1
