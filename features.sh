@@ -18,7 +18,7 @@ repoinstall="$github"install.git
 repofeatures="$github"features.git
 repodesktops="$github"desktops.git
 fdir="/opt/.drubuntu/features"
-fi
+
 if  [  -d "$fdir" ]
 cd "$fdir"
 else
