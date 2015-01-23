@@ -19,10 +19,11 @@ yellow='\033[1;33m'
 NC='\033[0m'
 source $PWD/functions.sh
 source $PWD/filetemplates.sh
+source $PWD/de.sh
 #first echo creates space after sudo input
 clear
 echo ""
-echo -e " ${lightblue} - Start Installing... ${nc}"
+echo -e " ${lightblue} ${wcmssg1} ${nc}"
 echo ""
 # > /dev/null to hide the output
 #basic setup
