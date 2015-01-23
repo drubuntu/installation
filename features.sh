@@ -6,24 +6,6 @@ source $PWD/de.sh
 else
 source $PWD/en.sh
 fi
-
-
-if [ `whoami` != root ]; then
-       echo -e " ${lightred}  ${runasrootmssg} ${NC}"
-    exit
-    4
-fi
-repoinstall="https://github.com/drubutu/install.git"
-repofeatures="https://github.com/drubutu/features.git"
-repodesktops="https://github.com/drubutu/desktops.git"
-fdir="/opt/.drubuntu/features"
-
-if  [  -d "$fdir" ]
-cd "$fdir"
-else
-git clone "$repofeatures" "$bdir/features" >> /dev/null 2>&1
-cd "$fdir" 
-fi
 function show_help() {							#this is the help text
      
        echo -e " ${white} ${doublehighfin} ${apcswith}   ${apcmssg} ${NC}"
@@ -42,6 +24,24 @@ function show_help() {							#this is the help text
        echo -e " ${white} ${doublehighfin} ${xdebugswitch} ${xdebugmssg} ${NC}"
 
 }
+
+
+if [ `whoami` != root ]; then
+       echo -e " ${lightred}  ${runasrootmssg} ${NC}"
+    exit
+    4
+fi
+repoinstall="https://github.com/drubutu/install.git"
+repofeatures="https://github.com/drubutu/features.git"
+repodesktops="https://github.com/drubutu/desktops.git"
+fdir="/opt/.drubuntu/features"
+
+if  [  -d "$fdir" ];then
+cd "$fdir"
+else
+git clone "$repofeatures" "$bdir/features" >> /dev/null 2>&1
+cd "$fdir" 
+fi
 
 case $1 in
     --help)									#this is to display the help text
