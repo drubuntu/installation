@@ -1,4 +1,10 @@
 #!/bin/bash
+if ["$LANGUAGE" == de_DE:];then
+source $PWD/de.sh
+else
+source $PWD/en.sh
+fi
+
 if [ `whoami` != root ]; then
     echo "Please run this script as root or using sudo"
     exit
