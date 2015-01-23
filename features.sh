@@ -8,22 +8,6 @@ source $bdir/de.sh
 else
 source $bdir/en.sh
 fi
-function show_help() {							#this is the help text
-     
-       echo -e " ${white}  ${apcswitch}                ${apcmssg} ${NC}"
-       echo -e " ${white}  ${aptanaideswitch}          ${aptanaidemssg} ${NC}"
-       echo -e " ${white}  ${aptanagitswitch}          ${aptanagitmssg} ${NC}"
-       echo -e " ${white}  ${aptanaxdebugswitch}       ${aptanaxdebugmssg} ${NC}"
-       echo -e " ${white}  ${atomswitch}               ${atommssg} ${NC}"
-       echo -e " ${white}  ${bootstrapwithsassswitch}  ${bootstrapwsassmssg} ${NC}"
-       echo -e " ${white}  ${browserswitch}           ${browsersmssg} ${NC}"
-       echo -e " ${white}  ${desktopswitch}            ${desktopsmssg} ${NC}"
-       echo -e " ${white}  ${memcachedswitch}          ${memcachedmssg} ${NC}"
-       echo -e " ${white}  ${plymouthswitch}           ${plymouthmssg} ${NC}"
-       echo -e " ${white}  ${proftpdswitch}            ${proftpdmssg} ${NC}"  .
-       echo -e " ${white}  ${varnishshwitch}           ${varnishmssg} ${NC}"
-       echo -e " ${white}  ${webexplangsswitch}        ${webexplangsmssg} ${NC}"
-       echo -e " ${white}  ${xdebugswitch}             ${xdebugmssg} ${NC}"
 
 }
 
@@ -42,9 +26,25 @@ else
 git clone https://github.com/drubutu/features.git "$fdir" 
 cd "$fdir" 
 fi
+function show_help() {							#this is the help text
+     
+       echo -e " ${white}  ${apcswitch}                ${apcmssg} ${NC}"
+       echo -e " ${white}  ${aptanaideswitch}          ${aptanaidemssg} ${NC}"
+       echo -e " ${white}  ${aptanagitswitch}          ${aptanagitmssg} ${NC}"
+       echo -e " ${white}  ${aptanaxdebugswitch}       ${aptanaxdebugmssg} ${NC}"
+       echo -e " ${white}  ${atomswitch}               ${atommssg} ${NC}"
+       echo -e " ${white}  ${bootstrapwithsassswitch}  ${bootstrapwsassmssg} ${NC}"
+       echo -e " ${white}  ${browserswitch}           ${browsersmssg} ${NC}"
+       echo -e " ${white}  ${desktopswitch}            ${desktopsmssg} ${NC}"
+       echo -e " ${white}  ${memcachedswitch}          ${memcachedmssg} ${NC}"
+       echo -e " ${white}  ${plymouthswitch}           ${plymouthmssg} ${NC}"
+       echo -e " ${white}  ${proftpdswitch}            ${proftpdmssg} ${NC}"  .
+       echo -e " ${white}  ${varnishshwitch}           ${varnishmssg} ${NC}"
+       echo -e " ${white}  ${webexplangsswitch}        ${webexplangsmssg} ${NC}"
+       echo -e " ${white}  ${xdebugswitch}             ${xdebugmssg} ${NC}"
 
 case $1 in
-    --help)									#this is to display the help text
+    --help)								
         show_help
     ;;
 
