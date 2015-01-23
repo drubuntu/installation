@@ -82,6 +82,5 @@ aptupdate
 echo -e " ${lightgray} - Cleaning up ${NC}"
 clean
 
-rm -- "$0"
-reboot -p
+
 exit
