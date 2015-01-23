@@ -103,73 +103,73 @@ apt install -qq -y server^
 apt install -qq -y openssh-server^ 
 apt install -qq -y lamp-server^  
 
-if ! dpkg-query -l  curl;then
-apt -y -qq install curl
+if ! dpkg-query -l  curl >> /dev/null 2>&1;then 
+apt -y -qq install curl >> /dev/null 2>&1
 fi
-if ! dpkg-query -l php-pear;then
-apt install -qq -y php-pear
+if ! dpkg-query -l php-pear >> /dev/null 2>&1;then
+apt install -qq -y php-pear >> /dev/null 2>&1
 fi
-if ! dpkg-query -l php5-dev;then
-apt install -qq -y php5-dev
+if ! dpkg-query -l php5-dev >> /dev/null 2>&1;then
+apt install -qq -y php5-dev >> /dev/null 2>&1
 fi
-if ! dpkg-query -l php5-curl;then
-apt install -qq -y php5-curl
+if ! dpkg-query -l php5-curl >> /dev/null 2>&1;then
+apt install -qq -y php5-curl >> /dev/null 2>&1
 fi
-if ! dpkg-query -l php5-json;then
-apt install -qq -y php5-json
+if ! dpkg-query -l php5-json >> /dev/null 2>&1;then
+apt install -qq -y php5-json >> /dev/null 2>&1
 fi
-if ! dpkg-query -l php5-gd;then  
-apt install -qq -y php5-gd
+if ! dpkg-query -l php5-gd >> /dev/null 2>&1;then  
+apt install -qq -y php5-gd >> /dev/null 2>&1
 fi
-if ! dpkg-query -l git;then 
-apt install -qq -y git 
+if ! dpkg-query -l git >> /dev/null 2>&1;then 
+apt install -qq -y git >> /dev/null 2>&1
 fi
-if ! dpkg-query -l git-core;then
-apt install -qq -y git-core
+if ! dpkg-query -l git-core >> /dev/null 2>&1;then
+apt install -qq -y git-core >> /dev/null 2>&1
 fi
-if ! dpkg-query -l nodejs ; then
-updatenodejs 
+if ! dpkg-query -l nodejs >> /dev/null 2>&1;then
+updatenodejs >> /dev/null 2>&1
 else
-apt -y -qq remove nodejs
-updatenodejs 
+apt -y -qq remove nodejs >> /dev/null 2>&1
+updatenodejs >> /dev/null 2>&1
 fi
-if ! dpkg-query -l nodejs-legacy; then
-apt install -qq -y nodejs-legacy 
+if ! dpkg-query -l nodejs-legacy >> /dev/null 2>&1; then
+apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
 fi
-if ! dpkg-query -l npm ;then
-apt install -qq -y npm 
+if ! dpkg-query -l npm >> /dev/null 2>&1 ;then
+apt install -qq -y npm >> /dev/null 2>&1
 fi
-if ! dpkg-query -l ruby1.9.1-full ;then
-apt install -qq -y ruby1.9.1-full
+if ! dpkg-query -l ruby1.9.1-full >> /dev/null 2>&1 ;then
+apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
 fi
-if ! dpkg-query -l libapache2-mod-php5 ;then
-apt install -qq -y -qq libapache2-mod-php5 
+if ! dpkg-query -l libapache2-mod-php5 >> /dev/null 2>&1 ;then
+apt install -qq -y -qq libapache2-mod-php5 >> /dev/null 2>&1 
 fi
-if ! dpkg-query -l php5-mcrypt   ; then
-apt install -qq -y -qq php5-mcrypt 
-fi
-
-if ! dpkg-query -l  php5-gd   ; then
-apt install -qq -y -qq  php5-gd 
+if ! dpkg-query -l php5-mcrypt >> /dev/null 2>&1 ; then
+apt install -qq -y -qq php5-mcrypt >> /dev/null 2>&1
 fi
 
-if ! dpkg-query -l  php5-dev   ; then
-apt install -qq -y -qq  php5-dev 
+if ! dpkg-query -l  php5-gd >> /dev/null 2>&1  ; then
+apt install -qq -y -qq  php5-gd >> /dev/null 2>&1
 fi
 
-if ! dpkg-query -l make ; then
-apt install -qq -y make
+if ! dpkg-query -l  php5-dev >> /dev/null 2>&1  ; then
+apt install -qq -y -qq  php5-dev >> /dev/null 2>&1
 fi
 
-if ! dpkg-query -l build-essential ;  then
-apt -qq -y install  build-essential
+if ! dpkg-query -l make >> /dev/null 2>&1 ; then
+apt install -qq -y make >> /dev/null 2>&1
 fi
-apt -qq -y install  software-properties-common
+
+if ! dpkg-query -l build-essential >> /dev/null 2>&1 ;  then
+apt -qq -y install  build-essential >> /dev/null 2>&1
+fi
+apt -qq -y install  software-properties-common >> /dev/null 2>&1
 }
 
 aptupdate(){
 apt update >> /dev/null 2>&1
-apt -y  upgrade 	>> /dev/null 2>&1
+apt -y  upgrade >> /dev/null 2>&1
 }
 
 
@@ -186,15 +186,15 @@ grantprivs(){
 #drush installation
 getcomposer(){
 # Composer Global installation
-curl -sS https://getcomposer.org/installer | php 
-mv composer.phar /usr/local/bin/composer 
+curl -sS https://getcomposer.org/installer | php >> /dev/null 2>&1 
+mv composer.phar /usr/local/bin/composer >> /dev/null 2>&1
 sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc 
 source "$HOME"/.bashrc 
 }
 getdrush(){
-composer global require drush/drush:dev-master 
+composer global require drush/drush:dev-master >> /dev/null 2>&1
 #create symlink to make drush work when entering drush in terminal
-if [ -f /usr/bin/drush ]; then
+if [ -f /usr/bin/drush ]; then 
 rm /usr/bin/drush;
 cd $HOME/.composer/vendor/drush/drush;
 ln -s  $PWD/drush /usr/bin/drush
@@ -207,11 +207,11 @@ fi
 }
 #installs preproceccor languages and grunt
 getgems(){
-updatenodejs 
-gem install sass 
-gem install compass 
-npm install -g grunt-cli 
-getdrush
+updatenodejs  >> /dev/null 2>&1
+gem install sass  >> /dev/null 2>&1
+gem install compass  >> /dev/null 2>&1
+npm install -g grunt-cli >> /dev/null 2>&1
+getdrush >> /dev/null 2>&1
 }
 #make sure that uploadprocess gets loaded by php
 uploadprogress(){
