@@ -81,6 +81,7 @@ if ! [ -f /usr/bin/vmware-user ];then
 vtoolsinstaller
 else
 echo  "VMWare Tools installed allready"
+echo ""
 fi
 }	
 
