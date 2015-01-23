@@ -426,38 +426,50 @@ ln -s  $PWD/desktopchooser.sh /usr/bin/dru-desktopchooser
 
 
 plymouthlogo(){
-pllurl=$HOME/installation/files/grub/
-themedir=/lib/plymouth/themes/drubuntu/
+apt-get install -y plymouth-theme-script #installs script plymouth theme to make changes work.
+dlurl=https://raw.githubusercontent.com/horvan/drubuntu/master/
+grubfilesurl=files/grub/
+$pllogourl=$dlurl$grubfilesurl
+savedir=/opt/.drubuntu/drubuntu/
+plymouththemedir=/lib/plymouth/themes/
 grubdir=/etc/default/
-grubfile=etc/default/grub
-file1="$pllurl"drubuntu.grub
-file2="$pllurl"drubuntu.plymouth
-file3="$pllurl"drubuntu.script
-file4="$pllurl"grub.file
-file5="$pllurl"logo_blurred.png
-file6="$pllurl"logo.png
-file7="$pllurl"password_field.png
-file88="$pllurl"password_field16.png
-file9="$pllurl"ubuntu_logo.png
-file10="$pllurl"ubuntu_logo16.png
 
-mkdir -p  "$themedir"
-cp -r  "$file1" "$themedir"
-cp -r  "$file2"  "$themedir"
-cp -r  "$file3"  "$themedir"
-cp -r  "$file4"  "$grubfile"  
-cp -r  "$file5"  "$themedir" 
-cp -r  "$file6"  "$themedir" 
-cp -r  "$file7"  "$themedir" 
-cp -r  "$file8"  "$themedir" 
-cp -r  "$file9"  "$themedir" 
-cp -r  "$file10" "$themedir" 
+file1=drubuntu.grub
+file2=drubuntu.plymouth
+file3=drubuntu.script
+file4=grub.file
+file5=logo_blurred.png
+file6=logo.png
+file7=password_field.png
+file88=password_field16.png
+file9=ubuntu_logo.png
+file10=ubuntu_logo16.png
+cd /opt/.drubuntu
 
+mkdir "$savedir"
+cd "$savedir"
+wget $pllogourl$file1 > /dev/null 2>&1	#downloading files
+wget $pllogourl$file2 > /dev/null 2>&1
+wget $pllogourl$file3 > /dev/null 2>&1
+wget $pllogourl$file4 > /dev/null 2>&1
+wget $pllogourl$file5 > /dev/null 2>&1
+wget $pllogourl$file6 > /dev/null 2>&1
+wget $pllogourl$file7 > /dev/null 2>&1
+wget $pllogourl$file8 > /dev/null 2>&1
+wget $pllogourl$file9 > /dev/null 2>&1
+wget $pllogourl$file10 > /dev/null 2>&1
 
-update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100 >> /dev/null 2>&1  
-update-grub >> /dev/null 2>&1                                  	#update grub.
-update-initramfs -c -k all >> /dev/null 2>&1 						#generate new kernel  .
-update-initramfs -u -k all >> /dev/null 2>&1
+mv grub.file grub
+cp -r "$savedir"grub  "$grubdir"				#copy file to /etc/default and replace existing file.
+rm "$savedir"$file1
+cp -r /opt/.drubuntu/drubuntu /lib/plymouth/themes
+rm -r "$savedir"									#removes savedir for cleanup.
+cd													#the next line sets up drubuntu plymouth theme as default.
+update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100 >/dev/null 
+update-grub >> /dev/null                                  	#update grub.
+update-initramfs -c -k all > /dev/null						#generate new kernel  .
+update-initramfs -u -k all > /dev/null
+#sudo reboot -p					
 }
 
 clean(){
