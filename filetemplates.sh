@@ -65,7 +65,7 @@ EOF2
 
 #Creates Drupal 7 Apache2 conf in /etc/apache2/sites-available
 crd7cffile(){
-	cat << EOF3 > /etc/apache2/sites-available/drupal7.conf
+cat << EOF3 > /etc/apache2/sites-available/drupal7.conf
 <VirtualHost *:80>
 	# The ServerName directive sets the request scheme, hostname and port that
 	# the server uses to identify itself. This is used when creating
