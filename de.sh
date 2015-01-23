@@ -112,7 +112,7 @@ updaterubygemsmssg="Die Ruby Gems werden nun aktuallisiert .."
 bdochanainstallmssg="bdoc und hana werden nun installier .."
 #desktopchooser
 prerequmssg="Installiere benötigte Pakete ..."
-lightdm="Lightdm ist sehr groß, bitte haben Sie einen moment Gedult!"
+lightdmmmsg="Lightdm ist sehr groß, bitte haben Sie einen moment Gedult!"
 desktopchoosermssg="Desktopauswahl für Drubuntu"
 choosedesktopmssg="Wählen Sei Ihre gewünschte Arbeitsumgebung!"
 xtoexitmssg="drückebn Sie x um zur Konsole zurückzukehren."
