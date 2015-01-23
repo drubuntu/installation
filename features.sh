@@ -1,5 +1,11 @@
 #!/bin/bash
 #run script for installation and features integration
+if ["$LANGUAGE" == de_DE:];then
+source $PWD/de.sh
+else
+source $PWD/en.sh
+fi
+
 if [ `whoami` != root ]; then
     echo "Please run this script as root or using sudo"
     exit
