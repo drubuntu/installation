@@ -181,7 +181,7 @@ grantprivs(){
  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.drush
  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.composer
  chown -Rh $nameofuser:$nameofuser $HOME
- chmod rwx $nameofuser:$nameofuser $HOME/*
+ chmod -R 770 $nameofuser:$nameofuser $HOME/*
 }
 #drush installation
 getcomposer(){
@@ -279,7 +279,7 @@ mkdir -p "$d7filesdir";
 chmod 777 "$d7filesdir";  
 cp -r "$d7defsitedir""$defsettingsfile" "$d7defsitedir""$dsettingsfile";
 chmod 777 "$d7defsitedir""$dsettingsfile";
-mv "$bdir"setupsite-d7.sh "$d7dir"/setupsite $dlurl/scripts/"$setupd7" ;
+mv "$bdir"/setupsite-d7.sh "$d7dir"/setupsite  ;
 chmod +x "$d7dir"/setupsite; 
 "$d7dir"/setupsite
 chown -Rh "$nameofuser":www-data /var/www;
@@ -308,9 +308,9 @@ cp -r "$d8defsitedir""$defsettingsfile" "$d8defsitedir""$dsettingsfile";
 cp -r "$d8defsitedir""$ddefsymlfile" "$d8defsitedir""$dsymlfile";
 chmod 777 "$d8defsitedir""$dsettingsfile";
 chmod 777 "$d8defsitedir""$dsymlfile";
-mv "$bdir"setupsite-d8.sh "$d8dir"/setupsite $dlurl/scripts/"$setupd8" ;
+mv "$bdir/"setupsite-d8.sh "$d8dir"/setupsite ;
 chmod +x "$d8dir"/setupsite; 
-$d8dir"/setupsite;
+"$d8dir"/setupsite;
 chown -Rh "$nameofuser":www-data /var/www;
 chmod 644 "$d8dir"/$htafile;
 chmod 644 "$d8defsitedir"/"$d8settingsfile";
@@ -440,14 +440,14 @@ file9=ubuntu_logo.png
 file10=ubuntu_logo16.png
 mkdir -p  "$themedir"
 cp -r "$pllogourl" "$file1" /etc/default/grub > /dev/null 2>&1	#downloading files
-mv "$pllogourl""$file2"  > /dev/null 2>&1
-mv "$pllogourl""$file3"  "$themedir"> /dev/null 2>&1
-mv "$pllogourl""$file4" "$themedir" > /dev/null 2>&1
-mv "$pllogourl""$file5 "$themedir" > /dev/null 2>&1
-mv "$pllogourl""$file6 "$themedir" > /dev/null 2>&1
-mv "$pllogourl""$file7 "$themedir" > /dev/null 2>&1
-mv "$pllogourl""$file8 "$themedir" > /dev/null 2>&1
-mv "$pllogourl""$file9 "$themedir" > /dev/null 2>&1
+mv "$pllogourl""$file2"  
+mv "$pllogourl""$file3"  "$themedir"
+mv "$pllogourl""$file4" "$themedir" 
+mv "$pllogourl""$file5 "$themedir" 
+mv "$pllogourl""$file6 "$themedir" 
+mv "$pllogourl""$file7 "$themedir" 
+mv "$pllogourl""$file8 "$themedir" 
+mv "$pllogourl""$file9 "$themedir" 
 mv "$pllogourl""$file10 "$themedir" > /dev/null 2>&1
 
 
