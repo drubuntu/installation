@@ -70,9 +70,9 @@ vtoolsinstaller(){
     #either virtualbox-guest-x11 or open-vm-tools
     platformtest=`dmidecode -s system-product-name`
     if [ "$platformtest" == "VirtualBox" ] ;then 
-    apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms >> /dev/null 2>&1 
+    apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms >>/dev/null 2>&1 
     else
-    apt install -y -qq open-vm-tools xserver-xorg-video-vmware  >> /dev/null 2>&1
+    apt install -y -qq open-vm-tools xserver-xorg-video-vmware  >>/dev/null 2>&1
     fi
     }
 
@@ -96,12 +96,12 @@ getcorepkgs(){
 debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password MyRoot'
 debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password MyRoot'
 #reinstall mysql server to preset password
-apt  -y -qq remove mysql-server-5.5    
-apt  -y -qq install mysql-server-5.5   
+apt  -y -qq remove mysql-server-5.5    >> /dev/null 2>&1
+apt  -y -qq install mysql-server-5.5   >> /dev/null 2>&1
 #install packages if they are not installed already to make sure it even works without the iso from sourceforge
-apt install -qq -y server^ 
-apt install -qq -y openssh-server^ 
-apt install -qq -y lamp-server^  
+apt install -qq -y server^ >> /dev/null 2>&1
+apt install -qq -y openssh-server^ >> /dev/null 2>&1
+apt install -qq -y lamp-server^  >> /dev/null 2>&1
 
 if ! dpkg-query -l  curl >> /dev/null 2>&1;then 
 apt -y -qq install curl >> /dev/null 2>&1
