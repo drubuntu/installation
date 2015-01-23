@@ -23,21 +23,21 @@ source $PWD/de.sh
 #first echo creates space after sudo input
 clear
 echo ""
-echo -e " ${lightblue} ${wcmssg1} ${nc}"
+echo -e " ${lightblue} ${heightfin} ${wcmssg1} ${nc}"
 echo ""
 # > /dev/null to hide the output
 #basic setup
-echo -e " ${green} ${aptupdatemssg} ${NC}"
+echo -e " ${green} ${heightfin} ${aptupdatemssg} ${NC}"
 aptupdate
-echo -e " ${lightgreen} ${createdirmsg} ${NC}"
+echo -e " ${lightgreen} ${heightfin} ${createdirmsg} ${NC}"
 echo ""
 mkdirs
 #virtual platformtools
-echo -e " ${purple} ${vmtoolsmssg} ${NC}"
+echo -e " ${purple} ${heightfin} ${vmtoolsmssg} ${NC}"
 echo ""
 vtoolscheck
 #package installation
-echo -e " ${lightgreen} ${dlbcmssg} ${NC}"
+echo -e " ${lightgreen} ${heightfin} ${dlbcmssg} ${NC}"
 echo ""
 apt-progress
 getcorepkgs
@@ -46,21 +46,21 @@ getdrush
 uploadprogress
 getgems
 #fetch required files
-echo -e " ${lightgreen} ${createfilesmsg} ${NC}"
+echo -e " ${lightgreen} ${heightfin} ${createfilesmsg} ${NC}"
 echo ""
 crissue
 crprofiledfile
 getfiles
 #create symbolic links
-echo -e " ${lightgreen} ${createsymlinksmsg} ${NC}"
+echo -e " ${lightgreen} ${heightfin} ${createsymlinksmsg} ${NC}"
 echo ""
 crsymlinks
 crbinsymlinks
 #setting up server
-echo -e " ${lightblue} ${ap2setupmssg} ${NC}"
+echo -e " ${lightblue} ${heightfin} ${ap2setupmssg} ${NC}"
 echo ""
 crd7cffile
-echo -e " ${lightblue} ${createmysqldbmssg} ${NC}"
+echo -e " ${lightblue} ${heightfin} ${createmysqldbmssg} ${NC}"
 
 createdb_d7
 d7setup
@@ -70,20 +70,18 @@ d8setup
 apache2setup
 echo ""
 # last steps
-echo -e " ${yellow} - ${ plymoutlogomssg} ${NC}"
+echo -e " ${yellow} ${heightfin} ${ plymoutlogomssg} ${NC}"
 echo ""
 plymouthlogo
 # grant previleges
-echo -e " ${lightgreen} ${grantprvsmssg} ${NC}"
+echo -e " ${lightgreen} ${heightfin} ${grantprvsmssg} ${NC}"
 echo ""
 grantprivs
 echo ""
 echo ""
-echo -e "${lightred} ${infomssg}   ${NC}"
+echo -e "${lightred} ${heightfin}  ${infomssg}   ${NC}"
 echo ""
 echo ""
-echo -e " ${lightgray} ${clngnmssg} ${NC}"
+echo -e " ${lightgray} ${heightfin} ${clngnmssg} ${NC}"
 clean
-
-
 exit
