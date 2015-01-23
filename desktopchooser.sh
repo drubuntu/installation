@@ -11,16 +11,18 @@ if [ `whoami` != root ]; then
     exit
     4
 fi
-github=https://github.com/drubutu/
-repoinstall="$github"install.git
-repofeatures="$github"features.git
-repodesktops="$github"desktops.git
-bdir="/opt/.drubuntu"
-cd "$bdir" 										
-git clone "$repodesktops" .
-cd "$bdir/desktops" 
+DIRURL=/opt/.drubuntu/desktops/
+repoinstall="https://github.com/drubutu/install.git"
+repofeatures="https://github.com/drubutu/features.git"
+repodesktops="https://github.com/drubutu/desktops.git"
 
-DIRURL=/opt/.drubuntu/desktops
+if  [  -d "$DIRURL" ]
+cd "$DIRURL"
+else
+git clone "$repofeatures" "$DIRURL" >> /dev/null 2>&1
+cd "$DIRURL" 
+fi
+
 
 cinnamon=cinnamon.sh
 deepin=deepin.sh
