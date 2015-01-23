@@ -474,6 +474,9 @@ clean(){
 apt -y -qq autoremove >>/dev/null 2>&1
 apt -y -qq clean  >>/dev/null 2>&1
 dpkg --get-selections | grep -v deinstall > "$bdir"/packages-installed.txt  	
+if [-d "$HOME"/tmp ];then
+rm - "$HOME"/tmp
+fi
 if [ -f "/etc/profile.d/run.sh" ]; then
 rm "/etc/profile.d/run.sh" 
 fi
