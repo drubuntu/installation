@@ -34,7 +34,7 @@ addftpd7mssg="Möchten Sie den FTP-Nutzer 'Drupal7' anlegen?"
 userdatamssg="Wir benötigen nun einige Angaben von Ihnen"
 enterusernamemmssg="Geben Sie Ihrenb gewünschten Nutzername an und dücken Sie [ENTER]: "
 disablerootmssg="Root-Konto wird deaktiviert"
-runasrootmssg="Zur Ausführung dieses Scripts werden Super-User-Rechtee benötigt. Bitte verwenden Sie sudo!"
+runasrootmssg="Zur Ausführung dieses Scripts werden Super-User-Rechte benötigt. Bitte verwenden Sie sudo!"
 roothintmssg="Sie sind als Root angemeldet. Beantworten Sie die Fragen und melden Sie sich später mit dem gewählten Nutzernamen an!"
 
 #standard messages
@@ -47,7 +47,7 @@ rebootmssg="Ihr System wird in Kürze neu gestartet!"
 
 #website hints
 
-infomssg="More Info on https://github.com/horvan/drubuntu/wiki"
+infomssg="Weitere Informationen finden Sie unter: https://github.com/horvan/drubuntu/wiki"
 
 #setip 
 
@@ -96,7 +96,7 @@ webexplangsmssg="Installiert Preprozessoren wie SASS und HAML."
 xdebugmssg="Insalliert xdebug für PHP."
 shortapcmssg="APC"
 shortaptanaidemssh="Aptana Studio 3"
-shortaptanaxdebugmssg="XDebug für Aptana Studio 3"
+shortaptanaxdebugmssg="Xdebug für Aptana Studio 3"
 shortatommssg="den Atom Texteditor von GitHub"
 shortbootstrapwsassmssg="Bootstrap 3 mit Sass für Dupal 7"
 shortbrowsersmssg="verschiedene Webbrowser"
@@ -106,7 +106,7 @@ shortplymouthmssg="Das Bootlogo"
 shortproftpdmssg="ProFtpd"
 shoortvarnishmssg="Varnish"
 shortwebexplangsmssg="devierse Preprozessoren"
-shortxdebugmssg="XDebug"
+shortxdebugmssg="Xdebug"
 needpassmssg="Wir benötigen Ihr Passwort, um"
 toyoursystemmssg="auf Ihrem System zu installieren"
 
@@ -124,7 +124,7 @@ installhamlmssg="HAML wird nun installiert ..."
 installsassmssg="SASS wird nun installiert ..."
 installcompassmssg="COMPASS wird nun installiert ..."
 updaterubygemsmssg="Die Ruby Gems werden nun aktuallisiert .."
-bdochanainstallmssg="bdoc und hana werden nun installier .."
+bdochanainstallmssg="bdoc und hana werden nun installiert .."
 #desktopchooser
 prerequmssg="Installiere benötigte Pakete ..."
 lightdmmmsg="Lightdm ist sehr groß, bitte haben Sie einen moment Gedult!"
