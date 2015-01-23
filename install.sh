@@ -19,7 +19,11 @@ yellow='\033[1;33m'
 NC='\033[0m'
 source $PWD/functions.sh
 source $PWD/filetemplates.sh
+if ["$LANGUAGE" == de_DE:];then
 source $PWD/de.sh
+else
+source $PWD/en.sh
+fi
 #first echo creates space after sudo input
 clear
 echo ""
