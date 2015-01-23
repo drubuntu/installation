@@ -1,11 +1,12 @@
 #!/bin/bash
 #run script for installation and features integration
+bdir="/opt/.drubuntu"
 cd ${0%/*}
-source $PWD/colors.sh
+source $bdir/colors.sh
 if [ "$LANG" == "de_DE.UTF-8" ];then
-source $PWD/de.sh
+source $bdir/de.sh
 else
-source $PWD/en.sh
+source $bdir/en.sh
 fi
 function show_help() {							#this is the help text
      
@@ -15,7 +16,7 @@ function show_help() {							#this is the help text
        echo -e " ${white}  ${aptanaxdebugswitch}       ${aptanaxdebugmssg} ${NC}"
        echo -e " ${white}  ${atomswitch}               ${atommssg} ${NC}"
        echo -e " ${white}  ${bootstrapwithsassswitch}  ${bootstrapwsassmssg} ${NC}"
-       echo -e " ${white}  ${browsersswitch}           ${browsersmssg} ${NC}"
+       echo -e " ${white}  ${browserswitch}           ${browsersmssg} ${NC}"
        echo -e " ${white}  ${desktopswitch}            ${desktopsmssg} ${NC}"
        echo -e " ${white}  ${memcachedswitch}          ${memcachedmssg} ${NC}"
        echo -e " ${white}  ${plymouthswitch}           ${plymouthmssg} ${NC}"
@@ -32,9 +33,8 @@ if [ `whoami` != root ]; then
     exit
     4
 fi
-repoinstall="https://github.com/drubutu/install.git"
-repofeatures="https://github.com/drubutu/features.git"
-repodesktops="https://github.com/drubutu/desktops.git"
+repofeatures="https://github.com/drubutu/features/features.git"
+repodesktops="https://github.com/drubutu/desktops/desktops.git"
 fdir="/opt/.drubuntu/features"
 
 if  [  -d "$fdir" ];then
