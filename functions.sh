@@ -427,7 +427,7 @@ ln -s  $PWD/desktopchooser.sh /usr/bin/dru-desktopchooser
 
 plymouthlogo(){
 apt-get install -y plymouth-theme-script #installs script plymouth theme to make changes work.
-dlurl=https://raw.githubusercontent.com/horvan/drubuntu/master/
+dlurl=https://raw.githubusercontent.com/drubuntu/installation/master/
 grubfilesurl=files/grub/
 $pllogourl=$dlurl$grubfilesurl
 savedir=/opt/.drubuntu/drubuntu/
