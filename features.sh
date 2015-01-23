@@ -33,8 +33,8 @@ if [ `whoami` != root ]; then
     exit
     4
 fi
-repofeatures="https://github.com/drubutu/features/features.git"
-repodesktops="https://github.com/drubutu/desktops/desktops.git"
+repofeatures="https://github.com/drubutu/features.git"
+repodesktops="https://github.com/drubutu/desktops.git"
 fdir="/opt/.drubuntu/features"
 
 if  [  -d "$fdir" ];then
