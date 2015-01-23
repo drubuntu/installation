@@ -9,7 +9,7 @@ else
 source $bdir/en.sh
 fi
 
-}
+
 
 
 if [ `whoami` != root ]; then
@@ -42,7 +42,7 @@ function show_help() {							#this is the help text
        echo -e " ${white}  ${varnishshwitch}           ${varnishmssg} ${NC}"
        echo -e " ${white}  ${webexplangsswitch}        ${webexplangsmssg} ${NC}"
        echo -e " ${white}  ${xdebugswitch}             ${xdebugmssg} ${NC}"
-
+}
 case $1 in
     --help)								
         show_help
