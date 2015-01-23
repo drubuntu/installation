@@ -49,8 +49,6 @@ cp "$instrepofolder"/*.sh "$bdir"
 mv "$instrepofolder"/files/quickhelp.txt "$bdir"
 chmod +r "$bdir"/quickhelp.txt
 #removing files not neccecary
-rm "$bdir"/de.sh
-rm "$bdir"/en.sh
 rm "$bdir"/filetemplates.sh
 rm "$bdir"/functions.sh
 rm "$bdir"/install.sh
