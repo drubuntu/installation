@@ -181,7 +181,7 @@ grantprivs(){
  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.drush
  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.composer
  chown -Rh $nameofuser:$nameofuser $HOME
- chmod -R 770 $nameofuser:$nameofuser $HOME/*
+ chmod -R 770  $HOME/*
 }
 #drush installation
 getcomposer(){
@@ -424,8 +424,8 @@ ln -s  $PWD/desktopchooser.sh /usr/bin/dru-desktopchooser
 
 
 plymouthlogo(){
-pllogourl=$HOME/installation/files/grub
-themedir=/lib/plymouth/themes/drubuntu
+pllogourl=$HOME/installation/files/grub/
+themedir=/lib/plymouth/themes/drubuntu/
 grubdir=/etc/default/
 
 file1=drubuntu.grub
