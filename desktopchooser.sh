@@ -1,4 +1,5 @@
 #!/bin/bash
+source $PWD/colors,sh
 if ["$LANGUAGE" == de_DE:];then
 source $PWD/de.sh
 else
