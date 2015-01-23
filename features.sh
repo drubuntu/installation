@@ -9,7 +9,7 @@ fi
 
 
 if [ `whoami` != root ]; then
-    echo "Please run this script as root or using sudo"
+       echo -e " ${lightred}  ${runasrootmssg} ${NC}"
     exit
     4
 fi
@@ -23,20 +23,20 @@ git clone "$repofeatures" .
 cd "$bdir/features" 
 function show_help() {							#this is the help text
     cat << ENDHELP 
---apc				Installs APC cache for php.
---aptana            Installs Aptana IDE and some components to run it.
---aptana-git        Installs git support in Aptana Studio.
---aptana-xdebug	    Installs PDT in aptana to debug Drupal with Xdebug,
---atom              Installs atom text editor - A modular Aptana Studio alternative
---bootstrapwithsass	Installs Bootstrap 3 withsass for Drupal7
---browsers	        Installs a suite of different web browsers.
---desktops          Installs the desktop chooser.
---memcached         Installs Memcached for you.
---plymouth          Installs the drupalicon as  plymouth theme.
---proftpd           Installs a FTP Server with one preset user.  .
---varnish			Installs Varnish HTTP accellarator.
---webexplangs       Installs serveral ruby gems and thier docomentation.
---xdebug            Installs Xdebug for Drupal.
+--apc				echo -e " ${white} ${apcmssg} ${NC}"
+--aptana            echo -e " ${white} ${aptanaidemssg} ${NC}"
+--aptana-git        echo -e " ${white} ${aptanagitmssg} ${NC}"
+--aptana-xdebug	    echo -e " ${white} ${aptanaxdebugmssg} ${NC}"
+--atom              echo -e " ${white} ${atommssg} ${NC}"
+--bootstrapwithsass	echo -e " ${white} ${bootstrapwsassmssg} ${NC}"
+--browsers	        echo -e " ${white} ${browsersmssg} ${NC}"
+--desktops          echo -e " ${white} ${desktopsmssg} ${NC}"
+--memcached         echo -e " ${white} ${memcachedmssg} ${NC}"
+--plymouth          echo -e " ${white} ${plymouthmssg} ${NC}"
+--proftpd           echo -e " ${white} ${proftpdmssg} ${NC}"  .
+--varnish			echo -e " ${white} ${varnishmssg} ${NC}"
+--webexplangs       echo -e " ${white} ${webexplangsmssg} ${NC}"
+--xdebug            echo -e " ${white} ${xdebugmssg} ${NC}"
 ENDHELP
 }
 
