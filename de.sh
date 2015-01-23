@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# welcom messages
+# welcome messages
 heightfin="-"
 wcmssg1="Willkommen zum Setup von Drubuntu!"
 wcmssg2="Dieser Assistent richtet Drubuntu für Sie vollautomatisch ein." 
@@ -43,10 +43,26 @@ bppmssg="Einen Augebnblick bitte ..."
 notifymssg="Sie werden informiert, sobald der Vorgang abgeschlossen ist!"
 thanksmssg="Vielen Dank!"
 yonmssg="Bitte antworten Sie mit [j]a oder [n]ein! "
+rebootmssg="Ihr System wird in Kürze neu gestartet!"
 
 #website hints
 
 infomssg="More Info on https://github.com/horvan/drubuntu/wiki"
+
+#setip 
+
+setipwcmssg="Dieses Script konfiguriert eine Statische Netzwerkasdresse für Windows."
+usingvbmssg="Wenn Sie VirtualBox verwenden tragen wir die Werte automatisch ein!"
+defvbvlsmssg="Es werden die von VirtualBox vergegebenen Standardwerte verwendet."
+enteripmssg="Geben Sie die IP für Ihren Server ein"
+enternsmssg="Geben Sie den netzwerkbereich ein! (Adresse Windows Netzwerkadapter)"
+enternmmssg="Geben Sie Ihre Netzmaske ein! (z. B. 255.255.255.0)"
+enterbcmssg="Geben Sie einen Brodcast ein (Adresse Windows Netzwerkadapter letzter Block 255)"
+usingvbmssg="Sie verwenden VirtualBox"
+ipsetaremssg="Ihre Einstellungen lauten;"
+ifwentwrongipmssg="Sollte etwas schiefgehen besuchen Sie bitte "
+newconfmssg="Die neuen Einstellungen sind nach den nächsten Neustrt verfügbar."
+secondadaptermssg="Vergesen Sie nicht, einen Host-Only-Adapter hinzuzufügen."
 
 #features
 apcmssg="Installiert einen alternativen Zwiechenspeicher für PHP."
@@ -96,9 +112,9 @@ updaterubygemsmssg="Die Ruby Gems werden nun aktuallisiert .."
 bdochanainstallmssg="bdoc und hana werden nun installier .."
 #desktopchooser
 prerequmssg="Installiere benötigte Pakete ..."
-lightdm"Lightdm ist sehr groß, bitte haben Sie einen moment Gedult!"
+lightdm="Lightdm ist sehr groß, bitte haben Sie einen moment Gedult!"
 desktopchoosermssg="Desktopauswahl für Drubuntu"
-choosedesktopmssg"Wählen Sei Ihre gewünschte Arbeitsumgebung!"
+choosedesktopmssg="Wählen Sei Ihre gewünschte Arbeitsumgebung!"
 xtoexitmssg="drückebn Sie x um zur Konsole zurückzukehren."
 choosemssg="Treffen Sie ihre Wahl von 1 - x"
 #messages not used, yet
