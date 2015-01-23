@@ -473,9 +473,12 @@ update-initramfs -u -k all > /dev/null
 }
 
 clean(){
+currentscript=$0
+currentdir=$PWD
 apt -y -qq autoremove >>/dev/null 2>&1
 apt -y -qq clean  >>/dev/null 2>&1
 dpkg --get-selections | grep -v deinstall > "$bdir"/packages-installed.txt  	
+rm -r "$currentdir" "$currentscript"
 if [ -f /etc/profile.d/run.sh ]; then
 rm /etc/profile.d/run.sh 
 fi
