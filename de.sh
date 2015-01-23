@@ -20,8 +20,8 @@ createsymlinksmssg="Symbolische verknüpfungen in Ihrem Heimatverzeichnis werden
 grantprvsmssg="Rechte werden gesetzt ..."
 clngnmssg="Aufräumen"
 #LAMP
-ap2setupmssg="Appache2 wird für Drupal vorbereitet..."
-createmysqldbmssg="MySql Datenbank wird erstellt ---"
+ap2setupmssg="Appache2 wird für Drupal vorbereitet ..."
+createmysqldbmssg="MySql Datenbank wird erstellt ..."
 
 #Drupal
 d7installmssg="Drupal 7 wird installiert ..."
