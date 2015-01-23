@@ -1,6 +1,6 @@
 #!/bin/bash
 #run script for installation and features integration
-source $PWD/colors,sh
+source $PWD/colors.sh
 if ["$LANGUAGE" == de_DE:];then
 source $PWD/de.sh
 else
