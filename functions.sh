@@ -166,7 +166,8 @@ apt -qq -y install  software-properties-common
 }
 
 aptupdate(){
-apt update && apt upgrade 	
+apt update 
+apt -y -qq upgrade 	
 }
 
 
