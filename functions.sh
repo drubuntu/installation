@@ -453,7 +453,7 @@ cp -r  "$file9"  "$themedir"
 cp -r  "$file10" "$themedir" 
 
 
-update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100  
+update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100 >> /dev/null 2>&1  
 update-grub >> /dev/null 2>&1                                  	#update grub.
 update-initramfs -c -k all >> /dev/null 2>&1 						#generate new kernel  .
 update-initramfs -u -k all >> /dev/null 2>&1
