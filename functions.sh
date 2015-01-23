@@ -160,9 +160,9 @@ apt install -qq -y make
 fi
 
 if ! dpkg-query -l build-essential ;  then
-apt install -qq -y build-essential
+apt -qq -y install  build-essential
 fi
-apt install -qq -y software-properties-common
+apt -qq -y install  software-properties-common
 }
 
 aptupdate(){
