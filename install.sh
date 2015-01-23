@@ -1,14 +1,15 @@
 
 #!/bin/bash
 cd ${0%/*}
-source $PWD/colors.sh
-source $PWD/functions.sh
-source $PWD/filetemplates.sh
 if [ "$LANG" == "de_DE.UTF-8" ];then
 source $PWD/de.sh
 else
 source $PWD/en.sh
 fi
+source $PWD/colors.sh
+source $PWD/functions.sh
+source $PWD/filetemplates.sh
+
 #first echo creates space after sudo input
 clear
 echo ""
