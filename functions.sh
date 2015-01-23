@@ -45,7 +45,7 @@ fi
 getfiles(){
 
 #Download files needed by drubuntu to provide functionality.
-cp "$instrepofolder"*.sh "$bdir"
+cp "$instrepofolder"/*.sh "$bdir"
 mv "$instrepofolder"/files/quickhelp.txt
 chmod +x "$bdir"/scripts/*	
 chmod +r "$bdir"/quickhelp.txt
@@ -102,13 +102,13 @@ apt install -qq -y server^
 apt install -qq -y openssh-server^ 
 apt install -qq -y lamp-server^  
 
-if ! dpkg-query -l  curl   
+if ! dpkg-query -l  curl   ;then
 apt -y -qq install curl
 fi
-if ! dpkg-query -l php-pear 
+if ! dpkg-query -l php-pear ;then
 apt install -qq -y php-pear
 fi
-if ! dpkg-query -l php5-dev 
+if ! dpkg-query -l php5-dev ;then
 apt install -qq -y php5-dev
 fi
 if ! dpkg-query -l php5-curl ;then
