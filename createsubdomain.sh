@@ -1,4 +1,11 @@
 #!/bin/bash
+source $PWD/colors,sh
+if ["$LANGUAGE" == de_DE:];then
+source $PWD/de.sh
+else
+source $PWD/en.sh
+fi
+
 if [ `whoami` != root ]; then #checks if the user is root. If The user isn't root the message is printed and the script will be interrupted.
 
     echo "Please run this script as root or using sudo"
