@@ -33,14 +33,12 @@ if [ `whoami` != root ]; then
     exit
     4
 fi
-repofeatures="https://github.com/drubutu/features.git"
-repodesktops="https://github.com/drubutu/desktops.git"
 fdir="/opt/.drubuntu/features"
 
 if  [  -d "$fdir" ];then
 cd "$fdir"
 else
-git clone "$repofeatures" "$fdir" 
+git clone https://github.com/drubutu/features.git "$fdir" 
 cd "$fdir" 
 fi
 
