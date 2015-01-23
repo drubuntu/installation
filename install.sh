@@ -1,5 +1,6 @@
 
 #!/bin/bash
+cd ${0%/*}
 source $PWD/colors.sh
 source $PWD/functions.sh
 source $PWD/filetemplates.sh
