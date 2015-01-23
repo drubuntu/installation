@@ -38,14 +38,14 @@ mydbpass=drupal
 # This command creates the directory structure
 mkdirs(){
 if ! [ -d $bdir ] ;then
-mkdir -p  $bdir  
+mkdir -p  $bdir  >> /dev/null 2>&1
 fi
 }
 # Get files
 getfiles(){
 
 #Download files needed by drubuntu to provide functionality.
-cp "$instrepofolder"/*.sh "$bdir"
+cp "$instrepofolder"/*.sh "$bdir" 
 mv "$instrepofolder"/files/quickhelp.txt "$bdir"
 chmod +r "$bdir"/quickhelp.txt
 #removing files not neccecary
@@ -70,9 +70,9 @@ vtoolsinstaller(){
     #either virtualbox-guest-x11 or open-vm-tools
     platformtest=`dmidecode -s system-product-name`
     if [ "$platformtest" == "VirtualBox" ] ;then 
-    apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms 
+    apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms >> /dev/null 2>&1 
     else
-    apt install -y -qq open-vm-tools xserver-xorg-video-vmware 
+    apt install -y -qq open-vm-tools xserver-xorg-video-vmware  >> /dev/null 2>&1
     fi
     }
 
@@ -80,7 +80,7 @@ vtoolscheck(){
 if ! [ -f /usr/bin/vmware-user ];then
 vtoolsinstaller
 else
-echo -n "VMWare Tools installed allready"
+echo  "VMWare Tools installed allready"
 fi
 }	
 
@@ -168,8 +168,8 @@ apt -qq -y install  software-properties-common
 }
 
 aptupdate(){
-apt update 
-apt -y  upgrade 	
+apt update >> /dev/null 2>&1
+apt -y  upgrade 	>> /dev/null 2>&1
 }
 
 
@@ -267,7 +267,7 @@ source $bdir/drupalcores.sh
 chown -Rh "$nameofuser":www-data "$wwwdir" 
 mkdir -p  "$d7dir"
 wget -O "$bdir"/drupal7.tar.gz $d7core 
-cd "$bdir"&&tar xvfz "$bdir"/drupal7.tar.gz -C "$d7dir" 
+cd "$bdir"&&tar xvfz "$bdir"/drupal7.tar.gz -C "$d7dir"  >> /dev/null 2>&1
 rm "$bdir"/*.tar.gz
 cd "$d7dir"
 cd drup*;
@@ -293,7 +293,7 @@ d8setup(){
 source $bdir/drupalcores.sh
 chown -Rh "$nameofuser":www-data "$wwwdir" 
 mkdir -p  "$d8dir"
-wget -O "$bdir/"drupal8.tar.gz $d8core 
+wget -O "$bdir/"drupal8.tar.gz $d8core >> /dev/null 2>&1
 cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" 
 rm "$bdir"/*.tar.gz
 cd "$d8dir"
@@ -369,7 +369,7 @@ infile="/etc/php5/cli/php.ini"
 shift
 while [ $# -gt 0 ]; do
     shift
-    sed "s/$pattern/#$pattern/" < "$infile""
+    sed "s/$pattern/#$pattern/" < "$infile"
 done
 	}
 
@@ -448,7 +448,7 @@ mv "$pllogourl""$file6 "$themedir"
 mv "$pllogourl""$file7 "$themedir" 
 mv "$pllogourl""$file8 "$themedir" 
 mv "$pllogourl""$file9 "$themedir" 
-mv "$pllogourl""$file10 "$themedir" > /dev/null 2>&1
+mv "$pllogourl""$file10 "$themedir" >> /dev/null 2>&1
 
 
 update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100  
@@ -458,8 +458,8 @@ update-initramfs -u -k all
 }
 
 clean(){
-apt -y -qq autoremove /dev/null 2>&1
-apt -y -qq clean /dev/null 2>&1
+apt -y -qq autoremove >>/dev/null 2>&1
+apt -y -qq clean  >>/dev/null 2>&1
 dpkg --get-selections | grep -v deinstall > "$bdir"/packages-installed.txt  	
 if [ -f /etc/profile.d/run.sh ]; then
 rm /etc/profile.d/run.sh 
