@@ -19,11 +19,54 @@ if [ `whoami` != root ]; then
     4
 fi
 fdir="/opt/.drubuntu/features"
-DLURL=https://raw.githubusercontent.com/drubuntu/features/master
-if  [  -d "$fdir" ];then
-cd "$fdir"
+DIRURL=/opt/.drubuntu/desktops/
+DLURL=https://raw.githubusercontent.com/drubuntu/features/master/
+AGENT="User-Agent: Mozilla/5.0 (Linux; U; Windows NT 5.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12"
+apc=apc.sh
+aptanagitsupport=aptanagitsupport.sh
+aptanaide=aptanaide.sh
+atom=atom.sh
+bootstrapwithsass=bootstrapwithsass.sh
+browsersuite=browsersuite.sh
+memcached=memcached.sh
+plymouthlogo=plymouthlogo.sh
+proftpd=proftpd.sh
+shelled=shelled.sh
+varnish=varnish.sh
+webexplangs=webexplangs.sh
+xdbug-aptana=xdebug-aptana.sh
+xdbug=xdbug.sh
+if ! [  -d "$DIRURL" ];then
+mkdir -p "$DIRURL" 
+curl -Ls -A "$AGENT" -O "$DLURL $apc"
+curl -Ls -A "$AGENT" -O "$DLURL $aptanagitsupport"
+curl -Ls -A "$AGENT" -O "$DLURL $aptanaide"
+curl -Ls -A "$AGENT" -O "$DLURL$atom"
+curl -Ls -A "$AGENT" -O "$DLURL $bootstrapwithsass"
+curl -Ls -A "$AGENT" -O "$DLURL $memcached"
+curl -Ls -A "$AGENT" -O "$DLURL $plymouthlogo"
+curl -Ls -A "$AGENT" -O "$DLURL $proftpd"
+curl -Ls -A "$AGENT" -O "$DLURL $shelled"
+curl -Ls -A "$AGENT" -O "$DLURL $varnish"
+curl -Ls -A "$AGENT" -O "$DLURL $webexplangs"
+curl -Ls -A "$AGENT" -O "$DLURL $xdbug-aptana"
+curl -Ls -A "$AGENT" -O "$DLURL $xdbug"
 else
-mkdir -p "fdir" 
+cd "$DIRURL" 
+rm *.sh
+curl -Ls -A "$AGENT" -O "$DLURL $apc"
+curl -Ls -A "$AGENT" -O "$DLURL $aptanagitsupport"
+curl -Ls -A "$AGENT" -O "$DLURL $aptanaide"
+curl -Ls -A "$AGENT" -O "$DLURL$atom"
+curl -Ls -A "$AGENT" -O "$DLURL $bootstrapwithsass"
+curl -Ls -A "$AGENT" -O "$DLURL $memcached"
+curl -Ls -A "$AGENT" -O "$DLURL $plymouthlogo"
+curl -Ls -A "$AGENT" -O "$DLURL $proftpd"
+curl -Ls -A "$AGENT" -O "$DLURL $shelled"
+curl -Ls -A "$AGENT" -O "$DLURL $varnish"
+curl -Ls -A "$AGENT" -O "$DLURL $webexplangs"
+curl -Ls -A "$AGENT" -O "$DLURL $xdbug-aptana"
+curl -Ls -A "$AGENT" -O "$DLURL $xdbug"
 fi
 function show_help() {							#this is the help text
      
