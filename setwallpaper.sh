@@ -1,3 +1,4 @@
+cd ${0%/*}
 #!/bin/bash
 if [ `whoami` != root ]; then #checks if the user is root. If The user isn't root the message is printed and the script will be interrupted.
 
