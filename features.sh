@@ -8,9 +8,9 @@ source $PWD/en.sh
 fi
 function show_help() {							#this is the help text
      
-       echo -e " ${white} ${doublehighfin} ${apcswith}   ${apcmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${aptanaideswith} ${aptanaidemssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${aptanagitswith} ${aptanagitmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${apcswitch}   ${apcmssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${aptanaideswitch} ${aptanaidemssg} ${NC}"
+       echo -e " ${white} ${doublehighfin} ${aptanagitswitch} ${aptanagitmssg} ${NC}"
        echo -e " ${white} ${doublehighfin} ${aptanaxdebugswitch} ${aptanaxdebugmssg} ${NC}"
        echo -e " ${white} ${doublehighfin} ${atomswitch} ${atommssg} ${NC}"
        echo -e " ${white} ${doublehighfin} ${bootstrapwithsassswitch} ${bootstrapwsassmssg} ${NC}"
