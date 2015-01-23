@@ -7,7 +7,7 @@ source $PWD/en.sh
 fi
 
 if [ `whoami` != root ]; then
-    echo "Please run this script as root or using sudo"
+   echo -e " ${lightred} ${heightfin} ${runasrootmssg} ${NC}"
     exit
     4
 fi
@@ -40,9 +40,9 @@ lightdmfile=/usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf
 
 clear
 #install pre requirements
-echo "Install prerequirements ..."
+echo -e " ${lightgreen}  ${prerequmssg} ${NC}"
 echo ""
-echo "LightDM is big, so be patient, please."
+echo -e " ${orange}  ${lightdmmmsg} ${NC}"
 apt -y  -qq install software-properties-common ppa-purge xorg >>/dev/null  2>&1
 add-apt-repository -y ppa:lightdm-gtk-greeter-team/stable >>/dev/null  2>&1
 apt update >>/dev/null  2>&1
@@ -59,13 +59,13 @@ tput cup 3 19
  
 # Set a foreground colour using ANSI escape
 tput setaf 7
-echo "Drubuntu Desktop Selector"
+echo -e " ${blue}  ${desktopchoosermssg} ${NC}"
 tput sgr0
  
 tput cup 5 19
 # Set reverse video mode
 tput rev
-echo "Choose You're preferred Desktop" 
+echo -e " ${red}  ${choosedesktopmssg} ${NC}"
 
 tput sgr0
  
@@ -97,12 +97,12 @@ tput cup 15 18
 echo "9. Xfce"
 
 tput cup 16 18 
-echo "x to exit."
+echo -e  " ${green}  ${xtoexitmssg} ${NC}"
 
 # Set bold mode 
 tput bold
 tput cup 18 18
-echo -n "Enter your choice [1-x]  choice: "
+echo -e -n " ${white}  ${choosemssg} ${NC}"
 read opt
 tput clear
 tput sgr0
