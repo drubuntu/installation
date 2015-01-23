@@ -1,10 +1,11 @@
 #!/bin/bash
+bdir="/opt/.drubuntu"
 cd ${0%/*}
-source $PWD/colors.sh
+source $bdir/colors.sh
 if [ "$LANG" == "de_DE.UTF-8" ];then
-source $PWD/de.sh
+source $bdir/de.sh
 else
-source $PWD/en.sh
+source $bdir/en.sh
 fi
 
 if [ `whoami` != root ]; then
@@ -13,9 +14,7 @@ if [ `whoami` != root ]; then
     4
 fi
 DIRURL=/opt/.drubuntu/desktops/
-repoinstall="https://github.com/drubutu/install.git"
-repofeatures="https://github.com/drubutu/features.git"
-repodesktops="https://github.com/drubutu/desktops.git"
+repodesktops="https://github.com/drubutu/desktops/desktops.git"
 
 if  [  -d "$DIRURL" ];then
 cd "$DIRURL"
