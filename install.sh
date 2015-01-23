@@ -20,6 +20,7 @@ echo ""
 #basic setup
 echo -e " ${green} ${heightfin} ${aptupdatemssg} ${NC}"
 aptupdate
+echo ""
 echo -e " ${lightgreen} ${heightfin} ${createdirmsg} ${NC}"
 echo ""
 mkdirs
