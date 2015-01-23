@@ -1,5 +1,6 @@
 #!/bin/bash
 #run script for installation and features integration
+cd ${0%/*}
 source $PWD/colors.sh
 if [ "$LANG" == "de_DE.UTF-8" ];then
 source $PWD/de.sh
