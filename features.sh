@@ -40,7 +40,7 @@ fdir="/opt/.drubuntu/features"
 if  [  -d "$fdir" ];then
 cd "$fdir"
 else
-git clone "$repofeatures" "$fdir" >> /dev/null 2>&1
+git clone "$repofeatures" "$fdir" 
 cd "$fdir" 
 fi
 
