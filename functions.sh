@@ -83,6 +83,11 @@ echo -n "VMWare Tools installed allready"
 fi
 }	
 
+updatenodejs(){
+
+echo "updateroutine"
+}
+
 
 #These are the basic dependencies to install.
 getcorepkgs(){
@@ -158,17 +163,13 @@ fi
 if ! dpkg-query -l build-essential  then
 apt install -qq -y build-essential
 fi
-
+apt install -qq -y software-properties-common
 }
 
 aptupdate(){
 apt update && apt upgrade 	
 }
 
-updatenodejs(){
-
-echo" updateroutine"
-}
 
 
 #Grand privileges to the initial user to mke shure it is not root
