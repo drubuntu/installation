@@ -23,20 +23,20 @@ git clone "$repofeatures" .
 cd "$bdir/features" 
 function show_help() {							#this is the help text
     cat << ENDHELP 
---apc				echo -e " ${white} ${apcmssg} ${NC}"
---aptana            echo -e " ${white} ${aptanaidemssg} ${NC}"
---aptana-git        echo -e " ${white} ${aptanagitmssg} ${NC}"
---aptana-xdebug	    echo -e " ${white} ${aptanaxdebugmssg} ${NC}"
---atom              echo -e " ${white} ${atommssg} ${NC}"
+--apc                echo -e " ${white} ${apcmssg} ${NC}"
+--aptana             echo -e " ${white} ${aptanaidemssg} ${NC}"
+--aptana-git         echo -e " ${white} ${aptanagitmssg} ${NC}"
+--aptana-xdebug	echo -e " ${white} ${aptanaxdebugmssg} ${NC}"
+--atom               echo -e " ${white} ${atommssg} ${NC}"
 --bootstrapwithsass	echo -e " ${white} ${bootstrapwsassmssg} ${NC}"
---browsers	        echo -e " ${white} ${browsersmssg} ${NC}"
---desktops          echo -e " ${white} ${desktopsmssg} ${NC}"
---memcached         echo -e " ${white} ${memcachedmssg} ${NC}"
---plymouth          echo -e " ${white} ${plymouthmssg} ${NC}"
---proftpd           echo -e " ${white} ${proftpdmssg} ${NC}"  .
---varnish			echo -e " ${white} ${varnishmssg} ${NC}"
---webexplangs       echo -e " ${white} ${webexplangsmssg} ${NC}"
---xdebug            echo -e " ${white} ${xdebugmssg} ${NC}"
+--browsers	       echo -e " ${white} ${browsersmssg} ${NC}"
+--desktops           echo -e " ${white} ${desktopsmssg} ${NC}"
+--memcached          echo -e " ${white} ${memcachedmssg} ${NC}"
+--plymouth           echo -e " ${white} ${plymouthmssg} ${NC}"
+--proftpd            echo -e " ${white} ${proftpdmssg} ${NC}"  .
+--varnish		echo -e " ${white} ${varnishmssg} ${NC}"
+--webexplangs        echo -e " ${white} ${webexplangsmssg} ${NC}"
+--xdebug             echo -e " ${white} ${xdebugmssg} ${NC}"
 ENDHELP
 }
 
