@@ -8,20 +8,20 @@ source $PWD/en.sh
 fi
 function show_help() {							#this is the help text
      
-       echo -e " ${white} ${doublehighfin} ${apcswitch}   ${apcmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${aptanaideswitch} ${aptanaidemssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${aptanagitswitch} ${aptanagitmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${aptanaxdebugswitch} ${aptanaxdebugmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${atomswitch} ${atommssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${bootstrapwithsassswitch} ${bootstrapwsassmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${browsersswitch} ${browsersmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${desktopswitch} ${desktopsmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${memcachedswitch} ${memcachedmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${plymouthswitch} ${plymouthmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${proftpdswitch}${proftpdmssg} ${NC}"  .
-       echo -e " ${white} ${doublehighfin} ${varnishshwitch} ${varnishmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${webexplangsswitch} ${webexplangsmssg} ${NC}"
-       echo -e " ${white} ${doublehighfin} ${xdebugswitch} ${xdebugmssg} ${NC}"
+       echo -e " ${white} ${apcswitch} ${doublehighfin}   ${apcmssg} ${NC}"
+       echo -e " ${white}  ${aptanaideswitch} ${aptanaidemssg} ${NC}"
+       echo -e " ${white}  ${aptanagitswitch} ${aptanagitmssg} ${NC}"
+       echo -e " ${white}  ${aptanaxdebugswitch} ${aptanaxdebugmssg} ${NC}"
+       echo -e " ${white}  ${atomswitch} ${atommssg} ${NC}"
+       echo -e " ${white}  ${bootstrapwithsassswitch} ${bootstrapwsassmssg} ${NC}"
+       echo -e " ${white}  ${browsersswitch} ${browsersmssg} ${NC}"
+       echo -e " ${white}  ${desktopswitch} ${desktopsmssg} ${NC}"
+       echo -e " ${white}  ${memcachedswitch} ${memcachedmssg} ${NC}"
+       echo -e " ${white}  ${plymouthswitch} ${plymouthmssg} ${NC}"
+       echo -e " ${white}  ${proftpdswitch}${proftpdmssg} ${NC}"  .
+       echo -e " ${white}  ${varnishshwitch} ${varnishmssg} ${NC}"
+       echo -e " ${white}  ${webexplangsswitch} ${webexplangsmssg} ${NC}"
+       echo -e " ${white}  ${xdebugswitch} ${xdebugmssg} ${NC}"
 
 }
 
