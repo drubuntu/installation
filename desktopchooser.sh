@@ -27,24 +27,29 @@ mate="$DLURL"mate.sh
 pantheon="$DLURL"pantheon.sh
 unity="$DLURL"unity.sh
 xfce="$DLURL"xfce.sh
+
+function download(){
+echo -e "${lightgreen} ${fetchfeaturesssg} ${NC}"
+curl -A "$AGENT" -s  -o "$DIRURL" cinnamon.sh "$cinnamon"
+curl -A "$AGENT" -s  -o "$DIRURL" deepin.sh "$deepin"
+curl -A "$AGENT" -s  -o "$DIRURL" enlightenment.sh "$enlightenment"
+curl -A "$AGENT" -s  -o "$DIRURL" evolve.sh "$evolve"
+curl -A "$AGENT" -s  -o "$DIRURL" gnome3.sh "$gnome3"
+curl -A "$AGENT" -s  -o "$DIRURL" kde.sh "$kde"
+curl -A "$AGENT" -s  -o "$DIRURL" lxde.sh "$lxde"
+curl -A "$AGENT" -s  -o "$DIRURL" mate.sh "$mate"
+curl -A "$AGENT" -s  -o "$DIRURL" pantheon.sh "$pantheon"
+curl -A "$AGENT" -s  -o "$DIRURL" unity.sh "$unity"
+curl -A "$AGENT" -s  -o "$DIRURL" xfce.sh "$xfce"
+}
+
+
 if ! [  -d "$DIRURL" ];then
 mkdir -p "$DIRURL" 
 else
 rm "$DIRURL"
 mkdir -p "$DIRURL"
 fi
-cd "$DIRUL"
-curl -Ls -A "$AGENT" -O "$cinnamon"
-curl -Ls -A "$AGENT" -O "$deepin"
-curl -Ls -A "$AGENT" -O "$e19"
-curl -Ls -A "$AGENT" -O "$evolve"
-curl -Ls -A "$AGENT" -O "$gnome3"
-curl -Ls -A "$AGENT" -O "$kde"
-curl -Ls -A "$AGENT" -O "$lxde"
-curl -Ls -A "$AGENT" -O "$mate"
-curl -Ls -A "$AGENT" -O "$pantheon"
-curl -Ls -A "$AGENT" -O "$unity"
-curl -Ls -A "$AGENT" -O "$xface"
 
 
 
