@@ -4,7 +4,7 @@
 heightfin="-"
 wcmssg1="Welcome to Drubuntu!"
 wcmssg2="This assistant sets up Drubutu automatically." 
-wcmssg3="These are just the basics. You can add more features later"
+wcmssg3="These are just the basics. You can add more features later."
 
 #messages acording to the file system
 aptupdatemssg="updateing Ubuntu's repositories  ..."
