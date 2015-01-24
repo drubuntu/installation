@@ -36,7 +36,7 @@ vnsh="$DLURL"varnish.sh
 webex="$DLURL"webexplangs.sh
 xdbug="$DLURL"xdebug.sh
 function download(){
-
+echo -e "${lightgreen} ${fetchfeaturesssg} ${NC}"
 curl -A "$AGENT" -s  -o "$DIRURL"apc.sh "$apc"
 curl -A "$AGENT" -s  -o "$DIRURL"aptanagitsupport.sh "$aptanagit"
 curl -A "$AGENT" -s  -o "$DIRURL"aptanaide.sh "$aptanaide"
