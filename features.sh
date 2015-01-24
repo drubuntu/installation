@@ -87,39 +87,39 @@ case $1 in
     --apc)
 echo -e " ${white}  ${needpassmssg} ${shortapcmssg} ${toyoursystemmssg} ${NC}"
 
-sudo bash apc.sh
+sudo bash "$DIRURL"/apc.sh
 
     ;;
 
     --aptana)								#the following commands download features install them and remove the files before finishing
 echo -e " ${white}  ${needpassmssg} ${shortaptanaidemssg} ${toyoursystemmssg} ${NC}"
-sudo bash aptanaide.sh
+sudo bash "$DIRURL"aptanaide.sh
     ;;
 --aptana-git)
 echo -e " ${white}  ${needpassmssg} ${shortaptanagitmssg} ${toyoursystemmssg} ${NC}"
-sudo bash aptanagitsupport.sh
+sudo bash "$DIRURL"aptanagitsupport.sh
     ;;
 
 --aptanaxdebug)
 echo -e " ${white}  ${needpassmssg} ${shortaptanaxdvugmssg} ${toyoursystemmssg} ${NC}"
-sudo bash aptanaxdbug.sh
+sudo bash "$DIRURL"aptanaxdbug.sh
     ;;
 
 --atom)
 echo -e " ${white}  ${needpassmssg} ${shortatommssg} ${toyoursystemmssg} ${NC}"
-sudo bash atom.sh >>/dev/null 2>&1
+sudo bash "$DIRURL"/atom.sh >>/dev/null 2>&1
     ;;
 
 
 
 --memcached)
 echo -e " ${white}  ${needpassmssg} ${shortmemcachedmssg} ${toyoursystemmssg} ${NC}"
-sudo bash memcached.sh
+sudo bash "$DIRURL"memcached.sh
     ;;
 
 --proftpd)
 echo -e " ${white}  ${needpassmssg} ${shortüroftpdmssg} ${toyoursystemmssg} ${NC}"
-sudo  bash proftpd.sh
+sudo  bash "$DIRURL"proftpd.sh
     ;;
     --xdebug)
 echo -e " ${white}  ${needpassmssg} ${shortxdebugmssg} ${toyoursystemmssg} ${NC}"
@@ -127,7 +127,7 @@ sudo bash xdebug.sh
     ;;
 --plymouth)
 echo -e " ${white}  ${needpassmssg} ${shortplymouthmssg} ${toyoursystemmssg} ${NC}"
-sudo bash plymouthlogo.sh
+sudo bash "$DIRURL"plymouthlogo.sh
     ;;
     --webexplangs)
 echo -e " ${white}  ${needpassmssg} ${shortwebexplangsmssg} ${toyoursystemmssg} ${NC}"
@@ -135,16 +135,16 @@ sudo bash webexplangs.sh
     ;;
     --varnish)
 echo -e " ${white}  ${needpassmssg} ${shortvarnishmssg} ${toyoursystemmssg} ${NC}"
-sudo bash varnish.sh
+sudo bash "$DIRURL"varnish.sh
     ;;
 --browsers)
 echo -e " ${white}  ${needpassmssg} ${shortbrowsersmssg} ${toyoursystemmssg} ${NC}"
-sudo bash browsersuite.sh
+sudo bash "$DIRURL"browsersuite.sh
 ;;
 
 --bootstrap)
 echo -e " ${white}  ${needpassmssg} ${shortshortbootstrapwsassmssgmssg} ${toyoursystemmssg} ${NC}"
-sudo bash bootstrapwithsass.sh
+sudo bash "$DIRURL"bootstrapwithsass.sh
 ;;
 
 *)
