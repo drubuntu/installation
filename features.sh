@@ -37,20 +37,20 @@ webex="$DLURL"webexplangs.sh
 xdbug="$DLURL"xdbug.sh
 function download(){
 
-curl -A "$AGENT"  -o apc.sh "$apc"
-curl -A "$AGENT"  -o aptanagitsupport.sh "$aptanagit"
-curl -A "$AGENT"  -o aptanaide.sh "$aptanaide"
-curl -A "$AGENT"  -o aptanaxdebug.sh "$aptanaxdebug"
-curl -A "$AGENT"  -o atom.sh "$atom"
-curl -A "$AGENT"  -o bootstrapwithsass.sh "$bootstrap"
-curl -A "$AGENT"  -o browsersuite.sh "$browsers"
-curl -A "$AGENT"  -o memcached.sh "$memc"
-curl -A "$AGENT"  -o plymouthlogo.sh "$pllogo"
-curl -A "$AGENT"  -o proftpd.sh "$pftpd"
-curl -A "$AGENT"  -o shelled.sh "$shed"
-curl -A "$AGENT"  -o varnish.sh "$vnsh"
-curl -A "$AGENT"  -o webexplangs.sh "$webex"
-curl -A "$AGENT"  -o xdbug.sh "$xdbug"
+curl -A "$AGENT"  -o "$DIRURL"apc.sh "$apc"
+curl -A "$AGENT"  -o "$DIRURL"aptanagitsupport.sh "$aptanagit"
+curl -A "$AGENT"  -o "$DIRURL"aptanaide.sh "$aptanaide"
+curl -A "$AGENT"  -o "$DIRURL"aptanaxdebug.sh "$aptanaxdebug"
+curl -A "$AGENT"  -o "$DIRURL"atom.sh "$atom"
+curl -A "$AGENT"  -o "$DIRURL"bootstrapwithsass.sh "$bootstrap"
+curl -A "$AGENT"  -o "$DIRURL"browsersuite.sh "$browsers"
+curl -A "$AGENT"  -o "$DIRURL"memcached.sh "$memc"
+curl -A "$AGENT"  -o "$DIRURL"plymouthlogo.sh "$pllogo"
+curl -A "$AGENT"  -o "$DIRURL"proftpd.sh "$pftpd"
+curl -A "$AGENT"  -o "$DIRURL"shelled.sh "$shed"
+curl -A "$AGENT"  -o "$DIRURL"varnish.sh "$vnsh"
+curl -A "$AGENT"  -o "$DIRURL"webexplangs.sh "$webex"
+curl -A "$AGENT"  -o "$DIRURL"xdbug.sh "$xdbug"
 
 
 }
