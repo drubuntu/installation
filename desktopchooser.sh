@@ -1,4 +1,5 @@
 #!/bin/bash
+#run script for installation and features integration
 bdir="/opt/.drubuntu"
 cd ${0%/*}
 source $bdir/colors.sh
@@ -8,8 +9,12 @@ else
 source $bdir/en.sh
 fi
 
+
+
+
 if [ `whoami` != root ]; then
-   echo -e " ${lightred} ${heightfin} ${runasrootmssg} ${NC}"
+echo -e " ${white}  ${runhlpmssg} ${NC}"
+echo -e " ${lightred}  ${runasrootmssg} ${NC}"
     exit
     4
 fi
@@ -30,17 +35,17 @@ xfce="$DLURL"xfce.sh
 
 function download(){
 echo -e "${lightgreen} ${fetchfeaturesssg} ${NC}"
-curl -A "$AGENT" -s  -o "$DIRURL" cinnamon.sh "$cinnamon"
-curl -A "$AGENT" -s  -o "$DIRURL" deepin.sh "$deepin"
-curl -A "$AGENT" -s  -o "$DIRURL" enlightenment.sh "$enlightenment"
-curl -A "$AGENT" -s  -o "$DIRURL" evolve.sh "$evolve"
-curl -A "$AGENT" -s  -o "$DIRURL" gnome3.sh "$gnome3"
-curl -A "$AGENT" -s  -o "$DIRURL" kde.sh "$kde"
-curl -A "$AGENT" -s  -o "$DIRURL" lxde.sh "$lxde"
-curl -A "$AGENT" -s  -o "$DIRURL" mate.sh "$mate"
-curl -A "$AGENT" -s  -o "$DIRURL" pantheon.sh "$pantheon"
-curl -A "$AGENT" -s  -o "$DIRURL" unity.sh "$unity"
-curl -A "$AGENT" -s  -o "$DIRURL" xfce.sh "$xfce"
+curl -A "$AGENT" -s  -o "$DIRURL"cinnamon.sh "$cinnamon"
+curl -A "$AGENT" -s  -o "$DIRURL"deepin.sh "$deepin"
+curl -A "$AGENT" -s  -o "$DIRURL"enlightenment.sh "$enlightenment"
+curl -A "$AGENT" -s  -o "$DIRURL"evolve.sh "$evolve"
+curl -A "$AGENT" -s  -o "$DIRURL"gnome3.sh "$gnome3"
+curl -A "$AGENT" -s  -o "$DIRURL"kde.sh "$kde"
+curl -A "$AGENT" -s  -o "$DIRURL"lxde.sh "$lxde"
+curl -A "$AGENT" -s  -o "$DIRURL"mate.sh "$mate"
+curl -A "$AGENT" -s  -o "$DIRURL"pantheon.sh "$pantheon"
+curl -A "$AGENT" -s  -o "$DIRURL"unity.sh "$unity"
+curl -A "$AGENT" -s  -o "$DIRURL"xfce.sh "$xfce"
 }
 
 
