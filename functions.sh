@@ -25,7 +25,7 @@ featuresrepofolder=$HOME/features/
 desktopsrepofolder=$HOME/desktops/
 bdir=/opt/.drubuntu
 #files and folders affected by installation
-query="dpkg-query -W -f='${Status}' \n"
+query="dpkg-query -W -f='${Status}'"
 ok="install ok"
 ap2_cffile_d7=drupal7.conf
 ap2_cffile_d8=drupal8.conf
@@ -120,7 +120,7 @@ fi
 if ! [ `$query` php5-curl == "$ok" ] ;then
 apt install -qq -y php5-curl >> /dev/null 2>&1
 fi
-if ! [ `$query` php5-json` == "$ok" ] ;then
+if ! [ `$query` php5-json == "$ok" ] ;then
 apt install -qq -y php5-json >> /dev/null 2>&1
 fi
 if ! [ `$query` php5-gd == "$ok" ] ;then  
@@ -129,7 +129,7 @@ fi
 if ! [ `$query` git == "$ok" ] ;then 
 apt install -qq -y git >> /dev/null 2>&1
 fi
-if ! [ `$query` git-core` == "$ok" ] ;then
+if ! [ `$query` git-core == "$ok" ] ;then
 apt install -qq -y git-core >> /dev/null 2>&1
 fi
 if ! [ `$query` ruby1.9.1-full == "$ok" ] ;then
