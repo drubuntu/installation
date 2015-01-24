@@ -42,7 +42,7 @@ curl -A "$AGENT"
 curl -A "$AGENT"  -o apc.sh "$apc"
 curl -A "$AGENT"  -o aptanagitsupport.sh "$aptanagit"
 curl -A "$AGENT"  -o aptanaide.sh "$aptana"
-curl -A "$AGENT"  -o aptanaxdebug.sh "$aptanaxdbug"
+curl -A "$AGENT"  -o aptanaxdebug.sh "$aptanaxdebug"
 curl -A "$AGENT"  -o atom.sh "$atom"
 curl -A "$AGENT"  -o bootstrapwithsass.sh "$bootstrap"
 curl -A "$AGENT"  -o browsersuite.sh "$browsers"
@@ -52,7 +52,7 @@ curl -A "$AGENT"  -o proftpd.sh "$pftpd"
 curl -A "$AGENT"  -o shelled.sh "$shed"
 curl -A "$AGENT"  -o varnish.sh "$vnsh"
 curl -A "$AGENT"  -o webexplangs.sh "$webex"
-curl -A "$AGENT"  -o xdbug.sh "$xdebug"
+curl -A "$AGENT"  -o xdbug.sh "$xdbug"
 
 
 }
