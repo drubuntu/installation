@@ -36,19 +36,21 @@ varnish="$DLURL"varnish.sh
 webexplangs="$DLURL"webexplangs.sh
 xdbug="$DLURL"xdbug.sh
 function download(){
-curl -Ls -A "$AGENT" -O $apc 
-curl -Ls -A "$AGENT" -O $aptanagitsupport 
-curl -Ls -A "$AGENT" -O $aptanaide 
-curl -Ls -A "$AGENT" -O $atom 
-curl -Ls -A "$AGENT" -O $bootstrapwithsass 
-curl -Ls -A "$AGENT" -O $memcached 
-curl -Ls -A "$AGENT" -O $plymouthlogo 
-curl -Ls -A "$AGENT" -O $proftpd 
-curl -Ls -A "$AGENT" -O $shelled 
-curl -Ls -A "$AGENT" -O $varnish 
-curl -Ls -A "$AGENT" -O $webexplangs 
-curl -Ls -A "$AGENT" -O $aptanaxdbug 
-curl -Ls -A "$AGENT" -O $xdbug 
+
+curl -A "$AGENT" -L -o atom.sh "$apc"
+curl -A "$AGENT" -L -o atom.sh "$aptanagitsupport"
+curl -A "$AGENT" -L -o atom.sh "$aptanaide"
+curl -A "$AGENT" -L -o atom.sh "$aptanaxdebug"
+curl -A "$AGENT" -L -o atom.sh "$atom"
+curl -A "$AGENT" -L -o atom.sh "$bootstrapwithsass"
+curl -A "$AGENT" -L -o atom.sh "$browsersuite"
+curl -A "$AGENT" -L -o atom.sh "$memcached"
+curl -A "$AGENT" -L -o atom.sh "$plymouthlogo"
+curl -A "$AGENT" -L -o atom.sh "$shelled"
+curl -A "$AGENT" -L -o atom.sh "$varnish"
+curl -A "$AGENT" -L -o atom.sh "$webexplangs"
+curl -A "$AGENT" -L -o atom.sh "$xdbug"
+    
 }
 
 if ! [  -d "$DIRURL" ];then
