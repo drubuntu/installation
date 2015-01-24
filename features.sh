@@ -37,11 +37,9 @@ webex="$DLURL"webexplangs.sh
 xdbug="$DLURL"xdbug.sh
 function download(){
 
-curl -A "$AGENT"  
-
 curl -A "$AGENT"  -o apc.sh "$apc"
 curl -A "$AGENT"  -o aptanagitsupport.sh "$aptanagit"
-curl -A "$AGENT"  -o aptanaide.sh "$aptana"
+curl -A "$AGENT"  -o aptanaide.sh "$aptanaide"
 curl -A "$AGENT"  -o aptanaxdebug.sh "$aptanaxdebug"
 curl -A "$AGENT"  -o atom.sh "$atom"
 curl -A "$AGENT"  -o bootstrapwithsass.sh "$bootstrap"
