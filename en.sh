@@ -65,7 +65,7 @@ newconfmssg="Your new settings are available after next reboot."
 secondadaptermssg="don't forget to add an host only adapter."
 
 #features
-
+runhlpmssg="add  --help."
 apcswitch="--apc"
 aptanaideswitch="--aptana"
 aptanagitswitch="--aptana-git"
