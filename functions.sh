@@ -25,6 +25,7 @@ featuresrepofolder=$HOME/features/
 desktopsrepofolder=$HOME/desktops/
 bdir=/opt/.drubuntu
 #files and folders affected by installation
+ok="install ok"
 ap2_cffile_d7=drupal7.conf
 ap2_cffile_d8=drupal8.conf
 ap2sitedir=/etc/apache2/sites-aviable/
@@ -102,65 +103,66 @@ apt install -qq -y server^ >> /dev/null 2>&1
 apt install -qq -y openssh-server^ >> /dev/null 2>&1
 apt install -qq -y lamp-server^  >> /dev/null 2>&1
 
-if ! [ dpkg-query -l software-properties-common ] ;then
+if [ dpkg-query -W -f='${Status}' \n software-properties-common =="$ok" ]  ;then
 apt -qq -y install  software-properties-common >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l  curl ] ;then 
+
+if ! [ dpkg-query -W -f='${Status}' \n  curl == "$ok" ] ;then 
 apt -y -qq install curl >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l php-pear ] ;then
+if ! [ dpkg-query -W -f='${Status}' \n php-pear == "$ok" ] ;then
 apt install -qq -y php-pear >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l php5-dev ] ;then
+if ! [dpkg-query -W -f='${Status}' \n php5-dev == "$ok" ] ;then
 apt install -qq -y php5-dev >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l php5-curl ] ;then
+if ! [ dpkg-query -W -f='${Status}' \n php5-curl == "$ok" ] ;then
 apt install -qq -y php5-curl >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l php5-json ] ;then
+if ! [ dpkg-query -W -f='${Status}' \n php5-json == "$ok" ] ;then
 apt install -qq -y php5-json >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l php5-gd ] ;then  
+if ! [ dpkg-query -W -f='${Status}' \n php5-gd == "$ok" ] ;then  
 apt install -qq -y php5-gd >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l git ] ;then 
+if ! [ dpkg-query -W -f='${Status}' \n git == "$ok" ] ;then 
 apt install -qq -y git >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l git-core ] ;then
+if ! [ dpkg-query -W -f='${Status}' \n git-core == "$ok" ] ;then
 apt install -qq -y git-core >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l ruby1.9.1-full ] ;then
+if ! [ dpkg-query -W -f='${Status}' \n ruby1.9.1-full == "$ok" ] ;then
 apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l libapache2-mod-php5 ] ;then
+if ! [ dpkg-query -W -f='${Status}' \n libapache2-mod-php5 == "$ok" ] ;then
 apt install -qq -y -qq libapache2-mod-php5 >> /dev/null 2>&1 
 fi
-if ! [ dpkg-query -l php5-mcrypt ] ; then
+if ! [ dpkg-query -W -f='${Status}' \n php5-mcrypt == "$ok" ] ; then
 apt install -qq -y -qq php5-mcrypt >> /dev/null 2>&1
 fi
 
-if ! [ dpkg-query -l  php5-gd ] ; then
+if ! [ dpkg-query -W -f='${Status}' \n  php5-gd == "$ok" ] ; then
 apt install -qq -y -qq  php5-gd >> /dev/null 2>&1
 fi
 
-if ! [ dpkg-query -l  php5-dev ]  ; then
+if ! [ dpkg-query -W -f='${Status}' \n  php5-dev == "$ok" ]  ; then
 apt install -qq -y -qq  php5-dev >> /dev/null 2>&1
 fi
 
-if ! [ dpkg-query -l make ] ; then
+if ! [ dpkg-query -W -f='${Status}' \n make == "$ok" ] ; then
 apt install -qq -y make >> /dev/null 2>&1
 fi
 
-if ! [ dpkg-query -l build-essential ] ;  then
+if ! [ dpkg-query -W -f='${Status}' \n build-essential == "$ok" ] ;  then
 apt -qq -y install  build-essential >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l nodejs ] ;then
+if ! [ dpkg-query -W -f='${Status}' \n nodejs == "$ok" ] ;then
 updatenodejs >> /dev/null 2>&1
 fi
-if ! [ dpkg-query -l nodejs-legacy ] ; then
+if ! [ dpkg-query -W -f='${Status}' \n nodejs-legacy == "$ok" ] ; then
 apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
 fi
-if ! [ dpkg-query -l npm ] ;then
+if ! [ dpkg-query -W -f='${Status}' \n npm == "$ok" ] ;then
 apt install -qq -y  npm >> /dev/null 2>&1
 fi
 
