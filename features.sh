@@ -34,7 +34,7 @@ pftpd="$DLURL"proftpd.sh
 shed="$DLURL"shelled.sh
 vnsh="$DLURL"varnish.sh
 webex="$DLURL"webexplangs.sh
-xdbug="$DLURL"xdbug.sh
+xdbug="$DLURL"xdebug.sh
 function download(){
 
 curl -A "$AGENT"  -o "$DIRURL"apc.sh "$apc"
@@ -50,7 +50,7 @@ curl -A "$AGENT"  -o "$DIRURL"proftpd.sh "$pftpd"
 curl -A "$AGENT"  -o "$DIRURL"shelled.sh "$shed"
 curl -A "$AGENT"  -o "$DIRURL"varnish.sh "$vnsh"
 curl -A "$AGENT"  -o "$DIRURL"webexplangs.sh "$webex"
-curl -A "$AGENT"  -o "$DIRURL"xdbug.sh "$xdbug"
+curl -A "$AGENT"  -o "$DIRURL"xdebug.sh "$xdbug"
 
 
 }
