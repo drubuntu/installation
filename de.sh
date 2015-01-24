@@ -66,6 +66,7 @@ secondadaptermssg="Vergesen Sie nicht, einen Host-Only-Adapter hinzuzufügen."
 
 #features
 runhlpmssg="rufen Sie den Befehl mit  --help auf."
+fetchfeaturesssg="Rufe aktuelle Liste von Server ab"
 apcswitch="--apc"
 aptanaideswitch="--aptana"
 aptanagitswitch="--aptana-git"
