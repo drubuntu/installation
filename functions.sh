@@ -431,7 +431,8 @@ dlurl="https://raw.githubusercontent.com/drubuntu/installation/master/"
 grubfilesurl=files/grub/
 $pllogourl=$dlurl$grubfilesurl
 savedir=$instrepofolder/files/grub
-plymouththemedir=/lib/plymouth/themes/drubuntu
+pltheme=$instrepofolder/files/grub
+plymouththemedir=/lib/plymouth/themes
 grubdir=/etc/default/
 
 file1=drubuntu.grub
@@ -444,23 +445,12 @@ file7=password_field.png
 file88=password_field16.png
 file9=ubuntu_logo.png
 file10=ubuntu_logo16.png
-cd /opt/.drubuntu
-
 mkdir -p "$plymouththemedir" 
-mv grub.file grub
+mv "$savedir"grub.file grub
 cp -r "$savedir"grub  "$grubdir"				#copy file to /etc/default and replace existing file.
-$savedir"$file"2 "$plymouththemedir"
-$savedir"$file3" "$plymouththemedir"
-$savedir"$file4" "$plymouththemedir"
-$savedir"$file5" "$plymouththemedir"
-$savedir"$file6" "$plymouththemedir"
-$savedir"$file7" "$plymouththemedir"
-$savedir"$file8" "$plymouththemedir"
-$savedir"$file9" "$plymouththemedir"
-$savedir"$file10" "$plymouththemedir"
-rm "$savedir"$file1
+mv "$savedir" "$pltheme" "$plymouththemedir"
+cp -r "$pltheme"  #removes savedir for cleanup.
 
-rm -r "$savedir"									#removes savedir for cleanup.
 cd													#the next line sets up drubuntu plymouth theme as default.
 update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100 >/dev/null 
 update-grub >> /dev/null                                  	#update grub.
