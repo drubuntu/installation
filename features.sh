@@ -14,6 +14,7 @@ fi
 
 if [ `whoami` != root ]; then
 echo -e " ${lightred}  ${runasrootmssg} ${NC}"
+echo -e " ${white}  ${runhlptmssg} ${NC}"
     exit
     4
 fi
@@ -37,19 +38,19 @@ webexplangs=webexplangs.sh
 xdbug=xdbug.sh
 if ! [  -d "$DIRURL" ];then
 mkdir -p "$DIRURL" 
-curl -Ls -A "$AGENT" -O "$DLURL $apc"
-curl -Ls -A "$AGENT" -O "$DLURL $aptanagitsupport"
-curl -Ls -A "$AGENT" -O "$DLURL $aptanaide"
-curl -Ls -A "$AGENT" -O "$DLURL$atom"
-curl -Ls -A "$AGENT" -O "$DLURL $bootstrapwithsass"
-curl -Ls -A "$AGENT" -O "$DLURL $memcached"
-curl -Ls -A "$AGENT" -O "$DLURL $plymouthlogo"
-curl -Ls -A "$AGENT" -O "$DLURL $proftpd"
-curl -Ls -A "$AGENT" -O "$DLURL $shelled"
-curl -Ls -A "$AGENT" -O "$DLURL $varnish"
-curl -Ls -A "$AGENT" -O "$DLURL $webexplangs"
-curl -Ls -A "$AGENT" -O "$DLURL $aptanaxdbug"
-curl -Ls -A "$AGENT" -O "$DLURL $xdbug"
+curl -Ls -A "$AGENT" -O $DLURL$apc
+curl -Ls -A "$AGENT" -O $DLURL$aptanagitsupport
+curl -Ls -A "$AGENT" -O $DLURL$aptanaide
+curl -Ls -A "$AGENT" -O $DLURL$atom
+curl -Ls -A "$AGENT" -O $DLURL$bootstrapwithsass
+curl -Ls -A "$AGENT" -O $DLURL$memcached
+curl -Ls -A "$AGENT" -O $DLURL$plymouthlogo
+curl -Ls -A "$AGENT" -O $DLURL$proftpd
+curl -Ls -A "$AGENT" -O $DLURL$shelled
+curl -Ls -A "$AGENT" -O $DLURL$varnish
+curl -Ls -A "$AGENT" -O $DLURL$webexplangs
+curl -Ls -A "$AGENT" -O $DLURL$aptanaxdbug
+curl -Ls -A "$AGENT" -O $DLURL$xdbug
 else
 cd "$DIRURL" 
 rm *.sh
@@ -165,6 +166,6 @@ sudo bash bootstrapwithsass.sh
 ;;
 
 *)
-        echo "Run $0 --help"
+    echo -e " ${white}  ${runhlptmssg} ${NC}"
     ;;
 esac
