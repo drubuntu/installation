@@ -22,35 +22,39 @@ DIRURL=/opt/.drubuntu/features/
 DLURL=https://raw.githubusercontent.com/drubuntu/features/master/
 AGENT="User-Agent: Mozilla/5.0 (Linux; U; Windows NT 5.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12"
 apc="$DLURL"apc.sh
-aptanagitsupport="$DLURL"aptanagitsupport.sh
+aptanagit="$DLURL"aptanagitsupport.sh
 aptanaide="$DLURL"aptanaide.sh
 aptanaxdebug="$DLURL"aptanaxdebug.sh
 atom="$DLURL"atom.sh
-bootstrapwithsass="$DLURL"bootstrapwithsass.sh
-browsersuite="$DLURL"browsersuite.sh
-memcached="$DLURL"memcached.sh
-plymouthlogo="$DLURL"plymouthlogo.sh
-proftpd="$DLURL"proftpd.sh
-shelled="$DLURL"shelled.sh
-varnish="$DLURL"varnish.sh
-webexplangs="$DLURL"webexplangs.sh
+bootstrap="$DLURL"bootstrapwithsass.sh
+browsers="$DLURL"browsersuite.sh
+memc="$DLURL"memcached.sh
+pllogo="$DLURL"plymouthlogo.sh
+pftpd="$DLURL"proftpd.sh
+shed="$DLURL"shelled.sh
+vnsh="$DLURL"varnish.sh
+webex="$DLURL"webexplangs.sh
 xdbug="$DLURL"xdbug.sh
 function download(){
 
-curl -A "$AGENT" -L -o atom.sh "$apc"
-curl -A "$AGENT" -L -o atom.sh "$aptanagitsupport"
-curl -A "$AGENT" -L -o atom.sh "$aptanaide"
-curl -A "$AGENT" -L -o atom.sh "$aptanaxdebug"
-curl -A "$AGENT" -L -o atom.sh "$atom"
-curl -A "$AGENT" -L -o atom.sh "$bootstrapwithsass"
-curl -A "$AGENT" -L -o atom.sh "$browsersuite"
-curl -A "$AGENT" -L -o atom.sh "$memcached"
-curl -A "$AGENT" -L -o atom.sh "$plymouthlogo"
-curl -A "$AGENT" -L -o atom.sh "$shelled"
-curl -A "$AGENT" -L -o atom.sh "$varnish"
-curl -A "$AGENT" -L -o atom.sh "$webexplangs"
-curl -A "$AGENT" -L -o atom.sh "$xdbug"
-    
+curl -A "$AGENT"  
+
+curl -A "$AGENT"  -o apc.sh "$apc"
+curl -A "$AGENT"  -o aptanagitsupport.sh "$aptanagit"
+curl -A "$AGENT"  -o aptanaide.sh "$aptana"
+curl -A "$AGENT"  -o aptanaxdebug.sh "$aptanaxdbug"
+curl -A "$AGENT"  -o atom.sh "$atom"
+curl -A "$AGENT"  -o bootstrapwithsass.sh "$bootstrap"
+curl -A "$AGENT"  -o browsersuite.sh "$browsers"
+curl -A "$AGENT"  -o memcached.sh "$memc"
+curl -A "$AGENT"  -o plymouthlogo.sh "$pllogo"
+curl -A "$AGENT"  -o proftpd.sh "$pftpd"
+curl -A "$AGENT"  -o shelled.sh "$shed"
+curl -A "$AGENT"  -o varnish.sh "$vnsh"
+curl -A "$AGENT"  -o webexplangs.sh "$webex"
+curl -A "$AGENT"  -o xdbug.sh "$xdebug"
+
+
 }
 
 if ! [  -d "$DIRURL" ];then
