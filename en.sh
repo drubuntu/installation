@@ -66,6 +66,8 @@ secondadaptermssg="don't forget to add an host only adapter."
 
 #features
 runhlpmssg="add  --help."
+fetchfeaturesssg="fetching current list from server ..."
+
 apcswitch="--apc"
 aptanaideswitch="--aptana"
 aptanagitswitch="--aptana-git"
