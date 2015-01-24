@@ -106,7 +106,7 @@ if ! [ dpkg-query -l software-properties-common ] ;then
 apt -qq -y install  software-properties-common >> /dev/null 2>&1
 fi
 if ! [ dpkg-query -l  curl ] ;then 
-apt -y -qq install curl 
+apt -y -qq install curl >> /dev/null 2>&1
 fi
 if ! [ dpkg-query -l php-pear ] ;then
 apt install -qq -y php-pear >> /dev/null 2>&1
