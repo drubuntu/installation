@@ -25,8 +25,8 @@ featuresrepofolder=$HOME/features/
 desktopsrepofolder=$HOME/desktops/
 bdir=/opt/.drubuntu
 #files and folders affected by installation
-query=`dpkg-query -W -f '${Status}'`
-ok="install ok"
+query=`dpkg-query -W -f '${Status}\n'`
+ok="install ok installed"
 ap2_cffile_d7=drupal7.conf
 ap2_cffile_d8=drupal8.conf
 ap2sitedir=/etc/apache2/sites-aviable/
