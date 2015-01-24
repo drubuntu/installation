@@ -65,7 +65,7 @@ newconfmssg="Die neuen Einstellungen sind nach den nächsten Neustrt verfügbar.
 secondadaptermssg="Vergesen Sie nicht, einen Host-Only-Adapter hinzuzufügen."
 
 #features
-
+runhlpmssg="rufen Sie den Befehl mit  --help auf."
 apcswitch="--apc"
 aptanaideswitch="--aptana"
 aptanagitswitch="--aptana-git"
