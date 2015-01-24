@@ -1,6 +1,5 @@
 
 #!/bin/bash
-cd ${0%/*}
 if [ "$LANG" == "de_DE.UTF-8" ];then
 source $PWD/de.sh
 else
