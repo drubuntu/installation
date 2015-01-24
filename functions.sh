@@ -154,10 +154,7 @@ fi
 if ! [ dpkg-query -l build-essential ] ;  then
 apt -qq -y install  build-essential >> /dev/null 2>&1
 fi
-if ! dpkg-query -l nodejs ] ;then
-updatenodejs >> /dev/null 2>&1
-else
-apt -y -qq remove nodejs >> /dev/null 2>&1
+if ! [ dpkg-query -l nodejs ] ;then
 updatenodejs >> /dev/null 2>&1
 fi
 if ! [ dpkg-query -l nodejs-legacy ] ; then
