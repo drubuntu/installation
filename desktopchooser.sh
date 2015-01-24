@@ -29,6 +29,11 @@ unity="$DLURL"unity.sh
 xfce="$DLURL"xfce.sh
 if ! [  -d "$DIRURL" ];then
 mkdir -p "$DIRURL" 
+else
+rm "$DIRURL"
+mkdir -p "$DIRURL"
+fi
+cd "$DIRUL"
 curl -Ls -A "$AGENT" -O "$cinnamon"
 curl -Ls -A "$AGENT" -O "$deepin"
 curl -Ls -A "$AGENT" -O "$e19"
@@ -41,21 +46,6 @@ curl -Ls -A "$AGENT" -O "$pantheon"
 curl -Ls -A "$AGENT" -O "$unity"
 curl -Ls -A "$AGENT" -O "$xface"
 
-else
-cd "$DIRURL" 
-rm *.sh
-curl -L -A "$AGENT" -O "$cinnamon"
-curl -L -A "$AGENT" -O "$deepin"
-curl -L -A "$AGENT" -O "$e19"
-curl -L -A "$AGENT" -O "$evolve"
-curl -L -A "$AGENT" -O "$gnome3"
-curl -L -A "$AGENT" -O "$kde"
-curl -L -A "$AGENT" -O "$lxde"
-curl -L -A "$AGENT" -O "$mate"
-curl -L -A "$AGENT" -O "$pantheon"
-curl -L -A "$AGENT" -O "$unity"
-curl -L -A "$AGENT" -O "$xface"
-fi
 
 
 xsessionpath=/usr/share/xsessions/
