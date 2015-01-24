@@ -88,6 +88,8 @@ fi
 updatenodejs(){
 
 sudo apt-add-repository -y ppa:chris-lea/node.js >>/dev/null 2>&1
+sudo apt-get install nodejs
+	
 }
 
 
@@ -104,68 +106,26 @@ apt install -qq -y server^ >> /dev/null 2>&1
 apt install -qq -y openssh-server^ >> /dev/null 2>&1
 apt install -qq -y lamp-server^  >> /dev/null 2>&1
 
-if ! [ `$query` software-properties-common == "$ok" ]  ;then
 apt -qq -y install  software-properties-common >> /dev/null 2>&1
-fi
 
-if ! [ $query  curl == "$ok" ] ;then 
 apt -y -qq install curl >> /dev/null 2>&1
-fi
-if ! [ $query php-pear == "$ok" ] ;then
 apt install -qq -y php-pear >> /dev/null 2>&1
-fi
-if ! [ $query php5-dev == "$ok" ] ;then
 apt install -qq -y php5-dev >> /dev/null 2>&1
-fi
-if ! [ $query php5-curl == "$ok" ] ;then
 apt install -qq -y php5-curl >> /dev/null 2>&1
-fi
-if ! [ $query php5-json == "$ok" ] ;then
 apt install -qq -y php5-json >> /dev/null 2>&1
-fi
-if ! [ $query php5-gd == "$ok" ] ;then  
 apt install -qq -y php5-gd >> /dev/null 2>&1
-fi
-if ! [ $query git == "$ok" ] ;then 
 apt install -qq -y git >> /dev/null 2>&1
-fi
-if ! [ $query git-core == "$ok" ] ;then
 apt install -qq -y git-core >> /dev/null 2>&1
-fi
-if ! [ $query ruby1.9.1-full == "$ok" ] ;then
 apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
-fi
-if ! [ $query libapache2-mod-php5 == "$ok" ] ;then
 apt install -qq -y -qq libapache2-mod-php5 >> /dev/null 2>&1 
-fi
-if ! [ $query php5-mcrypt == "$ok" ] ; then
 apt install -qq -y -qq php5-mcrypt >> /dev/null 2>&1
-fi
-
-if ! [ $query php5-gd == "$ok" ] ; then
 apt install -qq -y -qq  php5-gd >> /dev/null 2>&1
-fi
-
-if ! [ $query php5-dev == "$ok" ]  ; then
 apt install -qq -y -qq  php5-dev >> /dev/null 2>&1
-fi
-
-if ! [ $query make == "$ok" ] ; then
 apt install -qq -y make >> /dev/null 2>&1
-fi
-
-if ! [ $query build-essential == "$ok" ] ;  then
 apt -qq -y install  build-essential >> /dev/null 2>&1
-fi
-if ! [ $query nodejs == "$ok" ] ;then
 updatenodejs >> /dev/null 2>&1
-fi
-if ! [ $query nodejs-legacy == "$ok" ] ; then
 apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
-fi
-if ! [ $query npm == "$ok" ] ;then
 apt install -qq -y  npm >> /dev/null 2>&1
-fi
 
 }
 
