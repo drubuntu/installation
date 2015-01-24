@@ -14,7 +14,7 @@ fi
 
 if [ `whoami` != root ]; then
 echo -e " ${lightred}  ${runasrootmssg} ${NC}"
-echo -e " ${white}  ${runhlptmssg} ${NC}"
+echo -e " ${white}  ${runhlpmssg} ${NC}"
     exit
     4
 fi
@@ -166,6 +166,6 @@ sudo bash bootstrapwithsass.sh
 ;;
 
 *)
-    echo -e " ${white}  ${runhlptmssg} ${NC}"
+    echo -e " ${white}  ${runhlpmssg} ${NC}"
     ;;
 esac
