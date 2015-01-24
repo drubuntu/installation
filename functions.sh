@@ -104,7 +104,7 @@ apt install -qq -y server^ >> /dev/null 2>&1
 apt install -qq -y openssh-server^ >> /dev/null 2>&1
 apt install -qq -y lamp-server^  >> /dev/null 2>&1
 
-if ! [ `$query` software-properties-common =="$ok" ]  ;then
+if ! [ `$query` software-properties-common == "$ok" ]  ;then
 apt -qq -y install  software-properties-common >> /dev/null 2>&1
 fi
 
