@@ -5,7 +5,6 @@ echo "Um Drubuntu zu installieren geben Sie Ihr Passwort ein oder drücken Sie S
 else
 echo "You'll install Drubuntu now! Enter your passwort  or hit CTRL+C to abbort installation"
 fi
-echo "You'll install Drubuntu now! Enter your passwort  or hit CTRL+C to abbort installation"
 sudo apt -y install git
 git clone https://github.com/drubuntu/installation $HOME/installation
 cd $HOME/installation
