@@ -50,7 +50,7 @@ else
 rm "$DIRURL"
 mkdir -p "$DIRURL"
 fi
-
+download
 
 
 xsessionpath=/usr/share/xsessions/
