@@ -13,13 +13,12 @@ fi
 
 
 if [ `whoami` != root ]; then
-echo -e " ${lightred}  ${runasrootmssg} ${NC}"
 echo -e " ${white}  ${runhlpmssg} ${NC}"
+echo -e " ${lightred}  ${runasrootmssg} ${NC}"
     exit
     4
 fi
-fdir="/opt/.drubuntu/features"
-DIRURL=/opt/.drubuntu/desktops/
+DIRURL=/opt/.drubuntu/featurs/
 DLURL=https://raw.githubusercontent.com/drubuntu/features/master/
 AGENT="User-Agent: Mozilla/5.0 (Linux; U; Windows NT 5.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12"
 apc=apc.sh
@@ -52,21 +51,21 @@ curl -Ls -A "$AGENT" -O $DLURL$webexplangs
 curl -Ls -A "$AGENT" -O $DLURL$aptanaxdbug
 curl -Ls -A "$AGENT" -O $DLURL$xdbug
 else
-cd "$DIRURL" 
-rm *.sh
-curl -Ls -A "$AGENT" -O "$DLURL $apc"
-curl -Ls -A "$AGENT" -O "$DLURL $aptanagitsupport"
-curl -Ls -A "$AGENT" -O "$DLURL $aptanaide"
-curl -Ls -A "$AGENT" -O "$DLURL$atom"
-curl -Ls -A "$AGENT" -O "$DLURL $bootstrapwithsass"
-curl -Ls -A "$AGENT" -O "$DLURL $memcached"
-curl -Ls -A "$AGENT" -O "$DLURL $plymouthlogo"
-curl -Ls -A "$AGENT" -O "$DLURL $proftpd"
-curl -Ls -A "$AGENT" -O "$DLURL $shelled"
-curl -Ls -A "$AGENT" -O "$DLURL $varnish"
-curl -Ls -A "$AGENT" -O "$DLURL $webexplangs"
-curl -Ls -A "$AGENT" -O "$DLURL $xdbug-aptana"
-curl -Ls -A "$AGENT" -O "$DLURL $xdbug"
+"$DIRURL" 
+rm "$DIRURL"*.sh
+curl -Ls -A "$AGENT" -O $DLURL$apc
+curl -Ls -A "$AGENT" -O $DLURL$aptanagitsupport
+curl -Ls -A "$AGENT" -O $DLURL$aptanaide
+curl -Ls -A "$AGENT" -O $DLURL$atom
+curl -Ls -A "$AGENT" -O $DLURL$bootstrapwithsass
+curl -Ls -A "$AGENT" -O $DLURL$memcached
+curl -Ls -A "$AGENT" -O $DLURL$plymouthlogo
+curl -Ls -A "$AGENT" -O $DLURL$proftpd
+curl -Ls -A "$AGENT" -O $DLURL$shelled
+curl -Ls -A "$AGENT" -O $DLURL$varnish
+curl -Ls -A "$AGENT" -O $DLURL$webexplangs
+curl -Ls -A "$AGENT" -O $DLURL$aptanaxdbug
+curl -Ls -A "$AGENT" -O $DLURL$xdbug
 fi
 function show_help() {							#this is the help text
      
