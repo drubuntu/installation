@@ -16,7 +16,7 @@ fi
 DIRURL=/opt/.drubuntu/desktops/
 DLURL=https://raw.githubusercontent.com/drubuntu/desktops/master/
 AGENT="User-Agent: Mozilla/5.0 (Linux; U; Windows NT 5.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12"
-cinnamon=$"$DLURL"cinnamon.sh
+cinnamon="$DLURL"cinnamon.sh
 deepin="$DLURL"deepin.sh
 e19="$DLURL"enlightenment.sh
 evolve="$DLURL"evolve.sh
