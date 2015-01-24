@@ -13,8 +13,7 @@ fi
 
 
 if [ `whoami` != root ]; then
-       show_help
-       echo -e " ${lightred}  ${runasrootmssg} ${NC}"
+echo -e " ${lightred}  ${runasrootmssg} ${NC}"
     exit
     4
 fi
@@ -25,6 +24,7 @@ AGENT="User-Agent: Mozilla/5.0 (Linux; U; Windows NT 5.1; en-US; rv:1.9.2.12) Ge
 apc=apc.sh
 aptanagitsupport=aptanagitsupport.sh
 aptanaide=aptanaide.sh
+aptanaxdebug=aptanaxdebug.sh
 atom=atom.sh
 bootstrapwithsass=bootstrapwithsass.sh
 browsersuite=browsersuite.sh
@@ -34,7 +34,6 @@ proftpd=proftpd.sh
 shelled=shelled.sh
 varnish=varnish.sh
 webexplangs=webexplangs.sh
-xdbug-aptana=xdebug-aptana.sh
 xdbug=xdbug.sh
 if ! [  -d "$DIRURL" ];then
 mkdir -p "$DIRURL" 
@@ -49,7 +48,7 @@ curl -Ls -A "$AGENT" -O "$DLURL $proftpd"
 curl -Ls -A "$AGENT" -O "$DLURL $shelled"
 curl -Ls -A "$AGENT" -O "$DLURL $varnish"
 curl -Ls -A "$AGENT" -O "$DLURL $webexplangs"
-curl -Ls -A "$AGENT" -O "$DLURL $xdbug-aptana"
+curl -Ls -A "$AGENT" -O "$DLURL $aptanaxdbug"
 curl -Ls -A "$AGENT" -O "$DLURL $xdbug"
 else
 cd "$DIRURL" 
@@ -108,10 +107,10 @@ wget -O "$DIRURL"aptanagitsupport.sh "$DLUURL"/aptanagitsupport.sh
 sudo bash aptanagitsupport.sh
     ;;
 
---aptana-xdebug)
+--aptanaxdebug)
 echo -e " ${white}  ${needpassmssg} ${shortaptanaxdvugmssg} ${toyoursystemmssg} ${NC}"
 wget -O "$DIRURL"xdebug-aptana "$DLUURL"/xdbug-aptana.sh
-sudo bash xdebug-aptana.sh
+sudo bash aptanaxdbug.sh
     ;;
 
 --atom)
