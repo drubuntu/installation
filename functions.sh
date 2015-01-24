@@ -102,66 +102,68 @@ apt install -qq -y server^ >> /dev/null 2>&1
 apt install -qq -y openssh-server^ >> /dev/null 2>&1
 apt install -qq -y lamp-server^  >> /dev/null 2>&1
 
+if ! [ dpkg-query -l software-properties-common ] ;then
 apt -qq -y install  software-properties-common >> /dev/null 2>&1
-if ! dpkg-query -l  curl >> /dev/null 2>&1;then 
-apt -y -qq install curl >> /dev/null 2>&1
 fi
-if ! dpkg-query -l php-pear >> /dev/null 2>&1;then
+if ! [ dpkg-query -l  curl ] ;then 
+apt -y -qq install curl 
+fi
+if ! [ dpkg-query -l php-pear ] ;then
 apt install -qq -y php-pear >> /dev/null 2>&1
 fi
-if ! dpkg-query -l php5-dev >> /dev/null 2>&1;then
+if ! [ dpkg-query -l php5-dev ] ;then
 apt install -qq -y php5-dev >> /dev/null 2>&1
 fi
-if ! dpkg-query -l php5-curl >> /dev/null 2>&1;then
+if ! [ dpkg-query -l php5-curl ] ;then
 apt install -qq -y php5-curl >> /dev/null 2>&1
 fi
-if ! dpkg-query -l php5-json >> /dev/null 2>&1;then
+if ! [ dpkg-query -l php5-json ] ;then
 apt install -qq -y php5-json >> /dev/null 2>&1
 fi
-if ! dpkg-query -l php5-gd >> /dev/null 2>&1;then  
+if ! [ dpkg-query -l php5-gd ] ;then  
 apt install -qq -y php5-gd >> /dev/null 2>&1
 fi
-if ! dpkg-query -l git >> /dev/null 2>&1;then 
+if ! [ dpkg-query -l git ] ;then 
 apt install -qq -y git >> /dev/null 2>&1
 fi
-if ! dpkg-query -l git-core >> /dev/null 2>&1;then
+if ! [ dpkg-query -l git-core ] ;then
 apt install -qq -y git-core >> /dev/null 2>&1
 fi
-if ! dpkg-query -l ruby1.9.1-full >> /dev/null 2>&1 ;then
+if ! [ dpkg-query -l ruby1.9.1-full ] ;then
 apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
 fi
-if ! dpkg-query -l libapache2-mod-php5 >> /dev/null 2>&1 ;then
+if ! [ dpkg-query -l libapache2-mod-php5 ] ;then
 apt install -qq -y -qq libapache2-mod-php5 >> /dev/null 2>&1 
 fi
-if ! dpkg-query -l php5-mcrypt >> /dev/null 2>&1 ; then
+if ! [ dpkg-query -l php5-mcrypt ] ; then
 apt install -qq -y -qq php5-mcrypt >> /dev/null 2>&1
 fi
 
-if ! dpkg-query -l  php5-gd >> /dev/null 2>&1  ; then
+if ! [ dpkg-query -l  php5-gd ] ; then
 apt install -qq -y -qq  php5-gd >> /dev/null 2>&1
 fi
 
-if ! dpkg-query -l  php5-dev >> /dev/null 2>&1  ; then
+if ! [ dpkg-query -l  php5-dev ]  ; then
 apt install -qq -y -qq  php5-dev >> /dev/null 2>&1
 fi
 
-if ! dpkg-query -l make >> /dev/null 2>&1 ; then
+if ! [ dpkg-query -l make ] ; then
 apt install -qq -y make >> /dev/null 2>&1
 fi
 
-if ! dpkg-query -l build-essential >> /dev/null 2>&1 ;  then
+if ! [ dpkg-query -l build-essential ] ;  then
 apt -qq -y install  build-essential >> /dev/null 2>&1
 fi
-if ! dpkg-query -l nodejs >> /dev/null 2>&1;then
+if ! dpkg-query -l nodejs ] ;then
 updatenodejs >> /dev/null 2>&1
 else
 apt -y -qq remove nodejs >> /dev/null 2>&1
 updatenodejs >> /dev/null 2>&1
 fi
-if ! dpkg-query -l nodejs-legacy >> /dev/null 2>&1; then
+if ! [ dpkg-query -l nodejs-legacy ] ; then
 apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
 fi
-if ! dpkg-query -l npm >> /dev/null 2>&1 ;then
+if ! [ dpkg-query -l npm ] ;then
 apt install -qq -y  npm >> /dev/null 2>&1
 fi
 
