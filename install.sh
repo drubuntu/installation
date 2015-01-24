@@ -62,17 +62,12 @@ d8setup
 apache2setup
 echo ""
 # last steps
-echo -e " ${yellow} ${heightfin} ${ plymoutlogomssg} ${NC}"
-echo ""
+echo -e " ${yellow} ${heightfin} ${plymoutlogomssg} ${NC}"
 plymouthlogo
 # grant previleges
 echo -e " ${lightgreen} ${heightfin} ${grantprvsmssg} ${NC}"
-echo ""
 grantprivs
-echo ""
-echo ""
 echo -e "${lightred} ${heightfin}  ${infomssg}   ${NC}"
-echo ""
 echo ""
 echo -e " ${lightgray} ${heightfin} ${clngnmssg} ${NC}"
 clean
