@@ -18,37 +18,37 @@ echo -e " ${lightred}  ${runasrootmssg} ${NC}"
     exit
     4
 fi
-DIRURL=/opt/.drubuntu/featurs/
+DIRURL=/opt/.drubuntu/features/
 DLURL=https://raw.githubusercontent.com/drubuntu/features/master/
 AGENT="User-Agent: Mozilla/5.0 (Linux; U; Windows NT 5.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12"
-apc=apc.sh
-aptanagitsupport=aptanagitsupport.sh
-aptanaide=aptanaide.sh
-aptanaxdebug=aptanaxdebug.sh
-atom=atom.sh
-bootstrapwithsass=bootstrapwithsass.sh
-browsersuite=browsersuite.sh
-memcached=memcached.sh
-plymouthlogo=plymouthlogo.sh
-proftpd=proftpd.sh
-shelled=shelled.sh
-varnish=varnish.sh
-webexplangs=webexplangs.sh
-xdbug=xdbug.sh
+apc="$DLURL"apc.sh
+aptanagitsupport="$DLURL"aptanagitsupport.sh
+aptanaide="$DLURL"aptanaide.sh
+aptanaxdebug="$DLURL"aptanaxdebug.sh
+atom="$DLURL"atom.sh
+bootstrapwithsass="$DLURL"bootstrapwithsass.sh
+browsersuite="$DLURL"browsersuite.sh
+memcached="$DLURL"memcached.sh
+plymouthlogo="$DLURL"plymouthlogo.sh
+proftpd="$DLURL"proftpd.sh
+shelled="$DLURL"shelled.sh
+varnish="$DLURL"varnish.sh
+webexplangs="$DLURL"webexplangs.sh
+xdbug="$DLURL"xdbug.sh
 function download(){
-curl -Ls -A "$AGENT" -O $apc $DLURL
-curl -Ls -A "$AGENT" -O $aptanagitsupport $DLURL
-curl -Ls -A "$AGENT" -O $aptanaide $DLURL
-curl -Ls -A "$AGENT" -O $atom $DLURL
-curl -Ls -A "$AGENT" -O $bootstrapwithsass $DLURL
-curl -Ls -A "$AGENT" -O $memcached $DLURL
-curl -Ls -A "$AGENT" -O $plymouthlogo $DLURL
-curl -Ls -A "$AGENT" -O $proftpd $DLURL
-curl -Ls -A "$AGENT" -O $shelled $DLURL
-curl -Ls -A "$AGENT" -O $varnish $DLURL
-curl -Ls -A "$AGENT" -O $webexplangs $DLURL
-curl -Ls -A "$AGENT" -O $aptanaxdbug $DLURL
-curl -Ls -A "$AGENT" -O $xdbug $DLURL
+curl -Ls -A "$AGENT" -O $apc 
+curl -Ls -A "$AGENT" -O $aptanagitsupport 
+curl -Ls -A "$AGENT" -O $aptanaide 
+curl -Ls -A "$AGENT" -O $atom 
+curl -Ls -A "$AGENT" -O $bootstrapwithsass 
+curl -Ls -A "$AGENT" -O $memcached 
+curl -Ls -A "$AGENT" -O $plymouthlogo 
+curl -Ls -A "$AGENT" -O $proftpd 
+curl -Ls -A "$AGENT" -O $shelled 
+curl -Ls -A "$AGENT" -O $varnish 
+curl -Ls -A "$AGENT" -O $webexplangs 
+curl -Ls -A "$AGENT" -O $aptanaxdbug 
+curl -Ls -A "$AGENT" -O $xdbug 
 }
 
 if ! [  -d "$DIRURL" ];then
