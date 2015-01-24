@@ -13,7 +13,6 @@ fi
 
 
 if [ `whoami` != root ]; then
-echo -e " ${white}  ${runhlpmssg} ${NC}"
 echo -e " ${lightred}  ${runasrootmssg} ${NC}"
     exit
     4
