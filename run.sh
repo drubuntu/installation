@@ -10,4 +10,3 @@ git clone https://github.com/drubuntu/installation $HOME/installation
 cd $HOME/installation
 sudo bash install.sh 2>$HOME/errors.txt
 rm -r $HOME/installation
-rm -- "$0"
