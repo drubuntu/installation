@@ -117,10 +117,10 @@ dpkg -l php5-gd || apt install -qq -y php5-gd >> /dev/null 2>&1
 dpkg -l git || apt install -qq -y git >> /dev/null 2>&1
 dpkg -l git-core || apt install -qq -y git-core >> /dev/null 2>&1
 dpkg -l ruby1.9.1-full || apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
-dpkg -l libapache2-mod-php5 || apt install -qq -y -qq libapache2-mod-php5 >> /dev/null 2>&1 
-dpkg -l php5-mcrypt || apt install -qq -y -qq php5-mcrypt >> /dev/null 2>&1
-dpkg -l php5-gd || apt install -qq -y -qq  php5-gd >> /dev/null 2>&1
-dpkg -l php5-dev || apt install -qq -y -qq  php5-dev >> /dev/null 2>&1
+dpkg -l libapache2-mod-php5 || apt install -qq -y  libapache2-mod-php5 >> /dev/null 2>&1 
+dpkg -l php5-mcrypt || apt install -qq -y  php5-mcrypt >> /dev/null 2>&1
+dpkg -l php5-gd || apt install -qq -y   php5-gd >> /dev/null 2>&1
+dpkg -l php5-dev || apt install -qq -y   php5-dev >> /dev/null 2>&1
 dpkg -l make || apt install -qq -y make >> /dev/null 2>&1
 dpkg -l build-essential || apt -qq -y install  build-essential >> /dev/null 2>&1
 dpkg -l nodejs || updatenodejs >> /dev/null 2>&1
