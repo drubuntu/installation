@@ -9,25 +9,25 @@ fi
 
 if [ `whoami` != root ]; then #checks if the user is root. If The user isn't root the message is printed and the script will be interrupted.
 
-    echo "Please run this script as root or using sudo"
+      echo -e " ${lightred}  ${runasrootmssg} ${NC}"
 
     exit
 4 
 fi
 platformtest=`dmidecode -s system-product-name`
 # This line tells the user the current IP in the network
-echo "Here is you IP from eth0:"
+  echo -e " ${yellow}  ${ipeth0mssg} ${NC}"
 echo ""
 ifconfig eth0 | ( while read line; do [ "$line" != "${line#inet }" ] && e="${line#inet }" && e="${e%%[ ]*}" && e="${e##*[A-Za-z:]}" && echo "$e" ; done )
 echo ""
-echo "Let's set up a static ip address for your site"
+echo -e " ${lightgreen}  ${setipwcmssg} ${NC}"
 echo ""
-echo "If you are using Virtual Box  We'll set this up automatically"
+echo -e " ${white}  ${usingvbmssg} ${NC}"
 #this function tells the user to enter the data we need to set a static connection
 getinfo(){ 
 
 if [ $platformtest == "VirtualBox" ] ; then
-echo "Standard Values for Virutal Box are used:"
+echo -e " ${white}  ${defvbvlsmssg} ${NC}"
 echo ""
 echo "Address:		192.168.56.101"
 echo "netmask:		255.255.255.0"
@@ -35,10 +35,10 @@ echo "network:		192.168.56.1"
 echo "broadcast:	192.168.56.255 "
 else
 		 echo ""
-		read -p "Enter your ip adress for your server ( example 192.168.253.2 ):" staticip 
-		read -p "Enter your network space ( the ipv4 address from windows):" networkpattern
-		read -p "Enter the netmask for your network ( example 255.255.255.0):" netmaskpattern
-		read -p "Enter your broadcast address ( example 192.168.253.255):" broadcastpattern
+		read -p "${enteripsmssg}" staticip 
+		read -p "${enternssmssg}" networkpattern
+		read -p "${enternmmssg}" netmaskpattern
+		read -p "${enterbcmssg}" broadcastpattern
 		clear
 fi
 }
@@ -124,50 +124,50 @@ echo "${ipandsandboxsites}"  >> /etc/hosts
 fi
 }
 if [ $platformtest=="VirtualBox" ] ;then
-echo "You are using VirtualBox"
-echo "Hit Y for yes all is setted up!"
+echo -e " ${white}  ${usingvbmssg} ${NC}"
+echo -e " ${white}  ${hitytoconfirmmssg} ${NC}"
 else
-echo "So your settings are:"
-echo -n "The second Ip for this machine is:    " 
+echo -e " ${white}  ${ipsetaremssg} ${NC}"
+echo -e " ${white}  ${ipmssg} ${NC}"
 echo   "$staticip"
-echo -n "The network is:                        "
+echo -e " ${white}  ${nsmssg} ${NC}"
 echo   "$networkpattern"
-echo -n "Your netmask is:                      "  
+echo -e " ${white}  ${nmmssg} ${NC}"
 echo   "$netmaskpattern"                        
-echo -n " Your broadcast address is:            "  
-echo   "$broadcastpattern"
+echo -e " ${white}  ${bcmssg} ${NC}"             
+echo -e " ${white}  ${bcmssg} ${NC}"           
 echo ""
 fi
 getinfo
 
 #Here we proof if everything is correct and execute the functions above.
 if [ $platformtest=="VirtualBox" ] ;then
-echo "If something goes wrong check: http://goo.gl/QR0iju"
+echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
 addiptohostsfile; writeinterfacefile; exportip;
-echo "Your System will restart shortly"
+echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
 sleep 20
 reboot now -p 
 else
 
 while true; do
-		read -p "Are these informations correct? [y/N]" yn
+		read -p "${infocorrectmssg}" yn
 		case $yn in
 [Yy]* ) 
 if [ $platformtest == "VirtualBox" ] ;then
-echo "If something goes wrong check: http://goo.gl/QR0iju"
+echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
 addiptohostsfile; writeinterfacefile; exportip;
-echo "Your System will restart shortly"
+echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
 sleep 20
 reboot now -p 
 else
 addiptohostsfile; writeinterfacefile; exportip
-echo "The new configuration will be available with next boot!"; 
-echo "Don't forget to activate a second adapter in your virtual machine"; 
+echo -e " ${white}  ${avnbmssg} ${NC}" 
+echo -e " ${white}  ${dfsamssg} ${NC}" 
 fi
 
  ;;
 		[Nn]* ) getinfo;;
-		* ) echo "Please enter Y or n";;
+		* ) echo -e " ${white}  ${yonmssg} ${NC}" ;;
 		esac
 	done  
 fi
