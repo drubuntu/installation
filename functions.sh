@@ -106,11 +106,10 @@ apt install -qq -y server^ >> /dev/null 2>&1
 apt install -qq -y openssh-server^ >> /dev/null 2>&1
 apt install -qq -y lamp-server^  >> /dev/null 2>&1
 
-apt -qq -y install  software-properties-common >> /dev/null 2>&1
+dpkg -l software-properties-common >> /dev/null 2>&1 ||apt -qq -y install  software-properties-common >> /dev/null 2>&1
 
 dpkg -l curl >> /dev/null 2>&1 			||  apt -y -qq install curl >> /dev/null 2>&1
 updatenodejs >> /dev/null 2>&1
-
 dpkg -l php-pear >> /dev/null 2>&1		|| apt install -qq -y php-pear >> /dev/null 2>&1
 dpkg -l php5-dev >> /dev/null 2>&1 		|| apt install -qq -y php5-dev >> /dev/null 2>&1
 dpkg -l php5-curl >> /dev/null 2>&1		|| apt install -qq -y php5-curl >> /dev/null 2>&1
@@ -124,7 +123,7 @@ dpkg -l php5-mcrypt >> /dev/null 2>&1 		|| apt install -qq -y  php5-mcrypt >> /d
 dpkg -l php5-gd >> /dev/null 2>&1 		|| apt install -qq -y   php5-gd >> /dev/null 2>&1
 dpkg -l php5-dev >> /dev/null 2>&1 		|| apt install -qq -y   php5-dev >> /dev/null 2>&1
 dpkg -l make >> /dev/null 2>&1 			|| apt install -qq -y make >> /dev/null 2>&1
-dpkg -l build-essential >> /dev/null 2>&1 	|| apt -qq -y install  build-essential >> /dev/null 2>&1
+dpkg -l build-essential >> /dev/null 2>&1 	|| apt install -qq -y  build-essential >> /dev/null 2>&1
 dpkg -l nodejs-legacy >> /dev/null 2>&1 	|| apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
 dpkg -l npm >> /dev/null 2>&1 			|| apt install -qq -y  npm >> /dev/null 2>&1
 
