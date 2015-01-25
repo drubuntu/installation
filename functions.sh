@@ -108,24 +108,25 @@ apt install -qq -y lamp-server^  >> /dev/null 2>&1
 
 apt -qq -y install  software-properties-common >> /dev/null 2>&1
 
-dpkg -l curl ||  apt -y -qq install curl >> /dev/null 2>&1
-dpkg -l php-pear || apt install -qq -y php-pear >> /dev/null 2>&1
-dpkg -l php5-dev || apt install -qq -y php5-dev >> /dev/null 2>&1
-dpkg -l php5-curl || apt install -qq -y php5-curl >> /dev/null 2>&1
-dpkg -l php5-json || apt install -qq -y php5-json >> /dev/null 2>&1
-dpkg -l php5-gd || apt install -qq -y php5-gd >> /dev/null 2>&1
-dpkg -l git || apt install -qq -y git >> /dev/null 2>&1
-dpkg -l git-core || apt install -qq -y git-core >> /dev/null 2>&1
-dpkg -l ruby1.9.1-full || apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
-dpkg -l libapache2-mod-php5 || apt install -qq -y  libapache2-mod-php5 >> /dev/null 2>&1 
-dpkg -l php5-mcrypt || apt install -qq -y  php5-mcrypt >> /dev/null 2>&1
-dpkg -l php5-gd || apt install -qq -y   php5-gd >> /dev/null 2>&1
-dpkg -l php5-dev || apt install -qq -y   php5-dev >> /dev/null 2>&1
-dpkg -l make || apt install -qq -y make >> /dev/null 2>&1
-dpkg -l build-essential || apt -qq -y install  build-essential >> /dev/null 2>&1
-dpkg -l nodejs || updatenodejs >> /dev/null 2>&1
-dpkg -l nodejs-legacy  || apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
-dpkg -l npm || apt install -qq -y  npm >> /dev/null 2>&1
+dpkg -l curl 			||  apt -y -qq install curl >> /dev/null 2>&1
+updatenodejs >> /dev/null 2>&1
+
+dpkg -l php-pear >> /dev/null 2>&1		|| apt install -qq -y php-pear >> /dev/null 2>&1
+dpkg -l php5-dev >> /dev/null 2>&1 		|| apt install -qq -y php5-dev >> /dev/null 2>&1
+dpkg -l php5-curl >> /dev/null 2>&1		|| apt install -qq -y php5-curl >> /dev/null 2>&1
+dpkg -l php5-json >> /dev/null 2>&1		|| apt install -qq -y php5-json >> /dev/null 2>&1
+dpkg -l php5-gd >> /dev/null 2>&1 		|| apt install -qq -y php5-gd >> /dev/null 2>&1
+dpkg -l git >> /dev/null 2>&1 			|| apt install -qq -y git >> /dev/null 2>&1
+dpkg -l git-core >> /dev/null 2>&1		|| apt install -qq -y git-core >> /dev/null 2>&1
+dpkg -l ruby1.9.1-full >> /dev/null 2>&1 	|| apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
+dpkg -l libapache2-mod-php5 >> /dev/null 2>&1 	|| apt install -qq -y  libapache2-mod-php5 >> /dev/null 2>&1 
+dpkg -l php5-mcrypt >> /dev/null 2>&1 		|| apt install -qq -y  php5-mcrypt >> /dev/null 2>&1
+dpkg -l php5-gd >> /dev/null 2>&1 		|| apt install -qq -y   php5-gd >> /dev/null 2>&1
+dpkg -l php5-dev >> /dev/null 2>&1 		|| apt install -qq -y   php5-dev >> /dev/null 2>&1
+dpkg -l make >> /dev/null 2>&1 			|| apt install -qq -y make >> /dev/null 2>&1
+dpkg -l build-essential >> /dev/null 2>&1 	|| apt -qq -y install  build-essential >> /dev/null 2>&1
+dpkg -l nodejs-legacy >> /dev/null 2>&1 	|| apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
+dpkg -l npm >> /dev/null 2>&1 			|| apt install -qq -y  npm >> /dev/null 2>&1
 
 }
 
