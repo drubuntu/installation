@@ -402,10 +402,11 @@ pltheme=$instrepofolder/files/drubuntu
 plymouththemedir=/lib/plymouth/themes
 grubdir=/etc/default/
 
-mv "$savedir"grub.file grub
 
-cp -r "$savedir"grub  "$grubdir"				#copy file to /etc/default and replace existing file.
+
+				#copy file to /etc/default and replace existing file.
 mv "$savedir" "$pltheme"
+mv "$pltheme"/grub.file "$grubdir"/grub
 cp -r "$pltheme" "$plymouththemedir"  #removes savedir for cleanup.
 
 													#the next line sets up drubuntu plymouth theme as default.
