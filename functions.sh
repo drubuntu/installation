@@ -86,8 +86,8 @@ fi
 }	
 
 updatenodejs(){
-sudo apt-add-repository -y ppa:chris-lea/node.js >>/dev/null 2>&1
-sudo apt-get install nodejs
+apt-add-repository -y ppa:chris-lea/node.js >>/dev/null 2>&1
+apt  -y -qq install nodejs
 }
 
 
