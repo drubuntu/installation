@@ -44,10 +44,10 @@ echo -e " ${lightgreen} ${heightfin} ${createdirmsg} ${NC}"
 echo ""
 #virtual platformtools
 echo -e " ${purple} ${heightfin} ${vmtoolsmssg} ${NC}"
-vtoolscheck
+echo ""
 #package installation
 echo -e " ${lightgreen} ${heightfin} ${dlbcmssg} ${NC}"
-#fetch required files
+echo ""
 echo -e " ${lightgreen} ${heightfin} ${createfilesmsg} ${NC}"
 echo ""
 crissue
