@@ -9,7 +9,8 @@ fi
 
 if [ `whoami` != root ]; then #checks if the user is root. If The user isn't root the message is printed and the script will be interrupted.
 
-    echo "Please run this script as root or using sudo"
+    echo -e " ${lightred}  ${runasrootmssg} ${NC}"
+
 
     exit
 4 
@@ -17,7 +18,8 @@ fi
 string=secondadapter
 if  ! grep -Fxq "$string" /etc/profile.d/drubuntu.sh;
 then
-    echo "Rrun 'dru-setip' first, please!"
+    echo -e " ${lightred}  ${runsetipfirstmssg} ${NC}"
+
     exit
 else
 writedomainfile(){
@@ -45,7 +47,7 @@ if [[ $secondadapter =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
         echo "$secondadapter $domain" >> /etc/hosts
     fi
 else
-    echo "Value of \$secondadapter is invalid: $secondadapter"
+   echo -e "${lightred}  ${savaluemssg}  \${secondadapter} ${isinvalidemssg} ${NC} ${secondadapter} ${NC}"
 fi
 local="127.0.0.1"
 if [[ $local =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
@@ -56,7 +58,8 @@ if [[ $local =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
         echo "$local $domain" >> /etc/hosts
     fi
 else
-    echo "Value of \$local is invalid: $local"
+        echo -e "${lightred}  ${localvaluemssg}  \${local} ${isinvalidemssg}  ${NC} "
+
 fi
 }
 
@@ -68,7 +71,7 @@ a2ensite $domain
 
 drupal7(){
 dbase="d7"  
-read -p "Enter your projects domain like sub.project.tdl, please " domain
+read -p "${entersubmssg} " domain
 
 writedomainfile
 writetohostsfile
@@ -77,7 +80,7 @@ writetohostsfile
 
 drupal8(){
 dbase="8"  
-read -p "Enter your projects domain like sub.project.tdl, please " domain
+read -p "${entersubmssg} " domain
 
 writedomainfile
 writetohostsfile
@@ -104,8 +107,8 @@ do
             "Quit")
             exit
             ;;
-        *) echo "invalid option";;
+        *) echo -e " ${lightred}  ${invoptionmssg} ${NC}";;
     esac
 done
-echo " Your new Host is activated now"
+echo -e " ${lightgreen}  ${hostisactivemssg} ${NC}"
 fi
