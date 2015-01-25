@@ -107,32 +107,37 @@ getcorepkgs(){
 debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password MyRoot'
 debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password MyRoot'
 #reinstall mysql server to preset password
-apt  -y -qq remove mysql-server-5.5    >> /dev/null 2>&1
-apt  -y -qq install mysql-server-5.5   >> /dev/null 2>&1
+#apt  -y -qq remove mysql-server-5.5    >> /dev/null 2>&1
+#apt  -y -qq install mysql-server-5.5   >> /dev/null 2>&1
 #install packages if they are not installed already to make sure it even works without the iso from sourceforge
-apt -y -qq install  server^ >> /dev/null 2>&1
-apt -y -qq install  openssh-server^ >> /dev/null 2>&1
-apt -y -qq install  lamp-server^  >> /dev/null 2>&1
-apt -y -qq install  software-properties-common >> /dev/null 2>&1
-apt -y -qq install curl >> /dev/null 2>&1
-updatenodejs >> /dev/null 2>&1
-apt install -qq -y php-pear >> /dev/null 2>&1
-apt install -qq -y php5-dev >> /dev/null 2>&1
-apt install -qq -y php5-curl >> /dev/null 2>&1
-apt install -qq -y php5-json >> /dev/null 2>&1
-apt install -qq -y php5-gd >> /dev/null 2>&1
-apt install -qq -y git >> /dev/null 2>&1
-apt install -qq -y git-core >> /dev/null 2>&1
-apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
-apt install -qq -y  libapache2-mod-php5 >> /dev/null 2>&1 
-apt install -qq -y  php5-mcrypt >> /dev/null 2>&1
-apt install -qq -y   php5-gd >> /dev/null 2>&1
-apt install -qq -y   php5-dev >> /dev/null 2>&1
-apt install -qq -y make >> /dev/null 2>&1
-apt install -qq -y  build-essential >> /dev/null 2>&1
-apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
-apt install -qq -y  npm >> /dev/null 2>&1
+#apt -y -qq install  server^ >> /dev/null 2>&1
+#apt -y -qq install  openssh-server^ >> /dev/null 2>&1
+#apt -y -qq install  lamp-server^  >> /dev/null 2>&1
+#apt -y -qq install  software-properties-common >> /dev/null 2>&1
+#apt -y -qq install curl >> /dev/null 2>&1
+#updatenodejs >> /dev/null 2>&1
+#apt install -qq -y php-pear >> /dev/null 2>&1
+#apt install -qq -y php5-dev >> /dev/null 2>&1
+#apt install -qq -y php5-curl >> /dev/null 2>&1
+#apt install -qq -y php5-json >> /dev/null 2>&1
+#apt install -qq -y php5-gd >> /dev/null 2>&1
+#apt install -qq -y git >> /dev/null 2>&1
+#apt install -qq -y git-core >> /dev/null 2>&1
+#apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
+#apt install -qq -y  libapache2-mod-php5 >> /dev/null 2>&1 
+#apt install -qq -y  php5-mcrypt >> /dev/null 2>&1
+#apt install -qq -y   php5-gd >> /dev/null 2>&1
+#apt install -qq -y   php5-dev >> /dev/null 2>&1
+#apt install -qq -y make >> /dev/null 2>&1
+#apt install -qq -y  build-essential >> /dev/null 2>&1
+#apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
+#apt install -qq -y  npm >> /dev/null 2>&1
+apt  -y -qq remove mysql-server-5.5
+apt -y install software-properties-common 
+updatenodejs
+apt  -y install mysql-server-5.5 server^ openssh-server^  lamp-server^ php-pear php5-dev php5-curl php5-json php5-gd git git-core ruby1.9.1-full libapache2-mod-php5 php5-mcrypt php5-gd php5-dev make build-essential nodejs-legacy  npm 
 }
+
 
 aptupdate(){
 apt update >> /dev/null 2>&1
