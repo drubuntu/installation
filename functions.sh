@@ -69,7 +69,7 @@ chmod +x "$bdir"/*.sh
 }
 
 # enable fany apt-progressbar see omgubuntu.co.uk/2014/04/how-to-enable-apt-terminal-progress-bar
-apt-progress(){
+aptprogress(){
 if ! [ -f /etc/apt/apt.conf.d/99progressbar ];then
 echo 'Dpkg::Progress-Fancy "1";' > /etc/apt/apt.conf.d/99progressbar
 fi	
@@ -110,10 +110,10 @@ debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again pa
 apt  -y -qq remove mysql-server-5.5    >> /dev/null 2>&1
 apt  -y -qq install mysql-server-5.5   >> /dev/null 2>&1
 #install packages if they are not installed already to make sure it even works without the iso from sourceforge
-apt install -qq -y server^ >> /dev/null 2>&1
-apt install -qq -y openssh-server^ >> /dev/null 2>&1
-apt install -qq -y lamp-server^  >> /dev/null 2>&1
-dpkg -l software-properties-common >> /dev/null 2>&1 ||apt -qq -y install  software-properties-common >> /dev/null 2>&1
+apt -y -qq install  server^ >> /dev/null 2>&1
+apt -y -qq install  openssh-server^ >> /dev/null 2>&1
+apt -y -qq install  lamp-server^  >> /dev/null 2>&1
+apt -y -qq install  software-properties-common >> /dev/null 2>&1
 apt -y -qq install curl >> /dev/null 2>&1
 updatenodejs >> /dev/null 2>&1
 apt install -qq -y php-pear >> /dev/null 2>&1
