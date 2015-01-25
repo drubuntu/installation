@@ -8,7 +8,7 @@ source $PWD/en.sh
 fi
 if[ `whoami` != root ]; then #checks if the user is root. If The user isn't root the message is printed and the script will be interrupted.
 
-    echo "Please run this script as root or using sudo"
+    echo -e " ${lightred}  ${runasrootmssg} ${NC}"
 
     exit
 4 
@@ -16,7 +16,7 @@ fi
 string=secondadapter
 if  ! grep -Fxq "$string" /etc/profile.d/drubuntu.sh;
 then
-    echo "Rrun 'dru-setip' first, please!"
+    echo -e " ${lightred}  ${runsetipfirstmssg} ${NC}"
     exit
 else
    
@@ -39,9 +39,9 @@ cp "/var/www/$dbase/sites/default/default.settings.php" "/var/www/$dbase/sites/$
 
 drupal7(){
 dbase="d7"  
-read -p "please enter the name of your site without domain and any prefix " sitename
+read -p " ${entersitenamemssg} " sitename
 echo ""
-read -p "Please enter the domain that you like! Dont enter a dot (.) in front of it " domain
+read -p "${entertldmssg} " domain
 domainpattern="$sitename.$domain"
 aliaspattern=www.$domainpattern
 logname=$sitename.log"
@@ -56,9 +56,9 @@ exit
 
 drupal8(){
 dbase="d8"  
-read -p "Please enter the name of your site without domain and any prefix " sitename
+read -p "${entersitenamemssg} " sitename
 echo ""
-read -p "Please enter the domain that you like! Dont enter a dot (.) in front of it " domain
+read -p "${entertldmssg} " domain
 domainpattern="$sitename\.$domain"
 aliaspattern=www.$domainpattern
 logname=$domainpattern.log"
@@ -117,7 +117,7 @@ if [[ $secondadapter =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
         echo "$secondadapter $domain" >> /etc/hosts
     fi
 else
-    echo "Value of \$secondadapter is invalid: $secondadapter"
+    echo -e "${lightred}  ${savaluemssg}  \${secondadapter} ${isinvalidemssg} ${NC} ${secondadapter} ${NC}"
 fi
 local="127.0.0.1"
 if [[ $local =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
@@ -128,7 +128,7 @@ if [[ $local =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
         echo "$local $domain" >> /etc/hosts
     fi
 else
-    echo "Value of \$local is invalid: $local"
+    echo -e "${lightred}  ${localvaluemssg}  \${local} ${isinvalidemssg}  ${NC} "
 fi
 }
 
@@ -137,9 +137,9 @@ activate() {
   a2ensite $sitename
   service apache2 reload
 }
-echo "With this assistant it is possible to create a new domain/site with a selected drupal code base"
+echo -e "${lightgreen}  ${siteassistmssg} ${NC}"
 echo ""
-PS3='Wich Version of Drupal do you like to use? '
+PS3=' ${wvtumssg} '
 options=("Drupal7" "Drupal8" "Quit")
 select opt in "${options[@]}"
 do
@@ -159,5 +159,5 @@ do
         *) echo "invalid option";;
     esac
 done
-echo "Your new host is activated now"
+echo -e "${lightgreen}  ${hosisactivemssg} ${NC}"
  fi 
