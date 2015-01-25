@@ -37,6 +37,16 @@ getcomposer
 getdrush
 uploadprogress
 getgems
+clear
+echo -e " ${green} ${heightfin} ${aptupdatemssg} ${NC}"
+echo ""
+echo -e " ${lightgreen} ${heightfin} ${createdirmsg} ${NC}"
+echo ""
+#virtual platformtools
+echo -e " ${purple} ${heightfin} ${vmtoolsmssg} ${NC}"
+vtoolscheck
+#package installation
+echo -e " ${lightgreen} ${heightfin} ${dlbcmssg} ${NC}"
 #fetch required files
 echo -e " ${lightgreen} ${heightfin} ${createfilesmsg} ${NC}"
 echo ""
