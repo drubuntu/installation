@@ -397,7 +397,7 @@ plymouthlogo(){
 apt-get install -y plymouth-theme-script > /dev/null #installs script plymouth theme to make changes work.
 dlurl="https://raw.githubusercontent.com/drubuntu/installation/master/"
 grubfilesurl=files/grub/
-savedir=$instrepofolder/files/grub
+savedir=$instrepofolder/files/grub/
 pltheme=$instrepofolder/files/drubuntu
 plymouththemedir=/lib/plymouth/themes
 grubdir=/etc/default/
