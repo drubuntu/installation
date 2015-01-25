@@ -133,6 +133,18 @@ desktopchoosermssg="Desktopauswahl für Drubuntu"
 choosedesktopmssg="Wählen Sei Ihre gewünschte Arbeitsumgebung!"
 xtoexitmssg="drückebn Sie x um zur Konsole zurückzukehren."
 choosemssg="Treffen Sie ihre Wahl von 1 - x"
+#createsite
+runsetipfirstmssg="Führen Sie zuerset sudo-dru-setip aus, damit wir Ihrem Project Domains zuweisen können!"
+entersitenamemssg="Bitte geben Sie den Namen der Seite ohne Domainendung (dev,site,de) und Prefix (www) durch!"
+entertldmssg="Bitte geben Sie die gewünschte Domainendung ohne vorangestellten punkt (.) ein!"
+localvaluemssg="Die angebenen Ip Adresse für localhost"
+savaluemssg="Die angegebebene Ip-Adresse für die 2. Netzwerkschnittstelle"
+isinvalidemssg="ist nicht zulässig oder fehlerhaft"
+siteassistmssg="Mit diesem Assistenten können Sie ein zusätzliches Project für die gwünschte Drupalversion anlegen"
+wvtumssg="Welche Version von Drupal möchten Sie verwenden?"
+hostisactivemssg="Ihre neue domain ist nun aktiviert"
+#createsubdomain
+
 #messages not used, yet
 wvtumssg="Welche Version von Drupal möchten Sie verwenden?"
 drupal7inputdatamssg="Nun benötigen wir einige Angaben für Drupal 7:"
