@@ -36,8 +36,18 @@ mydbuser_dseven=drupal
 mydbuser_deight=drupal
 mydbpass=drupal
 
-
+#functions to disable/enable CTRL+C
+disint(){
+# Signal 2 is Ctrl+C
+# Okay disable it:
+trap '' 2
+}
+enint(){
+#enable it, again
+trap 2
+}
 # This command creates the directory structure
+disint
 mkdirs(){
 if ! [ -d $bdir ] ;then
 mkdir -p  $bdir  >> /dev/null 2>&1
@@ -410,4 +420,5 @@ fi
 if [ -f "/etc/profile.d/run.sh" ]; then
 rm "/etc/profile.d/run.sh" 
 fi
+enint
 }
