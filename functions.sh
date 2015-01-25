@@ -86,10 +86,8 @@ fi
 }	
 
 updatenodejs(){
-
 sudo apt-add-repository -y ppa:chris-lea/node.js >>/dev/null 2>&1
 sudo apt-get install nodejs
-	
 }
 
 
@@ -105,28 +103,25 @@ apt  -y -qq install mysql-server-5.5   >> /dev/null 2>&1
 apt install -qq -y server^ >> /dev/null 2>&1
 apt install -qq -y openssh-server^ >> /dev/null 2>&1
 apt install -qq -y lamp-server^  >> /dev/null 2>&1
-
 dpkg -l software-properties-common >> /dev/null 2>&1 ||apt -qq -y install  software-properties-common >> /dev/null 2>&1
-
-dpkg -l curl >> /dev/null 2>&1 			||  apt -y -qq install curl >> /dev/null 2>&1
+apt -y -qq install curl >> /dev/null 2>&1
 updatenodejs >> /dev/null 2>&1
-dpkg -l php-pear >> /dev/null 2>&1		|| apt install -qq -y php-pear >> /dev/null 2>&1
-dpkg -l php5-dev >> /dev/null 2>&1 		|| apt install -qq -y php5-dev >> /dev/null 2>&1
-dpkg -l php5-curl >> /dev/null 2>&1		|| apt install -qq -y php5-curl >> /dev/null 2>&1
-dpkg -l php5-json >> /dev/null 2>&1		|| apt install -qq -y php5-json >> /dev/null 2>&1
-dpkg -l php5-gd >> /dev/null 2>&1 		|| apt install -qq -y php5-gd >> /dev/null 2>&1
-dpkg -l git >> /dev/null 2>&1 			|| apt install -qq -y git >> /dev/null 2>&1
-dpkg -l git-core >> /dev/null 2>&1		|| apt install -qq -y git-core >> /dev/null 2>&1
-dpkg -l ruby1.9.1-full >> /dev/null 2>&1 	|| apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
-dpkg -l libapache2-mod-php5 >> /dev/null 2>&1 	|| apt install -qq -y  libapache2-mod-php5 >> /dev/null 2>&1 
-dpkg -l php5-mcrypt >> /dev/null 2>&1 		|| apt install -qq -y  php5-mcrypt >> /dev/null 2>&1
-dpkg -l php5-gd >> /dev/null 2>&1 		|| apt install -qq -y   php5-gd >> /dev/null 2>&1
-dpkg -l php5-dev >> /dev/null 2>&1 		|| apt install -qq -y   php5-dev >> /dev/null 2>&1
-dpkg -l make >> /dev/null 2>&1 			|| apt install -qq -y make >> /dev/null 2>&1
-dpkg -l build-essential >> /dev/null 2>&1 	|| apt install -qq -y  build-essential >> /dev/null 2>&1
-dpkg -l nodejs-legacy >> /dev/null 2>&1 	|| apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
-dpkg -l npm >> /dev/null 2>&1 			|| apt install -qq -y  npm >> /dev/null 2>&1
-
+apt install -qq -y php-pear >> /dev/null 2>&1
+apt install -qq -y php5-dev >> /dev/null 2>&1
+apt install -qq -y php5-curl >> /dev/null 2>&1
+apt install -qq -y php5-json >> /dev/null 2>&1
+apt install -qq -y php5-gd >> /dev/null 2>&1
+apt install -qq -y git >> /dev/null 2>&1
+apt install -qq -y git-core >> /dev/null 2>&1
+apt install -qq -y ruby1.9.1-full >> /dev/null 2>&1
+apt install -qq -y  libapache2-mod-php5 >> /dev/null 2>&1 
+apt install -qq -y  php5-mcrypt >> /dev/null 2>&1
+apt install -qq -y   php5-gd >> /dev/null 2>&1
+apt install -qq -y   php5-dev >> /dev/null 2>&1
+apt install -qq -y make >> /dev/null 2>&1
+apt install -qq -y  build-essential >> /dev/null 2>&1
+apt install -qq -y nodejs-legacy >> /dev/null 2>&1 
+apt install -qq -y  npm >> /dev/null 2>&1
 }
 
 aptupdate(){
@@ -144,7 +139,7 @@ grantprivs(){
  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.composer
  chown -Rh $nameofuser:$nameofuser $HOME
  chmod -R 770  $HOME/*
-}
+ }
 #drush installation
 getcomposer(){
 # Composer Global installation
@@ -163,9 +158,7 @@ ln -s  $PWD/drush /usr/bin/drush
 else
 cd $HOME/.composer/vendor/drush/drush;
 ln -s  $PWD/drush /usr/bin/drush
-
 fi	
-
 }
 #installs preproceccor languages and grunt
 getgems(){
@@ -177,7 +170,6 @@ getdrush >> /dev/null 2>&1
 }
 #make sure that uploadprocess gets loaded by php
 uploadprogress(){
-
 #Check for uploadprogress.so
 file="/etc/php5/conf.d/uploadprogress.ini"
 if [ -f "$file" ]
@@ -199,7 +191,7 @@ BTICK='`'
 EXPECTED_ARGS=3
 E_BADARGS=65
 MYSQL=`which mysql`
- 
+
 Q1="CREATE DATABASE IF NOT EXISTS ${BTICK}$dbname${BTICK};"
 Q2="GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON $dbname.* TO "$mydbuser_dseven" @'localhost' IDENTIFIED BY '$mydbpass';"
 Q3="FLUSH PRIVILEGES;"
@@ -389,29 +381,18 @@ plymouthlogo(){
 apt-get install -y plymouth-theme-script > /dev/null #installs script plymouth theme to make changes work.
 dlurl="https://raw.githubusercontent.com/drubuntu/installation/master/"
 grubfilesurl=files/grub/
-$pllogourl=$dlurl$grubfilesurl
 savedir=$instrepofolder/files/grub
-pltheme=$instrepofolder/files/grub
+pltheme=$instrepofolder/files/drubuntu
 plymouththemedir=/lib/plymouth/themes
 grubdir=/etc/default/
 
-file1=drubuntu.grub
-file2=drubuntu.plymouth
-file3=drubuntu.script
-file4=grub.file
-file5=logo_blurred.png
-file6=logo.png
-file7=password_field.png
-file88=password_field16.png
-file9=ubuntu_logo.png
-file10=ubuntu_logo16.png
-mkdir -p "$plymouththemedir" 
 mv "$savedir"grub.file grub
-cp -r "$savedir"grub  "$grubdir"				#copy file to /etc/default and replace existing file.
-mv "$savedir" "$pltheme" "$plymouththemedir"
-cp -r "$pltheme"  #removes savedir for cleanup.
 
-cd													#the next line sets up drubuntu plymouth theme as default.
+cp -r "$savedir"grub  "$grubdir"				#copy file to /etc/default and replace existing file.
+mv "$savedir" "$pltheme"
+cp -r "$pltheme" "$plymouththemedir"  #removes savedir for cleanup.
+
+													#the next line sets up drubuntu plymouth theme as default.
 update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100 >/dev/null 
 update-grub >> /dev/null                                  	#update grub.
 update-initramfs -c -k all > /dev/null						#generate new kernel  .
