@@ -26,7 +26,7 @@ echo -e " ${white}  ${usingvbmssg} ${NC}"
 #this function tells the user to enter the data we need to set a static connection
 getinfo(){ 
 
-if [ $platformtest == "VirtualBox" ] ; then
+if [ "$platformtest" == "VirtualBox" ] ; then
 echo -e " ${white}  ${defvbvlsmssg} ${NC}"
 echo ""
 echo "Address:		192.168.56.101"
@@ -123,7 +123,7 @@ if ! grep -q '$staticip' /etc/hosts ; then
 echo "${ipandsandboxsites}"  >> /etc/hosts 
 fi
 }
-if [ $platformtest=="VirtualBox" ] ;then
+if [ "$platformtest" == "VirtualBox" ] ;then
 echo -e " ${white}  ${usingvbmssg} ${NC}"
 echo -e " ${white}  ${hitytoconfirmmssg} ${NC}"
 else
