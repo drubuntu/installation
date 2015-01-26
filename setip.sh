@@ -1,10 +1,10 @@
 #!/bin/bash
-cd ${0%/*}
+DIRURL=/opt/.drubuntu
 source $PWD/colors.sh
 if [ "$LANG" == "de_DE.UTF-8" ];then
-source $PWD/de.sh
+source $DIRURL/de.sh
 else
-source $PWD/en.sh
+source $DIRURL/en.sh
 fi
 
 if [ `whoami` != root ]; then #checks if the user is root. If The user isn't root the message is printed and the script will be interrupted.
