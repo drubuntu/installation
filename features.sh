@@ -1,7 +1,6 @@
 #!/bin/bash
 #run script for installation and features integration
 bdir="/opt/.drubuntu"
-cd ${0%/*}
 source $bdir/colors.sh
 if [ "$LANG" == "de_DE.UTF-8" ];then
 source $bdir/de.sh
