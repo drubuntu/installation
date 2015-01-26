@@ -100,7 +100,7 @@ fi
 }
 	
 exportip(){ 
-if [ $platformtest == "VirtualBox" ] ;then
+if [ "$platformtest" == "VirtualBox" ] ;then
 staticip=192.168.56.1
 fi
 if ! [ /etc/profile.d/drubuntu.sh ] ;then
@@ -141,7 +141,7 @@ fi
 getinfo
 
 #Here we proof if everything is correct and execute the functions above.
-if [ $platformtest=="VirtualBox" ] ;then
+if [ "$platformtest"=="VirtualBox" ] ;then
 echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
 addiptohostsfile; writeinterfacefile; exportip;
 echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
