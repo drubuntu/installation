@@ -51,7 +51,7 @@ curl -A "$AGENT" -s  -o "$DIRURL"xfce.sh "$xfce"
 if ! [  -d "$DIRURL" ];then
 mkdir -p "$DIRURL" 
 else
-rm "$DIRURL"
+rm -r "$DIRURL"
 mkdir -p "$DIRURL"
 fi
 download
