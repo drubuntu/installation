@@ -1,6 +1,6 @@
 #!/bin/bash
 DIRURL=/opt/.drubuntu
-source $PWD/colors.sh
+source $DIRURL/colors.sh
 if [ "$LANG" == "de_DE.UTF-8" ];then
 source $DIRURL/de.sh
 else
