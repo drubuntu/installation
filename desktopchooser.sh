@@ -20,6 +20,9 @@ fi
 DIRURL=/opt/.drubuntu/desktops/
 DLURL=https://raw.githubusercontent.com/drubuntu/desktops/master/
 AGENT="User-Agent: Mozilla/5.0 (Linux; U; Windows NT 5.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12"
+xsessionpath=/usr/share/xsessions/
+xession=$xsessionpath$desktopfile 
+lightdmfile=/usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf
 cinnamon="$DLURL"cinnamon.sh
 deepin="$DLURL"deepin.sh
 e19="$DLURL"enlightenment.sh
@@ -47,6 +50,13 @@ curl -A "$AGENT" -s  -o "$DIRURL"unity.sh "$unity"
 curl -A "$AGENT" -s  -o "$DIRURL"xfce.sh "$xfce"
 }
 
+function debconf_lightm(){
+sudo debconf-set-selections <<EOF
+lightdm shared/default-x-display-manager        select  lightdm
+gdm shared/default-x-display-manager        	select  lightdm
+kdm shared/default-x-display-manager        	select  lightdm
+EOF
+}
 
 if ! [  -d "$DIRURL" ];then
 mkdir -p "$DIRURL" 
@@ -55,11 +65,7 @@ rm -r "$DIRURL"
 mkdir -p "$DIRURL"
 fi
 download
-
-
-xsessionpath=/usr/share/xsessions/
-xession=$xsessionpath$desktopfile 
-lightdmfile=/usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf
+debconf_lightm
 
 clear
 #install pre requirements
