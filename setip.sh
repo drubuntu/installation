@@ -14,6 +14,26 @@ if [ `whoami` != root ]; then #checks if the user is root. If The user isn't roo
     exit
 4 
 fi
+funnction menu(){
+	if [ "$LANG" == "de_DE.UTF-8" ];then
+	echo ""
+			read -p "Geben Sie die IP für Ihren Server ein " staticip 
+		read -p "Geben Se Ihr netzwerk ein (Die Adresse Ihres Host Only Netzwerkadapters  " networkpattern
+		read -p "Geben SIe Ihre Netzwerkmaske ein " netmaskpattern
+		read -p "Geben Sie den Broadkast ein Die Adresse Ihres Host Only netzwerkadapters (letzter Block 255) " broadcastpattern
+		clear
+		
+		else
+	echo ""
+		read -p "Enter the ip address of server " staticip 
+		read -p "Enter your network " networkpattern
+		read -p "Enter your netmask " netmaskpattern
+		read -p "Enter the broadcast " broadcastpattern
+		clear
+		
+}
+
+
 platformtest=`dmidecode -s system-product-name`
 # This line tells the user the current IP in the network
   echo -e " ${yellow}  ${ipeth0mssg} ${NC}"
@@ -33,12 +53,7 @@ echo "netmask:		255.255.255.0"
 echo "network:		192.168.56.1"
 echo "broadcast:	192.168.56.255 "
 else
-		 echo ""
-		read -p "Enter the ip address of server" staticip 
-		read -p "Enter your network" networkpattern
-		read -p "Enter your netmask" netmaskpattern
-		read -p "Enter the broadcast" broadcastpattern
-		clear
+		 menu
 fi
 }
 	
