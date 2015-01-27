@@ -63,7 +63,7 @@ fi
 writeinterfacefile(){
 # This function writes the content between the cat command and EOF in to ubuntu's network interfaces file.
 
-if [ $platformtest == "VirtualBox" ] ;then
+if [ $platformtest =="VirtualBox" ] ;then
   echo "secondadapter=192.168.56.101" >>/etc/profile.d/drubuntu.sh
   staticip=192.168.56.101
  cat << EOF1 > /etc/network/interfaces
