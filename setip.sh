@@ -34,10 +34,10 @@ echo "network:		192.168.56.1"
 echo "broadcast:	192.168.56.255 "
 else
 		 echo ""
-		read -p "${enteripsmssg}" staticip 
-		read -p "${enternssmssg}" networkpattern
-		read -p "${enternmmssg}" netmaskpattern
-		read -p "${enterbcmssg}" broadcastpattern
+		read -p "$enteripsmssg" staticip 
+		read -p "$enternssmssg" networkpattern
+		read -p "$enternmmssg" netmaskpattern
+		read -p "$enterbcmssg" broadcastpattern
 		clear
 fi
 }
