@@ -44,6 +44,8 @@ notifymssg="You'll get a note as soon as we're done!"
 thanksmssg="Thank You!"
 yonmssg="Choose [y]es or [n]o, please!"
 rebootmssg="Your system will be rebooted, instantly!"
+infocorrectmssg="Are these informations correct? [y/N]" 
+avonbmssg="Youtr new configuration is available after next reboot!" 
 
 #website hints
 
@@ -63,6 +65,9 @@ ipsetaremssg="Your settings are:"
 ifwentwrongipmssg="If something goes wrong visit "
 newconfmssg="Your new settings are available after next reboot."
 secondadaptermssg="don't forget to add an host only adapter."
+ipeth0mssg="This is the adress of your first netwirk adapter:" 	 	
+hitytoconfirmmmssg="Press [y] to finish the installation!" 	 	
+dfsamssg="don't forget to add an host only adapter to youir VM!" 
 
 #features
 runhlpmssg="add  --help."
@@ -115,7 +120,7 @@ toyoursystemmssg="on your system."
 apcisinstalledmssg="APC is installed, now!"
 memcachedisinstalledmssg="Memcache is installed, now!"
 takeyourtiemeaptanagitmssg="Seting up advanced gitsupport for Aptana Studio 3 takes just about half an hour "
-javainstmssg="We need to install JJava from Oracle. By installing Java you accept appendend licences."
+javainstmssg="We need to install Java from Oracle. By installing Java you accept appendend licences."
 aptanaxdbugmssg="Aptana Stdio is installing PDT and Xdebug. This may take a while..."
 aptananextloginmssg="Aptana Studio is under your fingertips right after the next login!"
 isinstallingnowmssg="is installing ...."
@@ -135,7 +140,7 @@ choosedesktopmssg="Choose your desktp environment!"
 xtoexitmssg="hit x to return to command line."
 choosemssg="Coose from 1 - x"
 
-	#createsite 	 	
+#createsite 	 	
 runsetipfirstmssg="Run dru-setip first" 	 	
 entersitenamemssg="Enter your sites name, please. Without the ld (dev, site, com) and wothout Prefix (www)!" 	 	
 entertldmssg="enter your desiered tdl .dev, .com, .org without a dot (.), please!" 	 	
@@ -147,7 +152,6 @@ siteassistmssg="With this assistent you can add a muktisite to Drupla"
 wvtumssg="Witch version of drupal do you like to use?" 	 	
 hostisactivemssg="Your new domoain is activated now" 	 	
 invoptionmssg="unkown option" 	 	
-#createsubdomain 	 	
  
 #messages not used, yet
 wvtumssg="Witch version of Drupal would you like to use?"
