@@ -23,17 +23,17 @@ then
     exit
 else
 writedomainfile(){
-echo "<VirtualHost *:80 >"                                                      >/etc/apache2/sites-available/$domain
-echo "      DocumentRoot /var/www/$dbase/"                                >>/etc/apache2/sites-available/$domain
-echo "       ServerName $domain"                                          >>/etc/apache2/sites-available/$domain
-echo ""                                                                   >>/etc/apache2/sites-available/$domain
-echo "       <Directory /var/www/$dbase/>"                                >>/etc/apache2/sites-available/$domain
-echo "               Options Indexes FollowSymLinks MultiViews +Includes" >>/etc/apache2/sites-available/$domain
-echo "               AllowOverride All"                                   >>/etc/apache2/sites-available/$domain
-echo "               Order allow,deny"                                    >>/etc/apache2/sites-available/$domain
-echo "               allow from all"                                      >>/etc/apache2/sites-available/$domain
-echo "       </Directory>"                                                >>/etc/apache2/sites-available/$domain
-echo "</VirtualHost>"													  >>/etc/apache2/sites-available/$domain
+echo "<VirtualHost *:80 >"                                                      >/etc/apache2/sites-available/$domain.conf
+echo "      DocumentRoot /var/www/$dbase/"                                >>/etc/apache2/sites-available/$domain.conf
+echo "       ServerName $domain"                                          >>/etc/apache2/sites-available/$domain.conf
+echo ""                                                                   >>/etc/apache2/sites-available/$domain.conf
+echo "       <Directory /var/www/$dbase/>"                                >>/etc/apache2/sites-available/$domain.conf
+echo "               Options Indexes FollowSymLinks MultiViews +Includes" >>/etc/apache2/sites-available/$domain.conf
+echo "               AllowOverride All"                                   >>/etc/apache2/sites-available/$domain.conf
+echo "               Order allow,deny"                                    >>/etc/apache2/sites-available/$domain.conf
+echo "               allow from all"                                      >>/etc/apache2/sites-available/$domain.conf
+echo "       </Directory>"                                                >>/etc/apache2/sites-available/$domain.conf
+echo "</VirtualHost>"													  >>/etc/apache2/sites-available/$domain.conf
 }
 
 writetohostsfile(){
