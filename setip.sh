@@ -22,7 +22,6 @@ ifconfig eth0 | ( while read line; do [ "$line" != "${line#inet }" ] && e="${lin
 echo ""
 echo -e " ${lightgreen}  ${setipwcmssg} ${NC}"
 echo ""
-echo -e " ${white}  ${usingvbmssg} ${NC}"
 #this function tells the user to enter the data we need to set a static connection
 getinfo(){ 
 
@@ -135,8 +134,7 @@ echo   "$networkpattern"
 echo -e " ${white}  ${nmmssg} ${NC}"
 echo   "$netmaskpattern"                        
 echo -e " ${white}  ${bcmssg} ${NC}"             
-echo -e " ${white}  ${bcmssg} ${NC}"           
-echo ""
+echo   "$broadcastpattern"
 fi
 getinfo
 
