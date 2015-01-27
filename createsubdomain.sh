@@ -15,13 +15,13 @@ if [ `whoami` != root ]; then #checks if the user is root. If The user isn't roo
     exit
 4 
 fi
-string=secondadapter
-if  ! grep -Fxq "$string" /etc/profile.d/drubuntu.sh;
+
+if ! [ -f "$file" ]
 then
     echo -e " ${lightred}  ${runsetipfirstmssg} ${NC}"
-
     exit
 else
+
 writedomainfile(){
 echo "<VirtualHost *:80 >"                                                      >/etc/apache2/sites-available/$domain.conf
 echo "      DocumentRoot /var/www/$dbase/"                                >>/etc/apache2/sites-available/$domain.conf
