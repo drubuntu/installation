@@ -134,7 +134,7 @@ echo   "$networkpattern"
 echo -e " ${white}  ${nmmssg} ${NC}"
 echo   "$netmaskpattern"                        
 echo -e " ${white}  ${bcmssg} ${NC}"             
-echo   "$broadcastpattern"
+echo   "     $broadcastpattern"
 fi
 getinfo
 
