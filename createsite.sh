@@ -80,7 +80,7 @@ echo ""                                                                     >>/e
 echo "  	DocumentRoot /var/www/$dbase"                                   >>/etc/apache2/sites-available/$sitename.conf
 echo "  	<Directory />"                                                  >>/etc/apache2/sites-available/$sitename.conf
 echo "    		Options FollowSymLinks"                                     >>/etc/apache2/sites-available/$sitename.conf
-echo "    		AllowOverride All"											>>/etc/apache2/sites-available/$sitename .conf
+echo "    		AllowOverride All"											>>/etc/apache2/sites-available/$sitename.conf
 echo "  		</Directory>"                                               >>/etc/apache2/sites-available/$sitename.conf
 echo ""																		>>/etc/apache2/sites-available/$sitename.conf
 echo "  <Directory /var/www/$dbase>"                                        >>/etc/apache2/sites-available/$sitename.conf
