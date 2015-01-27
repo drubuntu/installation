@@ -96,14 +96,14 @@ echo "    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch"               >>/e
 echo "    Order allow,deny"                                                 >>/etc/apache2/sites-available/$sitename.conf
 echo "    Allow from all"                                                   >>/etc/apache2/sites-available/$sitename.conf
 echo "  </Directory>"                                                       >>/etc/apache2/sites-available/$sitename.conf
-echo -n "ErrorLog \${APACHE_LOG_DIR\}"                 						>>/etc/apache2/sites-available/$sitename.conf
-echo "\$errorlogname"                        								>>/etc/apache2/sites-available/$sitename.conf
+echo -n "ErrorLog \${APACHE_LOG_DIR/}"                 						>>/etc/apache2/sites-available/$sitename.conf
+echo "$errorlogname"                        								>>/etc/apache2/sites-available/$sitename.conf
 echo "  # Possible values include: debug, info, notice, warn, error, crit," >>/etc/apache2/sites-available/$sitename.conf
 echo "  # alert, emerg."                                                    >>/etc/apache2/sites-available/$sitename.conf
 echo "  LogLevel warn"                                                      >>/etc/apache2/sites-available/$sitename.conf
 echo ""                                                                     >>/etc/apache2/sites-available/$sitename.conf
-echo -n "CustomLog \${APACHE_LOG_DIR\}"            							>>/etc/apache2/sites-available/$sitename.conf
-echo  "\$logname combined"													>>/etc/apache2/sites-available/$sitename.conf
+echo -n "CustomLog \${APACHE_LOG_DIR}/"            							>>/etc/apache2/sites-available/$sitename.conf
+echo  "$logname combined"													>>/etc/apache2/sites-available/$sitename.conf
 echo "</VirtualHost>"                                                       >>/etc/apache2/sites-available/$sitename.conf
 }
 
