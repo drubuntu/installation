@@ -7,13 +7,11 @@ else
 source $DIRURL/en.sh
 fi
 
-if [ `whoami` != root ] then 
-
-    echo -e " ${lightred}  ${runasrootmssg} ${NC}"
-
+if [ `whoami` != root ]; then
+echo -e " ${white}  ${runhlpmssg} ${NC}"
+echo -e " ${lightred}  ${runasrootmssg} ${NC}"
     exit
-4 
-
+    4
 fi
 
 string=secondadapter
