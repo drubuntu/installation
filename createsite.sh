@@ -46,6 +46,7 @@ read -p "${entertldmssg} " domain
 domainpattern="$sitename.$domain"
 aliaspattern=www.$domainpattern
 logname=$sitename.log"
+aliasfile="$sitename.conf"
 errorlogname=$sitename.error.log"
 
 writefile
@@ -63,7 +64,9 @@ read -p "${entertldmssg} " domain
 domainpattern="$sitename\.$domain"
 aliaspattern=www.$domainpattern
 logname=$domainpattern.log"
+aliasfile="$sitename.conf"
 errorlogname=$domainpattern.error.log"
+
 writefile 
 writetohostsfile
 createfolder
@@ -72,39 +75,39 @@ exit
 }
 
 writefile(){
-echo "<VirtualHost *:80>"                                                    >/etc/apache2/sites-available/$sitename
-echo "  ServerAdmin webmaster@localhost"                                    >>/etc/apache2/sites-available/$sitename
-echo "	ServerName $domainpattern"                                          >>/etc/apache2/sites-available/$sitename
-echo "	ServerAlias $aliaspattern"                                          >>/etc/apache2/sites-available/$sitename
-echo ""                                                                     >>/etc/apache2/sites-available/$sitename
-echo "  	DocumentRoot /var/www/$dbase"                                   >>/etc/apache2/sites-available/$sitename
-echo "  	<Directory />"                                                  >>/etc/apache2/sites-available/$sitename
-echo "    		Options FollowSymLinks"                                     >>/etc/apache2/sites-available/$sitename
-echo "    		AllowOverride All"											>>/etc/apache2/sites-available/$sitename 
-echo "  		</Directory>"                                               >>/etc/apache2/sites-available/$sitename
-echo ""																		>>/etc/apache2/sites-available/$sitename
-echo "  <Directory /var/www/$dbase>"                                        >>/etc/apache2/sites-available/$sitename
-echo "    Options Indexes FollowSymLinks MultiViews"                        >>/etc/apache2/sites-available/$sitename
-echo "    AllowOverride All"                                                >>/etc/apache2/sites-available/$sitename
-echo "    Order allow,deny"                                                 >>/etc/apache2/sites-available/$sitename
-echo "    allow from all"                                                   >>/etc/apache2/sites-available/$sitename
-echo "  </Directory>"                                                       >>/etc/apache2/sites-available/$sitename
-echo " ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/"                             >>/etc/apache2/sites-available/$sitename
-echo "  <Directory "/usr/lib/cgi-bin">"                                     >>/etc/apache2/sites-available/$sitename
-echo "    AllowOverride None"                                               >>/etc/apache2/sites-available/$sitename
-echo "    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch"               >>/etc/apache2/sites-available/$sitename
-echo "    Order allow,deny"                                                 >>/etc/apache2/sites-available/$sitename
-echo "    Allow from all"                                                   >>/etc/apache2/sites-available/$sitename
-echo "  </Directory>"                                                       >>/etc/apache2/sites-available/$sitename
-echo -n "ErrorLog \${APACHE_LOG_DIR\}"                 						>>/etc/apache2/sites-available/$sitename
-echo "\$errorlogname"                        								>>/etc/apache2/sites-available/$sitename
-echo "  # Possible values include: debug, info, notice, warn, error, crit," >>/etc/apache2/sites-available/$sitename
-echo "  # alert, emerg."                                                    >>/etc/apache2/sites-available/$sitename
-echo "  LogLevel warn"                                                      >>/etc/apache2/sites-available/$sitename
-echo ""                                                                     >>/etc/apache2/sites-available/$sitename
-echo -n "CustomLog \${APACHE_LOG_DIR\}"            							>>/etc/apache2/sites-available/$sitename
-echo  "\$logname combined"													>>/etc/apache2/sites-available/$sitename
-echo "</VirtualHost>"                                                       >>/etc/apache2/sites-available/$sitename
+echo "<VirtualHost *:80>"                                                    >/etc/apache2/sites-available/$aliasfile
+echo "  ServerAdmin webmaster@localhost"                                    >>/etc/apache2/sites-available/$aliasfile
+echo "	ServerName $domainpattern"                                          >>/etc/apache2/sites-available/$aliasfile
+echo "	ServerAlias $aliaspattern"                                          >>/etc/apache2/sites-available/$aliasfile
+echo ""                                                                     >>/etc/apache2/sites-available/$aliasfile
+echo "  	DocumentRoot /var/www/$dbase"                                   >>/etc/apache2/sites-available/$aliasfile
+echo "  	<Directory />"                                                  >>/etc/apache2/sites-available/$aliasfile
+echo "    		Options FollowSymLinks"                                     >>/etc/apache2/sites-available/$aliasfile
+echo "    		AllowOverride All"											>>/etc/apache2/sites-available/$aliasfile 
+echo "  		</Directory>"                                               >>/etc/apache2/sites-available/$aliasfile
+echo ""																		>>/etc/apache2/sites-available/$aliasfile
+echo "  <Directory /var/www/$dbase>"                                        >>/etc/apache2/sites-available/$aliasfile
+echo "    Options Indexes FollowSymLinks MultiViews"                        >>/etc/apache2/sites-available/$aliasfile
+echo "    AllowOverride All"                                                >>/etc/apache2/sites-available/$aliasfile
+echo "    Order allow,deny"                                                 >>/etc/apache2/sites-available/$aliasfile
+echo "    allow from all"                                                   >>/etc/apache2/sites-available/$aliasfile
+echo "  </Directory>"                                                       >>/etc/apache2/sites-available/$aliasfile
+echo " ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/"                             >>/etc/apache2/sites-available/$aliasfile
+echo "  <Directory "/usr/lib/cgi-bin">"                                     >>/etc/apache2/sites-available/$aliasfile
+echo "    AllowOverride None"                                               >>/etc/apache2/sites-available/$aliasfile
+echo "    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch"               >>/etc/apache2/sites-available/$aliasfile
+echo "    Order allow,deny"                                                 >>/etc/apache2/sites-available/$aliasfile
+echo "    Allow from all"                                                   >>/etc/apache2/sites-available/$aliasfile
+echo "  </Directory>"                                                       >>/etc/apache2/sites-available/$aliasfile
+echo -n "ErrorLog \${APACHE_LOG_DIR\}"                 						>>/etc/apache2/sites-available/$aliasfile
+echo "\$errorlogname"                        								>>/etc/apache2/sites-available/$aliasfile
+echo "  # Possible values include: debug, info, notice, warn, error, crit," >>/etc/apache2/sites-available/$aliasfile
+echo "  # alert, emerg."                                                    >>/etc/apache2/sites-available/$aliasfile
+echo "  LogLevel warn"                                                      >>/etc/apache2/sites-available/$aliasfile
+echo ""                                                                     >>/etc/apache2/sites-available/$aliasfile
+echo -n "CustomLog \${APACHE_LOG_DIR\}"            							>>/etc/apache2/sites-available/$aliasfile
+echo  "\$logname combined"													>>/etc/apache2/sites-available/$aliasfile
+echo "</VirtualHost>"                                                       >>/etc/apache2/sites-available/$aliasfile
 }
 
 writetohostsfile(){
