@@ -15,6 +15,7 @@ if [ `whoami` != root ]; then #checks if the user is root. If The user isn't roo
 4 
 fi
 funnction menu(){
+	
 	if [ "$LANG" == "de_DE.UTF-8" ];then
 	echo ""
 			read -p "Geben Sie die IP für Ihren Server ein " staticip 
@@ -30,7 +31,7 @@ funnction menu(){
 		read -p "Enter your netmask " netmaskpattern
 		read -p "Enter the broadcast " broadcastpattern
 		clear
-		
+		fi
 }
 
 
