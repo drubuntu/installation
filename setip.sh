@@ -125,7 +125,6 @@ fi
 if [ "$platformtest" == "VirtualBox" ] ;then
 echo -e " ${white}  ${usingvbmssg} ${NC}"
 echo -e " ${white}  ${hitytoconfirmmssg} ${NC}"
-else
 echo -e " ${white}  ${ipsetaremssg} ${NC}"
 echo -e " ${white}  ${ipmssg} ${NC}"
 echo   "$staticip"
@@ -136,7 +135,6 @@ echo   "$netmaskpattern"
 echo -e " ${white}  ${bcmssg} ${NC}"             
 echo   "     $broadcastpattern"
 else
-
 getinfo
 fi
 #Here we proof if everything is correct and execute the functions above.
