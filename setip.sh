@@ -34,10 +34,10 @@ echo "network:		192.168.56.1"
 echo "broadcast:	192.168.56.255 "
 else
 		 echo ""
-		read -p "$enteripsmssg" staticip 
-		read -p "$enternssmssg" networkpattern
-		read -p "$enternmmssg" netmaskpattern
-		read -p "$enterbcmssg" broadcastpattern
+		read -p "Enter the ip address of server" staticip 
+		read -p "Enter your network" networkpattern
+		read -p "Enter your netmask" netmaskpattern
+		read -p "Enter the broadcast" broadcastpattern
 		clear
 fi
 }
@@ -135,9 +135,10 @@ echo -e " ${white}  ${nmmssg} ${NC}"
 echo   "$netmaskpattern"                        
 echo -e " ${white}  ${bcmssg} ${NC}"             
 echo   "     $broadcastpattern"
-fi
-getinfo
+else
 
+getinfo
+fi
 #Here we proof if everything is correct and execute the functions above.
 if [ "$platformtest"=="VirtualBox" ] ;then
 echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
