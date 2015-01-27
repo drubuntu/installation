@@ -14,7 +14,7 @@ if [ `whoami` != root ]; then #checks if the user is root. If The user isn't roo
     exit
 4 
 fi
-funnction menu(){
+function menu(){
 	
 	if [ "$LANG" == "de_DE.UTF-8" ];then
 	echo ""
