@@ -16,6 +16,7 @@ if [ `whoami` != root ]; then #checks if the user is root. If The user isn't roo
 4 
 fi
 
+file="/opt/.drubuntu/secondip"
 if ! [ -f "$file" ]
 then
     echo -e " ${lightred}  ${runsetipfirstmssg} ${NC}"
