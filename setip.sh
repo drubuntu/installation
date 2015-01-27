@@ -153,6 +153,8 @@ while true; do
 		read -p "${infocorrectmssg}" yn
 		case $yn in
 [Yy]* ) 
+fi
+
 if [ $platformtest == "VirtualBox" ] ;then
 echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
 addiptohostsfile; writeinterfacefile; exportip;
@@ -170,5 +172,4 @@ fi
 		* ) echo -e " ${white}  ${yonmssg} ${NC}" ;;
 		esac
 	done  
-fi
 fi
