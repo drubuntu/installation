@@ -8,15 +8,14 @@ source $DIRURL/en.sh
 fi
 
 if [ `whoami` != root ]; then
-echo -e " ${white}  ${runhlpmssg} ${NC}"
 echo -e " ${lightred}  ${runasrootmssg} ${NC}"
     exit
     4
 fi
 
-string=secondadapter
+file="/opt/.drubuntu/secondip"
 
-if  ! grep -Fxq "$string" /etc/profile.d/drubuntu.sh;
+if ! [ -f "$file" ]
 then
     echo -e " ${lightred}  ${runsetipfirstmssg} ${NC}"
     exit
