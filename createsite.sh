@@ -58,7 +58,7 @@ exit
 drupal8(){
 dbase="d8"  
 read -p "${entersitenamemssg} " sitename
-echo ""
+echo " "
 read -p "${entertldmssg} " domain
 domainpattern="$sitename\.$domain"
 aliaspattern=www.$domainpattern
@@ -115,7 +115,7 @@ if [[ $secondadapter =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
         exp="s/^\(${secondadapter//./\\.}[[:space:]]\+[^#]\+\)/\1 $domain/"
         sed -i "$exp" /etc/hosts
     else
-        echo "$secondadapter $domain" >> /etc/hosts
+        echo "$secondadapter $domainpattern" >> /etc/hosts
     fi
 else
     echo -e "${lightred}  ${savaluemssg}  \${secondadapter} ${isinvalidemssg} ${NC} ${secondadapter} ${NC}"
@@ -126,7 +126,7 @@ if [[ $local =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
         exp="s/^\(${local//./\\.}[[:space:]]\+[^#]\+\)/\1 $domain/"
         sed -i "$exp" /etc/hosts
     else
-        echo "$local $domain" >> /etc/hosts
+        echo "$local $domainpattern" >> /etc/hosts
     fi
 else
     echo -e "${lightred}  ${localvaluemssg}  \${local} ${isinvalidemssg}  ${NC} "
@@ -140,7 +140,7 @@ activate() {
 }
 echo -e "${lightgreen}  ${siteassistmssg} ${NC}"
 echo ""
-PS3=' ${wvtumssg} '
+PS3=' $wvtumssg '
 options=("Drupal7" "Drupal8" "Quit")
 select opt in "${options[@]}"
 do
