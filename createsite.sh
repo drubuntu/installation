@@ -7,14 +7,17 @@ else
 source $DIRURL/en.sh
 fi
 
-if[ `whoami` != root ] then; 
+if [ `whoami` != root ] then 
 
     echo -e " ${lightred}  ${runasrootmssg} ${NC}"
 
     exit
 4 
+
 fi
+
 string=secondadapter
+
 if  ! grep -Fxq "$string" /etc/profile.d/drubuntu.sh;
 then
     echo -e " ${lightred}  ${runsetipfirstmssg} ${NC}"
