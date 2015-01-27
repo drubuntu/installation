@@ -45,8 +45,8 @@ echo ""
 read -p "${entertldmssg} " domain
 domainpattern="$sitename.$domain"
 aliaspattern=www.$domainpattern
-logname=$sitename.log"
-errorlogname=$sitename.error.log"
+logname="$sitename.log"
+errorlogname="$sitename.error.log"
 
 writefile
 writetohostsfile
