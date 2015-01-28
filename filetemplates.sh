@@ -5,11 +5,11 @@
 #drubuntus issue is create here
 
 crissue(){
-cat << EOF1 > /etc/issue
-Drbuntu is powered by Ubuntu 14.04 \n \l
+cat << EOF1 > /etc/issue.net
+Drbuntu is powered by Ubuntu 14.04.1 \n \l
 
 For more information about drubuntu go to https://horvan.github.io/horvan/drubuntu
-and use the GitHub Wiki at https://github.com/horvan/drubuntu/wiki
+and use the GitHub Wiki at https://github.com/drubuntu/drubuntu/wiki
 or contact us via Google+ at +drubuntuinfo.  
 EOF1
 }
