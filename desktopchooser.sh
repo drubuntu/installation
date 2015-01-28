@@ -72,10 +72,10 @@ clear
 echo -e " ${lightgreen}  ${prerequmssg} ${NC}"
 echo ""
 echo -e " ${orange}  ${lightdmmmsg} ${NC}"
-apt -y  -qq install software-properties-common >>/dev/null  2>&1
-add-apt-repository -y ppa:lightdm-gtk-greeter-team/stable >>/dev/null  2>&1
+apt -y  -qq install software-properties-common #>>/dev/null  2>&1
+add-apt-repository -y ppa:lightdm-gtk-greeter-team/stable #>>/dev/null  2>&1
 apt update >>/dev/null  2>&1
-apt -y -qq install lightdm-gtk-greeter lightdm ppa-purge xorg >>/dev/null  2>&1
+apt -y -qq install lightdm-gtk-greeter lightdm ppa-purge xorg #>>/dev/null  2>&1
 clear
 cd "$PWD"
 show_menu(){
