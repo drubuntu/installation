@@ -36,6 +36,9 @@ unity="$DLURL"unity.sh
 xfce="$DLURL"xfce.sh
 
 function download(){
+if [ -d $DIRURL ];then
+rm -r "$DIRURL"
+fi
 echo -e "${lightgreen} ${fetchfeaturesssg} ${NC}"
 curl -A "$AGENT" -s  -o "$DIRURL"cinnamon.sh "$cinnamon"
 curl -A "$AGENT" -s  -o "$DIRURL"deepin.sh "$deepin"
@@ -51,6 +54,7 @@ curl -A "$AGENT" -s  -o "$DIRURL"xfce.sh "$xfce"
 }
 
 function debconf_lightm(){
+export DEBIAN_FRONTEND=noninteractive
 sudo debconf-set-selections <<EOF
 lightdm shared/default-x-display-manager        select  lightdm
 gdm shared/default-x-display-manager        	select  lightdm
