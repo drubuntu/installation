@@ -14,9 +14,9 @@
 [![Download Drubuntu](https://img.shields.io/sourceforge/dm/drubuntu.svg)](https://sourceforge.net/projects/drubuntu/files/latest/download) 
 ___
 
-## manual installation<a name="installation">
+## manual installation
 
-###with git
+###with git <a name="installation">
 ```Shell
 git clone https://github.com/drubuntu/installation.git;
 chmod +x installation/run.sh;
