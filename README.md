@@ -20,6 +20,7 @@ If you having truble with installing the iso just:
 1. Download the minimal CD
 2. run the installer without selecting eny package
 3. continue with the manual installation approach [(without git)](#without-git) after you are logged in!
+
 ___
 
 ## manual installation
