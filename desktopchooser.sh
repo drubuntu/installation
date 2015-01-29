@@ -55,12 +55,8 @@ git clone https://github.com/drubuntu/desktops $DIRURL
 }
 
 function debconf_lightm(){
-export DEBIAN_FRONTEND=noninteractive
-export DEBIAN_PRIORITY=low
-sudo debconf-set-selections <<EOF
-lightdm shared/default-x-display-manager        select  lightdm
-gdm shared/default-x-display-manager        	select  lightdm
-kdm shared/default-x-display-manager        	select  lightdm
+ cat<<'EOF'>/etc/X11/default-display-manager
+/usr/sbin/lightdm
 EOF
 }
 
