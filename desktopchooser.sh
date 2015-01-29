@@ -56,6 +56,7 @@ git clone https://github.com/drubuntu/desktops $DIRURL
 
 function debconf_lightm(){
 export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_PRIORITY=low
 sudo debconf-set-selections <<EOF
 lightdm shared/default-x-display-manager        select  lightdm
 gdm shared/default-x-display-manager        	select  lightdm
@@ -75,6 +76,7 @@ apt --yes --force-yes  -qq install software-properties-common >>/dev/null  2>&1
 add-apt-repository -y ppa:lightdm-gtk-greeter-team/stable >>/dev/null  2>&1
 apt update >>/dev/null  2>&1
 apt --yes --force-ey -qq install lightdm-gtk-greeter lightdm ppa-purge xorg >>/dev/null  2>&1
+export DEBIAN_PRIORITY=""
 clear
 cd "$PWD"
 show_menu(){
