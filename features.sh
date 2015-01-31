@@ -146,7 +146,7 @@ sudo bash "$DIRURL"bootstrapwithsass.sh
 --desktops)
 echo -e " ${white}  ${needpassmssg} ${shortdesktopmsg} ${toyoursystemmssg} ${NC}"
 sudo bash "$DIRURL"bootstrapwithsass.sh
-
+;;
 *)
     echo -e " ${white}  ${runhlpmssg} ${NC}"
     ;;
