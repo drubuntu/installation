@@ -19,6 +19,6 @@ defsettingsfile=/default.settings.php
 dsettingsfile=/settings.php
 ddefsymlfile=/default.services.yml
 dsymlfile=/services.yml
-d8core=http://ftp.drupal.org/files/projects/drupal-8.0.0-beta4.tar.gz
+d8core=http://ftp.drupal.org/files/projects/drupal-8.0.0-beta6.tar.gz
 d7core=http://ftp.drupal.org/files/projects/drupal-7.34.tar.gz
 d6core=http://ftp.drupal.org/files/projects/drupal-6.34.tar.gz
