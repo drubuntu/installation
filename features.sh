@@ -37,8 +37,8 @@ xdbug="$DLURL"xdebug.sh
 function download(){
 echo -e "${lightgreen} ${fetchfeaturesssg} ${NC}"
 git clone https://github.com/drubuntu/features $DIRURL
-
-
+clear
+echo -e "${lightgreen} ${fetchfeaturesssg} ${NC}"
 }
 
 if  [  -d "$DIRURL" ];then
