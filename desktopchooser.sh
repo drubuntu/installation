@@ -41,17 +41,7 @@ rm -r "$DIRURL"
 fi
 echo -e "${lightgreen} ${fetchfeaturesssg} ${NC}"
 git clone https://github.com/drubuntu/desktops $DIRURL
-#curl -A "$AGENT" -s  -o "$DIRURL"cinnamon.sh "$cinnamon"
-#curl -A "$AGENT" -s  -o "$DIRURL"deepin.sh "$deepin"
-#curl -A "$AGENT" -s  -o "$DIRURL"enlightenment.sh "$enlightenment"
-#curl -A "$AGENT" -s  -o "$DIRURL"evolve.sh "$evolve"
-#curl -A "$AGENT" -s  -o "$DIRURL"gnome3.sh "$gnome3"
-#curl -A "$AGENT" -s  -o "$DIRURL"kde.sh "$kde"
-#curl -A "$AGENT" -s  -o "$DIRURL"lxde.sh "$lxde"
-#curl -A "$AGENT" -s  -o "$DIRURL"mate.sh "$mate"
-#curl -A "$AGENT" -s  -o "$DIRURL"pantheon.sh "$pantheon"
-#curl -A "$AGENT" -s  -o "$DIRURL"unity.sh "$unity"
-#curl -A "$AGENT" -s  -o "$DIRURL"xfce.sh "$xfce"
+clear
 }
 
 function debconf_lightm(){
