@@ -37,26 +37,12 @@ xdbug="$DLURL"xdebug.sh
 function download(){
 echo -e "${lightgreen} ${fetchfeaturesssg} ${NC}"
 git clone https://github.com/drubuntu/features $DIRURL
-#curl -A "$AGENT" -s  -o "$DIRURL"apc.sh "$apc"
-#curl -A "$AGENT" -s  -o "$DIRURL"aptanagitsupport.sh "$aptanagit"
-#curl -A "$AGENT" -s  -o "$DIRURL"aptanaide.sh "$aptanaide"
-#curl -A "$AGENT" -s  -o "$DIRURL"aptanaxdebug.sh "$aptanaxdebug"
-#curl -A "$AGENT" -s  -o "$DIRURL"atom.sh "$atom"
-#curl -A "$AGENT" -s  -o "$DIRURL"bootstrapwithsass.sh "$bootstrap"
-#curl -A "$AGENT" -s  -o "$DIRURL"browsersuite.sh "$browsers"
-#curl -A "$AGENT" -s  -o "$DIRURL"memcached.sh "$memc"
-#curl -A "$AGENT" -s  -o "$DIRURL"plymouthlogo.sh "$pllogo"
-#curl -A "$AGENT" -s  -o "$DIRURL"proftpd.sh "$pftpd"
-#curl -A "$AGENT" -s  -o "$DIRURL"shelled.sh "$shed"
-#curl -A "$AGENT" -s  -o "$DIRURL"varnish.sh "$vnsh"
-#curl -A "$AGENT" -s  -o "$DIRURL"webexplangs.sh "$webex"
-#curl -A "$AGENT" -s  -o "$DIRURL"xdebug.sh "$xdbug"
 
 
 }
 
 if  [  -d "$DIRURL" ];then
-rm -r"$DIRURL" 
+rm -r "$DIRURL" 
 fi
 download
 function show_help() {							#this is the help text
