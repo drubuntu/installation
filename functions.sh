@@ -96,9 +96,8 @@ fi
 }	
 
 updatenodejs(){
-apt-add-repository -y ppa:chris-lea/node.js >>/dev/null 2>&1
+curl -sL https://deb.nodesource.com/setup | sudo bash -
 apt  -y -qq install nodejs
-apt -y -qq install nodejs-dev
 }
 
 
