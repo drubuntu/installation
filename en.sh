@@ -136,7 +136,7 @@ bdochanainstallmssg="bdoc and hana are installing .."
 prerequmssg="Required packages will be downloaded and installd ..."
 lightdmmmsg="Lightdm is big, be patient,please!"
 desktopchoosermssg="Desktopchooser"
-choosedesktopmssg="Choose your desktp environment!"
+choosedesktopmssg="Choose your desktop environment!"
 xtoexitmssg="hit x to return to command line."
 choosemssg="Coose from 1 - x"
 
