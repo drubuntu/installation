@@ -62,7 +62,7 @@ apt --yes --force-yes  -qq install software-properties-common >>/dev/null  2>&1
 add-apt-repository -y ppa:lightdm-gtk-greeter-team/stable >>/dev/null  2>&1
 apt update >>/dev/null  2>&1
 apt --yes --force-ey -qq install lightdm-gtk-greeter lightdm ppa-purge xorg >>/dev/null  2>&1
-export DEBIAN_PRIORITY=""
+export DEBIAN_PRIORITY=" "
 clear
 cd "$PWD"
 show_menu(){
@@ -148,7 +148,7 @@ EOF1
         
         2) clear;
 			    
-			    sudo bash "$DIRURL"enlightenment.sh
+			    sudo bash "$DIRURL"enlightenment.sh 
         rm -r 60-lightdm-gtk-greeter.conf 
 cat <<EOF2>>"$lightdmfile"
 user-session=enlightenment
