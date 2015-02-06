@@ -58,7 +58,7 @@ function show_help() {							#this is the help text
        echo -e " ${white}  ${memcachedswitch}          ${memcachedmssg} ${NC}"
        echo -e " ${white}  ${plymouthswitch}           ${plymouthmssg} ${NC}"
        echo -e " ${white}  ${proftpdswitch}            ${proftpdmssg} ${NC}"  .
-       echo -e " ${white}  ${varnishshwitch}           ${  varnishmssg} ${NC}"
+       echo -e " ${white}  ${varnishshwitch}           ${varnishmssg} ${NC}"
        echo -e " ${white}  ${webexplangsswitch}        ${webexplangsmssg} ${NC}"
        echo -e " ${white}  ${xdebugswitch}             ${xdebugmssg} ${NC}"
 }
