@@ -101,7 +101,7 @@ sudo bash "$DIRURL"memcached.sh
     ;;
 
 --proftpd)
-echo -e " ${white}  ${needpassmssg} ${shortüroftpdmssg} ${toyoursystemmssg} ${NC}"
+echo -e " ${white}  ${needpassmssg} ${shortproftpdmssg} ${toyoursystemmssg} ${NC}"
 sudo  bash "$DIRURL"proftpd.sh
     ;;
     --xdebug)
