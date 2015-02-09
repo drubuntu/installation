@@ -43,26 +43,18 @@ echo -e "${lightgreen} ${fetchfeaturesssg} ${NC}"
 git clone https://github.com/drubuntu/desktops $DIRURL
 clear
 }
-
-function debconf_lightm(){
- cat<<'EOF'>/etc/X11/default-display-manager
-/usr/sbin/lightdm
-EOF
-}
-
 download
-debconf_lightm
+
 
 clear
 #install pre requirements
 echo -e " ${lightgreen}  ${prerequmssg} ${NC}"
 echo ""
 echo -e " ${orange}  ${lightdmmmsg} ${NC}"
-apt --yes --force-yes  -qq install software-properties-common >>/dev/null  2>&1
+apt --yes --force-yes  -qq install software-properties-common ppa-purge xorg  >>/dev/null  2>&1
 add-apt-repository -y ppa:lightdm-gtk-greeter-team/stable >>/dev/null  2>&1
 apt update >>/dev/null  2>&1
-apt --yes --force-ey -qq install lightdm-gtk-greeter lightdm ppa-purge xorg >>/dev/null  2>&1
-export DEBIAN_PRIORITY=" "
+apt --yes --force-ey -qq sudo apt-get install lightdm lightdm-webkit-greeter --no-install-recommends  >>/dev/null  2>&1
 clear
 cd "$PWD"
 show_menu(){
