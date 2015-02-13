@@ -141,7 +141,7 @@ apt  -y install mysql-server-5.5 server^ openssh-server^  lamp-server^ php-pear 
 
 aptupdate(){
 apt update >> /dev/null 2>&1
-apt -y  upgrade >> /dev/null 2>&1
+apt -y  full-upgrade >> /dev/null 2>&1
 }
 
 
