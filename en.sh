@@ -143,8 +143,8 @@ choosemssg="Coose from 1 - x"
 
 #createsite 	 	
 runsetipfirstmssg="Run dru-setip first" 	 	
-entersitenamemssg="Enter your sites name, please. Without the ld (dev, site, com) and wothout Prefix (www)!" 	 	
-entertldmssg="enter your desiered tdl .dev, .com, .org without a dot (.), please!" 	 	
+entersitenamemssg="Enter your sites name, please. Without the ld ( dev, site, com ) and wothout Prefix ( www )!" 	 	
+entertldmssg="enter your desiered tdl .dev, .com, .org without a dot ( . ), please!" 	 	
 entersubmssg="Enter the sub domain name of yor projet (sub.domaain.tld), please!" 	 	
 localvaluemssg="The given IP for localhost" 	 	
 savaluemssg="The given ip address for the host only adapter" 	 	
