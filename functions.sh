@@ -83,6 +83,7 @@ vtoolsinstaller(){
     apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms >>/dev/null 2>&1 
     else
     apt install -y -qq open-vm-tools xserver-xorg-video-vmware  >>/dev/null 2>&1
+    
     fi
     }
 
@@ -115,6 +116,12 @@ apt  -y install gdebi-core mysql-server-5.5 server^ openssh-server^  lamp-server
 
 
 aptupdate(){
+# all sources to add before update are going here:
+
+cat <<EOFVM> /etc/apt/sources.list.d/vmware-tools.list 
+    "deb http://packages.vmware.com/packages/ubuntu trusty main" 
+EOFVM
+
 apt update >> /dev/null 2>&1
 apt -y  full-upgrade >> /dev/null 2>&1
 }
