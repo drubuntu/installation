@@ -72,7 +72,7 @@ ipeth0mssg="Dies ist die Adresse Ihres primären Netzwerkadapters:"
 hitytoconfirmmmssg="Drücken Sie [y] um die installation abzuschließen!"
 dfsamssg="Vergessen Sie nicht einen Host only Adapter zu Ihrer Virtuellen Maschine hinzuzufügen!"
 #features
-atombrandtext="A hackable text editor for the 21st Century
+atombrandtext="A hackable text editor for the 21st Century"
 runhlpmssg="rufen Sie den Befehl mit  --help auf."
 fetchfeaturesssg="Rufe aktuelle Liste von Server ab"
 apcswitch="--apc"
