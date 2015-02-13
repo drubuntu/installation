@@ -73,6 +73,7 @@ dfsamssg="don't forget to add an host only adapter to youir VM!"
 runhlpmssg="add  --help."
 fetchfeaturesssg="fetching current list from server ..."
 
+atombrandtext="A hackable text editor for the 21st Century
 apcswitch="--apc"
 aptanaideswitch="--aptana"
 aptanagitswitch="--aptana-git"
