@@ -17,7 +17,7 @@ if [ `whoami` != root ]; then #checks if the user is root. If The user isn't roo
 fi
 function menu(){
 	
-	if [ "$LANG"=="de_DE.UTF-8" ];then
+	if [ "$LANG" -eq  "de_DE.UTF-8" ];then
 	echo ""
 			read -p "Geben Sie die IP für Ihren Server ein " staticip 
 		read -p "Geben Se Ihr netzwerk ein (Die Adresse Ihres Host Only Netzwerkadapters  " networkpattern
@@ -53,7 +53,7 @@ echo ""
 #this function tells the user to enter the data we need to set a static connection
 getinfo(){ 
 
-if  [ "$platformtest"=="$vb" ] ; then
+if  [ "$platformtest" -eq "$vb" ] ; then
 echo -e " ${white}  ${defvbvlsmssg} ${NC}"
 echo ""
 echo "address:		192.168.56.101"
@@ -70,7 +70,7 @@ fi
 writeinterfacefile(){
 # This function writes the content between the cat command and EOF in to ubuntu's network interfaces file.
 
-if [ $platformtest =="$vb" ] ;then
+if [ $platformtest -eq"$vb" ] ;then
   echo "secondadapter=192.168.56.101" >>/etc/profile.d/drubuntu.sh
   staticip=192.168.56.101
  
@@ -123,7 +123,7 @@ fi
 }
 	
 exportip(){ 
-if [ "$platformtest"=="$vb" ] ;then
+if [ "$platformtest" -eq "$vb" ] ;then
 staticip=192.168.56.1
 fi
 if ! [ /etc/profile.d/drubuntu.sh ] ;then
@@ -146,7 +146,7 @@ if ! grep -q '$staticip' /etc/hosts ; then
 echo "${ipandsandboxsites}"  >> /etc/hosts 
 fi
 }
-if [ "$platformtest"=="$vb" ] ;then
+if [ "$platformtest" -eq "$vb" ] ;then
 echo -e " ${white}  ${usingvbmssg} ${NC}"
 echo -e " ${white}  ${hitytoconfirmmssg} ${NC}"
 echo -e " ${white}  ${ipsetaremssg} ${NC}"
@@ -162,7 +162,7 @@ else
 getinfo
 fi
 #Here we proof if everything is correct and execute the functions above.
-if [ "$platformtest"=="$vb" ] ;then
+if [ "$platformtest" -eq "$vb" ] ;then
 echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
 addiptohostsfile; writeinterfacefile; exportip;
 echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
