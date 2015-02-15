@@ -146,7 +146,7 @@ if ! grep -q '$staticip' /etc/hosts ; then
 echo "${ipandsandboxsites}"  >> /etc/hosts 
 fi
 }
-if [ "$platformtest" -eq "$vb" ] ;then
+if [ "$platformtest" == "$vb" ] ;then
 echo -e " ${white}  ${usingvbmssg} ${NC}"
 echo -e " ${white}  ${hitytoconfirmmssg} ${NC}"
 echo -e " ${white}  ${ipsetaremssg} ${NC}"
