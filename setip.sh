@@ -47,10 +47,10 @@ echo ""
 #this function tells the user to enter the data we need to set a static connection
 getinfo(){ 
 
-if ! [ "$platformtest"=="$vb" ] ; then
+if  [ "$platformtest"=="$vb" ] ; then
 echo -e " ${white}  ${defvbvlsmssg} ${NC}"
 echo ""
-echo "Address:		192.168.56.101"
+echo "address:		192.168.56.101"
 echo "netmask:		255.255.255.0"
 echo "network:		192.168.56.1"
 echo "broadcast:	192.168.56.255 "
