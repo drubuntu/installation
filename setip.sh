@@ -1,4 +1,5 @@
 #!/bin/bash
+vb=VirtualBox
 DIRURL=/opt/.drubuntu
 source $DIRURL/colors.sh
 if [ "$LANG" == "de_DE.UTF-8" ];then
@@ -46,7 +47,7 @@ echo ""
 #this function tells the user to enter the data we need to set a static connection
 getinfo(){ 
 
-if ! [ "$platformtest"=="VirtualBox" ] ; then
+if ! [ "$platformtest"=="$vb" ] ; then
 echo -e " ${white}  ${defvbvlsmssg} ${NC}"
 echo ""
 echo "Address:		192.168.56.101"
@@ -63,7 +64,7 @@ fi
 writeinterfacefile(){
 # This function writes the content between the cat command and EOF in to ubuntu's network interfaces file.
 
-if [ $platformtest =="VirtualBox" ] ;then
+if [ $platformtest =="$vb" ] ;then
   echo "secondadapter=192.168.56.101" >>/etc/profile.d/drubuntu.sh
   staticip=192.168.56.101
  cat << EOF1 > /etc/network/interfaces
@@ -115,7 +116,7 @@ fi
 }
 	
 exportip(){ 
-if [ "$platformtest" == "VirtualBox" ] ;then
+if [ "$platformtest"=="$vb" ] ;then
 staticip=192.168.56.1
 fi
 if ! [ /etc/profile.d/drubuntu.sh ] ;then
@@ -138,7 +139,7 @@ if ! grep -q '$staticip' /etc/hosts ; then
 echo "${ipandsandboxsites}"  >> /etc/hosts 
 fi
 }
-if [ "$platformtest" == "VirtualBox" ] ;then
+if [ "$platformtest"=="$vb" ] ;then
 echo -e " ${white}  ${usingvbmssg} ${NC}"
 echo -e " ${white}  ${hitytoconfirmmssg} ${NC}"
 echo -e " ${white}  ${ipsetaremssg} ${NC}"
@@ -154,7 +155,7 @@ else
 getinfo
 fi
 #Here we proof if everything is correct and execute the functions above.
-if [ "$platformtest"=="VirtualBox" ] ;then
+if [ "$platformtest"=="$vb" ] ;then
 echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
 addiptohostsfile; writeinterfacefile; exportip;
 echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
@@ -168,7 +169,7 @@ while true; do
 [Yy]* ) 
 
 
-if [ $platformtest == "VirtualBox" ] ;then
+if [ $platformtest=="$vb" ] ;then
 echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
 addiptohostsfile; writeinterfacefile; exportip;
 echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
