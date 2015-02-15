@@ -17,7 +17,7 @@ if [ `whoami` != root ]; then #checks if the user is root. If The user isn't roo
 fi
 function menu(){
 	
-	if [ "$LANG" == "de_DE.UTF-8" ];then
+	if [ "$LANG"=="de_DE.UTF-8" ];then
 	echo ""
 			read -p "Geben Sie die IP für Ihren Server ein " staticip 
 		read -p "Geben Se Ihr netzwerk ein (Die Adresse Ihres Host Only Netzwerkadapters  " networkpattern
@@ -37,13 +37,19 @@ function menu(){
 
 
 platformtest=`dmidecode -s system-product-name`
+
 # This line tells the user the current IP in the network
+
   echo -e " ${yellow}  ${ipeth0mssg} ${NC}"
 echo ""
 ifconfig eth0 | ( while read line; do [ "$line" != "${line#inet }" ] && e="${line#inet }" && e="${e%%[ ]*}" && e="${e##*[A-Za-z:]}" && echo "$e" ; done )
+
 echo ""
+
 echo -e " ${lightgreen}  ${setipwcmssg} ${NC}"
+
 echo ""
+
 #this function tells the user to enter the data we need to set a static connection
 getinfo(){ 
 
@@ -67,6 +73,7 @@ writeinterfacefile(){
 if [ $platformtest =="$vb" ] ;then
   echo "secondadapter=192.168.56.101" >>/etc/profile.d/drubuntu.sh
   staticip=192.168.56.101
+ 
  cat << EOF1 > /etc/network/interfaces
   # This file describes the network interfaces available on your system
   # and how to activate them. For more information, see interfaces(5).
