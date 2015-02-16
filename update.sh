@@ -31,7 +31,7 @@ function delete(){
 sudo rm -r installation features desktops &&
 sudo rm -r /opt/.drubuntu/files
 	
-#}
+}
 if ! [ -d /opt/.drubuntu ];then
 echo "Install Drubuntu fiirst"
 while true; do
