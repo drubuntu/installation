@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ "$LANG" == "de_DE.UTF-8" ];then
 wyltidmssg="Möchten Sie Drubuntu jetzt installieren"
 else
