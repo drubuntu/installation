@@ -46,7 +46,7 @@ yonmssg="Choose [y]es or [n]o, please!"
 rebootmssg="Your system will be rebooted, instantly!"
 infocorrectmssg="Are these informations correct? [y/N]" 
 avonbmssg="Youtr new configuration is available after next reboot!" 
-
+notdelete="Do not delete this file, because this will make dru-newsite and dru-newsubdomain unusable!"
 #website hints
 
 infomssg="More Info on https://github.com/horvan/drubuntu/wiki"
