@@ -181,10 +181,6 @@ addiptohostsfile; writeinterfacefile; exportip;
 echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
 sleep 20
 reboot now -p 
-else
-addiptohostsfile; writeinterfacefile; exportip
-echo -e " ${white}  ${avnbmssg} ${NC}" 
-echo -e " ${white}  ${dfsamssg} ${NC}" 
 fi
 
  ;;
