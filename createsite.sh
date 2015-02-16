@@ -63,7 +63,8 @@ read -p "${entertldmssg} " domain
 domainpattern="$sitename\.$domain"
 aliaspattern=www.$domainpattern
 logname=$domainpattern.log"
-errorlogname=$domainpattern.error.log"
+errorlogname="$domainpattern".error.log
+accesslogname="$domainpattern".access.log
 writefile 
 writetohostsfile
 createfolder
@@ -96,14 +97,14 @@ echo "    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch"               >>/e
 echo "    Order allow,deny"                                                 >>/etc/apache2/sites-available/$sitename.conf
 echo "    Allow from all"                                                   >>/etc/apache2/sites-available/$sitename.conf
 echo "  </Directory>"                                                       >>/etc/apache2/sites-available/$sitename.conf
-echo -n "ErrorLog \${APACHE_LOG_DIR/}"                 						>>/etc/apache2/sites-available/$sitename.conf
-echo "$errorlogname"                        								>>/etc/apache2/sites-available/$sitename.conf
-echo "  # Possible values include: debug, info, notice, warn, error, crit," >>/etc/apache2/sites-available/$sitename.conf
-echo "  # alert, emerg."                                                    >>/etc/apache2/sites-available/$sitename.conf
-echo "  LogLevel warn"                                                      >>/etc/apache2/sites-available/$sitename.conf
+cat <EOP>> /etc/apache2/sites-available/$sitename.conf
+# Possible values include: debug, info, notice, warn, error, crit, 
+  # alert, emerg.                                                    
+ LogLevel warn                                                      
+ErrorLog ${APACHE_LOG_DIR}/$errorlogname                 						
+CustomLog ${APACHE_LOG_DIR}/$accesslogname combined
+EOP
 echo ""                                                                     >>/etc/apache2/sites-available/$sitename.conf
-echo -n "CustomLog \${APACHE_LOG_DIR}/"            							>>/etc/apache2/sites-available/$sitename.conf
-echo  "$logname combined"													>>/etc/apache2/sites-available/$sitename.conf
 echo "</VirtualHost>"                                                       >>/etc/apache2/sites-available/$sitename.conf
 }
 
@@ -140,7 +141,7 @@ activate() {
 }
 echo -e "${lightgreen}  ${siteassistmssg} ${NC}"
 echo ""
-PS3=' $wvtumssg '
+PS3=' With version of Drupal do you want to choose? '
 options=("Drupal7" "Drupal8" "Quit")
 select opt in "${options[@]}"
 do
