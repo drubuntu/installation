@@ -1,4 +1,12 @@
 #!/bin/bash
+if [ `whoami` != root ]; then #checks if the user is root. If The user isn't root the message is printed and the script will be interrupted.
+
+    echo -e " ${lightred}  ${runasrootmssg} ${NC}"
+
+
+    exit
+4 
+fi
 if [ "$LANG" == "de_DE.UTF-8" ];then
 wyltidmssg="Möchten Sie Drubuntu jetzt installieren"
 else
