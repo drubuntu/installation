@@ -45,8 +45,9 @@ echo ""
 read -p "${entertldmssg} " domain
 domainpattern="$sitename.$domain"
 aliaspattern=www.$domainpattern
-logname="$sitename.log"
-errorlogname="$sitename.error.log"
+logname=$domainpattern.log
+errorlogname=$domainpattern.error.log
+accesslogname=$domainpattern.access.log
 
 writefile
 writetohostsfile
@@ -62,7 +63,7 @@ echo " "
 read -p "${entertldmssg} " domain
 domainpattern="$sitename\.$domain"
 aliaspattern=www.$domainpattern
-logname=$domainpattern.log"
+logname=$domainpattern.log
 errorlogname=$domainpattern.error.log
 accesslogname=$domainpattern.access.log
 writefile 
@@ -97,7 +98,7 @@ echo "    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch"               >>/e
 echo "    Order allow,deny"                                                 >>/etc/apache2/sites-available/$sitename.conf
 echo "    Allow from all"                                                   >>/etc/apache2/sites-available/$sitename.conf
 echo "  </Directory>"                                                       >>/etc/apache2/sites-available/$sitename.conf
-cat <EOP>> /etc/apache2/sites-available/$sitename.conf
+cat <EOP >> /etc/apache2/sites-available/$sitename.conf
 # Possible values include: debug, info, notice, warn, error, crit, 
   # alert, emerg.                                                    
  LogLevel warn                                                      
