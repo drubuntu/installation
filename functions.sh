@@ -370,6 +370,7 @@ ln -s  $PWD/features.sh /usr/bin/dru-features
 ln -s  $PWD/createsite.sh /usr/bin/dru-newsite
 ln -s  $PWD/createsubdomain.sh /usr/bin/dru-newsubdomain
 ln -s  $PWD/desktopchooser.sh /usr/bin/dru-desktopchooser
+ln -s /etc/issue.net /etc/issue
 }
 
 
