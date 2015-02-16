@@ -20,15 +20,13 @@ git clone https://github.com/drubuntu/features.git "$HOME"/features
 git clone https://github.com/drubuntu/desktops.git "$HOME"/desktops
 }
 function copy(){
-sudo cp -r installation/* /opt/.drubuntu
-sudo cp -r features/desktopchooser.sh /opt/drubuntu/desktopchooser.sh
-sudo cp -r features/features.sh /opt/drubuntu/features.sh
-sudo chmod +x /opt/.drubutu/*.sh
+sudo cp -r "$HOME"/installation/* /opt/.drubuntu
+sudo cp -r "$HOME"/desktops/desktopchooser.sh /opt/drubuntu/desktopchooser.sh
+sudo cp -r "$HOME"/features/features.sh /opt/drubuntu/features.sh
+sudo chmod +x /opt/.drubutu/*
 }
 function delete(){
 sudo rm -r installation features desktops
-sudo rm  -r /opt/.drubuntu/files
-	
 }
 if ! [ -d /opt/.drubuntu ];then
 echo "Install Drubuntu fiirst"
@@ -39,11 +37,12 @@ while true; do
 cd $HOME/installation
 sudo bash install.sh 2>$HOME/errors.txt
  ;;
-		[Nn]* ) 
+		[Nn]* ) rm -r $0;;
 		esac
 	done  
 	else
 	clone 
 	copy
 	delete
+	sudo rm -r $0
 	fi
