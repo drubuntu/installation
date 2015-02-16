@@ -176,7 +176,6 @@ while true; do
 [Yy]* ) 
 
 
-if [ "$platformtest" == "$vb" ] ;then
 echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
 addiptohostsfile; writeinterfacefile; exportip;
 echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
