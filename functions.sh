@@ -154,9 +154,11 @@ if [ -f /usr/bin/drush ]; then
 rm /usr/bin/drush;
 cd $HOME/.composer/vendor/drush/drush;
 ln -s  $PWD/drush /usr/bin/drush
+ln -s  $PWD/drush /bin/drush
 else
 cd $HOME/.composer/vendor/drush/drush;
 ln -s  $PWD/drush /usr/bin/drush
+ln -s  $PWD/drush /bin/drush
 fi	
 }
 #installs preproceccor languages and grunt
