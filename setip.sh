@@ -1,5 +1,6 @@
 #!/bin/bash
 vb=VirtualBox
+platformtest=`dmidecode -s system-product-name`
 DIRURL=/opt/.drubuntu
 source $DIRURL/colors.sh
 if [ "$LANG" == "de_DE.UTF-8" ];then
@@ -36,7 +37,7 @@ function menu(){
 }
 
 
-platformtest=`dmidecode -s system-product-name`
+
 
 # This line tells the user the current IP in the network
 
@@ -146,21 +147,7 @@ if ! grep -q '$staticip' /etc/hosts ; then
 echo "${ipandsandboxsites}"  >> /etc/hosts 
 fi
 }
-if [ "$platformtest" == "$vb" ] ;then
-echo -e " ${white}  ${usingvbmssg} ${NC}"
-echo -e " ${white}  ${hitytoconfirmmssg} ${NC}"
-echo -e " ${white}  ${ipsetaremssg} ${NC}"
-echo -e " ${white}  ${ipmssg} ${NC}"
-echo   "$staticip"
-echo -e " ${white}  ${nsmssg} ${NC}"
-echo   "$networkpattern"
-echo -e " ${white}  ${nmmssg} ${NC}"
-echo   "$netmaskpattern"                        
-echo -e " ${white}  ${bcmssg} ${NC}"             
-echo   "     $broadcastpattern"
-else
-getinfo
-fi
+
 #Here we proof if everything is correct and execute the functions above.
 if [ "$platformtest" == "$vb" ] ;then
 echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
