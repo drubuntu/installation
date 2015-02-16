@@ -24,7 +24,7 @@ function copy(){
 sudo cp -r "$HOME"/installation/* /opt/.drubuntu
 sudo cp -r "$HOME"/desktops/desktopchooser.sh /opt/drubuntu/desktopchooser.sh
 sudo cp -r "$HOME"/features/features.sh /opt/drubuntu/features.sh
-sudochmod +x "$bdir"/*.sh	
+sudo chmod +x "$bdir"/*.sh	
 }
 function delete(){
 sudo rm -r installation features desktops
