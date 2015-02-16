@@ -27,10 +27,10 @@ writedomainfile(){
 
 
 echo "<VirtualHost *:80 >"                                                 >/etc/apache2/sites-available/$domain.conf
-echo "      DocumentRoot /var/www/$dbase/"                                >>/etc/apache2/sites-available/$domain.conf
 echo "       ServerName $domain"                                          >>/etc/apache2/sites-available/$domain.conf
-echo ""                                                                   >>/etc/apache2/sites-available/$domain.conf
+echo "      DocumentRoot /var/www/$dbase/"                                >>/etc/apache2/sites-available/$domain.conf
 echo "       <Directory /var/www/$dbase/>"                                >>/etc/apache2/sites-available/$domain.conf
+echo "       </Directory>"                                                >>/etc/apache2/sites-available/$domain.conf
 echo "</VirtualHost>"													  >>/etc/apache2/sites-available/$domain.conf
 }
 
