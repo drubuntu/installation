@@ -55,7 +55,10 @@ fi
 }
 # Get files
 getfiles(){
-
+git clone https://github.com/drubuntu/features "$bdir"/features
+git clone https://github.com/drubuntu/desktops "$bdir"/desktops
+mv "$bdir"/desktops/desktopchooser.sh "$bdir"/desktopchooser.sh
+mv "$bdir"/features/features.sh "$bdir"/features.sh
 #Download files needed by drubuntu to provide functionality.
 cp "$instrepofolder"/*.sh "$bdir" 
 mv "$instrepofolder"/files/quickhelp.txt "$bdir"
