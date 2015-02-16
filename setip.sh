@@ -148,7 +148,8 @@ profile_file="/etc/profile.d/drubuntu.sh" #defines the path to the profile.d fil
 if ! grep -q 'secondadapter' "${profile_file}" ; then #add the variable to the profile.d file if it isn't already added. 
 echo "secondadapter=$staticip" >> /etc/profile.d/drubuntu.sh
 fi
-echo $staticip > "/opt/.drubuntu/secondip" # writes the name file as reference for the addsitestohosts.sh script.
+echo $donotdelete > "/opt/.drubuntu/secondip"
+echo $staticip >> "/opt/.drubuntu/secondip" # writes the name file as reference for the addsitestohosts.sh script.
 }
 
 addiptohostsfile(){ # now we add the second adapter to the hosts file.
