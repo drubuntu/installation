@@ -8,9 +8,9 @@ if [ `whoami` != root ]; then #checks if the user is root. If The user isn't roo
 4 
 fi
 if [ "$LANG" == "de_DE.UTF-8" ];then
-wyltidmssg="Möchten Sie Drubuntu jetzt installieren"
+wyltidmssg="Möchten Sie Drubuntu jetzt installieren [Y/N]"
 else
-wyltidmssg="Would you like to install drubuntu now?"
+wyltidmssg="Would you like to install drubuntu now [Y/N]?"
 fi
 bdir=/opt/.drubuntu
 sudo apt -y -qq install git git-core
