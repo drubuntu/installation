@@ -46,6 +46,7 @@ yonmssg="Bitte antworten Sie mit [j]a oder [n]ein! "
 rebootmssg="Ihr System wird in Kürze neu gestartet!"
 infocorrectmssg="Sind diese Informationen korrekt [y/N]"
 avonbmssg="Die Konfiguration steht Ihnen nach dem nächsten neustart zur Verfüguung"
+sonotdelete="Löschen Sie diese Dateienicht, da Sie sonst die befehel dru-newsite und dru-newsubdomain nicht merh verwenden können!"
 #website hints
 
 infomssg="Weitere Informationen finden Sie unter: https://github.com/horvan/drubuntu/wiki"
