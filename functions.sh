@@ -119,7 +119,7 @@ aptupdate(){
 # all sources to add before update are going here:
 
 cat <<EOFVM> /etc/apt/sources.list.d/vmware-tools.list 
-    "deb http://packages.vmware.com/packages/ubuntu trusty main" 
+    deb http://packages.vmware.com/packages/ubuntu trusty main 
 EOFVM
 
 apt update >> /dev/null 2>&1
