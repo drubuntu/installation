@@ -25,6 +25,12 @@ function menu(){
 		read -p "Geben SIe Ihre Netzwerkmaske ein " netmaskpattern
 		read -p "Geben Sie den Broadkast ein Die Adresse Ihres Host Only netzwerkadapters (letzter Block 255) " broadcastpattern
 		clear
+echo -e " ${white}  ${defvbvlsmssg} ${NC}"
+echo ""
+echo "address:		$staticip"
+echo "netmask:		$networkpattern"
+echo "network:		$netmaskpattern"
+echo "broadcast:	$broadcastpattern"
 		
 		else
 	echo ""
@@ -33,6 +39,13 @@ function menu(){
 		read -p "Enter your netmask " netmaskpattern
 		read -p "Enter the broadcast " broadcastpattern
 		clear
+echo -e " ${white}  ${defvbvlsmssg} ${NC}"
+echo ""
+echo "address:		$staticip"
+echo "netmask:		$networkpattern"
+echo "network:		$netmaskpattern"
+echo "broadcast:	$broadcastpattern"
+
 		fi
 }
 
