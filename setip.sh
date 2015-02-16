@@ -156,7 +156,7 @@ echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
 sleep 20
 reboot now -p 
 else
-
+menu
 while true; do
 		read -p "${infocorrectmssg}" yn
 		case $yn in
