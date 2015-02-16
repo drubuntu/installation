@@ -36,16 +36,20 @@ if ! [ -d /opt/.drubuntu ];then
 echo "Install Drubuntu fiirst"
 while true; do
 		read -p "${wyltidmssg}" yn
-		case $yn in
+		case $ynJj in
 [YyJj]* ) 
 git clone https://github.com/drubuntu/installation.git "$HOME"/installation
 cd $HOME/installation
 sudo bash install.sh 2>$HOME/errors.txt
+ exit
+ reboot
  ;;
 		[Nn]* ) exit;;
 		esac
 	done  
+	
 	else
+	
 	clone 
 	copy
 	delete
