@@ -2,9 +2,9 @@
 if [ "$LANG" == "de_DE.UTF-8" ];then
 wyltidmssg="Möchten Sie Drubuntu jetzt installieren"
 else
-wyltidmssg="Would you like to install drubuntu now?
+wyltidmssg="Would you like to install drubuntu now?"
 fi
-sudo apt -y -qq install git git core
+sudo apt -y -qq install git git-core
 function clone(){
 cd "$HOME"
 git clone https://github.com/drubuntu/installation.git "$HOME"/installation
@@ -29,7 +29,7 @@ while true; do
 cd $HOME/installation
 sudo bash install.sh 2>$HOME/errors.txt
  ;;
-		[Nn]* ) rm -r $0;;
+		[Nn]* ) exit
 		* ) 
 		esac
 	done  
