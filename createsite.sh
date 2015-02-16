@@ -98,7 +98,7 @@ echo "    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch"               >>/e
 echo "    Order allow,deny"                                                 >>/etc/apache2/sites-available/$sitename.conf
 echo "    Allow from all"                                                   >>/etc/apache2/sites-available/$sitename.conf
 echo "  </Directory>"                                                       >>/etc/apache2/sites-available/$sitename.conf
-cat <EOP >> /etc/apache2/sites-available/$sitename.conf
+cat <<EOP >> /etc/apache2/sites-available/$sitename.conf
 # Possible values include: debug, info, notice, warn, error, crit, 
   # alert, emerg.                                                    
  LogLevel warn                                                      
