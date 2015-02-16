@@ -181,7 +181,7 @@ addiptohostsfile; writeinterfacefile; exportip;
 echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
 sleep 20
 reboot now -p 
-fi
+
 
  ;;
 		[Nn]* ) getinfo;;
