@@ -12,6 +12,7 @@ wyltidmssg="Möchten Sie Drubuntu jetzt installieren"
 else
 wyltidmssg="Would you like to install drubuntu now?"
 fi
+bdir=/opt/.drubuntu
 sudo apt -y -qq install git git-core
 function clone(){
 cd "$HOME"
@@ -23,7 +24,7 @@ function copy(){
 sudo cp -r "$HOME"/installation/* /opt/.drubuntu
 sudo cp -r "$HOME"/desktops/desktopchooser.sh /opt/drubuntu/desktopchooser.sh
 sudo cp -r "$HOME"/features/features.sh /opt/drubuntu/features.sh
-sudo chmod +x /opt/.drubutu/*
+sudochmod +x "$bdir"/*.sh	
 }
 function delete(){
 sudo rm -r installation features desktops
