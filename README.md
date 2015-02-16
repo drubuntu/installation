@@ -27,14 +27,14 @@ ___
 
 ###with git <a name="installation">
 ```Shell
-git clone https://github.com/drubuntu/installation.git;
-chmod +x installation/run.sh;
+git clone https://github.com/drubuntu/installation.git &&
+chmod +x installation/run.sh &&
 ./installation/run.sh
 ```
 ###without git <a name="without-git">
 ```Shell
-wget https://raw.githubusercontent.com/drubuntu/installation/master/run.sh
-chmod +x run.sh;
+wget https://raw.githubusercontent.com/drubuntu/installation/master/run.sh &&
+chmod +x run.sh &&
 ./run.sh
 ```
 ---
