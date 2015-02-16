@@ -63,8 +63,8 @@ read -p "${entertldmssg} " domain
 domainpattern="$sitename\.$domain"
 aliaspattern=www.$domainpattern
 logname=$domainpattern.log"
-errorlogname="$domainpattern".error.log
-accesslogname="$domainpattern".access.log
+errorlogname=$domainpattern.error.log
+accesslogname=$domainpattern.access.log
 writefile 
 writetohostsfile
 createfolder
