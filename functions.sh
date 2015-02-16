@@ -111,10 +111,10 @@ debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again pa
 apt  -y -qq remove mysql-server-5.5    >> /dev/null 2>&1
 apt -y -qq install software-properties-common >> /dev/null 2>&1
 updatenodejs
-apt  -y install gdebi-core mysql-server-5.5 server^ openssh-server^  lamp-server^ php-pear php5-dev php5-curl php5-json php5-gd git git-core ruby1.9.1-full libapache2-mod-php5 php5-mcrypt php5-gd php5-dev make build-essential nodejs-legacy  >> /dev/null 2>&1
+apt  -y install gdebi-core mysql-server-5.5 server^ openssh-server^  lamp-server^ php-pear php5-dev php5-curl php5-json \ 
+php5-gd git git-core ruby1.9.1-full libapache2-mod-php5 php5-mcrypt php5-gd php5-dev make build-essential \
+nodejs-legacy  >> /dev/null 2>&1
 }
-
-
 aptupdate(){
 # all sources to add before update are going here:
 
