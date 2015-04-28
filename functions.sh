@@ -344,6 +344,7 @@ crsymlinks(){
 if [ -f $HOME/public_html ] ;then
 rm -r $HOME/public_html
 ln -s /var/www $HOME/public_html;
+ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/apache2/conf.d/mcrypt.ini
 else
 ln -s /var/www $HOME/public_html;
 fi
