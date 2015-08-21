@@ -115,7 +115,7 @@ apt  -y -qq remove mysql-server-5.5    >> /dev/null 2>&1
 apt -y -qq install software-properties-common >> /dev/null 2>&1
 updatenodejs >> /dev/null 2>&1
  	
-apt  -y install curl mysql-server libapache2-mod-auth-mysql php5-mysql apache2 apache2-utils libapache2-mod-php5 >> /dev/null 2>&1   
+apt  -y install curl mysql-server libapache2-mod-auth-mysql php5-mysql apache2 apache2-utils libapache2-mod-php5  libssh2-php >> /dev/null 2>&1   
 apt  -y install -qq php5-gd git git-core ruby1.9.1-full  openssh-server^ php-pear php5-dev php5-curl php5-json php5-mcrypt php5-gd php5-dev make build-essential >> /dev/null 2>&1
 apt  -y install -qq nodejs-legacy  >> /dev/null 2>&1 
 apt -y -qq install gdebi-core >> /dev/null 2>&1
@@ -148,7 +148,7 @@ sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
 source "$HOME"/.bashrc 
 }
 getdrush(){
-composer global require drush/drush:dev-master >> /dev/null 2>&1
+composer global require drush/drush:7 >> /dev/null 2>&1
 #create symlink to make drush work when entering drush in terminal
 if [ -f /usr/bin/drush ]; then 
 rm /usr/bin/drush;
