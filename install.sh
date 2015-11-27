@@ -31,7 +31,7 @@ vtoolscheck
 #package installation
 echo -e " ${lightgreen} ${heightfin} ${dlbcmssg} ${NC}"
 echo ""
-apt-progress
+aptprogress
 getcorepkgs
 getcomposer
 getdrush
