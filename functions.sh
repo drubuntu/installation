@@ -276,7 +276,7 @@ chmod -R 777 "$d8transdir"
 }
 
 #Section for Apache2 setup
-make shure user gts access to www directories
+#make shure user gts access to www directories
 adusertowwdata() {
 usermod -a -G www-data "$nameofuser"	
 }
