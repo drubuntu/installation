@@ -10,12 +10,12 @@ Drbuntu is powered by Ubuntu 14.04.1 \n \l
 
 For more information about drubuntu go to https://horvan.github.io/horvan/drubuntu
 and use the GitHub Wiki at https://github.com/drubuntu/drubuntu/wiki
-or contact us via Google+ at +drubuntuinfo.  
+or contact us via Google+ at +drubuntuinfo.
 EOF1
 }
 
 craliasfile(){
-cat <<EOF20>>~/.bash_aliases	
+cat <<EOF20>>~/.bash_aliases
 #!bin/bash
 #drubuntu aliases
 #system repair commands
@@ -37,7 +37,6 @@ alias dru-install-aptana='bash $drfeatures --aptana'
 alias dru-install-aptanagit='bash $drfeatures --aptana-git'
 alias dru-install-aptanaxdebug='bash $drfeatures --aptana-xdebug'
 alias dru-install-xdebug='bash $drfeatures --xdebug'
-alias dru-install-desktops='bash $drfeatures --desktops'
 alias dru-install-browsers='bash $drfeatures --browsers'
 alias dru-install-atom='bash $drfeatures --atom'
 #help
@@ -59,7 +58,7 @@ EOF20
 crprofiledfile(){
 cat << EOF2 >>/etc/profile.d/drubuntu.sh
 #!bin/bash
-#This file holds all common variables for your installation of drubuntu. they are accessable  in every userprofile 
+#This file holds all common variables for your installation of drubuntu. they are accessable  in every userprofile
 EOF2
 }
 
@@ -90,7 +89,7 @@ cat << EOF3 > /etc/apache2/sites-available/drupal7.conf
                 Require all granted
         </Directory>
 
-        # Logfiles  
+        # Logfiles
         ErrorLog /var/log/apache2/drupal7-error.log
         CustomLog /var/log/apache2/drupal7-access.log common
 	# For most configuration files from conf-available/, which are
@@ -150,7 +149,7 @@ EOF4
 crmodhostfile(){
 cat << EOF5 > /etc/hosts
 127.0.0.1	drupal.dev ubuntu localhost drupal7.dev www.drupal7.dev drupal8.dev www.drupal8.dev
-127.0.1.1	drupal.dev ubuntu  
+127.0.1.1	drupal.dev ubuntu
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
@@ -160,4 +159,3 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 EOF5
 }
-

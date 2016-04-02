@@ -1,8 +1,8 @@
 #!/bin/bash
-#This file contains the variables and functions for drubuntu's  installation.  
+#This file contains the variables and functions for drubuntu's  installation.
 #Do not change anything here unless you are absolutely shure what you are doing.
 #this file is referenced by line 2 in install.
-#usergiven vars by install 
+#usergiven vars by install
 
 #localdomain_d7 domain name for the drupal 7 site
 #localdomain_d8 domain name for the drupal 8 site
@@ -56,11 +56,9 @@ fi
 # Get files
 getfiles(){
 git clone https://github.com/drubuntu/features "$bdir"/features
-git clone https://github.com/drubuntu/desktops "$bdir"/desktops
-mv "$bdir"/desktops/desktopchooser.sh "$bdir"/desktopchooser.sh
 mv "$bdir"/features/features.sh "$bdir"/features.sh
 #Download files needed by drubuntu to provide functionality.
-cp "$instrepofolder"/*.sh "$bdir" 
+cp "$instrepofolder"/*.sh "$bdir"
 mv "$instrepofolder"/files/quickhelp.txt "$bdir"
 chmod +r "$bdir"/quickhelp.txt
 #removing files not neccecary
@@ -68,25 +66,25 @@ rm "$bdir"/filetemplates.sh
 rm "$bdir"/functions.sh
 rm "$bdir"/install.sh
 rm /etc/issue
-chmod +x "$bdir"/*.sh	
+chmod +x "$bdir"/*.sh
 }
 
 # enable fany apt-progressbar see omgubuntu.co.uk/2014/04/how-to-enable-apt-terminal-progress-bar
 aptprogress(){
 if ! [ -f /etc/apt/apt.conf.d/99progressbar ];then
 echo 'Dpkg::Progress-Fancy "1";' > /etc/apt/apt.conf.d/99progressbar
-fi	
+fi
 }
 #Determine with Virtual Tools to install Virtual Box or VM Ware
 vtoolsinstaller(){
 # put the name of the platform into a var and use an if statement to determine witch package to install
     #either virtualbox-guest-x11 or open-vm-tools
     platformtest=`dmidecode -s system-product-name`
-    if [ "$platformtest" == "VirtualBox" ] ;then 
-    apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms >>/dev/null 2>&1 
+    if [ "$platformtest" == "VirtualBox" ] ;then
+    apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms >>/dev/null 2>&1
     else
     apt install -y -qq open-vm-tools xserver-xorg-video-vmware  >>/dev/null 2>&1
-    
+
     fi
     }
 
@@ -97,7 +95,7 @@ else
 echo -e " ${lightred} ${heightfin}  ${vmtoolsaimssg}   ${NC}"
 echo ""
 fi
-}	
+}
 
 updatenodejs(){
 curl -sL https://deb.nodesource.com/setup | sudo bash -
@@ -114,12 +112,12 @@ debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again pa
 apt  -y -qq remove mysql-server-5.5    >> /dev/null 2>&1
 apt -y -qq install software-properties-common >> /dev/null 2>&1
 updatenodejs >> /dev/null 2>&1
- 	
-apt  -y install curl mysql-server libapache2-mod-auth-mysql php5-mysql apache2 apache2-utils libapache2-mod-php5  libssh2-php >> /dev/null 2>&1   
+
+apt  -y install curl mysql-server libapache2-mod-auth-mysql php5-mysql apache2 apache2-utils libapache2-mod-php5  libssh2-php >> /dev/null 2>&1
 apt  -y install -qq php5-gd git git-core ruby1.9.1-full  openssh-server^ php-pear php5-dev php5-curl php5-json php5-mcrypt php5-gd php5-dev make build-essential >> /dev/null 2>&1
-apt  -y install -qq nodejs-legacy  >> /dev/null 2>&1 
+apt  -y install -qq nodejs-legacy  >> /dev/null 2>&1
 apt -y -qq install gdebi-core >> /dev/null 2>&1
-	
+
 }
 aptupdate(){
 # all sources to add before update are going here:
@@ -132,7 +130,7 @@ apt -y  full-upgrade >> /dev/null 2>&1
 
 #Grand privileges to the initial user to mke shure it is not root
 grantprivs(){
- chown -Rh $nameofuser:$nameofuser /opt/.drubuntu	
+ chown -Rh $nameofuser:$nameofuser /opt/.drubuntu
  chown -Rh $nameofuser:www-data /var/www
  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.drush
  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.composer
@@ -142,15 +140,15 @@ grantprivs(){
 #drush installation
 getcomposer(){
 # Composer Global installation
-curl -sS https://getcomposer.org/installer | php >> /dev/null 2>&1 
+curl -sS https://getcomposer.org/installer | php >> /dev/null 2>&1
 mv composer.phar /usr/local/bin/composer >> /dev/null 2>&1
-sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc 
-source "$HOME"/.bashrc 
+sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
+source "$HOME"/.bashrc
 }
 getdrush(){
 composer global require drush/drush:7 >> /dev/null 2>&1
 #create symlink to make drush work when entering drush in terminal
-if [ -f /usr/bin/drush ]; then 
+if [ -f /usr/bin/drush ]; then
 rm /usr/bin/drush;
 cd $HOME/.composer/vendor/drush/drush;
 ln -s  $PWD/drush /usr/bin/drush
@@ -159,7 +157,7 @@ else
 cd $HOME/.composer/vendor/drush/drush;
 ln -s  $PWD/drush /usr/bin/drush
 ln -s  $PWD/drush /bin/drush
-fi	
+fi
 }
 #installs preproceccor languages and grunt
 getgems(){
@@ -197,7 +195,7 @@ Q1="CREATE DATABASE IF NOT EXISTS ${BTICK}$dbname${BTICK};"
 Q2="GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON $dbname.* TO "$mydbuser_dseven" @'localhost' IDENTIFIED BY '$mydbpass';"
 Q3="FLUSH PRIVILEGES;"
 SQL="${Q1}${Q2}${Q3}"
- 
+
 $MYSQL -uroot -pMyRoot -e "$SQL"
 }
 createdb_d8() {
@@ -206,12 +204,12 @@ BTICK='`'
 EXPECTED_ARGS=3
 E_BADARGS=65
 MYSQL=`which mysql`
- 
+
 Q1="CREATE DATABASE IF NOT EXISTS ${BTICK}$dbname${BTICK};"
 Q2="GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON $dbname.* TO "$mydbuser_deight" @'localhost' IDENTIFIED BY '$mydbpass';"
 Q3="FLUSH PRIVILEGES;"
 SQL="${Q1}${Q2}${Q3}"
- 
+
 $MYSQL -uroot -pMyRoot -e "$SQL"
 }
 #Downloads drupal core url store
@@ -219,9 +217,9 @@ $MYSQL -uroot -pMyRoot -e "$SQL"
 #Downloads Drupal 7 Core and removes the subversion string
 d7setup(){
 source $bdir/drupalcores.sh
-chown -Rh "$nameofuser":www-data "$wwwdir" 
+chown -Rh "$nameofuser":www-data "$wwwdir"
 mkdir -p  "$d7dir"
-wget -O "$bdir"/drupal7.tar.gz $d7core 
+wget -O "$bdir"/drupal7.tar.gz $d7core
 cd "$bdir"&&tar xvfz "$bdir"/drupal7.tar.gz -C "$d7dir"  >> /dev/null 2>&1
 rm "$bdir"/*.tar.gz
 cd "$d7dir"
@@ -230,12 +228,12 @@ cp -r "$htafile" "$gitifile" "$d7dir";
 cp -r * "$d7dir"
 cd "$d7dir"
 rm -r drup*;
-mkdir -p "$d7filesdir"; 
-chmod 777 "$d7filesdir";  
+mkdir -p "$d7filesdir";
+chmod 777 "$d7filesdir";
 cp -r "$d7defsitedir""$defsettingsfile" "$d7defsitedir""$dsettingsfile";
 chmod 777 "$d7defsitedir""$dsettingsfile";
 mv "$bdir"/setupsite-d7.sh "$d7dir"/setupsite  ;
-chmod +x "$d7dir"/setupsite; 
+chmod +x "$d7dir"/setupsite;
 "$d7dir"/setupsite
 chown -Rh "$nameofuser":www-data /var/www;
 chmod 644 "$d7dir"/"$htafile";
@@ -246,10 +244,10 @@ chmod -R 777 "$d7defsitedir"
 #Downloads current Drupal 8 Core and removes the subversion string
 d8setup(){
 source $bdir/drupalcores.sh
-chown -Rh "$nameofuser":www-data "$wwwdir" 
+chown -Rh "$nameofuser":www-data "$wwwdir"
 mkdir -p  "$d8dir"
 wget -O "$bdir/"drupal8.tar.gz $d8core >> /dev/null 2>&1
-cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" >> /dev/null 2>&1 
+cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" >> /dev/null 2>&1
 rm "$bdir"/*.tar.gz
 cd "$d8dir"
 cd drup*;
@@ -257,14 +255,14 @@ cp -r "$htafile"  "$d8dir";
 cp -r * "$d8dir"
 cd "$d8dir"
 rm -r drup*;
-mkdir -p  "$d8transdir"; 
-chmod 777 "$d8filesdir";  
+mkdir -p  "$d8transdir";
+chmod 777 "$d8filesdir";
 cp -r "$d8defsitedir""$defsettingsfile" "$d8defsitedir""$dsettingsfile";
 cp -r "$d8defsitedir""$ddefsymlfile" "$d8defsitedir""$dsymlfile";
 chmod 777 "$d8defsitedir""$dsettingsfile";
 chmod 777 "$d8defsitedir""$dsymlfile";
 mv "$bdir/"setupsite-d8.sh "$d8dir"/setupsite ;
-chmod +x "$d8dir"/setupsite; 
+chmod +x "$d8dir"/setupsite;
 "$d8dir"/setupsite;
 chown -Rh "$nameofuser":www-data /var/www;
 chmod 644 "$d8dir"/$htafile;
@@ -278,7 +276,7 @@ chmod -R 777 "$d8transdir"
 #Section for Apache2 setup
 #make shure user gts access to www directories
 adusertowwdata() {
-usermod -a -G www-data "$nameofuser"	
+usermod -a -G www-data "$nameofuser"
 }
 #setting up hostname for apache
 supressfqdnwarning(){
@@ -287,10 +285,10 @@ supressfqdnwarning(){
 }
 #disable default apache2 site
 ap2_disdefault(){
-	a2dissite 000-default.conf 
+	a2dissite 000-default.conf
 }
 enablerewrite(){
-	a2enmod rewrite 
+	a2enmod rewrite
 	service apache2 restart
 	}
 		cphostsfile(){
@@ -303,17 +301,17 @@ backuphostfile()
 ap2_cffile_d8(){
 if ! [ -f "$ap2sitedir""$ap2_cffile_d7" ] ;then
 crd8cffile;
-a2ensite "$ap2_cffile_d7" 
+a2ensite "$ap2_cffile_d7"
 else
-a2ensite "$ap2_cffile_d7" 
+a2ensite "$ap2_cffile_d7"
 fi
 }
 ap2_cffile_d7(){
 if ! [ -f "$ap2sitedir""$ap2_cffile_d8" ] ;then
 crd7cffile;
-a2ensite "$ap2_cffile_d8" 
+a2ensite "$ap2_cffile_d8"
 else
-a2ensite "$ap2_cffile_d8" 
+a2ensite "$ap2_cffile_d8"
 fi
 }
 
@@ -328,7 +326,7 @@ while [ $# -gt 0 ]; do
 done
 	}
 
-apache2setup(){ 
+apache2setup(){
 backuphostfile
 crmodhostfile
 supressfqdnwarning
@@ -397,22 +395,22 @@ mv "$pltheme"/grub.file "$grubdir"/grub
 cp -r "$pltheme" "$plymouththemedir"  #removes savedir for cleanup.
 
 													#the next line sets up drubuntu plymouth theme as default.
-update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100 >/dev/null 
+update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100 >/dev/null
 update-grub >> /dev/null                                  	#update grub.
 update-initramfs -c -k all > /dev/null						#generate new kernel  .
 update-initramfs -u -k all > /dev/null
-#sudo reboot -p					
+#sudo reboot -p
 }
 
 clean(){
 apt -y -qq autoremove >>/dev/null 2>&1
 apt -y -qq clean  >>/dev/null 2>&1
-dpkg --get-selections | grep -v deinstall > "$bdir"/packages-installed.txt  	
+dpkg --get-selections | grep -v deinstall > "$bdir"/packages-installed.txt
 if [ -d "$HOME"/tmp ];then
 rm -r "$HOME"/tmp
 fi
 if [ -f "/etc/profile.d/run.sh" ]; then
-rm "/etc/profile.d/run.sh" 
+rm "/etc/profile.d/run.sh"
 fi
 enint
 }
