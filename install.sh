@@ -81,4 +81,5 @@ echo -e "${lightred} ${heightfin}  ${infomssg}   ${NC}"
 echo ""
 echo -e " ${lightgray} ${heightfin} ${clngnmssg} ${NC}"
 clean
+chhostname
 exit
