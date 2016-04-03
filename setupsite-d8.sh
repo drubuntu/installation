@@ -1,3 +1,4 @@
+#!/bin/bash
 setfile=/var/www/d8/sites/default/settings.php
 defsetfile=/var/www/d8/sites/default/default.settings.php
 
