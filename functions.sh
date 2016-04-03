@@ -263,7 +263,6 @@ chmod 777 "$d8defsitedir""$dsettingsfile";
 chmod 777 "$d8defsitedir""$dsymlfile";
 mv "$bdir/"setupsite-d8.sh "$d8dir"/setupsite ;
 chmod +x "$d8dir"/setupsite;
-"$d8dir"/setupsite;
 chown -Rh "$nameofuser":www-data /var/www;
 chmod 644 "$d8dir"/$htafile;
 chmod 644 "$d8defsitedir"/"$d8settingsfile";
@@ -271,6 +270,7 @@ chmod 644 "$d8defsitedir"/"$d8settingsfile";
 chown -Rh "$nameofuser":www-data "$d8dir";
 chmod -R 777 "$d8defsitedir";
 chmod -R 777 "$d8transdir"
+"$d8dir"/setupsite;
 }
 
 #Section for Apache2 setup
