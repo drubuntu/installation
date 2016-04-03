@@ -401,6 +401,9 @@ update-initramfs -c -k all > /dev/null						#generate new kernel  .
 update-initramfs -u -k all > /dev/null
 #sudo reboot -p
 }
+chhostname(){
+	hostname drupal.dev
+}
 
 clean(){
 apt -y -qq autoremove >>/dev/null 2>&1
