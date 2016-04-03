@@ -146,7 +146,7 @@ sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
 source "$HOME"/.bashrc
 }
 getdrush(){
-composer global require drush/drush:7 >> /dev/null 2>&1
+composer global require drush/drush:dev-master >> /dev/null 2>&1
 #create symlink to make drush work when entering drush in terminal
 if [ -f /usr/bin/drush ]; then
 rm /usr/bin/drush;
