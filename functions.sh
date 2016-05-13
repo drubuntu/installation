@@ -181,18 +181,6 @@ getdrush8
 getdrush7
 chmod +x /usr/local/bin/drush
 }
-#create symlink to make drush work when entering drush in terminal
-if [ -f /usr/bin/drush ]; then
-rm /usr/bin/drush;
-cd $HOME/.composer/vendor/drush/drush;
-ln -s  $PWD/drush /usr/bin/drush
-ln -s  $PWD/drush /bin/drush
-else
-cd $HOME/.composer/vendor/drush/drush;
-ln -s  $PWD/drush /usr/bin/drush
-ln -s  $PWD/drush /bin/drush
-fi
-}
 #installs preproceccor languages and grunt
 getgems(){
 updatenodejs  >> /dev/null 2>&1
