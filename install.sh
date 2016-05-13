@@ -52,6 +52,7 @@ echo ""
 vtoolscheck
 #package installation
 echo -e " ${lightgreen} ${heightfin} ${dlbcmssg} ${NC}"
+dlbase
 echo ""
 
 echo -e " ${green} ${heightfin} ${aptupdatemssg} ${NC}"
