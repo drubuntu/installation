@@ -167,7 +167,7 @@ cd "$drush8dir"
 composer require drush/drush:8.0.0
 ln -s "$drush8dir"/vendor/bin/drush /usr/local/bin/drush8
 }
-getdrsuh7()
+getdrush7()
 {
 mkdir "$drush7dir"
 cd "$drush7dir"
