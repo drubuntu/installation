@@ -315,11 +315,11 @@ supressfqdnwarning(){
 }
 #disable default apache2 site
 ap2_disdefault(){
-	a2dissite 000-default.conf
+	a2dissite 000-default.conf  >> /dev/null 2>&1
 }
 enablerewrite(){
-	a2enmod rewrite
-	service apache2 restart
+	a2enmod rewrite  >> /dev/null 2>&1
+	service apache2 restart >> /dev/null 2>&1
 	}
 		cphostsfile(){
 cp /etc/hosts /etc/hosts.back
@@ -331,17 +331,17 @@ backuphostfile()
 ap2_cffile_d8(){
 if ! [ -f "$ap2sitedir""$ap2_cffile_d7" ] ;then
 crd8cffile;
-a2ensite "$ap2_cffile_d7"
+a2ensite "$ap2_cffile_d7"  >> /dev/null 2>&1
 else
-a2ensite "$ap2_cffile_d7"
+a2ensite "$ap2_cffile_d7"  >> /dev/null 2>&1
 fi
 }
 ap2_cffile_d7(){
 if ! [ -f "$ap2sitedir""$ap2_cffile_d8" ] ;then
 crd7cffile;
-a2ensite "$ap2_cffile_d8"
+a2ensite "$ap2_cffile_d8"  >> /dev/null 2>&1
 else
-a2ensite "$ap2_cffile_d8"
+a2ensite "$ap2_cffile_d8"  >> /dev/null 2>&1
 fi
 }
 
