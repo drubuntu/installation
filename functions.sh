@@ -24,6 +24,8 @@ instrepofolder=$HOME/installation
 featuresrepofolder=$HOME/features/
 desktopsrepofolder=$HOME/desktops/
 bdir=/opt/.drubuntu
+drush7dir=/usr/local/bin/drsuh-7
+drush8dir=/usr/local/bin/drsuh-8
 #files and folders affected by installation
 query=`dpkg-query -W -f '${Status}\n'`
 ok="install ok installed"
@@ -145,8 +147,40 @@ mv composer.phar /usr/local/bin/composer >> /dev/null 2>&1
 sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
 source "$HOME"/.bashrc
 }
-getdrush(){
-composer global require drush/drush:dev-master >> /dev/null 2>&1
+createdrushcommand()
+{
+cat << EOFDURSH > /usr/local/bin/drush
+#!/bin/sh
+version=$(git config --get drush.version)
+if [ "$version" = '7' ];
+then
+drush7 "$@"
+else
+drush8 "$@"
+fi
+EOFDURSH
+}
+
+getdrush8(){
+mkdir "$drush8dir"
+cd "$drush8dir"
+composer require drush/drush:8.0.0
+ln -s "$drush8dir"/vendor/bin/drush /usr/local/bin/drush8
+}
+getdrsuh7()
+{
+mkdir "$drush7dir"
+cd "$drush7dir"
+composer require drush/drush:7.x-dev
+ln -s "$drush7dir"/vendor/bin/drush /usr/local/bin/drush7	
+}
+getdrush()
+{
+createdrushcommand
+getdrush8
+getdrush7
+chmod +x /usr/local/bin/drush
+}
 #create symlink to make drush work when entering drush in terminal
 if [ -f /usr/bin/drush ]; then
 rm /usr/bin/drush;
@@ -239,6 +273,8 @@ cp -r "$htafile" "$gitifile" "$d7dir";
 cp -r * "$d7dir"
 cd "$d7dir"
 rm -r drup*;
+mkdir .git
+echo -n "" >.git/config
 mkdir -p "$d7filesdir";
 chmod 777 "$d7filesdir";
 cp -r "$d7defsitedir""$defsettingsfile" "$d7defsitedir""$dsettingsfile";
@@ -261,6 +297,8 @@ wget -O "$bdir/"drupal8.tar.gz $d8core >> /dev/null 2>&1
 cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" >> /dev/null 2>&1
 rm "$bdir"/*.tar.gz
 cd "$d8dir"
+mkdir .git
+echo -n "" >.git/config
 cd drup*;
 cp -r "$htafile"  "$d8dir";
 cp -r * "$d8dir"
