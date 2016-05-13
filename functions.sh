@@ -169,6 +169,8 @@ getdrush >> /dev/null 2>&1
 }
 #make sure that uploadprocess gets loaded by php
 uploadprogress(){
+#Install uploadprogress form pecl
+pecl install uploadprogress > /dev/null 2>&1;
 #Check for uploadprogress.so
 file="/etc/php5/conf.d/uploadprogress.ini"
 if [ -f "$file" ]
@@ -190,9 +192,7 @@ else
 ln -s /etc/php5/mods-aviable/mycrypt.ini "$file"
 fi
 }
-#Install uploadprogress form pecl
-pecl install uploadprogress > /dev/null 2>&1;
-}
+
 #This section contains the MySQL Database creation
 #core function to create mysql databases called somewhere else
 createdb_d7(){
