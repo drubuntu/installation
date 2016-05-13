@@ -403,7 +403,9 @@ update-initramfs -u -k all > /dev/null
 #sudo reboot -p
 }
 chhostname(){
-	hostname drupal.dev
+	cat << EOFHOSTNAME > /etc/hostname 
+ubuntu
+EOFHOSTNAME
 }
 
 clean(){
