@@ -149,7 +149,7 @@ source "$HOME"/.bashrc
 }
 createdrushcommand()
 {
-cat << EOFDURSH > /usr/local/bin/drush
+cat << EOFDURSH >> /usr/local/bin/drush
 #!/bin/sh
 version=$(git config --get drush.version)
 if [ "$version" = '7' ];
