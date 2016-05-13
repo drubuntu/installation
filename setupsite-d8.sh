@@ -32,7 +32,7 @@ sudo chmod 644 sites/default/services.yml
 sudo chmod -R 777 sites/default/files
 sudo chmod 644 sites/default/settings.php
 fi
-drush --version
+drush --version  >> /dev/null 2>&1
 git config drush.version 8
-drush --version
+drush --version  >> /dev/null 2>&1
 
