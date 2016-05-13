@@ -10,24 +10,21 @@ source $PWD/functions.sh
 source $PWD/filetemplates.sh
 dlbase()
 {
-echo -ne '#                     (12%)\r'
+echo -ne '                      (0%)\r'
 aptprogress
-
-echo -ne '##                     (22%)\r'
+echo -ne '#                     (10%)\r'
 getcorepkgs
-
-echo -ne '###             (33%)\r'
+echo -ne '#                    (20%)\r'
 getcomposer
-
-echo -ne '#####   (55%)\r'
+echo -ne '###                   (33%)\r'
 getdrush
-
-echo -ne '######   (66%)\r'
+echo -ne '#####                 (50%)\r'
 uploadprogress
-
-echo -ne '#######   (77%)\r'
+echo -ne '######                 (60%)\r'
 getgems
-echo -ne '##########   (100%)\r'
+echo -ne '#######                (70%)\r'
+
+echo -ne '###################### (100%)\r'
 echo -ne '\n'
 sleep 3
 }
