@@ -10,7 +10,6 @@ source $PWD/functions.sh
 source $PWD/filetemplates.sh
 dlbase()
 {
-echo""
 echo -ne '                      (0%)\r'
 aptprogress
 echo -ne '######                                                                                         (10%)\r'
@@ -54,6 +53,7 @@ echo ""
 vtoolscheck
 #package installation
 echo -e " ${lightgreen} ${heightfin} ${dlbcmssg} ${NC}"
+echo
 dlbase
 echo ""
 
