@@ -179,7 +179,7 @@ cat << EOFUPROGRESS >> /etc/php5/apache2/conf.d/uploadprogress.ini
 	extension=uploadprogress.so
 EOFUPROGRESS
 fi
-
+}
 mycrypt(){
 #Check for uploadprogress.so
 file="/etc/php5/apache2/conf.d/mycrypt.ini"
@@ -189,7 +189,7 @@ echo "mycrypt is already installed"
 else
 ln -s /etc/php5/mods-aviable/mycrypt.ini "$file"
 fi
-
+}
 #Install uploadprogress form pecl
 pecl install uploadprogress > /dev/null 2>&1;
 }
