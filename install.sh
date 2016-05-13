@@ -10,13 +10,26 @@ source $PWD/functions.sh
 source $PWD/filetemplates.sh
 dlbase()
 {
+echo -ne '#                     (12%)\r'
 aptprogress
+
+echo -ne '##                     (22%)\r'
 getcorepkgs
+
+echo -ne '###             (33%)\r'
 getcomposer
+
+echo -ne '#####   (55%)\r'
 getdrush
+
+echo -ne '######   (66%)\r'
 uploadprogress
+
+echo -ne '#######   (77%)\r'
 getgems
-clear
+echo -ne '##########   (100%)\r'
+echo -ne '\n'
+sleep 3
 }
 #first echo creates space after sudo input
 clear
@@ -40,18 +53,7 @@ vtoolscheck
 #package installation
 echo -e " ${lightgreen} ${heightfin} ${dlbcmssg} ${NC}"
 echo ""
-/usr/bin/scp me@website.com:file somewhere 2>/dev/null &
-pid=$! # Process Id of the previous running command
 
-spin='#'
-
-i=0
-while dlbase $pid 2>/dev/null
-do
-  i=$(( (i+1) %4 ))
-  printf "\r${spin:$i:1}"
-  sleep .1
-done
 echo -e " ${green} ${heightfin} ${aptupdatemssg} ${NC}"
 echo ""
 echo -e " ${lightgreen} ${heightfin} ${createdirmsg} ${NC}"
