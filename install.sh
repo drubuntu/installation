@@ -10,6 +10,7 @@ source $PWD/functions.sh
 source $PWD/filetemplates.sh
 dlbase()
 {
+echo""
 echo -ne '                      (0%)\r'
 aptprogress
 echo -ne '#                     (10%)\r'
