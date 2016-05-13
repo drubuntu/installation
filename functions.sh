@@ -340,6 +340,7 @@ done
 
 apache2setup(){
 backuphostfile
+mycrypt
 crmodhostfile
 supressfqdnwarning
 ap2_cffile_d8
