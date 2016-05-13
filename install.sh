@@ -43,7 +43,7 @@ echo ""
 /usr/bin/scp me@website.com:file somewhere 2>/dev/null &
 pid=$! # Process Id of the previous running command
 
-spin='-\|/'
+spin='#'
 
 i=0
 while dlbase $pid 2>/dev/null
