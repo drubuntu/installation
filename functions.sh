@@ -420,6 +420,7 @@ apt-get -y --force-yes -qq install elementary-desktop
 apt-get -y remove unity-greeter &&
 dpg-reconfigure pantheon-greeter &&
 apt-get upgrade;apt-get dist-upgrade
+}
 plymouthlogo(){
 apt-get install -y plymouth-theme-script > /dev/null #installs script plymouth theme to make changes work.
 dlurl="https://raw.githubusercontent.com/drubuntu/installation/master/"
