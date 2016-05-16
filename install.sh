@@ -101,4 +101,17 @@ echo ""
 echo -e " ${lightgray} ${heightfin} ${clngnmssg} ${NC}"
 clean
 chhostname
+echo -e " ${lightgreen}  ${installationisfinished} ${NC}"
+echo 
+echo -e " ${lightgreen}  ${chooseadesktopnow} ${NC}"
+read -n1 -r -p ${lightred} ${pressspacetocontinue} key
+
+if [ "$key" = '' ]; then
+    # Space pressed, do something
+    sudo bash /opt/.drubuntu/desktopchooser.sh
+else
+    # Anything else pressed, do whatever else.
+    echo -e "${lightred} ${heightfin}  ${quitdesktopsetup}   ${NC}"
+
+fi
 exit
