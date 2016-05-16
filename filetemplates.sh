@@ -8,7 +8,7 @@ crissue(){
 cat << EOF1 > /etc/issue.net
 Drbuntu is powered by Ubuntu 14.04.1 \n \l
 
-For more information about drubuntu go to https://horvan.github.io/horvan/drubuntu
+For more information about drubuntu go to http://drubuntu.github.io/drubuntu/
 and use the GitHub Wiki at https://github.com/drubuntu/drubuntu/wiki
 or contact us via Google+ at +drubuntuinfo.
 EOF1
@@ -24,6 +24,7 @@ alias dru-system-repair="sudo apt-get autoclean; sudo apt-get -y autoremove; sud
 drubaseidir=/opt/.drubuntu
 scrdir="$drubaseidir"/scripts/
 drfeatures="$scrdir"features
+drdesktps="$scrdir"desktops
 drcreatesite="$scrdir"createsite
 drcreatesubdomain="$scrdir"ceatesubdomain
 drsetip="$scrdir"setip
@@ -39,6 +40,7 @@ alias dru-install-aptanaxdebug='bash $drfeatures --aptana-xdebug'
 alias dru-install-xdebug='bash $drfeatures --xdebug'
 alias dru-install-browsers='bash $drfeatures --browsers'
 alias dru-install-atom='bash $drfeatures --atom'
+alias dru-install-desktop='bash bash "$drdesktops"/desktopchooser.sh'
 #help
 alias dru-quickhelp="more "$drubasedir"quickhelp.txt"
 #scripts
