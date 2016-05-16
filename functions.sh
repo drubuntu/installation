@@ -408,18 +408,7 @@ ln -s  $PWD/desktopchooser.sh /usr/bin/dru-desktopchooser
 ln -s /etc/issue.net /etc/issue
 }
 
-elementaryos(){
-apt -y -qq install software-properties-common xorg lightdm >>/dev/null 2>&1
-apt-add-repository -y ppa:gnome3-team/gnome3 && >>/dev/null 2>&1
-apt-add-repository -y ppa:gnome3-team/gnome3-staging && >>/dev/null 2>&1
-apt-add-repository -y ppa:elementary-os/stable && >>/dev/null 2>&1
-apt-add-repository -y ppa:elementary-os/patches && >>/dev/null 2>&1
-apt update && >>/dev/null 2>&1
-apt-get -y --force-yes -qq install elementary-desktop >>/dev/null 2>&1
-apt-get -y remove unity-greeter && >>/dev/null 2>&1
-dpkg-reconfigure pantheon-greeter && >>/dev/null 2>&1
-apt-get -y -qq upgrade;apt-get -y -qq dist-upgrade >>/dev/null 2>&1
-}
+
 plymouthlogo(){
 apt-get install -y plymouth-theme-script > /dev/null #installs script plymouth theme to make changes work.
 dlurl="https://raw.githubusercontent.com/drubuntu/installation/master/"
