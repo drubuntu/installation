@@ -6,6 +6,12 @@ else
 source $PWD/en.sh
 fi
 source $PWD/colors.sh
+if [ `lsb_release -r` == "Release:	14.04" ];then
+source $PWD/functions.sh
+else
+source $PWD/functionsxenial.sh
+fi
+
 source $PWD/functions.sh
 source $PWD/filetemplates.sh
 dlbase()
@@ -20,7 +26,7 @@ echo -ne '   ###################                                                
 getdrush
 echo -ne '   #######################################                                                (50%)\r'
 uploadprogress
-echo -ne '   #################################################                                      (60%)\r' 
+echo -ne '   #################################################                                      (60%)\r'
 getgems
 echo -ne '   ###########################################################                            (70%)\r'
 sleep 1
@@ -102,7 +108,7 @@ echo -e " ${lightgray} ${heightfin} ${clngnmssg} ${NC}"
 clean
 chhostname
 echo -e " ${lightgreen}  ${installationisfinished} ${NC}"
-echo 
+echo
 echo -e " ${lightgreen}  ${chooseadesktopnow} ${NC}"
 read -n1 -r -p ${lightred} ${pressspacetocontinue} key
 
