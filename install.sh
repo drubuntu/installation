@@ -1,19 +1,19 @@
 
 #!/bin/bash
+lsb_version=`lsb_release --release | cut -f2`
 if [ "$LANG" == "de_DE.UTF-8" ];then
 source $PWD/de.sh
 else
 source $PWD/en.sh
 fi
 source $PWD/colors.sh
-if [ `lsb_release -r` == "Release:	14.04" ];then
-source $PWD/functions.sh
-else
+if [ lsb_version=16.04];then
 source $PWD/functionsxenial.sh
-fi
-
+else
 source $PWD/functions.sh
+fi
 source $PWD/filetemplates.sh
+
 dlbase()
 {
 echo -ne  '                                                                                          (0%)\r'
@@ -110,7 +110,7 @@ chhostname
 echo -e " ${lightgreen}  ${installationisfinished} ${NC}"
 echo
 echo -e " ${lightgreen}  ${chooseadesktopnow} ${NC}"
-read -n1 -r -p ${lightred} ${pressspacetocontinue} key
+read -n1 -r -p "${lightred} ${pressspacetocontinue}" key
 
 if [ "$key" = '' ]; then
     # Space pressed, do something

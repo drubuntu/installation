@@ -68,6 +68,7 @@ chmod +r "$bdir"/quickhelp.txt
 #removing files not neccecary
 rm "$bdir"/filetemplates.sh
 rm "$bdir"/functions.sh
+rm "$bdir"/functionsxenial.sh
 rm "$bdir"/install.sh
 rm /etc/issue
 chmod +x "$bdir"/*.sh
@@ -113,14 +114,14 @@ getcorepkgs(){
 debconf-set-selections <<< 'mysql-server-5.7 mysql-server/root_password password MyRoot'
 debconf-set-selections <<< 'mysql-server-5.7 mysql-server/root_password_again password MyRoot'
 #reinstall mysql server to preset password
-apt  -y -qq remove mysql-server-5.7    >> /dev/null 2>&1
-apt -y -qq install software-properties-common >> /dev/null 2>&1
+apt-get -y -qq remove mysql-server    >> /dev/null 2>&1
+apt-get -y -qq install software-properties-common curl >> /dev/null 2>&1
 updatenodejs >> /dev/null 2>&1
 
-apt  -y install curl mysql-server libapache2-mod-auth-mysql php5-mysql apache2 apache2-utils libapache2-mod-php5  libssh2-php >> /dev/null 2>&1
-apt  -y install -qq php5-gd git git-core ruby1.9.1-full  openssh-server^ php-pear php5-dev php5-curl php5-json php5-mcrypt php5-gd php5-dev make build-essential >> /dev/null 2>&1
-apt  -y install -qq nodejs-legacy  >> /dev/null 2>&1
-apt -y -qq install gdebi-core >> /dev/null 2>&1
+apt-get -y -qq install curl lamp-server^ libssh2-php >> /dev/null 2>&1
+apt-get -y -qq install  php5-gd git git-core ruby2.3  openssh-server^ php-pear php5-dev php5-curl php5-json php5-mcrypt php5-gd php5-dev make build-essential >> /dev/null 2>&1
+apt-get -y -qq install  nodejs-legacy  >> /dev/null 2>&1
+apt-get -y -qq install gdebi-core >> /dev/null 2>&1
 
 }
 aptupdate(){
@@ -412,27 +413,28 @@ ln -s /etc/issue.net /etc/issue
 
 
 plymouthlogo(){
-apt-get install -y plymouth-theme-script > /dev/null #installs script plymouth theme to make changes work.
-dlurl="https://raw.githubusercontent.com/drubuntu/installation/master/"
-grubfilesurl=files/grub/
-savedir=$instrepofolder/files/grub/
-pltheme=$instrepofolder/files/drubuntu
-plymouththemedir=/lib/plymouth/themes
-grubdir=/etc/default/
+#apt-get install -y plymouth-theme-script > /dev/null #installs script plymouth theme to make changes work.
+#dlurl="https://raw.githubusercontent.com/drubuntu/installation/master/"
+#grubfilesurl=files/grub/
+#savedir=$instrepofolder/files/grub/
+#pltheme=$instrepofolder/files/drubuntu
+#plymouththemedir=/lib/plymouth/themes
+#grubdir=/etc/default/
 
 
 
 				#copy file to /etc/default and replace existing file.
-mv "$savedir" "$pltheme"
-mv "$pltheme"/grub.file "$grubdir"/grub
-cp -r "$pltheme" "$plymouththemedir"  #removes savedir for cleanup.
+#mv "$savedir" "$pltheme"
+#mv "$pltheme"/grub.file "$grubdir"/grub
+#cp -r "$pltheme" "$plymouththemedir"  #removes savedir for cleanup.
 
 													#the next line sets up drubuntu plymouth theme as default.
-update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100 >/dev/null
-update-grub >> /dev/null                                  	#update grub.
-update-initramfs -c -k all > /dev/null						#generate new kernel  .
-update-initramfs -u -k all > /dev/null
+#update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/drubuntu/drubuntu.plymouth 100 >/dev/null
+#update-grub >> /dev/null                                  	#update grub.
+#update-initramfs -c -k all > /dev/null						#generate new kernel  .
+#update-initramfs -u -k all > /dev/null
 #sudo reboot -p
+echo "No changes avialable for boot logo"
 }
 chhostname(){
 	cat << EOFHOSTNAME > /etc/hostname

@@ -68,6 +68,8 @@ chmod +r "$bdir"/quickhelp.txt
 #removing files not neccecary
 rm "$bdir"/filetemplates.sh
 rm "$bdir"/functions.sh
+rm "$bdir"/functionsxenial.sh
+
 rm "$bdir"/install.sh
 rm /etc/issue
 chmod +x "$bdir"/*.sh
@@ -152,7 +154,7 @@ source "$HOME"/.bashrc
 createdrushcommand()
 {
 cp files/drush /usr/local/bin/
-chmod +x /usr/local/bin/drush	
+chmod +x /usr/local/bin/drush
 }
 
 getdrush8(){
@@ -166,7 +168,7 @@ getdrush7()
 mkdir "$drush7dir"
 cd "$drush7dir"
 composer require drush/drush:7.x-dev
-ln -s "$drush7dir"/vendor/bin/drush /usr/local/bin/drush7	
+ln -s "$drush7dir"/vendor/bin/drush /usr/local/bin/drush7
 }
 getdrush()
 {
@@ -435,7 +437,7 @@ update-initramfs -u -k all > /dev/null
 #sudo reboot -p
 }
 chhostname(){
-	cat << EOFHOSTNAME > /etc/hostname 
+	cat << EOFHOSTNAME > /etc/hostname
 ubuntu
 EOFHOSTNAME
 }
