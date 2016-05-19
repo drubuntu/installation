@@ -7,7 +7,7 @@ else
 source $PWD/en.sh
 fi
 source $PWD/colors.sh
-if [ lsb_version=16.04];then
+if [ lsb_version=16.04 ];then
 source $PWD/functionsxenial.sh
 else
 source $PWD/functions.sh
