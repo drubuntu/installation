@@ -70,7 +70,7 @@ debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multisel
 debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean false"
 
 
-apt -y -qq install phpmyadmin
+apt -y -qq install phpmyadmin >>/dev/null 2>&1
 }
 amp(){
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password MyRoot'
