@@ -71,9 +71,9 @@ apt -y -qq install phpmyadmin >>/dev/null 2>&1
 amp(){
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password MyRoot'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MyRoot'
-apt -y install lamp-server^ >>/dev/null 2>&1
-a2enmod rewrite>>/dev/null 2>&1
-a2dissite 000.default.conf>>/dev/null 2>&1
+apt-get -y install lamp-server^ && >>/dev/null 2>&1
+a2enmod rewrite&&>>/dev/null 2>&1
+a2dissite 000.default.conf&& >>/dev/null 2>&1
 service apache2 restart
 }
 #delete the dissblefunctions line for drush
