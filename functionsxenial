@@ -71,6 +71,7 @@ sudo apt -y -qq install phpmyadmin >>/dev/null 2>&1
 lamp(){
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password MyRoot'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MyRoot'
+sudo apt-get install -y lamp-server^
 sudo apt -y install mysql-server apache2 php-mysql php7.0-mysql libapache2-mod-php7.0 libapache2-mod-ph php-mcrypt php7.0-mcrypt	 && >>/dev/null 2>&1
 sudo a2enmod rewrite&&>>/dev/null 2>&1
 sudo a2dissite 000.default.conf&& >>/dev/null 2>&1
