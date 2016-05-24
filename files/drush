@@ -1,8 +1,0 @@
-#!/bin/sh
-version=$(git config --get drush.version)
-if [ "$version" = '7' ];
-then
-drush7 "$@"
-else
-drush8 "$@"
-fi
