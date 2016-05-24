@@ -197,7 +197,6 @@ mkdir -p "$d7filesdir";
 chmod 777 "$d7filesdir";
 cp -r "$d7defsitedir""$defsettingsfile" "$d7defsitedir""$dsettingsfile";
 chmod 777 "$d7defsitedir""$dsettingsfile";
-mv "$bdir"/setupsite-d7.sh "$d7dir"/setupsite  ;
 chmod +x "$d7dir"/setupsite;
 "$d7dir"/setupsite
 chown -Rh "$nameofuser":www-data /var/www;
@@ -227,7 +226,6 @@ cp -r "$d8defsitedir""$defsettingsfile" "$d8defsitedir""$dsettingsfile";
 cp -r "$d8defsitedir""$ddefsymlfile" "$d8defsitedir""$dsymlfile";
 chmod 777 "$d8defsitedir""$dsettingsfile";
 chmod 777 "$d8defsitedir""$dsymlfile";
-mv "$bdir/"setupsite-d8.sh "$d8dir"/setupsite ;
 chmod +x "$d8dir"/setupsite;
 bash "$d8dir"/setupsite;
 chown -Rh "$nameofuser":www-data /var/www;
