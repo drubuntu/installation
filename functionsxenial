@@ -156,11 +156,11 @@ EOFMYCNF
   chown $currentuser:$currentuser ~/.my.cnf
   }
   setmysql(){
-  mysql --defaults-extra-file=.my.cnf -e "CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal';"
-  mysql --defaults-extra-file=.my.cnf -e "CREATE DATABASE drupal7;"
-  mysql --defaults-extra-file=.my.cnf -e "CREATE DATABASE drupal8;"
-  mysql --defaults-extra-file=.my.cnf -e "GRANT ALL PRIVILEGES ON drupal7.* To 'drupal'@'localhost' IDENTIFIED BY 'drupal';"
-  mysql --defaults-extra-file=.my.cnf -e "GRANT ALL PRIVILEGES ON drupal8.* To 'drupal'@'localhost' IDENTIFIED BY 'drupal';"
+  mysql --defaults-extra-file=~/.my.cnf -e "CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal';"
+  mysql --defaults-extra-file=~/.my.cnf -e "CREATE DATABASE drupal7;"
+  mysql --defaults-extra-file=~/.my.cnf -e "CREATE DATABASE drupal8;"
+  mysql --defaults-extra-file=~/.my.cnf -e "GRANT ALL PRIVILEGES ON drupal7.* To 'drupal'@'localhost' IDENTIFIED BY 'drupal';"
+  mysql --defaults-extra-file=~/.my.cnf -e "GRANT ALL PRIVILEGES ON drupal8.* To 'drupal'@'localhost' IDENTIFIED BY 'drupal';"
   }
 
   mycnf_secure(){
