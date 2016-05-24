@@ -39,11 +39,11 @@ sleep 3
 #first echo creates space after sudo input
 clear
 echo ""
-echo -e " ${orange}  ${wcmssg1} ${nc}"
-echo -e " ${orange}  ${wcmssg2} ${nc}"
-echo -e " ${orange}  ${wcmssg3} ${nc}"
+echo -e " ${lightblue}  ${wcmssg1} ${nc}"
+echo -e " ${lightblue}  ${wcmssg2} ${nc}"
+echo -e " ${lightblue}  ${wcmssg3} ${nc}"
 echo ""
-echo -e "${nc}"
+echo -e "${white}${nc}"
 # > /dev/null to hide the output
 dlbase
 exit
