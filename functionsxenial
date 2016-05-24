@@ -256,19 +256,19 @@ crfiles(){
   crssd8&&
   crcrsub&&
   crcrsite&&
-  crhostname
+  crhostname&&
 }
 core(){
-  crfiles&&
-  getbase&&
-  addppas&&
-  addnodejs&&
-  mkdirs&&
-  server&& 
-  phpmyadmin&&
-  aptprogress&&
-  getcomposer&&
-  vtoolscheck&&
+  mkdirs
+  server
+  crfiles
+  getbase
+  addppas
+  addnodejs
+  phpmyadmin
+  aptprogress
+  getcomposer
+  vtoolscheck
   vtoolsinstaller
 }
 
