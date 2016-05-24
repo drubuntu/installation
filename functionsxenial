@@ -109,7 +109,7 @@ ln -s /usr/local/bin/drush-7/vendor/bin/drush /usr/local/bin/drush7
 }
 
 setdrush(){
-  cat <<EOFDRUSH >> /usr/locale/bin/drush
+  cat <<EOFDRUSH >> /usr/local/bin/drush
   #!/bin/sh
   version=$(git config --get drush.version)
   if [ "$version" = '7' ];
@@ -118,10 +118,10 @@ setdrush(){
   else
   drush8 "$@"
   fi
-EOFDRUSH
+ EOFDRUSH
 
 
-chmod +x /usr/locale/bin/drush
+chmod +x /usr/local/bin/drush
 }
 getbase(){
 apt -y -qq install curl >>/dev/null 2>&1
