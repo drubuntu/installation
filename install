@@ -1,0 +1,48 @@
+#!/bin/bash
+lsb_version=`lsb_release --release | cut -f2`
+if [ "$LANG" == "de_DE.UTF-8" ];then
+source $PWD/de
+else
+source $PWD/en
+fi
+source $PWD/colors
+if [ lsb_version=16.04 ];then
+source $PWD/functionsxenial
+else
+source $PWD/functions
+fi
+source $PWD/filetemplates
+
+dlbase()
+{
+echo -ne  '                                                                                          (0%)\r'
+echo -ne '   #                                                                                      (10%)\r'
+core
+echo -ne '   #########                                                                              (20%)\r'
+crfiles
+echo -ne '   ###################                                                                    (30%)\r'
+drupal
+echo -ne '   #######################################                                                (50%)\r'
+cleanup
+echo -ne '   #################################################                                      (60%)\r'
+sleep 1
+echo -ne '   ###########################################################                            (70%)\r'
+sleep 1
+echo -ne '   #####################################################################                  (80%)\r'
+sleep 1
+echo -ne '   ###############################################################################        (90%)\r'
+sleep 1
+echo -ne '   ###################################################################################### (100%)\r'
+echo -ne '\n'
+sleep 3
+}
+#first echo creates space after sudo input
+clear
+echo ""
+echo -e " ${orange}  ${wcmssg1} ${nc}"
+echo -e " ${orange}  ${wcmssg2} ${nc}"
+echo -e " ${orange}  ${wcmssg3} ${nc}"
+echo ""
+# > /dev/null to hide the output
+dlbase
+exit

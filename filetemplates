@@ -1,0 +1,702 @@
+#!/bin/bash
+#These file provides functions for file creation while the installation is running and if you like to set up new domains and sub domains.
+#Do not delete this file, please.
+
+#drubuntus issue is create here
+
+	crissue(){
+cat <<EOFISSUE >> /etc/issue.net
+Drbuntu is powered by Ubuntu 16.04.1 \n \l
+
+For more information about drubuntu go to http://drubuntu.github.io/drubuntu/
+and use the GitHub Wiki at https://github.com/drubuntu/drubuntu/wiki
+or contact us via Google+ at +drubuntuinfo.
+EOFISSUE
+}
+
+craliasfile(){
+cat <<EOF20 >>~/.bash_aliases
+#!bin/bash
+#drubuntu aliases
+#system repair commands
+alias dru-system-repair="sudo apt-get autoclean; sudo apt-get -y autoremove; sudo dpkg -y --clear-avail; sudo apt-get update; sudo apt-get -y dist-upgrade"
+#All variables and commands from here added by the installer. automaticly.
+drubaseidir=/opt/.drubuntu
+scrdir="$drubaseidir"/scripts/
+drfeatures="$scrdir"features
+drdesktps="$scrdir"desktops
+drcreatesite="$scrdir"createsite
+drcreatesubdomain="$scrdir"ceatesubdomain
+drsetip="$scrdir"setip
+drupdate="$scrdir"/update
+#features
+alias dru-features='bash "$drfeatures" --help'
+alias dru-install-plymouthlogo='bash "$drfeatures" --plymouth'
+alias dru-install-ftp='bash $drfeatures --proftpd'
+alias dru-install-webexplangs='bash $drfeatures --webexplangs'
+alias dru-install-aptana='bash $drfeatures --aptana'
+alias dru-install-aptanagit='bash $drfeatures --aptana-git'
+alias dru-install-aptanaxdebug='bash $drfeatures --aptana-xdebug'
+alias dru-install-xdebug='bash $drfeatures --xdebug'
+alias dru-install-browsers='bash $drfeatures --browsers'
+alias dru-install-atom='bash $drfeatures --atom'
+alias dru-install-desktop='bash bash "$drdesktops"/desktopchooser.sh'
+#help
+alias dru-quickhelp="more "$drubasedir"quickhelp.txt"
+#scripts
+alias dru-addsite='sudo bash $drcreatesite'
+alias dru-addsubdomain='sudo bash $drcreatesubdomain'
+alias dru-update='sudo bash $drupdate'
+alias dru-setip='sudo bash $drsetip'
+#aliases without scripts
+alias dru-install-phpmyadmin="sudo apt-get install phpmyadmin"
+alias dru-mysql-secure="mysql_secure_installation"
+alias dru-set-publichtml-default="echo 'cd public_html'>>~/.bashrc"
+EOF20
+}
+
+#Drubuntus internal profile.d file is created here.
+
+crprofiledfile(){
+cat <<EOF2 >>/etc/profile.d/drubuntu.sh
+#!bin/bash
+#This file holds all common variables for your installation of drubuntu. they are accessable  in every userprofile
+EOF2
+}
+
+#Creates Drupal 7 Apache2 conf in /etc/apache2/sites-available
+crd7cffile(){
+cat <<EOF3 > /etc/apache2/sites-available/drupal7.conf
+<VirtualHost *:80>
+	# The ServerName directive sets the request scheme, hostname and port that
+	# the server uses to identify itself. This is used when creating
+	# redirection URLs. In the context of virtual hosts, the ServerName
+	# specifies what hostname must appear in the request's Host: header to
+	# match this virtual host. For the default virtual host (this file) this
+	# value is not decisive as it is used as a last resort host regardless.
+	# However, you must set it for any further virtual host explicitly.
+	ServerName drupal7.dev
+	ServerAlias www.drupal7.dev
+
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/d7
+
+  # Indexes + Directory Root.
+        DocumentRoot /var/www/d7/
+
+         <Directory /var/www/d7/>
+                DirectoryIndex index.php
+                Options Indexes FollowSymLinks
+                AllowOverride All
+                Require all granted
+        </Directory>
+
+        # Logfiles
+        ErrorLog /var/log/apache2/drupal7-error.log
+        CustomLog /var/log/apache2/drupal7-access.log common
+	# For most configuration files from conf-available/, which are
+	# enabled or disabled at a global level, it is possible to
+	# include a line for only one particular virtual host. For example the
+	# following line enables the CGI configuration for this host only
+	# after it has been globally disabled with "a2disconf".
+	#Include conf-available/serve-cgi-bin.conf
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+EOF3
+}
+
+#Creates Drupal 8 Apache2 conf in /etc/apache2/sites-available
+crd8cffile(){
+cat << EOF4 > /etc/apache2/sites-available/drupal8.conf
+<VirtualHost *:80>
+	# The ServerName directive sets the request scheme, hostname and port that
+	# the server uses to identify itself. This is used when creating
+	# redirection URLs. In the context of virtual hosts, the ServerName
+	# specifies what hostname must appear in the request's Host: header to
+	# match this virtual host. For the default virtual host (this file) this
+	# value is not decisive as it is used as a last resort host regardless.
+	# However, you must set it for any further virtual host explicitly.
+	ServerName drupal8.dev
+    	ServerAlias www.drupal8.dev
+
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/d8
+
+  # Indexes + Directory Root.
+        DocumentRoot /var/www/d8/
+
+        <Directory /var/www/d8/>
+                DirectoryIndex index.php
+                Options Indexes FollowSymLinks
+                AllowOverride All
+                Require all granted
+        </Directory>
+
+        # Logfiles
+        ErrorLog /var/log/apache2/drupal8-error.log
+        CustomLog /var/log/apache2/drupal8-access.log common
+	# For most configuration files from conf-available/, which are
+	# enabled or disabled at a global level, it is possible to
+	# include a line for only one particular virtual host. For example the
+	# following line enables the CGI configuration for this host only
+	# after it has been globally disabled with "a2disconf".
+	#Include conf-available/serve-cgi-bin.conf
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+EOF4
+}
+#Creates hosts file while installation to make sure drupal7.dev and drupal8.dev are with us right from the start
+crmodhostfile(){
+cat <<EOF5 > /etc/hosts
+127.0.0.1	drupal.dev ubuntu localhost drupal7.dev www.drupal7.dev drupal8.dev www.drupal8.dev
+127.0.1.1	drupal.dev ubuntu
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+EOF5
+}
+crsetip(){
+cat <<EOFSETIP >"$bdir"/setip
+	#!/bin/bash
+vb=VirtualBox
+platformtest=`dmidecode -s system-product-name`
+DIRURL=/opt/.drubuntu
+source $DIRURL/colors.sh
+if [ "$LANG" == "de_DE.UTF-8" ];then
+source $DIRURL/de.sh
+else
+source $DIRURL/en.sh
+fi
+
+if [ `whoami` != root ]; then #checks if the user is root. If The user isn't root the message is printed and the script will be interrupted.
+
+      echo -e " ${lightred}  ${runasrootmssg} ${NC}"
+
+    exit
+4
+fi
+function menu(){
+
+	if [ "$LANG" ==  "de_DE.UTF-8" ];then
+	echo ""
+			read -p "Geben Sie die IP für Ihren Server ein " staticip
+		read -p "Geben Se Ihr netzwerk ein (Die Adresse Ihres Host Only Netzwerkadapters  " networkpattern
+		read -p "Geben SIe Ihre Netzwerkmaske ein " netmaskpattern
+		read -p "Geben Sie den Broadkast ein Die Adresse Ihres Host Only netzwerkadapters (letzter Block 255) " broadcastpattern
+		clear
+echo ""
+echo "address:		$staticip"
+echo "netmask:		$networkpattern"
+echo "network:		$netmaskpattern"
+echo "broadcast:	$broadcastpattern"
+
+		else
+	echo ""
+		read -p "Enter the ip address of server " staticip
+		read -p "Enter your network " networkpattern
+		read -p "Enter your netmask " netmaskpattern
+		read -p "Enter the broadcast " broadcastpattern
+		clear
+echo ""
+echo "address:		$staticip"
+echo "netmask:		$networkpattern"
+echo "network:		$netmaskpattern"
+echo "broadcast:	$broadcastpattern"
+
+		fi
+}
+
+# This line tells the user the current IP in the network
+
+  echo -e " ${yellow}  ${ipeth0mssg} ${NC}"
+echo ""
+ifconfig eth0 | ( while read line; do [ "$line" != "${line#inet }" ] && e="${line#inet }" && e="${e%%[ ]*}" && e="${e##*[A-Za-z:]}" && echo "$e" ; done )
+
+echo ""
+
+echo -e " ${lightgreen}  ${setipwcmssg} ${NC}"
+
+echo ""
+
+#this function tells the user to enter the data we need to set a static connection
+getinfo(){
+
+if  [ "$platformtest" == "$vb" ] ; then
+echo -e " ${white}  ${defvbvlsmssg} ${NC}"
+echo ""
+echo "address:		192.168.56.101"
+echo "netmask:		255.255.255.0"
+echo "network:		192.168.56.1"
+echo "broadcast:	192.168.56.255 "
+else
+		 menu
+fi
+}
+
+
+writeinterfacefile(){
+# This function writes the content between the cat command and EOF in to ubuntu's network interfaces file.
+
+if [ "$platformtest" == "$vb" ] ;then
+  echo "secondadapter=192.168.56.101" >>/etc/profile.d/drubuntu.sh
+  staticip=192.168.56.101
+
+ cat << EOF1 > /etc/network/interfaces
+  # This file describes the network interfaces available on your system
+  # and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet dhcp
+
+#Host Only Network Adapter
+auto eth1
+iface eth1 inet static
+address 192.168.56.101
+netmask 255.255.255.0
+network 192.168.56.1
+broadcast 192.168.56.255
+EOF1
+
+else
+
+cat << EOF2 > /etc/network/interfaces
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet dhcp
+
+#Your static network configuration
+auto eth1
+iface eth1 inet static
+address  $staticip
+network $networkpattern
+netmask  $netmaskpattern
+broadcast $broadcastpattern
+EOF2
+
+fi
+
+}
+
+exportip(){
+if [ "$platformtest" == "$vb" ] ;then
+staticip=192.168.56.1
+fi
+if ! [ /etc/profile.d/drubuntu.sh ] ;then
+"secondadapter=$staticip"  >>/etc/profile.d/drubuntu.sh
+fi
+# Here the static IP is exportet to the profile.d file in /etc/profile.d so that all users and scripts could use it.
+profile_file="/etc/profile.d/drubuntu.sh" #defines the path to the profile.d file we create for drubuntu.
+
+
+if ! grep -q 'secondadapter' "${profile_file}" ; then #add the variable to the profile.d file if it isn't already added.
+echo "secondadapter=$staticip" >> /etc/profile.d/drubuntu.sh
+fi
+echo $donotdelete > "/opt/.drubuntu/secondip"
+echo $staticip >> "/opt/.drubuntu/secondip" # writes the name file as reference for the addsitestohosts.sh script.
+}
+
+addiptohostsfile(){ # now we add the second adapter to the hosts file.
+sandboxsites=" drupal.dev drupal8.dev www.drupal.dev www.drupal8.dev"
+ipandsandboxsites="$staticip $sandboxsites"
+if ! grep -q '$staticip' /etc/hosts ; then
+echo "${ipandsandboxsites}"  >> /etc/hosts
+fi
+}
+
+#Here we proof if everything is correct and execute the functions above.
+if [ "$platformtest" == "$vb" ] ;then
+echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
+addiptohostsfile; writeinterfacefile; exportip;
+echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
+sleep 20
+reboot now -p
+else
+menu
+while true; do
+		read -p "${infocorrectmssg}" yn
+		case $yn in
+[Yy]* )
+
+
+echo -e " ${purple}  ${ifwentwrongipmssg} ${NC}"
+addiptohostsfile; writeinterfacefile; exportip;
+echo -e " ${lightgreen}  ${rebootmssg} ${NC}"
+sleep 20
+reboot now -p
+
+
+ ;;
+		[Nn]* ) getinfo;;
+		* ) echo -e " ${white}  ${yonmssg} ${NC}" ;;
+		esac
+	done
+fi
+}
+
+EOFSETIP
+}
+
+crssd7(){
+cat << EOFSETUPSITEDSEVEN > "$d7dir"/setupsite
+#!/bin/bash
+cd ${0%/*}
+drush7 --version  >> /dev/null 2>&1
+git config drush.version 7
+drush7 --version  >> /dev/null 2>&1
+drush7 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal7 --db-su=root --db-su-pw=MyRoot --account-pass=123456 --site-name="Drupal" >>/dev/null 1>&2;
+drush7 -y dl l10n_update drush_language smtp >>/dev/null 1>&2
+exit
+EOFSETUPSITEDSEVEN
+}
+crssd8(){
+cat <<EOFSETUPSITEDEIGHT > "$d8dir"/setupsite
+#!/bin/bash
+setfile=/var/www/d8/sites/default/settings.php
+defsetfile=/var/www/d8/sites/default/default.settings.php
+
+cd ${0%/*}
+
+ if [[ $EUID -ne 0 ]]; then
+ echo "Please run as root"
+sudo $0
+  else
+source $HOME/.bashrc
+if [[ -f "$setfile" ]];then
+sudo rm "$setfile"
+sudo cp -R "$defsetfile" "$setfile"
+sudo cat <<EOF >> sites/default/settings.php
+\$settings['trusted_host_patterns'] = array(
+   '^drupal8\.dev$',
+   '^.+\.drupal8\.dev$',
+   '^.+\.drupal8\.dev',
+   '^localhost$',
+   '^localhost\.*',
+   '\.local$',
+);
+EOF
+fi
+
+drush8 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal8 --db-su=root --db-su-pw=MyRoot --account-pass=123456 --site-name="Drupal" >>/dev/null 1>&2;
+drush8 -y dl smtp-8.x-1.x-dev >>/dev/null 1>&2
+sudo chmod 644 sites/default/services.yml
+sudo chmod -R 777 sites/default/files
+sudo chmod 644 sites/default/settings.php
+fi
+drush8 --version  >> /dev/null 2>&1
+git config drush.version 8
+drush8 --version  >> /dev/null 2>&1
+EOFSETUPSITEDEIGHT
+}
+
+crcrsub(){
+cat <<EOFCREATESUBDOMAIN > "$bdir"/crsub
+
+#!/bin/bash
+DIRURL=/opt/.drubuntu
+source $DIRURL/colors.sh
+if [ "$LANG" == "de_DE.UTF-8" ];then
+source $DIRURL/de.sh
+else
+source $DIRURL/en.sh
+fi
+
+if [ `whoami` != root ]; then #checks if the user is root. If The user isn't root the message is printed and the script will be interrupted.
+
+    echo -e " ${lightred}  ${runasrootmssg} ${NC}"
+
+
+    exit
+4
+fi
+
+file="/opt/.drubuntu/secondip"
+if ! [ -f "$file" ]
+then
+    echo -e " ${lightred}  ${runsetipfirstmssg} ${NC}"
+    exit
+else
+
+writedomainfile(){
+
+
+echo "<VirtualHost *:80 >"                                                 >/etc/apache2/sites-available/$domain.conf
+echo "       ServerName $domain"                                          >>/etc/apache2/sites-available/$domain.conf
+echo "      DocumentRoot /var/www/$dbase/"                                >>/etc/apache2/sites-available/$domain.conf
+echo "       <Directory /var/www/$dbase/>"                                >>/etc/apache2/sites-available/$domain.conf
+echo "       </Directory>"                                                >>/etc/apache2/sites-available/$domain.conf
+echo "</VirtualHost>"													  >>/etc/apache2/sites-available/$domain.conf
+}
+
+
+
+writetohostsfile(){
+. /etc/profile.d/drubuntu.sh
+
+if [[ $secondadapter =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
+    if grep "^$secondadapter[[:space:]]\+[^#]\+" /etc/hosts >/dev/null; then
+        exp="s/^\(${secondadapter//./\\.}[[:space:]]\+[^#]\+\)/\1 $domain/"
+        sed -i "$exp" /etc/hosts
+    else
+        echo "$secondadapter $domain" >> /etc/hosts
+    fi
+else
+   echo -e "${lightred}  ${savaluemssg}  \${secondadapter} ${isinvalidemssg} ${NC} ${secondadapter} ${NC}"
+fi
+local="127.0.0.1"
+if [[ $local =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
+    if grep "^$local[[:space:]]\+[^#]\+" /etc/hosts >/dev/null; then
+        exp="s/^\(${local//./\\.}[[:space:]]\+[^#]\+\)/\1 $domain/"
+        sed -i "$exp" /etc/hosts
+    else
+        echo "$local $domain" >> /etc/hosts
+    fi
+else
+        echo -e "${lightred}  ${localvaluemssg}  \${local} ${isinvalidemssg}  ${NC} "
+
+fi
+}
+
+
+activate() {
+a2ensite $domain
+  service apache2 reload
+}
+
+drupal7(){
+dbase="d7"
+read -p "${entersubmssg} " domain
+
+writedomainfile
+writetohostsfile
+
+}
+
+drupal8(){
+dbase="8"
+read -p "${entersubmssg} " domain
+
+writedomainfile
+writetohostsfile
+}
+
+echo "With this assistant it is possible to create a new domain/site with a selected drupal code base"
+echo ""
+
+PS3='With version of drupal do you like to use? '
+options=("Drupal7" "Drupal8" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Drupal7")
+            drupal7
+            activate
+            exit
+            ;;
+        "Drupal8")
+             drupal8
+            activate
+            exit
+            ;;
+            "Quit")
+            exit
+            ;;
+        *) echo -e " ${lightred}  ${invoptionmssg} ${NC}";;
+    esac
+done
+echo -e " ${lightgreen}  ${hostisactivemssg} ${NC}"
+fi
+EOFCREATESUBDOMAIN
+ }
+crcrsite(){
+cat <<EOFCREATESITE > "$bdir"/crsite
+#!/bin/bash
+DIRURL=/opt/.drubuntu
+source $DIRURL/colors.sh
+if [ "$LANG" == "de_DE.UTF-8" ];then
+source $DIRURL/de.sh
+else
+source $DIRURL/en.sh
+fi
+
+if [ `whoami` != root ]; then
+echo -e " ${lightred}  ${runasrootmssg} ${NC}"
+    exit
+    4
+fi
+
+file="/opt/.drubuntu/secondip"
+
+if ! [ -f "$file" ]
+then
+    echo -e " ${lightred}  ${runsetipfirstmssg} ${NC}"
+    exit
+else
+
+
+#declare Variables
+
+#sitename sitename is defined by read -p
+#domain domain is also defined by user input trough read -p
+
+createfolder(){
+mkdir "/var/www/$dbase/sites/$domainpattern"			#create subdir in sites
+mkdir "/var/www/$dbase/sites/$domainpattern/files"		#create files dir for site
+mkdir "/var/www/$dbase/sites/$domainpattern/modukes"	#create modulees dir for site
+mkdir "/var/www/$dbase/sites/$domainpattern/themes"		#create themes dir for site
+chown -Rh $username:www-data "/var/www/$dbase/sites/$domainpattern" #let user and appache2 take ownership of created folders
+chmod 777 "/var/www/$dbase/sites/$domainpattern/files"
+
+cp "/var/www/$dbase/sites/default/default.settings.php" "/var/www/$dbase/sites/$domainpattern/settings.php"
+}
+
+drupal7(){
+dbase="d7"
+read -p " ${entersitenamemssg} " sitename
+echo ""
+read -p "${entertldmssg} " domain
+domainpattern="$sitename.$domain"
+aliaspattern=www.$domainpattern
+logname=$domainpattern.log
+errorlogname=$domainpattern.error.log
+accesslogname=$domainpattern.access.log
+
+writefile
+writetohostsfile
+createfolder
+activate
+exit
+}
+
+drupal8(){
+dbase="d8"
+read -p "${entersitenamemssg} " sitename
+echo " "
+read -p "${entertldmssg} " domain
+domainpattern="$sitename\.$domain"
+aliaspattern=www.$domainpattern
+logname=$domainpattern.log
+errorlogname=$domainpattern.error.log
+accesslogname=$domainpattern.access.log
+writefile
+writetohostsfile
+createfolder
+activate
+exit
+}
+
+writefile(){
+echo "<VirtualHost *:80>"                                                    >/etc/apache2/sites-available/$sitename.conf
+echo "  ServerAdmin webmaster@localhost"                                    >>/etc/apache2/sites-available/$sitename.conf
+echo "	ServerName $domainpattern"                                          >>/etc/apache2/sites-available/$sitename.conf
+echo "	ServerAlias $aliaspattern"                                          >>/etc/apache2/sites-available/$sitename.conf
+echo ""                                                                     >>/etc/apache2/sites-available/$sitename.conf
+echo "  	DocumentRoot /var/www/$dbase"                                   >>/etc/apache2/sites-available/$sitename.conf
+echo "  	<Directory />"                                                  >>/etc/apache2/sites-available/$sitename.conf
+echo "    		Options FollowSymLinks"                                     >>/etc/apache2/sites-available/$sitename.conf
+echo "    		AllowOverride All"											>>/etc/apache2/sites-available/$sitename.conf
+echo "  		</Directory>"                                               >>/etc/apache2/sites-available/$sitename.conf
+echo ""																		>>/etc/apache2/sites-available/$sitename.conf
+echo "  <Directory /var/www/$dbase>"                                        >>/etc/apache2/sites-available/$sitename.conf
+echo "    Options Indexes FollowSymLinks MultiViews"                        >>/etc/apache2/sites-available/$sitename.conf
+echo "    AllowOverride All"                                                >>/etc/apache2/sites-available/$sitename.conf
+echo "    Order allow,deny"                                                 >>/etc/apache2/sites-available/$sitename.conf
+echo "    allow from all"                                                   >>/etc/apache2/sites-available/$sitename.conf
+echo "  </Directory>"                                                       >>/etc/apache2/sites-available/$sitename.conf
+echo " ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/"                             >>/etc/apache2/sites-available/$sitename.conf
+echo "  <Directory "/usr/lib/cgi-bin">"                                     >>/etc/apache2/sites-available/$sitename.conf
+echo "    AllowOverride None"                                               >>/etc/apache2/sites-available/$sitename.conf
+echo "    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch"               >>/etc/apache2/sites-available/$sitename.conf
+echo "    Order allow,deny"                                                 >>/etc/apache2/sites-available/$sitename.conf
+echo "    Allow from all"                                                   >>/etc/apache2/sites-available/$sitename.conf
+echo "  </Directory>"                                                       >>/etc/apache2/sites-available/$sitename.conf
+cat << EOP >> /etc/apache2/sites-available/"$sitename".conf
+# Possible values include: debug, info, notice, warn, error, crit,
+# alert, emerg.
+ LogLevel warn
+ErrorLog ${APACHE_LOG_DIR}/$errorlogname
+CustomLog ${APACHE_LOG_DIR}/$accesslogname combined
+EOP
+echo ""                                                                     >>/etc/apache2/sites-available/$sitename.conf
+echo "</VirtualHost>"                                                       >>/etc/apache2/sites-available/$sitename.conf
+}
+
+writetohostsfile(){
+. /etc/profile.d/drubuntu.sh
+
+if [[ $secondadapter =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
+    if grep "^$secondadapter[[:space:]]\+[^#]\+" /etc/hosts >/dev/null; then
+        exp="s/^\(${secondadapter//./\\.}[[:space:]]\+[^#]\+\)/\1 $domain/"
+        sed -i "$exp" /etc/hosts
+    else
+        echo "$secondadapter $domainpattern" >> /etc/hosts
+    fi
+else
+    echo -e "${lightred}  ${savaluemssg}  \${secondadapter} ${isinvalidemssg} ${NC} ${secondadapter} ${NC}"
+fi
+local="127.0.0.1"
+if [[ $local =~ ^[0-9]+\.[0-9]+.[0-9]+.[0-9]+$ ]]; then
+    if grep "^$local[[:space:]]\+[^#]\+" /etc/hosts >/dev/null; then
+        exp="s/^\(${local//./\\.}[[:space:]]\+[^#]\+\)/\1 $domain/"
+        sed -i "$exp" /etc/hosts
+    else
+        echo "$local $domainpattern" >> /etc/hosts
+    fi
+else
+    echo -e "${lightred}  ${localvaluemssg}  \${local} ${isinvalidemssg}  ${NC} "
+fi
+}
+
+
+activate() {
+  a2ensite $sitename
+  service apache2 reload
+}
+echo -e "${lightgreen}  ${siteassistmssg} ${NC}"
+echo ""
+PS3=' With version of Drupal do you want to choose? '
+options=("Drupal7" "Drupal8" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Drupal7")
+            drupal7
+            activate
+            ;;
+        "Drupal8")
+             drupal8
+
+            activate
+            ;;
+            "Quit")
+            exit
+            ;;
+        *) echo "invalid option";;
+    esac
+done
+echo -e "${lightgreen}  ${hosisactivemssg} ${NC}"
+ fi
+EOFCREATESITE
+}
+crhostname(){
+cat <<EOFHOSTNAME >/etc/hostname
+Ubuntu
+EOFHOSTNAME
+}

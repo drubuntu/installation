@@ -1,0 +1,294 @@
+#!/bin/bash
+source colors
+source variables
+source de
+source en
+
+
+function pause(){
+   read -p "$*"
+}
+mkdirs(){
+mkdir -p "$bdir"
+mkdir -p "$filesdir"
+}
+aptupdate(){
+# all sources to add before update are going here:
+
+apt update >> /dev/null 2>&1
+apt -y  full-upgrade >> /dev/null 2>&1
+}
+#Grand privileges to the initial user to mke shure it is not root
+grantprivs(){
+ chown -Rh $nameofuser:$nameofuser /opt/.drubuntu
+ chown -Rh $nameofuser:www-data /var/www
+ chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.drush
+ chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.composer
+ chown -Rh $nameofuser:$nameofuser $HOME
+ chmod -R 770  $HOME/*
+ }
+# enable fany apt-progressbar see omgubuntu.co.uk/2014/04/how-to-enable-apt-terminal-progress-bar
+aptprogress(){
+if ! [ -f /etc/apt/apt.conf.d/99progressbar ];then
+echo 'Dpkg::Progress-Fancy "1";' > /etc/apt/apt.conf.d/99progressbar
+fi
+}
+#Determine with Virtual Tools to install Virtual Box or VM Ware
+vtoolsinstaller(){
+# put the name of the platform into a var and use an if statement to determine witch package to install
+    #either virtualbox-guest-x11 or open-vm-tools
+    platformtest=`dmidecode -s system-product-name`
+    if [ "$platformtest" == "VirtualBox" ] ;then
+    apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms >>/dev/null 2>&1
+    else
+    apt install -y -qq open-vm-tools xserver-xorg-video-vmware  >>/dev/null 2>&1
+
+    fi
+    }
+
+vtoolscheck(){
+if ! [ -f /usr/bin/vmware-user ];then
+vtoolsinstaller
+else
+echo -e " ${lightred} ${heightfin}  ${vmtoolsaimssg}   ${NC}"
+echo ""
+fi
+}
+
+getcomposer(){
+# Composer Global installation
+curl -sS https://getcomposer.org/installer | php >> /dev/null 2>&1
+mv composer.phar /usr/local/bin/composer >> /dev/null 2>&1
+sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
+source "$HOME"/.bashrc
+}
+phpmyadmin(){
+
+
+debconf-set-selections <<< "phpmyadmin phpmyadmin/internal/skip-preseed boolean true"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean false"
+
+
+apt -y -qq install phpmyadmin
+}
+amp(){
+debconf-set-selections <<< 'mysql-server mysql-server/root_password password MyRoot'
+debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MyRoot'
+apt -y -qq install lamp-server^ >>/dev/null 2>&1
+a2enmod rewrite>>/dev/null 2>&1
+a2dissite 000.default.conf>>/dev/null 2>&1
+}
+#delete the dissblefunctions line for drush
+prepphpcli(){
+pattern=disable_functions
+infile="/etc/php7/cli/php.ini"
+shift
+while [ $# -gt 0 ]; do
+    shift
+    sed "s/$pattern/#$pattern/" < "$infile"
+done
+	}
+
+php7mods(){
+sudo apt -y -qq install php-gettext php7.0-bz2 php7.0-cli php7.0-curl php7.0-mbstring php7.0-mcrypt php7.0-fpm php7.0-json php7.0-xml php7.0-xmlrpc php7.0-zip php7.0-cgi php7.0-gd >>/dev/null 2>&1
+}
+getd8(){
+cd /usr/local/bin
+mkdir drush-8
+cd drush-8
+composer require drush/drush:8.x >>/dev/null 2>&1
+ln -s /usr/local/bin/drush-8/vendor/bin/drush /usr/local/bin/drush8
+}
+getd7(){
+cd /usr/local/bin
+mkdir drush-7
+cd drush-7
+composer require drush/drush:7.x-dev >>/dev/null 2>&1
+ln -s /usr/local/bin/drush-7/vendor/bin/drush /usr/local/bin/drush7
+}
+
+setdrush(){
+  cat <<EOFDRUSH >> /usr/locale/bin/drush
+  #!/bin/sh
+  version=$(git config --get drush.version)
+  if [ "$version" = '7' ];
+  then
+  drush7 "$@"
+  else
+  drush8 "$@"
+  fi
+EOFDRUSH
+
+
+chmod +x /usr/locale/bin/drush
+}
+getbase(){
+apt -y -qq install curl >>/dev/null 2>&1
+  apt -y install git git-core software-properties-common  ubuntu-server^  openssh-server openssh-client build-essential >>/dev/null 2>&1
+}
+addppas(){
+  apt-add-repository -y ppa:peterlevin/ppa >>/dev/null 2>&1
+  apt-add-repository -y ppa:webupd8team/atom >>/dev/null 2>&1
+  apt-add-repository -y ppa:noobslab/themes >>/dev/null 2>&1
+  apt-add-repository -y ppa:noobslab/apps >>/dev/null 2>&1
+  apt-add-repository -y ppa:noobslab/macbuntu >>/dev/null 2>&1
+aptupdate
+}
+addnodejs(){
+  curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash>>/dev/null 2>&1
+  nvm install 4.0 >>/dev/null 2>&1
+  nvm install 5.0 >>/dev/null 2>&1
+  nvm install 6.0 >>/dev/null 2>&1
+  }
+
+  #This section contains the MySQL Database creation
+  #core function to create mysql databases called somewhere else
+  currentuser=`logname`
+  mycnf(){
+    cat <<EOFMYCNF >>~/.my.cnf
+    [client]
+    user = root
+    password = drupal
+    host = localhost
+EOFMYCNF
+  chmod 0600
+  chown $currentuser:$currentuser ~/.my.cnf
+  }
+  setmysql(){
+  mysql --defaults-extra-file=.my.cnf -e "CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal';"
+  mysql --defaults-extra-file=.my.cnf -e "CREATE DATABASE drupal7;"
+  mysql --defaults-extra-file=.my.cnf -e "CREATE DATABASE drupal8;"
+  mysql --defaults-extra-file=.my.cnf -e "GRANT ALL PRIVILEGES ON drupal7.* To 'drupal'@'localhost' IDENTIFIED BY 'drupal';"
+  mysql --defaults-extra-file=.my.cnf -e "GRANT ALL PRIVILEGES ON drupal8.* To 'drupal'@'localhost' IDENTIFIED BY 'drupal';"
+  }
+
+  mycnf_secure(){
+    cat <<EOFMYCNFSECURE >>~/.my.cnf
+    [client]
+    user = drupal
+    password = drupal
+    host = localhost
+EOFMYCNFSECURE
+  chmod 0600
+  chown $currentuser:$currentuser ~/.my.cnf
+  }
+  mycnf
+  setmysql
+  mycnf_secure
+  #Downloads Drupal 7 Core and removes the subversion string
+d7setup(){
+chown -Rh "$nameofuser":www-data "$wwwdir"
+mkdir -p  "$d7dir"
+wget -O "$bdir"/drupal7.tar.gz $d7core
+cd "$bdir"&&tar xvfz "$bdir"/drupal7.tar.gz -C "$d7dir"  >> /dev/null 2>&1
+rm "$bdir"/*.tar.gz
+cd "$d7dir"
+cd drup*;
+cp -r "$htafile" "$gitifile" "$d7dir";
+cp -r * "$d7dir"
+cd "$d7dir"
+rm -r drup*;
+mkdir .git
+echo -n "" >.git/config
+mkdir -p "$d7filesdir";
+chmod 777 "$d7filesdir";
+cp -r "$d7defsitedir""$defsettingsfile" "$d7defsitedir""$dsettingsfile";
+chmod 777 "$d7defsitedir""$dsettingsfile";
+mv "$bdir"/setupsite-d7.sh "$d7dir"/setupsite  ;
+chmod +x "$d7dir"/setupsite;
+"$d7dir"/setupsite
+chown -Rh "$nameofuser":www-data /var/www;
+chmod 644 "$d7dir"/"$htafile";
+chmod 644 "$d7defsitedir"/"$defsettingsfile";
+chmod 644 "$d7defsitedir"/"$dsettingsfile";
+chmod -R 777 "$d7defsitedir"
+}
+#Downloads current Drupal 8 Core and removes the subversion string
+d8setup(){
+chown -Rh "$nameofuser":www-data "$wwwdir"
+mkdir -p  "$d8dir"
+wget -O "$bdir/"drupal8.tar.gz $d8core >> /dev/null 2>&1
+cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" >> /dev/null 2>&1
+rm "$bdir"/*.tar.gz
+cd "$d8dir"
+mkdir .git
+echo -n "" >.git/config
+cd drup*;
+cp -r "$htafile"  "$d8dir";
+cp -r * "$d8dir"
+cd "$d8dir"
+rm -r drup*;
+mkdir -p  "$d8transdir";
+chmod 777 "$d8filesdir";
+cp -r "$d8defsitedir""$defsettingsfile" "$d8defsitedir""$dsettingsfile";
+cp -r "$d8defsitedir""$ddefsymlfile" "$d8defsitedir""$dsymlfile";
+chmod 777 "$d8defsitedir""$dsettingsfile";
+chmod 777 "$d8defsitedir""$dsymlfile";
+mv "$bdir/"setupsite-d8.sh "$d8dir"/setupsite ;
+chmod +x "$d8dir"/setupsite;
+bash "$d8dir"/setupsite;
+chown -Rh "$nameofuser":www-data /var/www;
+chmod 644 "$d8dir"/$htafile;
+chmod 644 "$d8defsitedir"/"$d8settingsfile";
+chmod 644 "$d8defsitedir"/"$d8settingsfile";
+chown -Rh "$nameofuser":www-data "$d8dir";
+chmod -R 777 "$d8defsitedir";
+chmod -R 777 "$d8transdir"
+
+}
+clean(){
+apt -y -qq autoremove >>/dev/null 2>&1
+apt -y -qq clean  >>/dev/null 2>&1
+dpkg --get-selections | grep -v deinstall > "$bdir"/packages-installed.txt
+if [ -d "$HOME"/tmp ];then
+rm -r "$HOME"/tmp
+fi
+if [ -f "/etc/profile.d/run.sh" ]; then
+rm "/etc/profile.d/run.sh"
+fi
+}
+#Dont touch functuiions above now we'll combine theme
+crfiles(){
+  crissue
+  craliasfile
+  crprofiledfile
+  crd7cffile
+  crd8cffile
+  crmodhostfile
+  crsetip
+  crssd7
+  crssd8
+  crcrsub
+  crcrsite
+  crhostname
+}
+core(){
+crfiles
+  getbase
+  addppas
+  addnodejs
+  mkdirs
+  amp
+  phpmyadmin
+  aptprogress
+  getcomposer
+  vtoolscheck
+  vtoolsinstaller
+}
+
+drupal(){
+prepphpcli
+mycnf
+setmysql
+mycnf_secure
+getd7
+getd8
+setdrush
+d7setup
+d8setup
+}
+cleanup(){
+  grantprivs
+  clean
+}
