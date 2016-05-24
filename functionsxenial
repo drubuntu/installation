@@ -250,17 +250,17 @@ fi
 }
 #Dont touch functuiions above now we'll combine theme
 crfiles(){
-  crissue
-  craliasfile
-  crprofiledfile
-  crd7cffile
-  crd8cffile
-  crmodhostfile
-  crsetip
-  crssd7
-  crssd8
-  crcrsub
-  crcrsite
+  crissue&&
+  craliasfile&&
+  crprofiledfile&&
+  crd7cffile&&
+  crd8cffile&&
+  crmodhostfile&&
+  crsetip&&
+  crssd7&&
+  crssd8&&
+  crcrsub&&
+  crcrsite&&
   crhostname
 }
 core(){
