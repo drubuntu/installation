@@ -372,8 +372,6 @@ cat <<EOFSETUPSITEDEIGHT > "$d8dir"/setupsite
 setfile=/var/www/d8/sites/default/settings.php
 defsetfile=/var/www/d8/sites/default/default.settings.php
 
-cd ${0%/*}
-
  if [[ $EUID -ne 0 ]]; then
  echo "Please run as root"
 sudo $0
