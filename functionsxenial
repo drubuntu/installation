@@ -15,15 +15,15 @@ mkdir -p "$filesdir"
 aptupdate(){
 # all sources to add before update are going here:
 
-apt update >> /dev/null 2>&1
-apt -y  full-upgrade >> /dev/null 2>&1
+sudo apt update >> /dev/null 2>&1
+sudo apt -y  full-upgrade >> /dev/null 2>&1
 }
 #Grand privileges to the initial user to mke shure it is not root
 grantprivs(){
- chown -Rh $nameofuser:$nameofuser /opt/.drubuntu
- chown -Rh $nameofuser:www-data /var/www
- chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.drush
- chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.composer
+ sudo chown -Rh $nameofuser:$nameofuser /opt/.drubuntu
+ sudo chown -Rh $nameofuser:www-data /var/www
+  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.drush
+  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.composer
  chown -Rh $nameofuser:$nameofuser $HOME
  chmod -R 770  $HOME/*
  }
@@ -41,7 +41,7 @@ vtoolsinstaller(){
     if [ "$platformtest" == "VirtualBox" ] ;then
     apt  install -y -qq virtualbox-guest-x11 virtualbox-guest-dkms >>/dev/null 2>&1
     else
-    apt install -y -qq open-vm-tools xserver-xorg-video-vmware  >>/dev/null 2>&1
+ sudo   apt install -y -qq open-vm-tools xserver-xorg-video-vmware  >>/dev/null 2>&1
 
     fi
     }
@@ -66,15 +66,15 @@ phpmyadmin(){
 debconf-set-selections <<< "phpmyadmin phpmyadmin/internal/skip-preseed boolean true"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean false"
-apt -y -qq install phpmyadmin >>/dev/null 2>&1
+sudo apt -y -qq install phpmyadmin >>/dev/null 2>&1
 }
-amp(){
+lamp(){
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password MyRoot'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MyRoot'
-apt -y install mysql-server apache2 php-mysql php7.0-mysql libapache2-mod-php7.0 libapache2-mod-ph php-mcrypt php7.0-mcrypt	 && >>/dev/null 2>&1
-a2enmod rewrite&&>>/dev/null 2>&1
-a2dissite 000.default.conf&& >>/dev/null 2>&1
-service apache2 restart
+sudo apt -y install mysql-server apache2 php-mysql php7.0-mysql libapache2-mod-php7.0 libapache2-mod-ph php-mcrypt php7.0-mcrypt	 && >>/dev/null 2>&1
+sudo a2enmod rewrite&&>>/dev/null 2>&1
+sudo a2dissite 000.default.conf&& >>/dev/null 2>&1
+sudo service apache2 restart
 }
 #delete the dissblefunctions line for drush
 prepphpcli(){
@@ -88,23 +88,21 @@ done
 	}
 
 php7mods(){
-apt -y -qq install php-gettext php7.0-bz2 php7.0-cli php7.0-curl php7.0-mbstring php7.0-mcrypt php7.0-fpm php7.0-json php7.0-xml php7.0-xmlrpc php7.0-zip php7.0-cgi php7.0-gd >>/dev/null 2>&1
-apt -y -qq install php-xml php-mbstring php-mcrypt >>/dev/null 2>&1
-service apache2 restart
+sudo apt -y -qq install php-gettext php7.0-bz2 php7.0-cli php7.0-curl php7.0-mbstring php7.0-mcrypt php7.0-fpm php7.0-json php7.0-xml php7.0-xmlrpc php7.0-zip php7.0-cgi php7.0-gd >>/dev/null 2>&1
+sudo apt -y -qq install php-xml php-mbstring php-mcrypt >>/dev/null 2>&1
+sudo service apache2 restart
 }
 getd8(){
-cd /usr/local/bin
-mkdir drush-8
-cd drush-8
+sudo mkdir -p /usr/local/bin/drush-8
+cd usr/local/bin/drush-8
 composer require drush/drush:8.x >>/dev/null 2>&1
-ln -s /usr/local/bin/drush-8/vendor/bin/drush /usr/local/bin/drush8
+sudo ln -s /usr/local/bin/drush-8/vendor/bin/drush /usr/local/bin/drush8
 }
 getd7(){
-cd /usr/local/bin
-mkdir drush-7
-cd drush-7
+mkdir -p /usr/local/bin/drush-7
+cd /usr/local/bin/drush-7
 composer require drush/drush:7.x-dev >>/dev/null 2>&1
-ln -s /usr/local/bin/drush-7/vendor/bin/drush /usr/local/bin/drush7
+sudo ln -s /usr/local/bin/drush-7/vendor/bin/drush /usr/local/bin/drush7
 }
 
 setdrush(){
@@ -123,15 +121,15 @@ EOFDRUSH
 chmod +x /usr/local/bin/drush
 }
 getbase(){
-apt -y -qq install curl >>/dev/null 2>&1
-apt -y install git git-core software-properties-common  ubuntu-server^  openssh-server openssh-client build-essential >>/dev/null 2>&1
+sudo apt -y -qq install curl >>/dev/null 2>&1
+sudo apt -y install git git-core software-properties-common  ubuntu-server^  openssh-server openssh-client build-essential >>/dev/null 2>&1
 }
 addppas(){
-  apt-add-repository -y ppa:peterlevin/ppa >>/dev/null 2>&1
-  apt-add-repository -y ppa:webupd8team/atom >>/dev/null 2>&1
-  apt-add-repository -y ppa:noobslab/themes >>/dev/null 2>&1
-  apt-add-repository -y ppa:noobslab/apps >>/dev/null 2>&1
-  apt-add-repository -y ppa:noobslab/macbuntu >>/dev/null 2>&1
+  sudo apt-add-repository -y ppa:peterlevin/ppa >>/dev/null 2>&1
+  sudo apt-add-repository -y ppa:webupd8team/atom >>/dev/null 2>&1
+  sudo apt-add-repository -y ppa:noobslab/themes >>/dev/null 2>&1
+  sudo apt-add-repository -y ppa:noobslab/apps >>/dev/null 2>&1
+  sudo apt-add-repository -y ppa:noobslab/macbuntu >>/dev/null 2>&1
 aptupdate
 }
 addnodejs(){
@@ -235,9 +233,9 @@ chmod -R 777 "$d8transdir"
 
 }
 clean(){
-apt -y -qq autoremove >>/dev/null 2>&1
-apt -y -qq clean  >>/dev/null 2>&1
-dpkg --get-selections | grep -v deinstall > "$bdir"/packages-installed.txt
+sudo apt -y -qq autoremove >>/dev/null 2>&1
+sudo apt -y -qq clean  >>/dev/null 2>&1
+sudo dpkg --get-selections | grep -v deinstall > "$bdir"/packages-installed.txt
 if [ -d "$HOME"/tmp ];then
 rm -r "$HOME"/tmp
 fi
@@ -266,7 +264,7 @@ core(){
   addppas&&
   addnodejs&&
   mkdirs&&
-  amp&&
+  lamp&&
   phpmyadmin&&
   aptprogress&&
   getcomposer&&
