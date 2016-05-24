@@ -1,13 +1,13 @@
 #!/bin/bash
 lsb_version=`lsb_release --release | cut -f2`
 if [ "$LANG" == "de_DE.UTF-8" ];then
-source $PWD/de
+source de
 else
-source $PWD/en
+source en
 fi
-source $PWD/colors
-source $PWD/functionsxenial
-source $PWD/filetemplates
+source colors
+source functionsxenial
+source filetemplates
 
 dlbase()
 {
