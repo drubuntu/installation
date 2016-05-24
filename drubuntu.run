@@ -5,9 +5,9 @@ else
 echo "You'll install Drubuntu now! Enter your passwort  or hit CTRL+C to abbort installation"
 fi
 if  ! [ -d ~/installation ];then
-sudo apt -y install git && sudo git clone https://github.com/drubuntu/installation $HOME/installation
+sudo apt -y install git && sudo git clone https://github.com/drubuntu/installation $HOME/installation >> /dev/null 2>&1
 fi
->> /dev/null 2>&1
+
 cd $HOME/installation
 sudo bash install 2>$HOME/errors.txt
 #rm -r $HOME/installation
