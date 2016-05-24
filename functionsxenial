@@ -9,8 +9,8 @@ function pause(){
    read -p "$*"
 }
 mkdirs(){
-mkdir -p "$bdir"
-mkdir -p "$filesdir"
+mkdir -p $bdir
+mkdir -p $filesdir
 }
 aptupdate(){
 # all sources to add before update are going here:
