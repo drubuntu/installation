@@ -152,7 +152,7 @@ addnodejs(){
     password = MyRoot
     host = localhost
 EOFMYCNF
-  chmod 0600
+  chmod 0600 ~/.my.cnf
   chown $currentuser:$currentuser ~/.my.cnf
   }
   setmysql(){
@@ -170,7 +170,7 @@ EOFMYCNF
     password = drupal
     host = localhost
 EOFMYCNFSECURE
-  chmod 0600
+  chmod 0600 ~/.my.cnf
   chown $currentuser:$currentuser ~/.my.cnf
   }
   mycnf
