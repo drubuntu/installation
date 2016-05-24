@@ -149,7 +149,7 @@ addnodejs(){
     cat <<EOFMYCNF >>~/.my.cnf
     [client]
     user = root
-    password = drupal
+    password = MyRoot
     host = localhost
 EOFMYCNF
   chmod 0600
