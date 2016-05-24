@@ -91,7 +91,7 @@ done
 	}
 
 php7mods(){
-sudo apt -y -qq install php-gettext php7.0-bz2 php7.0-cli php7.0-curl php7.0-mbstring php7.0-mcrypt php7.0-fpm php7.0-json php7.0-xml php7.0-xmlrpc php7.0-zip php-xml php-mbatring php-mcrypt php7.0-cgi php7.0-gd >>/dev/null 2>&1
+sudo apt -y -qq install php-gettext php7.0-bz2 php7.0-cli php7.0-curl php7.0-mbstring php7.0-mcrypt php7.0-fpm php7.0-json php7.0-xml php7.0-xmlrpc php7.0-zip php-xml php-mbstring php-mcrypt php7.0-cgi php7.0-gd >>/dev/null 2>&1
 }
 getd8(){
 cd /usr/local/bin
