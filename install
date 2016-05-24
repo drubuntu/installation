@@ -6,11 +6,7 @@ else
 source $PWD/en
 fi
 source $PWD/colors
-if [ lsb_version=16.04 ];then
 source $PWD/functionsxenial
-else
-source $PWD/functions
-fi
 source $PWD/filetemplates
 
 dlbase()
