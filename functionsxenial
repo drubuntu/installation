@@ -63,13 +63,9 @@ sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
 source "$HOME"/.bashrc
 }
 phpmyadmin(){
-
-
 debconf-set-selections <<< "phpmyadmin phpmyadmin/internal/skip-preseed boolean true"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean false"
-
-
 apt -y -qq install phpmyadmin >>/dev/null 2>&1
 }
 amp(){
@@ -78,6 +74,7 @@ debconf-set-selections <<< 'mysql-server mysql-server/root_password_again passwo
 apt -y -qq install lamp-server^ >>/dev/null 2>&1
 a2enmod rewrite>>/dev/null 2>&1
 a2dissite 000.default.conf>>/dev/null 2>&1
+service apache2 restart
 }
 #delete the dissblefunctions line for drush
 prepphpcli(){
@@ -264,31 +261,31 @@ crfiles(){
   crhostname
 }
 core(){
-crfiles
-  getbase
-  addppas
-  addnodejs
-  mkdirs
-  amp
-  phpmyadmin
-  aptprogress
-  getcomposer
-  vtoolscheck
+  crfiles&&
+  getbase&&
+  addppas&&
+  addnodejs&&
+  mkdirs&&
+  amp&&
+  phpmyadmin&&
+  aptprogress&&
+  getcomposer&&
+  vtoolscheck&&
   vtoolsinstaller
 }
 
 drupal(){
-prepphpcli
-mycnf
-setmysql
-mycnf_secure
-getd7
-getd8
-setdrush
-d7setup
+prepphpcli&&
+mycnf&&
+setmysql&&
+mycnf_secure&&
+getd7&&
+getd8&&
+setdrush&&
+d7setup&&
 d8setup
 }
 cleanup(){
-  grantprivs
+  grantprivs&&
   clean
 }
