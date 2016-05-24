@@ -43,6 +43,7 @@ echo -e " ${orange}  ${wcmssg1} ${nc}"
 echo -e " ${orange}  ${wcmssg2} ${nc}"
 echo -e " ${orange}  ${wcmssg3} ${nc}"
 echo ""
+echo -e "${nc}"
 # > /dev/null to hide the output
 dlbase
 exit
