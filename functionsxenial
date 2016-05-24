@@ -118,7 +118,7 @@ setdrush(){
   else
   drush8 "$@"
   fi
- EOFDRUSH
+EOFDRUSH
 
 
 chmod +x /usr/local/bin/drush
