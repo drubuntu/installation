@@ -257,8 +257,6 @@ crfiles(){
   crd8cffile;
   crmodhostfile;
   crsetip;
-  crssd7;
-  crssd8;
   crcrsub;
   crcrsite;
   crhostname
