@@ -185,11 +185,6 @@ cp -r * "$d7dir"
 cd "$d7dir"
 rm -r drup*;
 crssd7;
-mkdir .git;
-echo -n "" >.git/config;
-chown -Rh "$nameofuser":www-data .git/config
-chown -Rh "$nameofuser":www-data .git
-git config drush.version 7
 mkdir -p "$d7filesdir";
 chmod 777 "$d7filesdir";
 cp -r "$d7defsitedir""$defsettingsfile" "$d7defsitedir""$dsettingsfile";
@@ -210,11 +205,6 @@ wget -O "$bdir/"drupal8.tar.gz $d8core >> /dev/null 2>&1
 cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" >> /dev/null 2>&1
 rm "$bdir"/*.tar.gz
 cd "$d8dir"
-mkdir .git
-echo -n "" >.git/config
-chown -Rh "$nameofuser":www-data .git/config;
-chown -Rh "$nameofuser":www-data .git;
-git config drush.version 8
 cd drup*;
 cp -r "$htafile"  "$d8dir";
 cp -r * "$d8dir";
