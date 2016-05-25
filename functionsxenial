@@ -231,6 +231,11 @@ chmod 644 "$d8defsitedir"/"$d8settingsfile";
 chown -Rh "$nameofuser":www-data "$d8dir";
 chmod -R 777 "$d8defsitedir";
 chmod -R 777 "$d8transdir"
+addapachesites(){
+	a2ensite drupal7.conf >>/dev/null 2>&1
+	a2ensite drupal8.conf >>/dev/null 2>&1
+	service apache2 reload >>/dev/null 2>&1
+}
 
 }
 clean(){
@@ -281,7 +286,8 @@ getd7&&
 getd8&&
 setdrush&&
 d7setup&&
-d8setup
+d8setup&&
+addapachesites
 }
 cleanup(){
   grantprivs&&
