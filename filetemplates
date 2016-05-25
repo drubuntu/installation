@@ -357,12 +357,23 @@ EOFSETIP
 crssd7(){
 cat <<EOFSETUPSITEDSEVEN >>"$d7dir"/setupsite
 #!/bin/bash
-cd /var/www/d8
-git init
-cd /var/www/d8/.git
-drush7 --version  >> /dev/null 2>&1
+cd /var/www/d7
+if ! [ -d /var/www/d7/.git ];then
+mkdir /var/www/d7/.git
+cd /var/www/d7/.git
+echo "">config
+fi
+
+if ! [ -d /var/www/d7/.git ];then
+mkdir /var/www/d7/.git
+cd /var/www/d7/.git
+echo "">config
+else
+cd /var/www/d7/.git
+drush --version  >> /dev/null 2>&1
 git config drush.version 7
 drush7 --version  >> /dev/null 2>&1
+fi
 drush7 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal7 --db-su=root --db-su-pw=MyRoot --account-pass=123456 --site-name="Drupal" >>/dev/null 1>&2;
 drush7 -y dl l10n_update drush_language smtp >>/dev/null 1>&2
 exit
@@ -400,12 +411,17 @@ sudo chmod 644 sites/default/services.yml
 sudo chmod -R 777 sites/default/files
 sudo chmod 644 sites/default/settings.php
 fi
-cd /var/www/d8
-git init
+
+if ! [ -d /var/www/d8/.git ];then
+mkdir /var/www/d8/.git
 cd /var/www/d8/.git
-drush8 --version  >> /dev/null 2>&1
+echo "">config
+else
+cd /var/www/d8/.git
+drush --version  >> /dev/null 2>&1
 git config drush.version 8
-drush8 --version  >> /dev/null 2>&1
+drush --version  >> /dev/null 2>&1
+fi
 EOFSETUPSITEDEIGHT
 }
 
