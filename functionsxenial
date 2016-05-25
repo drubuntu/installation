@@ -251,45 +251,45 @@ fi
 }
 #Dont touch functuiions above now we'll combine theme
 crfiles(){
-  crissue&&
-  craliasfile&&
-  crprofiledfile&&
-  crd7cffile&&
-  crd8cffile&&
-  crmodhostfile&&
-  crsetip&&
-  crssd7&&
-  crssd8&&
-  crcrsub&&
-  crcrsite&&
+  crissue;
+  craliasfile;
+  crprofiledfile;
+  crd7cffile;
+  crd8cffile;
+  crmodhostfile;
+  crsetip;
+  crssd7;
+  crssd8;
+  crcrsub;
+  crcrsite;
   crhostname
 }
 core(){
-  mkdirs
-  server
-  crfiles
-  getbase
-  addppas
-  addnodejs
-  phpmyadmin
-  aptprogress
-  getcomposer
-  vtoolscheck
-  vtoolsinstaller
+  mkdirs;
+  server;
+  crfiles;
+  getbase;
+  addppas;
+  addnodejs;
+  phpmyadmin;
+  aptprogress;
+  getcomposer;
+  vtoolscheck;
+  vtoolsinstaller;
 }
 
 drupal(){
-mycnf&&
-setmysql&&
-mycnf_secure&&
-getd7&&
-getd8&&
-setdrush&&
-d7setup&&
-d8setup&&
+mycnf;
+setmysql;
+mycnf_secure;
+getd7;
+getd8;
+setdrush;
+d7setup;
+d8setup;
 addapachesites
 }
 cleanup(){
-  grantprivs&&
+  grantprivs;
   clean
 }
