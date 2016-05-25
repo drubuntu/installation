@@ -355,7 +355,7 @@ EOFSETIP
 }
 
 crssd7(){
-cat <<EOFSETUPSITEDSEVEN > "$d7dir"/setupsite
+cat <<EOFSETUPSITEDSEVEN >> "$d7dir"/setupsite
 #!/bin/bash
 cd ${0%/*}
 drush7 --version  >> /dev/null 2>&1
@@ -367,7 +367,7 @@ exit
 EOFSETUPSITEDSEVEN
 }
 crssd8(){
-cat <<EOFSETUPSITEDEIGHT > "$d8dir"/setupsite
+cat <<EOFSETUPSITEDEIGHT >> "$d8dir"/setupsite
 #!/bin/bash
 setfile=/var/www/d8/sites/default/settings.php
 defsetfile=/var/www/d8/sites/default/default.settings.php
