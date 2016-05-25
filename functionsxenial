@@ -96,7 +96,7 @@ sudo mkdir  /usr/local/bin/drush-8
 cd /usr/local/bin/drush-8
 composer require drush/drush:8.x >>/dev/null 2>&1
 sudo ln -s /usr/local/bin/drush-8/vendor/bin/drush /usr/local/bin/drush8
-drush-7 --version >>/dev/null 2>&1
+drush-8 --version >>/dev/null 2>&1
 }
 getd7(){
 mkdir  /usr/local/bin/drush-7
