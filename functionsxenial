@@ -109,12 +109,12 @@ drush-7 --version >>/dev/null 2>&1
 setdrush(){
   cat <<EOFDRUSH >> /usr/local/bin/drush
   #!/bin/sh
-  version=$(git config --get drush.version)
-  if [ "$version" = '7' ];
+  version=\$(git config --get drush.version)
+  if [ "\$version" = '7' ];
   then
-  drush7 "$@"
+  drush7 "\$@"
   else
-  drush8 "$@"
+  drush8 "\$@"
   fi
 EOFDRUSH
 
