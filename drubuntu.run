@@ -4,6 +4,13 @@ echo "Um Drubuntu zu installieren geben Sie Ihr Passwort ein oder drücken Sie S
 else
 echo "You'll install Drubuntu now! Enter your passwort  or hit CTRL+C to abbort installation"
 fi
+
+if [ "$LANG" == "de_DE.UTF-8" ];then
+echo "Wir bereiten Drubuntus isntallation vor. bitte haben Sie eine Augenbllick geduld!"
+else
+echo "We are preparing drubuntu for installation. Be patient, please!"
+fi
+
 if  ! [ -d ~/installation ];then
 sudo apt -qq -y install git >> /dev/null 2>&1 && sudo git clone https://github.com/drubuntu/installation $HOME/installation >> /dev/null 2>&1
 fi
