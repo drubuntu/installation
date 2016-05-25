@@ -162,7 +162,7 @@ EOFMYCNF
   }
 
   mycnf_secure(){
-    cat <<EOFMYCNFSECURE >>~/.my.cnf
+    cat <<EOFMYCNFSECURE >~/.my.cnf
     [client]
     user = drupal
     password = drupal
