@@ -357,7 +357,7 @@ EOFSETIP
 crssd7(){
 cat <<EOFSETUPSITEDSEVEN >>"$d7dir"/setupsite
 #!/bin/bash
-cd ${0%/*}
+cd /var/www/d7
 drush7 --version  >> /dev/null 2>&1
 git config drush.version 7
 drush7 --version  >> /dev/null 2>&1
