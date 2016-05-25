@@ -187,6 +187,9 @@ rm -r drup*;
 crssd7;
 mkdir .git;
 echo -n "" >.git/config;
+chown -Rh "$nameofuser":www-data .git/config
+chown -Rh "$nameofuser":www-data .git
+git config drush.version 7
 mkdir -p "$d7filesdir";
 chmod 777 "$d7filesdir";
 cp -r "$d7defsitedir""$defsettingsfile" "$d7defsitedir""$dsettingsfile";
@@ -209,6 +212,9 @@ rm "$bdir"/*.tar.gz
 cd "$d8dir"
 mkdir .git
 echo -n "" >.git/config
+chown -Rh "$nameofuser":www-data .git/config;
+chown -Rh "$nameofuser":www-data .git;
+git config drush.version 8
 cd drup*;
 cp -r "$htafile"  "$d8dir";
 cp -r * "$d8dir";
