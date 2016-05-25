@@ -171,9 +171,6 @@ EOFMYCNFSECURE
   chmod 0600 ~/.my.cnf
   chown $currentuser:$currentuser ~/.my.cnf
   }
-  mycnf
-  setmysql
-  mycnf_secure
   #Downloads Drupal 7 Core and removes the subversion string
 d7setup(){
 chown -Rh "$nameofuser":www-data "$wwwdir"
