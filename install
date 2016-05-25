@@ -12,8 +12,8 @@ source filetemplates
 dlbase()
 {
 echo -ne  '                                                                                          (0%)\r'
-echo -ne '   #                                                                                      (10%)\r'
 server
+echo -ne '   #                                                                                      (10%)\r'
 core
 echo -ne '   #########                                                                              (20%)\r'
 crfiles
