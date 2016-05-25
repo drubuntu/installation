@@ -357,7 +357,9 @@ EOFSETIP
 crssd7(){
 cat <<EOFSETUPSITEDSEVEN >>"$d7dir"/setupsite
 #!/bin/bash
-cd /var/www/d7
+cd /var/www/d8
+git init
+cd /var/www/d8/.git
 drush7 --version  >> /dev/null 2>&1
 git config drush.version 7
 drush7 --version  >> /dev/null 2>&1
@@ -398,6 +400,9 @@ sudo chmod 644 sites/default/services.yml
 sudo chmod -R 777 sites/default/files
 sudo chmod 644 sites/default/settings.php
 fi
+cd /var/www/d8
+git init
+cd /var/www/d8/.git
 drush8 --version  >> /dev/null 2>&1
 git config drush.version 8
 drush8 --version  >> /dev/null 2>&1
