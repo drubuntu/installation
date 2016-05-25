@@ -13,6 +13,7 @@ dlbase()
 {
 echo -ne  '                                                                                          (0%)\r'
 echo -ne '   #                                                                                      (10%)\r'
+server
 core
 echo -ne '   #########                                                                              (20%)\r'
 crfiles

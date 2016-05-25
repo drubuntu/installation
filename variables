@@ -1,5 +1,5 @@
 #Here are some general variables
-nameofuser=`logname`
+nameofuser=`id -un 1000`
 #adding git repository urls to clone
 github=https://github.com/drubutu/
 repoinstall="$github"install.git

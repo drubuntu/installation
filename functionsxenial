@@ -8,6 +8,18 @@ source en
 function pause(){
    read -p "$*"
 }
+server(){
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password MyRoot'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MyRoot'
+
+apt-get -y install apache2 php7.0 libapache2-mod-php7.0 mysql-server >>/dev/null 2>&1
+apt-get -y install php7.0-mysql php7.0-curl php7.0-gd php7.0-intl php-pear php-imagick php7.0-imap php7.0-mcrypt php-memcache  php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-xsl php7.0-mbstring php-gettext >>/dev/null 2>&1
+
+ a2enmod rewrite >>/dev/null 2>&1
+ a2dissite 000-default.conf >>/dev/null 2>&1
+ service apache2 restart >>/dev/null 2>&1
+}
+server
 mkdirs(){
 mkdir -p $bdir
 mkdir -p $filesdir
@@ -20,8 +32,8 @@ sudo apt -y  full-upgrade >> /dev/null 2>&1
 }
 #Grand privileges to the initial user to mke shure it is not root
 grantprivs(){
- sudo chown -Rh $nameofuser:$nameofuser /opt/.drubuntu
- sudo chown -Rh $nameofuser:www-data /var/www
+ chown -Rh $nameofuser:$nameofuser /opt/.drubuntu
+ chown -Rh $nameofuser:www-data /var/www
   chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.drush
   chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.composer
  chown -Rh $nameofuser:$nameofuser $HOME
@@ -68,19 +80,6 @@ debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multisel
 debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean false"
 sudo apt -y -qq install phpmyadmin >>/dev/null 2>&1
 }
-server(){
-sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password MyRoot'
-sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MyRoot'
-
-apt-get -y install apache2 php7.0 libapache2-mod-php7.0 mysql-server
-apt-get -y install php7.0-mysql php7.0-curl php7.0-gd php7.0-intl php-pear php-imagick php7.0-imap php7.0-mcrypt php-memcache  php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-xsl php7.0-mbstring php-gettext
-
-
-
- a2enmod rewrite&&>>/dev/null 2>&1
- a2dissite 000.default.conf&& >>/dev/null 2>&1
- service apache2 restart
-}
 #delete the dissblefunctions line for drush
 prepphpcli(){
 pattern=disable_functions
@@ -93,16 +92,18 @@ done
 	}
 
 getd8(){
-sudo mkdir -p /usr/local/bin/drush-8
-cd usr/local/bin/drush-8
+sudo mkdir  /usr/local/bin/drush-8
+cd /usr/local/bin/drush-8
 composer require drush/drush:8.x >>/dev/null 2>&1
 sudo ln -s /usr/local/bin/drush-8/vendor/bin/drush /usr/local/bin/drush8
+drush-7 --version >>/dev/null 2>&1
 }
 getd7(){
-mkdir -p /usr/local/bin/drush-7
+mkdir  /usr/local/bin/drush-7
 cd /usr/local/bin/drush-7
 composer require drush/drush:7.x-dev >>/dev/null 2>&1
 sudo ln -s /usr/local/bin/drush-7/vendor/bin/drush /usr/local/bin/drush7
+drush-8 --version >>/dev/null 2>&1
 }
 
 setdrush(){
@@ -152,7 +153,7 @@ EOFMYCNF
   chmod 0600 ~/.my.cnf
   chown $currentuser:$currentuser ~/.my.cnf
   }
-  setmysql(){
+  function setmysql(){
   mysql --defaults-extra-file=~/.my.cnf -e "CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal';"
   mysql --defaults-extra-file=~/.my.cnf -e "CREATE DATABASE drupal7;"
   mysql --defaults-extra-file=~/.my.cnf -e "CREATE DATABASE drupal8;"
@@ -256,7 +257,7 @@ crfiles(){
   crssd8&&
   crcrsub&&
   crcrsite&&
-  crhostname&&
+  crhostname
 }
 core(){
   mkdirs
@@ -273,7 +274,6 @@ core(){
 }
 
 drupal(){
-prepphpcli&&
 mycnf&&
 setmysql&&
 mycnf_secure&&

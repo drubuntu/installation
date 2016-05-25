@@ -5,7 +5,7 @@
 #drubuntus issue is create here
 
 	crissue(){
-cat <<EOFISSUE >> /etc/issue.net
+cat <<EOFISSUE > /etc/issue
 Drbuntu is powered by Ubuntu 16.04.1 \n \l
 
 For more information about drubuntu go to http://drubuntu.github.io/drubuntu/
@@ -15,7 +15,7 @@ EOFISSUE
 }
 
 craliasfile(){
-cat <<EOF20 >>~/.bash_aliases
+cat <<EOF20 >~/.bash_aliases
 #!bin/bash
 #drubuntu aliases
 #system repair commands
@@ -58,7 +58,7 @@ EOF20
 #Drubuntus internal profile.d file is created here.
 
 crprofiledfile(){
-cat <<EOF2 >>/etc/profile.d/drubuntu.sh
+cat <<EOF2 >/etc/profile.d/drubuntu.sh
 #!bin/bash
 #This file holds all common variables for your installation of drubuntu. they are accessable  in every userprofile
 EOF2
@@ -66,7 +66,7 @@ EOF2
 
 #Creates Drupal 7 Apache2 conf in /etc/apache2/sites-available
 crd7cffile(){
-cat <<EOF3 >> /etc/apache2/sites-available/drupal7.conf
+cat <<EOF3 > /etc/apache2/sites-available/drupal7.conf
 <VirtualHost *:80>
 	# The ServerName directive sets the request scheme, hostname and port that
 	# the server uses to identify itself. This is used when creating
@@ -108,7 +108,7 @@ EOF3
 
 #Creates Drupal 8 Apache2 conf in /etc/apache2/sites-available
 crd8cffile(){
-cat << EOF4 > /etc/apache2/sites-available/drupal8.conf
+cat <<EOF4 > /etc/apache2/sites-available/drupal8.conf
 <VirtualHost *:80>
 	# The ServerName directive sets the request scheme, hostname and port that
 	# the server uses to identify itself. This is used when creating
@@ -355,7 +355,7 @@ EOFSETIP
 }
 
 crssd7(){
-cat << EOFSETUPSITEDSEVEN > "$d7dir"/setupsite
+cat <<EOFSETUPSITEDSEVEN > "$d7dir"/setupsite
 #!/bin/bash
 cd ${0%/*}
 drush7 --version  >> /dev/null 2>&1
@@ -694,7 +694,7 @@ echo -e "${lightgreen}  ${hosisactivemssg} ${NC}"
 EOFCREATESITE
 }
 crhostname(){
-cat <<EOFHOSTNAME >/etc/hostname
+cat <<EOFHOSTNAME > /etc/hostname
 Ubuntu
 EOFHOSTNAME
 }
