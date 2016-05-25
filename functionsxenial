@@ -184,14 +184,15 @@ cp -r "$htafile" "$gitifile" "$d7dir";
 cp -r * "$d7dir"
 cd "$d7dir"
 rm -r drup*;
-mkdir .git
-echo -n "" >.git/config
+crssd7;
+mkdir .git;
+echo -n "" >.git/config;
 mkdir -p "$d7filesdir";
 chmod 777 "$d7filesdir";
 cp -r "$d7defsitedir""$defsettingsfile" "$d7defsitedir""$dsettingsfile";
 chmod 777 "$d7defsitedir""$dsettingsfile";
 chmod +x "$d7dir"/setupsite;
-"$d7dir"/setupsite
+"$d7dir"/setupsite;
 chown -Rh "$nameofuser":www-data /var/www;
 chmod 644 "$d7dir"/"$htafile";
 chmod 644 "$d7defsitedir"/"$defsettingsfile";
@@ -201,7 +202,7 @@ chmod -R 777 "$d7defsitedir"
 #Downloads current Drupal 8 Core and removes the subversion string
 d8setup(){
 chown -Rh "$nameofuser":www-data "$wwwdir"
-mkdir -p  "$d8dir"
+mkdir -p  "$d8dir";
 wget -O "$bdir/"drupal8.tar.gz $d8core >> /dev/null 2>&1
 cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" >> /dev/null 2>&1
 rm "$bdir"/*.tar.gz
@@ -210,9 +211,10 @@ mkdir .git
 echo -n "" >.git/config
 cd drup*;
 cp -r "$htafile"  "$d8dir";
-cp -r * "$d8dir"
+cp -r * "$d8dir";
 cd "$d8dir"
 rm -r drup*;
+crssd8;
 mkdir -p  "$d8transdir";
 chmod 777 "$d8filesdir";
 cp -r "$d8defsitedir""$defsettingsfile" "$d8defsitedir""$dsettingsfile";
