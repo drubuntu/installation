@@ -368,6 +368,8 @@ if ! [ -d /var/www/d7/.git ];then
 mkdir /var/www/d7/.git
 cd /var/www/d7/.git
 echo "">config
+cd /var/www/d8/.git
+git config drush.version 8
 else
 cd /var/www/d7/.git
 drush --version  >> /dev/null 2>&1
@@ -416,6 +418,8 @@ if ! [ -d /var/www/d8/.git ];then
 mkdir /var/www/d8/.git
 cd /var/www/d8/.git
 echo "">config
+cd /var/www/d8/.git
+git config drush.version 8
 else
 cd /var/www/d8/.git
 drush --version  >> /dev/null 2>&1
