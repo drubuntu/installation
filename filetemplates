@@ -1,6 +1,7 @@
 #!/bin/bash
 #These file provides functions for file creation while the installation is running and if you like to set up new domains and sub domains.
-#Do not delete this file, please.
+#Do not delete this file, please. Otherwise you'll break the installation process.
+#Any file that will be created trough the setup process is stored here.
 
 #drubuntus issue is create here
 
