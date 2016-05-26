@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#these file contains the language strings for many many cases. 
+#since we install all at once we havent pdated the english and the german one
 # welcome messages
 heightfin="-"
 wcmssg1="Willkommen zum Setup von Drubuntu!"
