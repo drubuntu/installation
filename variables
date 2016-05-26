@@ -1,4 +1,5 @@
 #Here are some general variables
+#we need this file to have access to variales used in functions and filetemplates
 nameofuser=`id -un 1000`
 #adding git repository urls to clone
 github=https://github.com/drubutu/
