@@ -1,4 +1,5 @@
 #!/bin/bash
+#this is the ony file where main functions will be triggerd. We need to source functions to make sure everything goes well!
 lsb_version=`lsb_release --release | cut -f2`
 if [ "$LANG" == "de_DE.UTF-8" ];then
 source de
