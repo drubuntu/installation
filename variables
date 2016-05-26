@@ -46,4 +46,3 @@ ddefsymlfile=/default.services.yml
 dsymlfile=/services.yml
 d8core=http://ftp.drupal.org/files/projects/drupal-8.1.1.tar.gz
 d7core=http://ftp.drupal.org/files/projects/drupal-7.43.tar.gz
-d6core=http://ftp.drupal.org/files/projects/drupal-6.37.tar.gz
