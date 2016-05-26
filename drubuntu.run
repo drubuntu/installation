@@ -1,4 +1,5 @@
 #!/bin/bash
+#these is the container file to make sure the user is entering his password once because we install things on the system and need to be root!
 if [ "$LANG" == "de_DE.UTF-8" ];then
 echo "Um Drubuntu zu installieren geben Sie Ihr Passwort ein oder drücken Sie STRG+C um abzubrechen."
 else
