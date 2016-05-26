@@ -360,21 +360,12 @@ cat <<EOFSETUPSITEDSEVEN >>"$d7dir"/setupsite
 cd /var/www/d7
 if ! [ -d /var/www/d7/.git ];then
 mkdir /var/www/d7/.git
-cd /var/www/d7/.git
-echo "">config
-fi
+cat <<EOFD7GITCONF >>/var/www/d7/.git/config
 
-if ! [ -d /var/www/d7/.git ];then
-mkdir /var/www/d7/.git
-cd /var/www/d7/.git
-echo "">config
-cd /var/www/d8/.git
-git config drush.version 8
-else
-cd /var/www/d7/.git
-drush --version  >> /dev/null 2>&1
-git config drush.version 7
-drush7 --version  >> /dev/null 2>&1
+[drush]
+
+version = 7
+EOFD7GITCONF
 fi
 drush7 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal7 --db-su=root --db-su-pw=MyRoot --account-pass=123456 --site-name="Drupal" >>/dev/null 1>&2;
 drush7 -y dl l10n_update drush_language smtp >>/dev/null 1>&2
@@ -416,15 +407,12 @@ fi
 
 if ! [ -d /var/www/d8/.git ];then
 mkdir /var/www/d8/.git
-cd /var/www/d8/.git
-echo "">config
-cd /var/www/d8/.git
-git config drush.version 8
-else
-cd /var/www/d8/.git
-drush --version  >> /dev/null 2>&1
-git config drush.version 8
-drush --version  >> /dev/null 2>&1
+cat <<EOFD8GITCONF >>/var/www/d7/.git/config
+
+[drush]
+
+version = 8
+EOFD8GITCONF
 fi
 EOFSETUPSITEDEIGHT
 }
