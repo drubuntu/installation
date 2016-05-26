@@ -407,7 +407,7 @@ fi
 
 if ! [ -d /var/www/d8/.git ];then
 mkdir /var/www/d8/.git
-cat <<EOFD8GITCONF >>/var/www/d7/.git/config
+cat <<EOFD8GITCONF >>/var/www/d8/.git/config
 
 [drush]
 
