@@ -126,13 +126,14 @@ sudo apt -y -qq install curl >>/dev/null 2>&1
 sudo apt -y install git git-core software-properties-common  ubuntu-server^  openssh-server openssh-client build-essential >>/dev/null 2>&1
 }
 addppas(){
-  sudo apt-add-repository -y ppa:peterlevin/ppa >>/dev/null 2>&1
-  sudo apt-add-repository -y ppa:webupd8team/atom >>/dev/null 2>&1
-  sudo apt-add-repository -y ppa:noobslab/themes >>/dev/null 2>&1
-  sudo apt-add-repository -y ppa:noobslab/apps >>/dev/null 2>&1
-  sudo apt-add-repository -y ppa:noobslab/macbuntu >>/dev/null 2>&1
-aptupdate
-apt-get -y -qq install atom
+  apt-add-repository -y ppa:peterlevin/ppa; >>/dev/null 2>&1
+  apt-add-repository -y ppa:webupd8team/atom; >>/dev/null 2>&1
+  apt-add-repository -y ppa:noobslab/themes; >>/dev/null 2>&1
+  apt-add-repository -y ppa:noobslab/apps; >>/dev/null 2>&1
+  apt-add-repository -y ppa:noobslab/macbuntu; >>/dev/null 2>&1
+apt update
+apt-get -y -qq install atom;
+apt install varietey;
 }
 addnodejs(){
   curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash>>/dev/null 2>&1
