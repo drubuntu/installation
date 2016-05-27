@@ -27,8 +27,8 @@ mkdir -p $filesdir
 aptupdate(){
 # all sources to add before update are going here:
 
-sudo apt update >> /dev/null 2>&1
-sudo apt -y  full-upgrade >> /dev/null 2>&1
+sudo apt -qq update >> /dev/null 2>&1
+sudo apt -y -qq full-upgrade >> /dev/null 2>&1
 }
 #Grand privileges to the initial user to mke shure it is not root
 grantprivs(){
