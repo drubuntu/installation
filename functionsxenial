@@ -140,8 +140,7 @@ addnodejs(){
   nvm install 4 >>/dev/null 2>&1
   nvm install 5 >>/dev/null 2>&1
   nvm install 6 >>/dev/null 2>&1
-  nvm alias default=v5.0
-	
+  
 }
 
   #This section contains the MySQL Database creation
