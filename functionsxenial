@@ -122,15 +122,15 @@ EOFDRUSH
 chmod +x /usr/local/bin/drush
 }
 getbase(){
-sudo apt -y -qq install curl >>/dev/null 2>&1
-sudo apt -y install git git-core software-properties-common  ubuntu-server^  openssh-server openssh-client build-essential >>/dev/null 2>&1
+apt -y -qq install curl >>/dev/null 2>&1
+apt -y -qq install git git-core software-properties-common  server^  openssh-server openssh-client build-essential >>/dev/null 2>&1
 }
 addppas(){
-  apt-add-repository -y ppa:peterlevin/ppa; >>/dev/null 2>&1
-  apt-add-repository -y ppa:webupd8team/atom; >>/dev/null 2>&1
-  apt-add-repository -y ppa:noobslab/themes; >>/dev/null 2>&1
-  apt-add-repository -y ppa:noobslab/apps; >>/dev/null 2>&1
-  apt-add-repository -y ppa:noobslab/macbuntu; >>/dev/null 2>&1
+  apt-add-repository -y ppa:peterlevin/ppa >>/dev/null 2>&1;
+  apt-add-repository -y ppa:webupd8team/atom; >>/dev/null 2>&1;
+  apt-add-repository -y ppa:noobslab/themes; >>/dev/null 2>&1;
+  apt-add-repository -y ppa:noobslab/apps; >>/dev/null 2>&1;
+  apt-add-repository -y ppa:noobslab/macbuntu; >>/dev/null 2>&1;
 apt update
 apt-get -y -qq install atom;
 apt install varietey;
