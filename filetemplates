@@ -387,7 +387,7 @@ source $HOME/.bashrc
 if [[ -f "$setfile" ]];then
 sudo rm "$setfile"
 sudo cp -R "$defsetfile" "$setfile"
-sudo cat <<EOF >> sites/default/settings.php
+sudo cat <<EOF >> /var/www/d8/sites/default/settings.php
 \$settings['trusted_host_patterns'] = array(
    '^drupal8\.dev$',
    '^.+\.drupal8\.dev$',
