@@ -246,6 +246,9 @@ fi
 if [ -f "/etc/profile.d/run.sh" ]; then
 rm "/etc/profile.d/run.sh"
 fi
+cp ~/installatioon/de.sh "$bdir"
+cp ~/installatioon/en.sh "$bdir"
+chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip 
 }
 #Dont touch functuiions above now we'll combine theme
 crfiles(){
