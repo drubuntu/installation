@@ -6,7 +6,7 @@
 #drubuntus issue is create here
 
 	crissue(){
-cat <<EOFISSUE >> /etc/issue
+cat <<EOFISSUE > /etc/issue
 Drbuntu is powered by Ubuntu 16.04.1 \n \l
 
 For more information about drubuntu go to http://drubuntu.github.io/drubuntu/
@@ -150,7 +150,7 @@ EOF4
 }
 #Creates hosts file while installation to make sure drupal7.dev and drupal8.dev are with us right from the start
 crmodhostfile(){
-cat <<EOF5 >>/etc/hosts
+cat <<EOF5 >/etc/hosts
 127.0.0.1	drupal.dev ubuntu localhost drupal7.dev www.drupal7.dev drupal8.dev www.drupal8.dev
 127.0.1.1	drupal.dev ubuntu
 
@@ -356,7 +356,7 @@ EOFSETIP
 }
 
 crssd7(){
-cat <<EOFSETUPSITEDSEVEN >>"$d7dir"/setupsite
+cat <<EOFSETUPSITEDSEVEN >"$d7dir"/setupsite
 #!/bin/bash
 cd /var/www/d7
 if ! [ -d /var/www/d7/.git ];then
@@ -374,7 +374,7 @@ exit
 EOFSETUPSITEDSEVEN
 }
 crssd8(){
-cat <<EOFSETUPSITEDEIGHT >>"$d8dir"/setupsite
+cat <<EOFSETUPSITEDEIGHT >"$d8dir"/setupsite
 #!/bin/bash
 setfile=/var/www/d8/sites/default/settings.php
 defsetfile=/var/www/d8/sites/default/default.settings.php
@@ -408,7 +408,7 @@ fi
 
 if ! [ -d /var/www/d8/.git ];then
 mkdir /var/www/d8/.git
-cat <<EOFD8GITCONF >>/var/www/d8/.git/config
+cat <<EOFD8GITCONF >/var/www/d8/.git/config
 
 [drush]
 
@@ -419,7 +419,7 @@ EOFSETUPSITEDEIGHT
 }
 
 crcrsub(){
-cat <<EOFCREATESUBDOMAIN >>"$bdir"/crsub
+cat <<EOFCREATESUBDOMAIN >"$bdir"/crsub
 
 #!/bin/bash
 DIRURL=/opt/.drubuntu
@@ -538,7 +538,7 @@ fi
 EOFCREATESUBDOMAIN
  }
 crcrsite(){
-cat <<EOFCREATESITE >>"$bdir"/crsite
+cat <<EOFCREATESITE >"$bdir"/crsite
 #!/bin/bash
 DIRURL=/opt/.drubuntu
 source $DIRURL/colors.sh
@@ -708,7 +708,7 @@ echo -e "${lightgreen}  ${hosisactivemssg} ${NC}"
 EOFCREATESITE
 }
 crhostname(){
-cat <<EOFHOSTNAME >>/etc/hostname
+cat <<EOFHOSTNAME >/etc/hostname
 Ubuntu
 EOFHOSTNAME
 }
