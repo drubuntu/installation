@@ -6,6 +6,7 @@
 ###iso installation <a name="iso">
 
 To install drubuntu in a VM use the iso provided on <a href="http://sourceforge.net/p/drubuntu">SourceForge</a>
+[![Download Drubuntu](https://img.shields.io/sourceforge/dd/drubuntu.svg)](https://sourceforge.net/projects/drubuntu/files/latest/download)
 ## manual installation
 
 ###with git <a name="installation">
