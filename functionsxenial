@@ -4,6 +4,10 @@ source variables
 source de
 source en
 
+adnode(){
+nvm install 4.0 >>/dev/null 2>&1
+nvm install 5.0 >>/dev/null 2>&1
+}
 desktops(){
 	sudo git clone https://github.com/drubuntu/installation $bdir/desktops >>/dev/null 2>&1
 	mv "$bdir"/desktops/desktopchooser.sh "$bdir"
@@ -142,11 +146,8 @@ apt -y -qq install atom >>/dev/null 2>&1
 apt -y -qq install variety >>/dev/null 2>&1
 }
 addnodejs(){
-  curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash>>/dev/null 2>&1 &&
-  nvm install 4.0 >>/dev/null 2>&1
-  nvm install 5.0 >>/dev/null 2>&1
-	
-}
+  curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash>>/dev/null 2>&1 
+ }
 
   #This section contains the MySQL Database creation
   #core function to create mysql databases called somewhere else
@@ -257,6 +258,8 @@ cp ~/installation/de "$bdir"
 cp ~/installation/en "$bdir"
 chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip 
 rm -rf ~/installation
+cd ~
+	
 }
 #Dont touch functuiions above now we'll combine theme
 crfiles(){
@@ -300,4 +303,5 @@ addapachesites
 cleanup(){
   grantprivs;
   clean
+  addnode
 }
