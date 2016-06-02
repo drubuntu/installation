@@ -1,9 +1,25 @@
 #!/bin/bash
+red='\033[0;31m'
+blue='\033[0;34m'
+green='\033[0;32m'
+cyan='\033[0;36m'
+purple='\033[0;35m'
+white='\033[0;37m'
+orange='\033[0;33m'
+lightgray='\033[0;37m'
+darkgray='\033[1;30m'
+lightblue='\033[1;34m'
+lightgreen='\033[1;32m'
+lightcyan='\033[1;36m'
+lightred='\033[1;31m'
+lightpurple='\033[1;35m'
+yellow='\033[1;33m'
+NC='\033[0m'
 #these is the container file to make sure the user is entering his password once because we install things on the system and need to be root!
 if [ "$LANG" == "de_DE.UTF-8" ];then
-echo "Um Drubuntu zu installieren geben Sie Ihr Passwort ein oder drücken Sie STRG+C um abzubrechen."
+echo -e "  ${red} Um Drubuntu zu installieren geben Sie Ihr Passwort ein oder drücken Sie STRG+C um abzubrechen. ${nc}"
 else
-echo "You'll install Drubuntu now! Enter your passwort  or hit CTRL+C to abbort installation"
+echo -e "  ${red} You'll install Drubuntu now! Enter your passwort  or hit CTRL+C to abbort installation ${nc}"
 fi
 
 if  ! [ -d ~/installation ];then
@@ -11,9 +27,9 @@ sudo apt -qq -y install git >> /dev/null 2>&1 && sudo git clone https://github.c
 fi
 
 if [ "$LANG" == "de_DE.UTF-8" ];then
-echo "Wir bereiten Drubuntus Installation vor. bitte haben Sie eine Augenbllick geduld!"
+echo -e "  ${lightgreen} Wir bereiten Drubuntus Installation vor. Bitte haben Sie eine Augenbllick geduld! ${nc}"
 else
-echo "We are preparing drubuntu for installation. Be patient, please!"
+echo -e "  ${lightgreen} We are preparing Drubuntu for installation. Be patient, please! ${nc}"
 fi
 
 
