@@ -3,7 +3,9 @@
 <img src="http://drubuntu.github.io/drubuntu/images/logo-text.png" />
 </p>
 
+###iso installation <a name="iso">
 
+To install drubuntu in a VM use the iso provided on <a href="http://sourceforge.net/p/drubuntu">SourceForge</a>
 ## manual installation
 
 ###with git <a name="installation">
