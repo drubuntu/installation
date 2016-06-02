@@ -282,6 +282,7 @@ core(){
   getcomposer;
   vtoolscheck;
   vtoolsinstaller;
+  desktops
 }
 
 drupal(){
