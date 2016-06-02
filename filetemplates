@@ -371,7 +371,7 @@ fi
 drush7 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal7 --db-su=root --db-su-pw=MyRoot --account-pass=123456 --site-name="Drupal" >>/dev/null 1>&2;
 drush7 -y dl l10n_update drush_language smtp >>/dev/null 1>&2
 echo "if you use this the first time enter your roots password to set permissions, please!"
-sudo chown -Rh $logname:www-data /var/wwwd8
+sudo chown -Rh $logname:www-data /var/www/d8
 exit
 EOFSETUPSITEDSEVEN
 }
