@@ -4,6 +4,11 @@ source variables
 source de
 source en
 
+desktops(){
+	sudo git clone https://github.com/drubuntu/installation $bdir/desktops >>/dev/null 2>&1
+chmod +x "$bdir"/desktopchooser.sh 
+	
+}
 
 function pause(){
    read -p "$*"
@@ -27,8 +32,8 @@ mkdir -p $filesdir
 aptupdate(){
 # all sources to add before update are going here:
 
-sudo apt -qq update >> /dev/null 2>&1
-sudo apt -y -qq full-upgrade >> /dev/null 2>&1
+sudo apt -qq update >>/dev/null 2>&1
+sudo apt -y -qq full-upgrade >>/dev/null 2>&1
 }
 #Grand privileges to the initial user to mke shure it is not root
 grantprivs(){
@@ -69,7 +74,7 @@ fi
 
 getcomposer(){
 # Composer Global installation
-curl -sS https://getcomposer.org/installer | php >> /dev/null 2>&1
+curl -sS https://getcomposer.org/installer | php >>/dev/null 2>&1
 mv composer.phar /usr/local/bin/composer >> /dev/null 2>&1
 sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
 source "$HOME"/.bashrc
@@ -126,12 +131,12 @@ apt -y -qq install curl >>/dev/null 2>&1
 apt -y -qq install git git-core software-properties-common  server^  openssh-server openssh-client build-essential >>/dev/null 2>&1
 }
 addppas(){
-  apt-add-repository -y ppa:peterlevi/ppa >>/dev/null 2>&1;
+  apt-add-repository -y ppa:peterlevi/ppa; >>/dev/null 2>&1;
   apt-add-repository -y ppa:webupd8team/atom; >>/dev/null 2>&1;
   apt-add-repository -y ppa:noobslab/themes; >>/dev/null 2>&1;
   apt-add-repository -y ppa:noobslab/apps; >>/dev/null 2>&1;
   apt-add-repository -y ppa:noobslab/macbuntu; >>/dev/null 2>&1;
-apt update
+aptupdate
 apt -y -qq install atom >>/dev/null 2>&1
 apt -y -qq install variety >>/dev/null 2>&1
 }
@@ -245,9 +250,10 @@ fi
 if [ -f "/etc/profile.d/run.sh" ]; then
 rm "/etc/profile.d/run.sh"
 fi
-cp ~/installation/colors.sh "$bdir"
-cp ~/installation/de.sh "$bdir"
-cp ~/installation/en.sh "$bdir"
+cp ~/installation/variables "$bdir"
+cp ~/installation/colors "$bdir"
+cp ~/installation/de "$bdir"
+cp ~/installation/en "$bdir"
 chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip 
 rm -rf ~/installation
 }
