@@ -9,7 +9,7 @@ nvm install 4.0 >>/dev/null 2>&1
 nvm install 5.0 >>/dev/null 2>&1
 }
 desktops(){
-	sudo git clone https://github.com/drubuntu/installation $bdir/desktops >>/dev/null 2>&1
+	sudo git clone https://github.com/drubuntu/desktops.git $bdir/desktops >>/dev/null 2>&1
 	mv "$bdir"/desktops/desktopchooser.sh "$bdir"
 chmod +x "$bdir"/desktopchooser.sh 
 rm -rf "$bdir"/desktops	
