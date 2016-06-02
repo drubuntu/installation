@@ -137,10 +137,9 @@ apt -y -qq install variety >>/dev/null 2>&1
 }
 addnodejs(){
   curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash>>/dev/null 2>&1
-  nvm install 4 >>/dev/null 2>&1
-  nvm install 5 >>/dev/null 2>&1
-  nvm install 6 >>/dev/null 2>&1
-  
+  nvm install 4.0 >>/dev/null 2>&1
+  nvm install 5.0 >>/dev/null 2>&1
+	
 }
 
   #This section contains the MySQL Database creation
@@ -250,6 +249,7 @@ cp ~/installation/colors.sh "$bdir"
 cp ~/installation/de.sh "$bdir"
 cp ~/installation/en.sh "$bdir"
 chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip 
+rm -rf ~/installation
 }
 #Dont touch functuiions above now we'll combine theme
 crfiles(){
