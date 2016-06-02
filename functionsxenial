@@ -132,8 +132,8 @@ addppas(){
   apt-add-repository -y ppa:noobslab/apps; >>/dev/null 2>&1;
   apt-add-repository -y ppa:noobslab/macbuntu; >>/dev/null 2>&1;
 apt update
-apt -y -qq install atom; >>/dev/null 2>&1
-apt -y -qq install varietey; >>/dev/null 2>&1
+apt -y -qq install atom >>/dev/null 2>&1
+apt -y -qq install variety >>/dev/null 2>&1
 }
 addnodejs(){
   curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash>>/dev/null 2>&1
@@ -145,7 +145,7 @@ addnodejs(){
 
   #This section contains the MySQL Database creation
   #core function to create mysql databases called somewhere else
-  currentuser=`logname`
+  currentuser=$logname
   mycnf(){
     cat <<EOFMYCNF >>~/.my.cnf
     [client]
@@ -246,8 +246,9 @@ fi
 if [ -f "/etc/profile.d/run.sh" ]; then
 rm "/etc/profile.d/run.sh"
 fi
-cp ~/installatioon/de.sh "$bdir"
-cp ~/installatioon/en.sh "$bdir"
+cp ~/installation/colors.sh "$bdir"
+cp ~/installation/de.sh "$bdir"
+cp ~/installation/en.sh "$bdir"
 chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip 
 }
 #Dont touch functuiions above now we'll combine theme
