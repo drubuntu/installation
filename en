@@ -170,3 +170,4 @@ enterd8dbusermssg="Enter your Database user name for Drupal 8 and hit [RETURN]: 
 enterd8dbpassmssg="Enter the passsphrase for your Drupal 8 database and hit [RETURN]: "
 pressspacetocontinue="Drücken Sie die Leertaste um fortzufahren"
 quitdesktopsetup="Sie haben nicht die Leertaste gedrückt. Ihr System wird ohne desktop isntalliert"
+notmorethanonedesktopmssg="Do not install more than one desktop with this tool!"
