@@ -41,7 +41,7 @@ alias dru-install-aptanaxdebug='bash $drfeatures --aptana-xdebug'
 alias dru-install-xdebug='bash $drfeatures --xdebug'
 alias dru-install-browsers='bash $drfeatures --browsers'
 alias dru-install-atom='bash $drfeatures --atom'
-alias dru-install-desktop='bash bash "$drdesktops"/desktopchooser.sh'
+alias dru-install-desktop=' bash "$bdir"/desktopchooser.sh'
 #help
 alias dru-quickhelp="more "$drubasedir"quickhelp.txt"
 #scripts
@@ -376,19 +376,20 @@ exit
 EOFSETUPSITEDSEVEN
 }
 crssd8(){
+
 cat <<EOFSETUPSITEDEIGHT >"$d8dir"/setupsite
 #!/bin/bash
+ if [[ $EUID -ne 0 ]]; then
+ echo "Please run as root to reset D8"
+ sudo $0
+fi
 setfile=/var/www/d8/sites/default/settings.php
 defsetfile=/var/www/d8/sites/default/default.settings.php
-
- if [[ $EUID -ne 0 ]]; then
- echo "Please run as root"
-sudo $0
-  else
 source $HOME/.bashrc
-if [[ -f "$setfile" ]];then
+if [ -f "$setfile" ];then
 sudo rm "$setfile"
 sudo cp -R "$defsetfile" "$setfile"
+fi
 sudo cat <<EOF >> /var/www/d8/sites/default/settings.php
 \$settings['trusted_host_patterns'] = array(
    '^drupal8\.dev$',
