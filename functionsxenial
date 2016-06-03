@@ -4,9 +4,17 @@ source variables
 source de
 source en
 
+timetoberlin(){
+echo "Europe/Berlin" > /etc/timezone 
+dpkg-reconfigure -f noninteractive tzdata
+
+}
 addnode(){
+ if hash nvm 2>/dev/null; then
 nvm install 4.0 >>/dev/null 2>&1
 nvm install 5.0 >>/dev/null 2>&1
+nvm install 4.6 
+fi
 }
 desktops(){
 	sudo git clone https://github.com/drubuntu/desktops.git $bdir/desktops >>/dev/null 2>&1
@@ -304,4 +312,5 @@ cleanup(){
   grantprivs;
   clean
   addnode
+  timetoberlin
 }
