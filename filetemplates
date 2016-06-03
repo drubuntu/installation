@@ -31,16 +31,6 @@ drcreatesubdomain="$scrdir"ceatesubdomain
 drsetip="$scrdir"setip
 drupdate="$scrdir"/update
 #features
-alias dru-features='bash "$drfeatures" --help'
-alias dru-install-plymouthlogo='bash "$drfeatures" --plymouth'
-alias dru-install-ftp='bash $drfeatures --proftpd'
-alias dru-install-webexplangs='bash $drfeatures --webexplangs'
-alias dru-install-aptana='bash $drfeatures --aptana'
-alias dru-install-aptanagit='bash $drfeatures --aptana-git'
-alias dru-install-aptanaxdebug='bash $drfeatures --aptana-xdebug'
-alias dru-install-xdebug='bash $drfeatures --xdebug'
-alias dru-install-browsers='bash $drfeatures --browsers'
-alias dru-install-atom='bash $drfeatures --atom'
 alias dru-install-desktop=' bash "$bdir"/desktopchooser.sh'
 #help
 alias dru-quickhelp="more "$drubasedir"quickhelp.txt"
