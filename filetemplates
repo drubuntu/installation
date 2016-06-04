@@ -369,17 +369,18 @@ crssd8(){
 
 cat <<EOFSETUPSITEDEIGHT >"$d8dir"/setupsite
 #!/bin/bash
- if [[ $EUID -ne 0 ]]; then
- echo "Please run as root to reset D8"
- sudo $0
-fi
 setfile=/var/www/d8/sites/default/settings.php
 defsetfile=/var/www/d8/sites/default/default.settings.php
+if [[ $EUID -ne 0 ]]; then
+ echo "Please run as root to reset D8"
+ sudo $0
+ fi
 source $HOME/.bashrc
 if [ -f "$setfile" ];then
 sudo rm "$setfile"
 sudo cp -R "$defsetfile" "$setfile"
 fi
+
 sudo cat <<EOF >> /var/www/d8/sites/default/settings.php
 \$settings['trusted_host_patterns'] = array(
    '^drupal8\.dev$',
@@ -390,7 +391,7 @@ sudo cat <<EOF >> /var/www/d8/sites/default/settings.php
    '\.local$',
 );
 EOF
-fi
+
 
 drush8 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal8 --db-su=root --db-su-pw=MyRoot --account-pass=123456 --site-name="Drupal" >>/dev/null 1>&2;
 drush8 -y dl smtp-8.x-1.x-dev >>/dev/null 1>&2
