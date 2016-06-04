@@ -4,11 +4,9 @@ source variables
 source de
 source en
 
-
 timetoberlin(){
 echo "Europe/Berlin" > /etc/timezone 
 dpkg-reconfigure -f noninteractive tzdata
-
 }
 addnode(){
  if hash nvm 2>/dev/null; then
@@ -18,21 +16,18 @@ nvm install 4.6
 fi
 }
 features(){
-	sudo git clone https://github.com/drubuntu/desktops.git $bdir/features >>/dev/null 2>&1
-	mv "$bdir"/features/features.sh "$bdir"
-chmod +x "$bdir"/features.sh
+	sudo git clone https://github.com/drubuntu/desktops.git $bdir/features >>/dev/null 2>&1 &&
+	mv "$bdir"/features/features.sh "$bdir" &&
+chmod +x "$bdir"/features.sh 
 }
 
 desktops(){
-	sudo git clone https://github.com/drubuntu/desktops.git $bdir/desktops >>/dev/null 2>&1
-	mv "$bdir"/desktops/desktopchooser.sh "$bdir"/desktops/coffee.txt "$bdir"
-chmod +x "$bdir"/desktopchooser.sh 
+	sudo git clone https://github.com/drubuntu/desktops.git $bdir/desktops >>/dev/null 2>&1 &&
+	mv "$bdir"/desktops/desktopchooser.sh "$bdir"/desktops/coffee.txt "$bdir"&&
+chmod +x "$bdir"/desktopchooser.sh &&
 rm -rf "$bdir"/desktops	
 }
 
-function pause(){
-   read -p "$*"
-}
 server(){
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password MyRoot'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MyRoot'
@@ -314,7 +309,7 @@ core(){
   phpmyadmin;
   aptprogress;
   getcomposer;
-  addruby
+  addruby;
   vtoolscheck;
   vtoolsinstaller;
   desktops;
@@ -338,6 +333,5 @@ addapachesites
 cleanup(){
   grantprivs;
   clean
-  
   timetoberlin
 }
