@@ -259,8 +259,12 @@ addapachesites(){
 	a2ensite drupal8.conf >>/dev/null 2>&1
 	service apache2 reload >>/dev/null 2>&1
 }
-
+addconsole(){
+	curl https://drupalconsole.com/installer -L -o drupal.phar;
+	mv drupal.phar /usr/local/bin/drupal;
+	chmod +x /usr/local/bin/drupal
 }
+
 clean(){
 sudo apt -y -qq autoremove >>/dev/null 2>&1
 sudo apt -y -qq clean  >>/dev/null 2>&1
@@ -318,6 +322,7 @@ getd8;
 setdrush;
 d7setup;
 d8setup;
+addconsole;
 addapachesites
 }
 cleanup(){
