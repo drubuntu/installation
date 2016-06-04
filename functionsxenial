@@ -4,17 +4,7 @@ source variables
 source de
 source en
 
-addruby(){
-apt -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev >>/dev/null 2>&1
-apt -y install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev >>/dev/null 2>&1
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 >>/dev/null 2>&1
-curl -sSL https://get.rvm.io | bash -s stable >>/dev/null 2>&1
-source ~/.rvm/scripts/rvm
-rvm install 2.3.1 >>/dev/null 2>&1
-rvm use 2.3.1 --default >>/dev/null 2>&1
-ruby -v >>/dev/null 2>&1 &&
-gem install bundler
-}
+
 timetoberlin(){
 echo "Europe/Berlin" > /etc/timezone 
 dpkg-reconfigure -f noninteractive tzdata
@@ -31,6 +21,7 @@ features(){
 	sudo git clone https://github.com/drubuntu/desktops.git $bdir/features >>/dev/null 2>&1
 	mv "$bdir"/features/features.sh "$bdir"
 chmod +x "$bdir"/features.sh
+}
 
 desktops(){
 	sudo git clone https://github.com/drubuntu/desktops.git $bdir/desktops >>/dev/null 2>&1
@@ -53,7 +44,18 @@ apt-get -y install php7.0-mysql php7.0-curl php7.0-gd php7.0-intl php-pear php-i
  a2dissite 000-default.conf >>/dev/null 2>&1
  service apache2 restart >>/dev/null 2>&1
 }
-server
+addruby(){
+apt -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev >>/dev/null 2>&1
+apt -y install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev >>/dev/null 2>&1
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 >>/dev/null 2>&1
+curl -sSL https://get.rvm.io | bash -s stable >>/dev/null 2>&1
+source ~/.rvm/scripts/rvm
+rvm install 2.3.1 >>/dev/null 2>&1
+rvm use 2.3.1 --default >>/dev/null 2>&1
+ruby -v >>/dev/null 2>&1 &&
+gem install bundler
+}
+
 mkdirs(){
 mkdir -p $bdir
 mkdir -p $filesdir
