@@ -42,6 +42,7 @@ apt-get -y install php7.0-mysql php7.0-curl php7.0-gd php7.0-intl php-pear php-i
  a2dissite 000-default.conf >>/dev/null 2>&1
  service apache2 restart >>/dev/null 2>&1
 }
+
 addruby(){
 apt -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev >>/dev/null 2>&1
 apt -y install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev >>/dev/null 2>&1
@@ -58,12 +59,14 @@ mkdirs(){
 mkdir -p $bdir
 mkdir -p $filesdir
 }
+
 aptupdate(){
 # all sources to add before update are going here:
 
 sudo apt -qq update >>/dev/null 2>&1
 sudo apt -y -qq full-upgrade >>/dev/null 2>&1
 }
+
 #Grand privileges to the initial user to mke shure it is not root
 grantprivs(){
  chown -Rh $nameofuser:$nameofuser /opt/.drubuntu
@@ -73,6 +76,7 @@ grantprivs(){
  chown -Rh $nameofuser:$nameofuser $HOME
  chmod -R 770  $HOME/*
  }
+
 # enable fany apt-progressbar see omgubuntu.co.uk/2014/04/how-to-enable-apt-terminal-progress-bar
 aptprogress(){
 if ! [ -f /etc/apt/apt.conf.d/99progressbar ];then
@@ -108,12 +112,14 @@ mv composer.phar /usr/local/bin/composer >> /dev/null 2>&1
 sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
 source "$HOME"/.bashrc
 }
+
 phpmyadmin(){
 debconf-set-selections <<< "phpmyadmin phpmyadmin/internal/skip-preseed boolean true"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean false"
 sudo apt -y -qq install phpmyadmin >>/dev/null 2>&1
 }
+
 #delete the dissblefunctions line for drush
 prepphpcli(){
 pattern=disable_functions
@@ -123,7 +129,7 @@ while [ $# -gt 0 ]; do
     shift
     sed "s/$pattern/#$pattern/" < "$infile"
 done
-	}
+}
 
 getd8(){
 mkdir  /usr/local/bin/drush-8
@@ -287,6 +293,7 @@ chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip
 rm -rf ~/installation
 }
 #Dont touch functuiions above now we'll combine theme
+
 crfiles(){
   crissue;
   craliasfile;
@@ -314,7 +321,7 @@ core(){
   vtoolsinstaller;
   desktops;
   features;
-  addnode &&
+  addnode
 }
 
 drupal(){
@@ -327,7 +334,7 @@ setdrush;
 d7setup;
 d8setup;
 addconsole;
-addapachesites &&
+addapachesites 
 }
 cleanup(){
   grantprivs;
