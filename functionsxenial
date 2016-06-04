@@ -27,6 +27,11 @@ nvm install 5.0 >>/dev/null 2>&1
 nvm install 4.6 
 fi
 }
+features(){
+	sudo git clone https://github.com/drubuntu/desktops.git $bdir/features >>/dev/null 2>&1
+	mv "$bdir"/features/features.sh "$bdir"
+chmod +x "$bdir"/features.sh
+
 desktops(){
 	sudo git clone https://github.com/drubuntu/desktops.git $bdir/desktops >>/dev/null 2>&1
 	mv "$bdir"/desktops/desktopchooser.sh "$bdir"/desktops/coffee.txt "$bdir"
@@ -311,6 +316,7 @@ core(){
   vtoolscheck;
   vtoolsinstaller;
   desktops
+  features
 }
 
 drupal(){
