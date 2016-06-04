@@ -12,7 +12,8 @@ curl -sSL https://get.rvm.io | bash -s stable >>/dev/null 2>&1
 source ~/.rvm/scripts/rvm
 rvm install 2.3.1 >>/dev/null 2>&1
 rvm use 2.3.1 --default >>/dev/null 2>&1
-ruby -v >>/dev/null 2>&1
+ruby -v >>/dev/null 2>&1 &&
+gem install bundler
 }
 timetoberlin(){
 echo "Europe/Berlin" > /etc/timezone 
