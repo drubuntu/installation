@@ -8,13 +8,15 @@ timetoberlin(){
 echo "Europe/Berlin" > /etc/timezone 
 dpkg-reconfigure -f noninteractive tzdata
 }
+
 addnode(){
- if hash nvm 2>/dev/null; then
+if hash nvm 2>/dev/null; then
 nvm install 4.0 >>/dev/null 2>&1
 nvm install 5.0 >>/dev/null 2>&1
 nvm install 4.6 
 fi
 }
+
 features(){
 	sudo git clone https://github.com/drubuntu/desktops.git $bdir/features >>/dev/null 2>&1 &&
 	mv "$bdir"/features/features.sh "$bdir" &&
@@ -283,8 +285,6 @@ cp ~/installation/de "$bdir"
 cp ~/installation/en "$bdir"
 chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip 
 rm -rf ~/installation
-cd ~
-	
 }
 #Dont touch functuiions above now we'll combine theme
 crfiles(){
@@ -314,8 +314,7 @@ core(){
   vtoolsinstaller;
   desktops;
   features;
-  addnode;
-  addruby
+  addnode &&
 }
 
 drupal(){
@@ -328,10 +327,10 @@ setdrush;
 d7setup;
 d8setup;
 addconsole;
-addapachesites
+addapachesites &&
 }
 cleanup(){
   grantprivs;
-  clean
+  clean; &&
   timetoberlin
 }
