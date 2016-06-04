@@ -34,5 +34,5 @@ fi
 
 
 cd $HOME/installation
-sudo bash install 2>$HOME/errors.txt
+sudo bash install 2>$HOME/log.txt
 #rm -r $HOME/installation
