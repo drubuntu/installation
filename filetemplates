@@ -379,7 +379,7 @@ source $HOME/.bashrc
 if [ -f "$setfile" ];then
 sudo rm "$setfile"
 sudo cp -R "$defsetfile" "$setfile"
-fi
+
 
 sudo cat <<EOF >> /var/www/d8/sites/default/settings.php
 \$settings['trusted_host_patterns'] = array(
@@ -391,7 +391,7 @@ sudo cat <<EOF >> /var/www/d8/sites/default/settings.php
    '\.local$',
 );
 EOF
-
+fi
 
 drush8 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal8 --db-su=root --db-su-pw=MyRoot --account-pass=123456 --site-name="Drupal" >>/dev/null 1>&2;
 drush8 -y dl smtp-8.x-1.x-dev >>/dev/null 1>&2
@@ -400,7 +400,7 @@ sudo chmod -R 777 sites/default/files
 sudo chmod 644 sites/default/settings.php
 echo "if you use this the first time enter your roots password to set permissions, please!"
 sudo chown -Rh $logname:www-data /var/www/d8
-fi
+
 
 if ! [ -d /var/www/d8/.git ];then
 mkdir /var/www/d8/.git
