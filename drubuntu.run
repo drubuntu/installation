@@ -15,6 +15,7 @@ lightred='\033[1;31m'
 lightpurple='\033[1;35m'
 yellow='\033[1;33m'
 NC='\033[0m'
+desktool="/opt/.drubunutu/desktopchooser.sh"
 #these is the container file to make sure the user is entering his password once because we install things on the system and need to be root!
 if [ "$LANG" == "de_DE.UTF-8" ];then
 echo -e "  ${red} Um Drubuntu zu installieren geben Sie Ihr Passwort ein oder drücken Sie STRG+C um abzubrechen. ${nc}"
@@ -35,4 +36,5 @@ fi
 
 cd $HOME/installation
 sudo bash install 2>$HOME/log.txt
-#rm -r $HOME/installation
+rm -r $HOME/installation
+sudo bash "$desktool"
