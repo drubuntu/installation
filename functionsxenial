@@ -3,6 +3,25 @@
 source colors
 source variables
 
+clean(){
+apt -y -qq autoremove >>/dev/null 2>&1
+apt -y -qq clean  >>/dev/null 2>&1
+dpkg --get-selections | grep -v deinstall > "$bdir"/packages-installed.txt
+if [ -d "$HOME"/tmp ];then
+rm -r "$HOME"/tmp
+fi
+if [ -f "/etc/profile.d/run.sh" ]; then
+rm "/etc/profile.d/run.sh"
+fi
+
+cp ~/installation/variables "$bdir"
+cp ~/installation/colors "$bdir"
+cp ~/installation/de "$bdir"
+cp ~/installation/en "$bdir"
+chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip 
+rm -rf ~/installation
+}
+
 timetoberlin(){
 echo "Europe/Berlin" > /etc/timezone 
 dpkg-reconfigure -f noninteractive tzdata
@@ -267,24 +286,7 @@ addconsole(){
 	chmod +x /usr/local/bin/drupal
 }
 
-clean(){
-sudo apt -y -qq autoremove >>/dev/null 2>&1
-sudo apt -y -qq clean  >>/dev/null 2>&1
-sudo dpkg --get-selections | grep -v deinstall > "$bdir"/packages-installed.txt
-if [ -d "$HOME"/tmp ];then
-rm -r "$HOME"/tmp
-fi
-if [ -f "/etc/profile.d/run.sh" ]; then
-rm "/etc/profile.d/run.sh"
-fi
 
-cp ~/installation/variables "$bdir"
-cp ~/installation/colors "$bdir"
-cp ~/installation/de "$bdir"
-cp ~/installation/en "$bdir"
-chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip 
-rm -rf ~/installation
-}
 
 
 #Dont touch functuiions above now we'll combine theme
@@ -333,6 +335,6 @@ addapachesites
 }
 cleanup(){
   grantprivs;
-  clean; &&
+  clean; 
   timetoberlin
 }
