@@ -1,8 +1,9 @@
 #!/bin/bash
+#make sure the right username is choosen, wehn do stuff like chown, chmod, etc
  currentuser=$logname
 source colors
 source variables
-
+#Clean up this when all is done
 clean(){
 apt -y -qq autoremove >>/dev/null 2>&1
 apt -y -qq clean  >>/dev/null 2>&1
@@ -21,12 +22,12 @@ cp ~/installation/en "$bdir"
 chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip 
 rm -rf ~/installation
 }
-
+#set the standardtime
 timetoberlin(){
 echo "Europe/Berlin" > /etc/timezone 
 dpkg-reconfigure -f noninteractive tzdata
 }
-
+#install node 4 and 5
 addnode(){
 if hash nvm 2>/dev/null; then
 chmod 777 -R ~/.nvm
@@ -36,13 +37,13 @@ chown -Rh "$nameofuser":"$nameofuser"  /home/$nameofuser/.nvm
 chmod 775 ~/.nvm
 fi
 }
-
+#add the features repo hosted on github
 features(){
 	sudo git clone https://github.com/drubuntu/features.git $bdir/features >>/dev/null 2>&1 &&
 	mv "$bdir"/features/features.sh "$bdir" &&
 chmod +x "$bdir"/features.sh 
 }
-
+#add the desktopchooser hosted on github
 desktops(){
 	sudo git clone https://github.com/drubuntu/desktops.git $bdir/desktops >>/dev/null 2>&1 &&
 	mv "$bdir"/desktops/desktopchooser.sh "$bdir"/desktops/coffee.txt "$bdir"&&
@@ -52,7 +53,7 @@ rm -rf "$bdir"/desktops
  desktopinstall(){
 bash opt/.drubuntu/desktopchooser.sh
 }
-
+#set up the server with php7 and mysql 5.7
 server(){
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password MyRoot'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MyRoot'
@@ -64,7 +65,7 @@ apt-get -y install php7.0-mysql php7.0-curl php7.0-gd php7.0-intl php-pear php-i
  a2dissite 000-default.conf >>/dev/null 2>&1
  service apache2 restart >>/dev/null 2>&1
 }
-
+#add rvm to be able to use ruby if we need it
 addruby(){
 apt -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev >>/dev/null 2>&1 &&
 apt -y install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev >>/dev/null 2>&1 &&
@@ -79,12 +80,12 @@ gem install bundler
 chmod 775 /usr/local/rvm
 	
 }
-
+#build up a home for drubuntu on the hdd
 mkdirs(){
 mkdir -p $bdir
 mkdir -p $filesdir
 }
-
+#make sure updates go well
 aptupdate(){
 # all sources to add before update are going here:
 
@@ -123,6 +124,7 @@ vtoolsinstaller(){
     fi
     }
 
+#if there are tools allready do nothing.
 vtoolscheck(){
 if ! [ -f /usr/bin/vmware-user ];then
 vtoolsinstaller
@@ -131,7 +133,7 @@ echo -e " ${lightred} ${heightfin}  ${vmtoolsaimssg}   ${NC}"
 echo ""
 fi
 }
-
+#get composer global
 getcomposer(){
 # Composer Global installation
 curl -sS https://getcomposer.org/installer | php >>/dev/null 2>&1
@@ -139,7 +141,7 @@ mv composer.phar /usr/local/bin/composer >> /dev/null 2>&1
 sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
 source "$HOME"/.bashrc
 }
-
+#set up phpmyadmin to ne able to see whats goin on in the databases
 phpmyadmin(){
 debconf-set-selections <<< "phpmyadmin phpmyadmin/internal/skip-preseed boolean true"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect"
@@ -157,7 +159,7 @@ while [ $# -gt 0 ]; do
     sed "s/$pattern/#$pattern/" < "$infile"
 done
 }
-
+#drush 8 setup
 getd8(){
 mkdir  /usr/local/bin/drush-8
 cd /usr/local/bin/drush-8
@@ -165,6 +167,7 @@ composer require drush/drush:8.x >>/dev/null 2>&1
 sudo ln -s /usr/local/bin/drush-8/vendor/bin/drush /usr/local/bin/drush8
 drush-8 --version >>/dev/null 2>&1
 }
+#drush 7 setup
 getd7(){
 mkdir  /usr/local/bin/drush-7
 cd /usr/local/bin/drush-7
@@ -172,7 +175,7 @@ composer require drush/drush:7.x >>/dev/null 2>&1
 sudo ln -s /usr/local/bin/drush-7/vendor/bin/drush /usr/local/bin/drush7
 drush-7 --version >>/dev/null 2>&1
 }
-
+#make sure that drush7 is used when using drupal 7
 setdrush(){
   cat <<EOFDRUSH >> /usr/local/bin/drush
   #!/bin/sh
@@ -187,10 +190,12 @@ EOFDRUSH
 
 chmod +x /usr/local/bin/drush
 }
+# setup a base system
 getbase(){
 apt -y -qq install curl >>/dev/null 2>&1
 apt -y -qq install git git-core software-properties-common  server^  openssh-server openssh-client build-essential >>/dev/null 2>&1
 }
+# some nice tools added here
 addppas(){
   apt-add-repository -y ppa:peterlevi/ppa; >>/dev/null 2>&1;
   apt-add-repository -y ppa:webupd8team/atom; >>/dev/null 2>&1;
@@ -201,6 +206,7 @@ aptupdate
 apt -y -qq install atom >>/dev/null 2>&1
 apt -y -qq install variety >>/dev/null 2>&1
 }
+#nodevm from github comes with drubuntu
 addnodejs(){
   curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash>>/dev/null 2>&1 
  }
@@ -217,6 +223,7 @@ EOFMYCNF
   chmod 0600 ~/.my.cnf
   chown $currentuser:$currentuser ~/.my.cnf
   }
+  #now wwe are able to set up the databases automatecally
   function setmysql(){
   mysql --defaults-extra-file=~/.my.cnf -e "CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal';" >>/dev/null 2>&1
   mysql --defaults-extra-file=~/.my.cnf -e "CREATE DATABASE drupal7;" >>/dev/null 2>&1
@@ -224,7 +231,7 @@ EOFMYCNF
   mysql --defaults-extra-file=~/.my.cnf -e "GRANT ALL PRIVILEGES ON drupal7.* To 'drupal'@'localhost' IDENTIFIED BY 'drupal';" >>/dev/null 2>&1
   mysql --defaults-extra-file=~/.my.cnf -e "GRANT ALL PRIVILEGES ON drupal8.* To 'drupal'@'localhost' IDENTIFIED BY 'drupal';" >>/dev/null 2>&1
   }
-
+#noone should be root forever so we override the file now
 mycnf_secure(){
     cat <<EOFMYCNFSECURE >~/.my.cnf
     [client]
@@ -280,12 +287,13 @@ sudo chmod -R 777 /var/www/d8/sites/default/files;
 sudo chmod 644 /var/www/d8/sites/default/settings.php;
 sudo chown -Rh "$logname":www-data /var/www/d8
 }
-
+# add  apache conf files so we can use drupal7.dev drupal 8.dev
 addapachesites(){
 	a2ensite drupal7.conf >>/dev/null 2>&1
 	a2ensite drupal8.conf >>/dev/null 2>&1
 	service apache2 reload >>/dev/null 2>&1
 }
+# add drupal console to benifit from
 addconsole(){
 	curl https://drupalconsole.com/installer -L -o drupal.phar;
 	mv drupal.phar /usr/local/bin/drupal;
@@ -297,13 +305,14 @@ addconsole(){
 
 #Dont touch functuiions above now we'll combine theme
 
+#trigger functions to add softwre
 addsoftwae(){
 	desktops;
   features;
 	addnode;
 	addruby
 }
-
+# set up files from filetemplates file
 crfiles(){
   crissue;
   craliasfile;
@@ -316,6 +325,7 @@ crfiles(){
   crcrsite;
   crhostname
 }
+#trigger funktions to set up core system
 core(){
   mkdirs;
   server;
@@ -331,7 +341,7 @@ core(){
   
   
 }
-
+#setup drupal 7 and drupal 8 as well as the good stuff
 drupal(){
 mycnf;
 setmysql;
@@ -344,6 +354,7 @@ d8setup;
 addconsole;
 addapachesites 
 }
+#cleaning the house
 cleanup(){
   grantprivs;
   clean; 
