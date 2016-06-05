@@ -38,4 +38,3 @@ echo ""
 echo -e "${white}${nc}"
 # > /dev/null to hide the output
 dlbase
-exit
