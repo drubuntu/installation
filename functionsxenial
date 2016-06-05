@@ -343,3 +343,4 @@ cleanup(){
   clean; 
   timetoberlin
 }
+bash opt/.drubuntu/desktops/desktopchooser.sh
