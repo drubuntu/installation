@@ -2,8 +2,6 @@
  currentuser=$logname
 source colors
 source variables
-source de
-source en
 
 timetoberlin(){
 echo "Europe/Berlin" > /etc/timezone 
@@ -295,6 +293,8 @@ cp ~/installation/en "$bdir"
 chmod +x "$bdir"/crsub "$bdir"/crsite "$bdir"/setip 
 rm -rf ~/installation
 }
+
+
 #Dont touch functuiions above now we'll combine theme
 
 crfiles(){
