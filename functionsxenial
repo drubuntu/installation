@@ -238,32 +238,18 @@ chmod -R 777 "$d7defsitedir"
 #Downloads current Drupal 8 Core and removes the subversion string
 d8setup(){
 chown -Rh "$nameofuser":www-data "$wwwdir"
-mkdir -p  "$d8dir";
-wget -O "$bdir/"drupal8.tar.gz $d8core >> /dev/null 2>&1
-cd "$bdir"&&tar xvfz "$bdir/"drupal8.tar.gz -C "$d8dir" >> /dev/null 2>&1
-rm "$bdir"/*.tar.gz
+drush dl drupal
+mv drupal* "$d8dir"
+chown -Rh "$nameofuser":www-data "$d8dir"
 cd "$d8dir"
-cd drup*;
-cp -r "$htafile"  "$d8dir";
-cp -r * "$d8dir";
-cd "$d8dir"
-rm -r drup*;
-crssd8;
-mkdir -p  "$d8transdir";
-chmod 777 "$d8filesdir";
-cp -r "$d8defsitedir""$defsettingsfile" "$d8defsitedir""$dsettingsfile";
-cp -r "$d8defsitedir""$ddefsymlfile" "$d8defsitedir""$dsymlfile";
-chmod 777 "$d8defsitedir""$dsettingsfile";
-chmod 777 "$d8defsitedir""$dsymlfile";
-chmod +x "$d8dir"/setupsite;
-bash "$d8dir"/setupsite;
-chown -Rh "$nameofuser":www-data /var/www;
-chmod 644 "$d8dir"/$htafile;
-chmod 644 "$d8defsitedir"/"$d8settingsfile";
-chmod 644 "$d8defsitedir"/"$d8settingsfile";
-chown -Rh "$nameofuser":www-data "$d8dir";
-chmod -R 777 "$d8defsitedir";
-chmod -R 777 "$d8transdir"
+cp sites/default/defaullt/settings.php settings.php
+chmod 777 settings.php
+drush8 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal8 --db-su=root --db-su-pw=MyRoot --account-pass=123456 --site-name="Drupal" >>/dev/null 1>&2;
+drush8 -y dl smtp-8.x-1.x-dev >>/dev/null 1>&2
+sudo chmod 644 sites/default/services.yml
+sudo chmod -R 777 sites/default/files
+sudo chmod 644 sites/default/settings.php
+sudo chown -Rh "$logname":www-data "$d8dir"
 }
 addapachesites(){
 	a2ensite drupal7.conf >>/dev/null 2>&1
@@ -286,6 +272,7 @@ fi
 if [ -f "/etc/profile.d/run.sh" ]; then
 rm "/etc/profile.d/run.sh"
 fi
+
 cp ~/installation/variables "$bdir"
 cp ~/installation/colors "$bdir"
 cp ~/installation/de "$bdir"
