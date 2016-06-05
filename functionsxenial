@@ -50,7 +50,7 @@ chmod +x "$bdir"/desktopchooser.sh &&
 rm -rf "$bdir"/desktops	
 }
  desktopinstall(){
-bash opt/.drubuntu/desktops/desktopchooser.sh
+bash opt/.drubuntu/desktopchooser.sh
 }
 
 server(){
