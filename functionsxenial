@@ -49,6 +49,9 @@ desktops(){
 chmod +x "$bdir"/desktopchooser.sh &&
 rm -rf "$bdir"/desktops	
 }
+ desktopinstall(){
+bash opt/.drubuntu/desktops/desktopchooser.sh
+}
 
 server(){
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password MyRoot'
@@ -343,4 +346,4 @@ cleanup(){
   clean; 
   timetoberlin
 }
-bash opt/.drubuntu/desktops/desktopchooser.sh
+
