@@ -264,10 +264,10 @@ chmod -R 777 "$d7defsitedir"
 #Downloads current Drupal 8 Core and removes the subversion string
 
 d8setup(){
-chown -Rh "$nameofuser":www-data /var/www;
-drush -y dl drupal;
-mv /var/www/drupal* /var/www/d8;
-cd /var/www/d8
+chown -Rh "$nameofuser":www-data /var/www &&
+drush -y dl drupal &&
+mv "/var/www/drupal*" "/var/www/d8" &&
+cd "/var/www/d8" &&
 chown -Rh "$nameofuser":www-data /var/www/d8;
 cp /var/www/d8/sites/default/defaullt/settings.php /var/www/d8/sites/default/settings.php;
 chmod 777 /var/www/d8/sites/default/settings.php;
