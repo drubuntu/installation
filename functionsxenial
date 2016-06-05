@@ -13,6 +13,7 @@ if hash nvm 2>/dev/null; then
 chmod 777 -R ~/.nvm
 nvm install 4.0 >>/dev/null 2>&1
 nvm install 5.0 >>/dev/null 2>&1
+chown -Rh "$nameofuser":"$nameofuser"  /home/$nameofuser/.nvm
 chmod 775 ~/.nvm
 fi
 }
@@ -47,6 +48,7 @@ apt -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-d
 apt -y install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev >>/dev/null 2>&1 &&
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 >>/dev/null 2>&1 &&
 curl -sSL https://get.rvm.io | bash -s stable >>/dev/null 2>&1 &&
+chown -Rh "$nameofuser":"$nameofuser"  /home/$nameofuser/.rvm
 source ~/.rvm/scripts/rvm && chmod -R 777 /usr/local/rvm &&
 rvm install 2.3.1 >>/dev/null 2>&1 &&
 rvm use 2.3.1 --default >>/dev/null 2>&1 &&
@@ -70,11 +72,14 @@ sudo apt -y -qq full-upgrade >>/dev/null 2>&1
 
 #Grand privileges to the initial user to mke shure it is not root
 grantprivs(){
- chown -Rh $nameofuser:$nameofuser /opt/.drubuntu
- chown -Rh $nameofuser:www-data /var/www
-  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.drush
-  chown -Rh $nameofuser:$nameofuser  /home/$nameofuser/.composer
- chown -Rh $nameofuser:$nameofuser $HOME
+ chown -Rh "$nameofuser":"$nameofuser" /opt/.drubuntu
+ chown -Rh "$nameofuser"::www-data /var/www
+  chown -Rh "$nameofuser":"$nameofuser"  /home/$nameofuser/.drush
+  chown -Rh "$nameofuser":"$nameofuser"  /home/$nameofuser/.composer
+  chown -Rh "$nameofuser":"$nameofuser"  /home/$nameofuser/.npm
+  chown -Rh "$nameofuser":"$nameofuser"  /home/$nameofuser/.nvm
+  chown -Rh "$nameofuser":"$nameofuser"  /home/$nameofuser/.rvm
+ chown -Rh "$nameofuser":"$nameofuser" $HOME
  chmod -R 770  $HOME/*
  }
 
