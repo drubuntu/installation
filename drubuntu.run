@@ -36,5 +36,12 @@ fi
 
 cd $HOME/installation
 sudo bash install 2>$HOME/log.txt
+cd $HOME
 rm -r $HOME/installation
+if [ "$LANG" == "de_DE.UTF-8" ];then
+echo -e "  ${lightgreen} Die Installation ist beendet. Im nächsten Schritt installieren Sie auf Wunsch einen grafischen Desktop ${nc}"
+else
+eho -e "  ${lightgreen} The setup is finished, now with the next step you'll install a graphical desktop! ${nc}"
+fi
+
 sudo bash "$desktool"
