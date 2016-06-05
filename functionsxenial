@@ -99,7 +99,6 @@ grantprivs(){
   chown -Rh "$nameofuser":"$nameofuser"  /home/$nameofuser/.nvm
   chown -Rh "$nameofuser":"$nameofuser"  /home/$nameofuser/.rvm
  chown -Rh "$nameofuser":"$nameofuser" $HOME
- chmod -R 770  $HOME/*
  }
 
 # enable fany apt-progressbar see omgubuntu.co.uk/2014/04/how-to-enable-apt-terminal-progress-bar
@@ -260,6 +259,7 @@ chmod 644 "$d7defsitedir"/"$dsettingsfile";
 chmod -R 777 "$d7defsitedir"
 }
 #Downloads current Drupal 8 Core and removes the subversion string
+
 d8setup(){
 chown -Rh "$nameofuser":www-data "$wwwdir"
 drush dl drupal
@@ -268,7 +268,7 @@ chown -Rh "$nameofuser":www-data "$d8dir"
 cd "$d8dir"
 cp sites/default/defaullt/settings.php settings.php
 chmod 777 settings.php
-drush8 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal8 --db-su=root --db-su-pw=MyRoot --account-pass=123456 --site-name="Drupal" >>/dev/null 1>&2;
+drush8 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal8 --db-su=roo=drupal --db-su-pw=drupal --account-name=admin --account-pass=123456 --site-name="Drupal 8" >>/dev/null 1>&2;
 drush8 -y dl smtp-8.x-1.x-dev >>/dev/null 1>&2
 sudo chmod 644 sites/default/services.yml
 sudo chmod -R 777 sites/default/files
@@ -290,6 +290,13 @@ addconsole(){
 
 
 #Dont touch functuiions above now we'll combine theme
+
+addsoftwae(){
+	desktops;
+  features;
+	addnode;
+	addruby
+}
 
 crfiles(){
   crissue;
@@ -313,12 +320,10 @@ core(){
   phpmyadmin;
   aptprogress;
   getcomposer;
-  addruby;
   vtoolscheck;
   vtoolsinstaller;
-  desktops;
-  features;
-  addnode
+  
+  
 }
 
 drupal(){
