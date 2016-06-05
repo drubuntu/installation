@@ -273,6 +273,7 @@ chown -Rh "$nameofuser":www-data /var/www/d8;
 cp /var/www/d8/sites/default/defaullt/settings.php /var/www/d8/sites/default/settings.php;
 chmod 777 /var/www/d8/sites/default/settings.php;
 drush8 -y si standard --db-url=mysql://drupal:drupal@localhost/drupal8 --db-su=roo=drupal --db-su-pw=drupal --account-name=admin --account-pass=123456 --site-name="Drupal 8" >>/dev/null 1>&2;
+cd /var/www/d8
 drush8 -y dl smtp-8.x-1.x-dev >>/dev/null 1>&2
 sudo chmod 644 /var/www/d8/sites/default/default.services.yml;
 sudo chmod -R 777 /var/www/d8/sites/default/files;
