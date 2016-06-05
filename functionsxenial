@@ -265,8 +265,9 @@ chmod -R 777 "$d7defsitedir"
 
 d8setup(){
 chown -Rh "$nameofuser":www-data /var/www &&
+cd "/var/www"
 drush -y dl drupal &&
-mv "/var/www/drupal*" "/var/www/d8" &&
+mv /var/www/drupal* /var/www/d8 &&
 cd "/var/www/d8" &&
 chown -Rh "$nameofuser":www-data /var/www/d8;
 cp /var/www/d8/sites/default/defaullt/settings.php /var/www/d8/sites/default/settings.php;
@@ -278,6 +279,7 @@ sudo chmod -R 777 /var/www/d8/sites/default/files;
 sudo chmod 644 /var/www/d8/sites/default/settings.php;
 sudo chown -Rh "$logname":www-data /var/www/d8
 }
+
 addapachesites(){
 	a2ensite drupal7.conf >>/dev/null 2>&1
 	a2ensite drupal8.conf >>/dev/null 2>&1
